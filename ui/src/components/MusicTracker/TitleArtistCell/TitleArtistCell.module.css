@@ -1,0 +1,17 @@
+.container {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+}
+.titleArtist {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 10px;
+}
+
+.text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin: 0;
+}

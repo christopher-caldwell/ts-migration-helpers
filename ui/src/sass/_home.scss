@@ -1,0 +1,548 @@
+// Home page
+//
+// --------------------------------------------------
+
+/* - tooltip - */
+.tooltip-component-tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    height: auto;
+    padding: 15px;
+    opacity: 1 !important;
+    color: black;
+
+    .tooltip-inner {
+        padding: 0 0 12px;
+    }
+
+    .description {
+        text-align: left;
+        padding: 15px 15px 0;
+
+        .title {
+            display: block;
+            margin: 0 0 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .subtitle {
+            color: $white-opacity8;
+        }
+    }
+}
+/* - end tooltip - */
+
+.trend-quintile-container {
+    padding-top: 3px;
+    margin-top: 2px;
+    height: 30px;
+}
+
+.activeCell .trend-quintile-container {
+    border-radius: 5px;
+    color: black;
+    border: 1.8px solid red;
+    min-width: 45px;
+}
+
+.trend-quintile-container:hover {
+    min-width: 45px;
+    border: 1.8px solid $white;
+    border-radius: 5px;
+}
+
+.rowChartContainer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    border-top: 1px solid $white-opacity4;
+}
+
+.chartContainer {
+    position: relative;
+    height: 120px;
+    width: 370px;
+}
+
+.line-old-color {
+    color: #b8ce3e;
+}
+
+.line-recent-color {
+    color: #4b4b4b;
+}
+
+.line-old-color,
+.line-recent-color {
+    stroke-width: 2;
+}
+
+.spot-old-fill {
+    fill: #b8ce3e;
+}
+
+.spot-recent-fill {
+    fill: #d00202;
+}
+
+.home-page {
+    margin: 0 3.125em;
+}
+
+.home-board {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 225px;
+    margin-bottom: 20px;
+    &.home-board-radio {
+        border-radius: $border-radius-base;
+        box-shadow: 0 1px 1px $panel-box-shadow;
+    }
+}
+
+.home-board-header,
+.home-board-metrics,
+.home-board-footer {
+    @include reset-anchor-style();
+}
+
+.home-board-header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.home-board-header-name {
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 50px;
+}
+
+.dashboard h2.home-board-title {
+    font-variant: small-caps;
+    text-transform: uppercase;
+    margin: 45px auto 0;
+}
+
+.home-board-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.home-board-options {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+.home-board-metrics {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+
+    table {
+        font-size: 13px;
+        text-align: left;
+
+        td {
+            padding: 2px 10px;
+        }
+
+        th {
+            padding: 0 10px 20px;
+        }
+
+        .td-number {
+            text-align: right;
+        }
+    }
+}
+
+.home-board-metric {
+    margin-bottom: 5px;
+}
+
+.home-board-metric-title {
+    font-weight: bold;
+    color: #fff;
+    background: radial-gradient(
+        rgba(58, 57, 57, 0.6) 0%,
+        rgba(58, 57, 57, 0.3) 50%,
+        rgba(58, 57, 57, 0.1) 90%
+    );
+    font-size: 0.8em;
+}
+
+// Top format metric
+.home-board-metric-format {
+    .home-board-metric-title,
+    .home-board-metric-subtitle {
+        color: $white-opacity6;
+    }
+}
+
+// Audience metric
+.home-board-metric-audience {
+    .home-board-metric-title {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .home-board-metric-subtitle {
+        color: $white-opacity6;
+    }
+}
+
+// Comparison metric
+.home-board-metric-comparison {
+    list-style: none;
+    padding: 0;
+
+    > li {
+        display: inline-block;
+        width: 65px;
+        margin: 2px;
+        padding: 4px;
+        background: $home-board-comparison-bg;
+        color: #fff;
+    }
+}
+
+.home-board-metric-comparison-value {
+    font-size: 12px;
+    font-weight: bold;
+    color: $home-board-comparison-value-color;
+}
+
+.home-board-metric-comparison-label {
+    color: $home-board-comparison-label-color;
+}
+
+// Sparkline metric
+.home-board-metric-sparkline {
+    width: 50%;
+    margin: 0 auto;
+
+    .metric-line {
+        justify-content: center;
+    }
+
+    .metric-change {
+        margin-left: 0;
+    }
+}
+
+//
+// Artist board styles
+// --------------------------------------------------
+
+.home-board-artist {
+    height: 15vw;
+    min-height: 250px;
+    .home-board-header,
+    .home-board-body {
+        flex: 0 0 100%;
+        justify-content: flex-end;
+        width: 90%;
+        height: 90%;
+        margin: auto;
+        border: 1px solid #e5e5e5;
+        border-radius: 2px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        &:hover .home-board-metric-title {
+            background: rgba(58, 57, 57, 0.5);
+        }
+    }
+}
+
+.artist-metric {
+    flex: 0 0 100%;
+    .panel-heading {
+        border-bottom: none;
+    }
+    .panel-body .metric-container {
+        display: flex;
+        justify-content: center;
+        .metric-display {
+            flex: 0 0 50%;
+            text-align: center;
+            height: auto;
+            flex-direction: row;
+            .metric-wrapper {
+                display: flex;
+                flexdirection: 'row';
+                .artist-metric {
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+//
+// Radio board styles
+// --------------------------------------------------
+
+.home-board-radio {
+    flex-direction: column;
+    min-height: 250px;
+    background: $dark3;
+
+    * {
+        color: $white;
+    }
+
+    .home-board-body {
+        flex: 1 1 auto;
+    }
+
+    .home-board-metrics {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: stretch;
+        justify-content: center;
+
+        @media (min-width: $screen-md-min) {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        > * {
+            display: flex;
+            flex: 0 0 50%;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 150px;
+            margin: 10px 0;
+            padding: 0 10px;
+
+            @media (min-width: $screen-md-min) {
+                flex: 1 1 auto;
+                margin: 0;
+            }
+
+            .home-board-radio-name,
+            .home-board-radio-call {
+                font-weight: bold;
+            }
+
+            .home-board-radio-location,
+            .home-board-radio-owner {
+                color: $white-opacity6;
+            }
+
+            .home-board-radio-logo img {
+                height: 75px;
+                max-width: 100%;
+                margin: 20px 0;
+            }
+
+            .home-board-radio-owner img {
+                height: 32px;
+                width: auto;
+                align-self: flex-end;
+            }
+
+            &.home-board-radio-narrow {
+                @media (max-width: $screen-sm-max) {
+                    max-width: 33%;
+                }
+            }
+
+            &:last-child {
+                border-right: 0;
+            }
+        }
+    }
+
+    .home-board-footer {
+        padding: 15px 30px;
+        padding-top: 0;
+    }
+}
+
+.home-board-radio-value {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.home-board-radio-label {
+    font-size: 14px;
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+.home-board-radio-format {
+    justify-content: space-between !important;
+    .home-board-radio-label {
+        align-self: center;
+    }
+    .home-board-radio-value {
+        padding-bottom: 25%;
+    }
+}
+
+.radio-board-filters {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 1.25em auto;
+    color: $white;
+}
+
+.radio-published-filter {
+    border: transparent;
+    display: flex;
+    align-items: baseline;
+    padding: 6px 8px;
+    background: $dark3;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+
+    .checkbox-label {
+        margin-right: 10px;
+    }
+
+    &.form-group {
+        margin-bottom: 0;
+        height: 45px;
+        padding-top: 12px;
+        display: inline-flex;
+    }
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+
+    .btn-default {
+        color: $white;
+        background-color: $dark3;
+        border-color: $dark3;
+        border-radius: 3px;
+        &:hover {
+            background-color: $white-opacity4;
+            color: $black;
+        }
+    }
+}
+
+img.image_error_test {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .radio-board-filters {
+        display: block;
+
+        .radio-published-filter {
+            width: 100%;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .home-board-artist {
+        min-height: 15vw;
+    }
+}
+
+@include custom-breakpoint(991px, 1198px) {
+    .home-board-artist {
+        min-height: 22vw;
+    }
+}
+
+@include custom-breakpoint(768px, 990px) {
+    .home-board-artist {
+        min-height: 29vw;
+    }
+    .home-board-body {
+        height: 22vw;
+    }
+}
+
+@include custom-breakpoint(500px, 598px) {
+    .home-board-artist {
+        min-height: 41vw;
+    }
+}
+@include custom-breakpoint(600px, 766px) {
+    .home-board-artist {
+        min-height: 43vw;
+    }
+}
+
+@include custom-breakpoint(300px, 398px) {
+    .home-board-artist {
+        min-height: 44vw;
+    }
+}
+
+@include custom-breakpoint(400px, 500px) {
+    .home-board-artist {
+        min-height: 79vw;
+    }
+    .col-xs-6 {
+        width: 100%;
+    }
+}
+
+@include custom-breakpoint(0, 500px) {
+    .home-board-artist {
+        min-height: 79vw;
+    }
+    .col-xs-6 {
+        width: 100%;
+    }
+}
+
+@include custom-breakpoint(1200px, 1400px) {
+    .home-board-radio .home-board-metrics > * .home-board-radio-logo img {
+        margin: 4px 0;
+        max-height: 60px;
+    }
+
+    .home-board-radio {
+        min-height: 192px;
+        font-size: 12px;
+    }
+
+    .home-board {
+        margin-bottom: 15px;
+    }
+
+    .dashboard h2.home-board-title {
+        margin: 10px auto 0;
+    }
+
+    .radio-board-filters {
+        margin: 0 auto;
+    }
+
+    .dashboard-header {
+        margin-bottom: 15px;
+    }
+
+    .pagination {
+        margin: 5px 0;
+    }
+}
+
+.padding-none {
+    padding: 0;
+}

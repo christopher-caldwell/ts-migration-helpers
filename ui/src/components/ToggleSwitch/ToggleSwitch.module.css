@@ -1,0 +1,35 @@
+.toggleContainer {
+    width: 40px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggle {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    background: #ffffff15;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 10px;
+    margin: 1px 0 0 2px;
+    transition: all 100ms ease-in;
+    background-color: grey;
+}
+
+.on {
+    background-color: red;
+    margin: 2px 0 1px 22px;
+}

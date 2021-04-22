@@ -1,0 +1,60 @@
+.tabs {
+    position: relative;
+    height: var(--tab-bar);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab {
+    composes: button from '../../../App.css';
+    composes: font from '../../../App.css';
+    width: 90px;
+    height: 70%;
+    padding-top: 2px; /* centers text in button */
+    background-color: var(--mt-dark5);
+}
+
+.left {
+    border-radius: 30px 0 0 30px;
+}
+
+.right {
+    border-radius: 0 30px 30px 0;
+}
+
+.active {
+    background-color: var(--brand-red);
+}
+
+.activeConfig {
+    color: var(--azure);
+}
+
+.disabled {
+    opacity: 0.5;
+}
+
+.tooltip {
+    position: absolute;
+    display: none;
+    align-items: center;
+    width: 200px;
+    height: 30px;
+    bottom: 40px;
+    z-index: 1;
+    background-color: var(--mt-dark5);
+    border-radius: 4px;
+    padding: 10px;
+    opacity: 0.7;
+    font-size: 12px;
+}
+
+.disabled:hover ~ .tooltip {
+    display: flex;
+}
+
+.tooltipIcon {
+    margin-right: 10px;
+    color: yellow;
+}

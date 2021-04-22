@@ -1,0 +1,10 @@
+{
+    "SERVICE_API_URL": "https://v2w04jjwl0.execute-api.us-east-1.amazonaws.com/dev",
+    "INTERNAL_LOGIN_URL": "https://login.microsoftonline.com/common/oauth2/authorize",
+    "INTERNAL_LOGIN_REDIRECT_URL": "http://localhost:3000/auth/callback",
+    "INTERNAL_LOGIN_CLIENT_ID": "aa9189f2-7869-4549-84f1-cdb14285ca95",
+    "INTERNAL_LOGIN_RESOURCE": "aa9189f2-7869-4549-84f1-cdb14285ca95",
+    "OKTA_BASE_URL": "https://iheart-test.okta.com",
+    "OKTA_LOGIN_URL": "https://iheart-test.okta.com/oauth2/aus5huev7aWNhAv1p2p7",
+    "OKTA_CLIENT_ID": "0oa5hddhhiRKso86Q2p7"
+}

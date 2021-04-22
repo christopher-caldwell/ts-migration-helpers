@@ -1,0 +1,25 @@
+.ml-input {
+    width: 100%;
+    @extend .p3;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 1px;
+    border: 1px solid $white-opacity3;
+    color: $white;
+    background-color: transparent;
+    padding: 0 12px;
+    outline: none;
+
+    &.has-error {
+        border-color: $light-gold;
+    }
+
+    &[type='text']:disabled {
+        cursor: not-allowed;
+        border-color: $white-opacity1;
+    }
+}
+
+.ml-error-message {
+    color: $light-gold;
+}

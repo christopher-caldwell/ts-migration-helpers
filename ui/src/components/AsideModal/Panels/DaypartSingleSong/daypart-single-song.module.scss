@@ -1,0 +1,64 @@
+@import 'src/sass/variables.scss';
+@import 'src/sass/scrollbars.scss';
+
+.daypartModalContainer {
+	height: calc(100vh - 180px);
+}
+
+.daypartRowsContainer {
+	width: 100%;
+	display: flex;
+	height: calc(100% - 130px);
+	flex-direction: column;
+	align-items: center;
+	overflow: auto;
+}
+
+.daypartSelectRow {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding-left: 15px;
+}
+
+.daypartMlModalSelect {
+	width: 55%;
+	margin: 10px;
+}
+
+.altcategoryMlModalSelect {
+	width: 20%;
+	margin: 10px;
+}
+
+.daypartMlModalSelect .Select-value {
+	width: 150px;
+}
+
+.currentDaypartsContainer {
+	width: 100%;
+	border-top: 1px solid $white-opacity3;
+	padding: 15px;
+	overflow: visible;
+	@extend .custom-scrollbars--thin;
+}
+
+.newDaypartContainer {
+	width: 100%;
+	border-top: 1px solid $white-opacity3;
+	padding-top: 15px;
+	height: 100%;
+}
+
+.iconButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 1.5px;
+	background: transparent;
+	border: none;
+}
+
+.songDetailsWrapper {
+	margin-top: 20px;
+}

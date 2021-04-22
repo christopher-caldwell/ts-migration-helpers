@@ -1,0 +1,75 @@
+.alert-multi-action {
+    border: 1px solid $white;
+
+    &__box {
+        @extend .custom-scrollbars--thin;
+        overflow: auto;
+        min-height: 48px;
+        max-height: 180px;
+        margin: 10px 0;
+        border: 1px solid $white;
+
+        &--warning {
+            border-color: $light-gold;
+
+            .fa {
+                color: $light-gold;
+            }
+        }
+
+        &--error {
+            border-color: $neon-red;
+
+            .fa {
+                color: $neon-red;
+            }
+        }
+    }
+
+    &__header {
+        display: flex;
+        padding: 12px 0 2px 15px;
+
+        .fa {
+            margin-top: 4px;
+        }
+
+        .p3 {
+            margin-left: 10px;
+        }
+    }
+
+    &__body {
+        &__message {
+            display: flex;
+            border-top: 1px solid $white-opacity3;
+            padding: 10px 0 9px 15px;
+
+            span {
+                flex: 1;
+            }
+
+            &__actions {
+                justify-content: flex-end;
+                font-size: 12px;
+                line-height: 18px;
+
+                button {
+                    color: $white;
+                    padding: 3px;
+
+                    &:last-child {
+                        margin: 0 12px 0 16px;
+                    }
+                }
+            }
+        }
+    }
+    .review-btn {
+        color: $white;
+    }
+    .review-btn:hover {
+        color: $white;
+        text-decoration: none;
+    }
+}

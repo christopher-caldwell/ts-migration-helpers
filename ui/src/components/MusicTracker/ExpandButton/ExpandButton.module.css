@@ -1,0 +1,11 @@
+.expandButton {
+    background-color: transparent;
+    border: none;
+    color: var(--azure);
+    font-weight: bold;
+    outline: none;
+    font-size: 20px;
+    width: 14px;
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,41 @@
+@import 'src/sass/variables.scss';
+
+.calendarButton {
+    background: transparent;
+    margin: 0;
+    border-width: 0;
+    font-size: 20px;
+    outline: none;
+}
+
+.calendarIcon {
+    font-size: 19px;
+}
+
+.dayPicker {
+    background-color: #14192b;
+    font-family: $headings-font-family;
+    font-size: 24px;
+    line-height: 1.33;
+    padding: 0.3em !important;
+}
+
+.dayPickerParent {
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 9;
+    outline: none;
+    border: none;
+}
+
+.calendarPopOut {
+    background: transparent;
+    position: absolute;
+    top: 150px;
+    left: 450px;
+    z-index: 10;
+}

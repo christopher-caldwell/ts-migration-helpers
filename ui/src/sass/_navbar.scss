@@ -1,0 +1,421 @@
+//
+// Navbar
+// --------------------------------------------------
+
+.navbar {
+    height: 60px;
+
+    .container-fluid {
+        display: flex;
+        padding-left: 15px;
+        padding-right: 15px;
+
+        .navbar-brand:not(:first-child) {
+            margin: 0;
+        }
+    }
+
+    &__brand-company {
+        display: block;
+        padding: 16px 20px;
+        border-right: 1px solid $white-opacity3;
+    }
+
+    &__brand-company-img {
+        width: 40px;
+        height: 29px;
+        object-fit: contain;
+    }
+
+    &__brand {
+        display: block;
+        padding: 14px 20px;
+    }
+
+    &__brand-img {
+        width: 155px;
+        height: 32px;
+        object-fit: contain;
+    }
+
+    &__right-elements {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .navigation-header {
+        font-size: 16px;
+
+        > .active > a {
+            position: relative;
+
+            &:after {
+                position: absolute;
+                content: '';
+                bottom: -1px;
+                left: 0;
+                right: 0;
+                border-bottom: 3px solid $red;
+            }
+        }
+    }
+}
+
+.profile {
+    @extend .nav;
+    @extend .navbar-nav;
+
+    display: flex;
+
+    &__container {
+        display: flex;
+        padding: 10px;
+        height: 60px;
+        align-items: center;
+    }
+
+    &__name {
+        display: none;
+
+        @media (min-width: $screen-sm-min) {
+            display: block;
+            margin-left: 5px;
+        }
+    }
+
+    &__image {
+        &,
+        * {
+            cursor: default;
+        }
+    }
+}
+
+.navbar-default .navbar-nav {
+    > li > a {
+        &:focus {
+            color: $white;
+        }
+
+        &:hover {
+            color: $navbar-default-link-hover-color;
+        }
+    }
+
+    > .navbar-director.disabled > a {
+        color: $white;
+    }
+}
+
+.navbar-director {
+    border-left: 1px solid $white-opacity3;
+    @extend .p3-bold;
+    letter-spacing: 0.4px;
+}
+
+.navbar-add {
+    padding: 8px 5px;
+
+    .btn {
+        font-size: 22px;
+        padding: 0 12px;
+    }
+}
+
+.navbar-workflow {
+    display: flex;
+}
+
+.navbar-search {
+    flex: 1 1 auto;
+    padding: 14px 30px;
+    color: $black;
+
+    .react-autosuggest__suggestions-container {
+        @extend .custom-scrollbars--thin;
+        max-height: 90vh;
+        overflow: auto;
+    }
+
+    .input-group {
+        display: flex;
+        position: static;
+    }
+
+    .input-group-addon {
+        display: flex;
+        align-items: center;
+        width: auto;
+        padding: 0 10px;
+        border-color: transparent;
+        background: $dark3;
+        color: $white;
+
+        &:first-child {
+            margin-left: 1px;
+        }
+
+        &:last-child {
+            margin-right: 1px;
+        }
+
+        button {
+            cursor: pointer;
+
+            &:hover {
+                color: #aaa;
+            }
+        }
+
+        button {
+            @include reset-button-style();
+
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    input {
+        background: $dark3;
+        color: $white;
+    }
+
+    img {
+        height: 30px;
+        width: auto;
+        margin-right: 5px;
+
+        &.artist {
+            border: 1px solid #f0f0f0;
+            border-radius: 50%;
+        }
+    }
+    .react-autosuggest__container {
+        margin-bottom: 0;
+    }
+    .react-autosuggest__container--open .react-autosuggest__suggestions-container {
+        top: 34px;
+    }
+    .react-autosuggest__section-title {
+        background: $dark2;
+        padding-bottom: 10px;
+        border-bottom: none;
+        border-top: 1px solid $white-opacity3;
+        a {
+            .section-title {
+                font-weight: 700;
+                font-variant: small-caps;
+                text-transform: uppercase;
+                color: $white;
+            }
+            .link-indicator {
+                float: right;
+                margin-right: 15px;
+                color: $white;
+                .fa-chevron-right {
+                    vertical-align: middle;
+                    margin-left: 5px;
+                }
+            }
+            &:hover {
+                color: $white-opacity8;
+                .section-title,
+                .link-indicator {
+                    color: $white-opacity8;
+                }
+            }
+        }
+    }
+
+    .react-autosuggest__input {
+        padding: 7px 0;
+        border-radius: 0;
+        border-color: transparent;
+        border-left: 0;
+        border-right: 0;
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .react-autosuggest__suggestion {
+        border-top: 1px solid $white-opacity3;
+
+        a {
+            display: block;
+            color: $white;
+            padding: 10px 20px;
+
+            .search-item-name {
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+.search-section-icon {
+    margin-right: 10px;
+}
+
+.search-results {
+    flex: 1 1 auto;
+
+    .results-header {
+        font-weight: 700;
+        margin-top: 30px;
+    }
+
+    .results-body {
+        padding-top: 20px;
+    }
+
+    .results-section {
+        clear: left;
+        padding-top: 30px;
+
+        &:first-child {
+            padding-top: 0;
+        }
+
+        .results-section-title {
+            background: $black;
+            margin: 0;
+            padding: 10px 18px;
+
+            .page-count {
+                font-size: 12px;
+                color: #999;
+                padding-right: 5px;
+                float: right;
+                line-height: 26px;
+            }
+        }
+    }
+
+    .list-item {
+        display: flex;
+        align-items: center;
+        padding: 5px 14px;
+        height: 50px;
+        border-bottom: 1px solid $white-opacity3;
+        background-color: $dark2;
+
+        &:nth-child(even) {
+            background-color: $dark3;
+        }
+
+        .search-item-button {
+            order: 2;
+            margin-top: 3px;
+        }
+
+        text-decoration: none;
+
+        &:hover {
+            .search-item-name {
+                color: $white;
+                text-decoration: underline;
+            }
+
+            .search-sub-item-name {
+                color: $white-opacity6;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .search-item-container {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+    }
+
+    img.search-item-image {
+        float: left;
+        height: 30px;
+        width: auto;
+        margin-right: 12px;
+
+        &.artist {
+            border-radius: 50%;
+        }
+    }
+
+    .search-item-name {
+        line-height: 18px;
+        color: $white;
+    }
+
+    .search-sub-item-name {
+        margin-top: -1px;
+        color: $white-opacity6;
+    }
+}
+
+.custom-menu-link-container {
+    display: block;
+
+    .notification-messages {
+        display: inline-block;
+        padding: 1px 8px;
+        margin-left: 5px;
+        background-color: $brand-primary;
+        width: auto;
+        height: 21px;
+        line-height: 21px;
+        border-radius: 50px;
+        color: $navbar-default-color;
+        text-align: center;
+        font-weight: 700;
+    }
+}
+
+ul.dropdown-menu li.active > a,
+ul.dropdown-menu li.active > a:focus {
+    border-left: 2px solid $neon-red;
+    background-color: $gray-opacity1;
+    height: 100%;
+}
+
+.custom-navbar-menu > ul {
+    box-shadow: 0 2px 15px 0 $black-opacity75;
+    background-color: $dark;
+    width: 273px;
+    border: 1px solid $dark6;
+    border-radius: 1.5px;
+    padding: 0;
+
+    &.dropdown-menu-right {
+        right: 15px;
+    }
+
+    li {
+        height: 42px;
+
+        &:hover {
+            color: $white;
+            background-color: $gray-opacity1;
+        }
+
+        a {
+            color: $white;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 12px 25px;
+            line-height: normal;
+
+            &:hover {
+                color: $white;
+            }
+            .h3 {
+                width: 96px;
+                height: 32px;
+                opacity: 0.9;
+                font-stretch: normal;
+                line-height: 1.33;
+                letter-spacing: normal;
+                color: $white;
+            }
+        }
+    }
+}

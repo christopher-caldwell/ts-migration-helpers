@@ -1,0 +1,10 @@
+.columnGroupName {
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid var(--mt-border-color);
+    background-color: #0d0d12;
+    z-index: 1;
+    position: sticky;
+    top: 0;
+}

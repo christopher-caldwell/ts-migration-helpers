@@ -1,0 +1,10 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - cd ui/
+      - yarn
+  build:
+    commands:
+      - yarn $DEPLOY_COMMAND

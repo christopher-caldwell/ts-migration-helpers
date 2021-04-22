@@ -1,0 +1,220 @@
+.director {
+    &__step-bar {
+        background-color: $dark12;
+        width: 100%;
+        height: 90px;
+        box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.7);
+        border-bottom: 2px solid $white-opacity3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .back-button-director {
+            position: absolute;
+            left: 25px;
+            top: 30px;
+        }
+    }
+
+    &__song-header-details {
+        padding: 0 30px;
+    }
+
+    &__stations-search-bar {
+        padding: 0px 25px 0px 30px;
+        margin-top: 20px;
+        width: 100%;
+        height: 57px;
+        background-color: $dark12;
+        display: flex;
+        align-items: center;
+    }
+
+    &__stations-search-title {
+        font-family: $font-family-sans-serif;
+        font-weight: bold;
+        line-height: 1.38;
+        letter-spacing: 0.4px;
+    }
+
+    &__dropdown-filter {
+        @extend .custom-scrollbars--thin;
+        min-height: 161px;
+        max-height: 58vh;
+        width: 280px;
+
+        .list-option-label {
+            display: inline-block;
+            text-align: left;
+            padding: 12px 0;
+        }
+
+        .ml-accordion .category-list__item {
+            line-height: initial;
+            background: transparent;
+            display: flex;
+            align-items: center;
+        }
+
+        .ml-accordion .category-list .custom-checkbox label {
+            margin: 15px auto;
+        }
+    }
+
+    &__sort-filter {
+        margin-left: auto;
+        padding: 0;
+        background: none;
+
+        .sort-label {
+            @extend .p5-bold;
+            display: inline-flex;
+            margin: 5px 5px 5px 10px;
+            text-transform: uppercase;
+        }
+
+        .sort-button {
+            @extend .p5;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: $red-oxide;
+            border-radius: 17px;
+            height: 27px;
+            border: 0;
+            line-height: 27px;
+            padding: 0 15px;
+            margin: 0 5px;
+
+            &-enabled {
+                background: $red;
+                padding-right: 30px;
+            }
+
+            &::after {
+                top: 0;
+                right: 12px;
+            }
+
+            &-asc::after {
+                @extend %fa-icon;
+                @extend .fa;
+                content: fa-content($fa-var-arrow-up);
+            }
+
+            &-desc::after {
+                @extend %fa-icon;
+                @extend .fa;
+                content: fa-content($fa-var-arrow-down);
+            }
+        }
+    }
+
+    &__stations-list {
+        width: 100%;
+        margin: 0;
+        padding: 10px $grid-gutter-width 70px;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(228px, auto));
+    }
+
+    &__station-card {
+        position: relative;
+
+        &:hover {
+            & .station-card-select-area {
+                display: block;
+            }
+        }
+
+        &.station-card-selected {
+            .station-card-select-area {
+                display: block;
+                border: 2px solid $tealish-green;
+                border-radius: 4px;
+            }
+
+            .station-card-checkbox {
+                label,
+                span {
+                    &:before {
+                        margin: 8px;
+                    }
+
+                    &:after {
+                        top: 8px;
+                        left: 8px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__header-actions {
+        display: flex;
+        flex-direction: row-reverse;
+        margin-top: 10px;
+
+        .btn-text {
+            @extend .p3;
+            color: $azure;
+            margin-right: 30px;
+        }
+    }
+
+    &__bottom-actions {
+        display: flex;
+        margin-right: auto;
+    }
+
+    &__count-stations {
+        @extend .p3-bold;
+        margin: 0;
+        padding-right: 20px;
+    }
+
+    &__clear-selections {
+        &.btn-text {
+            @extend .p3-bold;
+            color: $azure;
+            text-transform: uppercase;
+        }
+    }
+
+    &__category-song-header {
+        .header-song-name {
+            padding-top: 16px;
+            font-size: $font-size-h5;
+        }
+
+        .header-song-artist {
+            font-size: 12px;
+        }
+    }
+    .director-page-search {
+        width: 386px;
+        font-size: 16px;
+        line-height: 1.63;
+        letter-spacing: 0.4px;
+    }
+    .search-field__container {
+        display: flex;
+        height: 36px;
+        position: relative;
+    }
+    .music-tracker-filter {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .director__sort-filter {
+        width: auto;
+        margin-left: auto;
+
+        .sort-button:last-child {
+            border-right: 0;
+        }
+    }
+}

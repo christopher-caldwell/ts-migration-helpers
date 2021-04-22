@@ -1,0 +1,34 @@
+.closeButton {
+    composes: button from '../../App.css';
+    width: 23px;
+    height: 23px;
+}
+
+.xIcon {
+    display: block;
+    position: relative;
+    outline: none;
+    width: 23px;
+    height: 23px;
+}
+
+.xIcon:before,
+.xIcon:after {
+    content: '';
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    width: 24px;
+    height: 3px;
+    left: 0;
+    right: 0;
+    top: 10px;
+}
+
+.xIcon:before {
+    transform: rotate(45deg);
+}
+
+.xIcon:after {
+    transform: rotate(-45deg);
+}

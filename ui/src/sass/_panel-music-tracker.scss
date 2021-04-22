@@ -1,0 +1,1401 @@
+//
+// Music Tracker
+// --------------------------------------------------
+
+.music-tracker {
+    position: relative;
+    height: calc(100% - 160px);
+
+    .row-selected {
+        .public_fixedDataTableCell_main {
+            background: $music-tracker-header-songs-selected-bg;
+        }
+    }
+
+    .song-selected,
+    .public_fixedDataTable_bodyRow:hover,
+    .song-selected.public_fixedDataTable_bodyRow:hover {
+        .fixedDataTableRowLayout_body
+            > .fixedDataTableCellGroupLayout_cellGroupWrapper:first-child {
+            .music-tracker-cell-checkbox {
+                label {
+                    padding-left: 4px;
+                }
+            }
+        }
+
+        .public_fixedDataTableCell_main {
+            border-top: 2px solid $azure;
+            border-bottom: 2px solid $azure;
+
+            .public_fixedDataTableCell_cellContent {
+                margin-top: -2px;
+            }
+        }
+
+        .fixedDataTableCellGroupLayout_cellGroupWrapper {
+            &:first-child {
+                .public_fixedDataTableCell_main:first-child {
+                    border-left: 2px solid $azure;
+                }
+            }
+
+            &:nth-child(2) {
+                .public_fixedDataTableCell_main:last-child {
+                    border-right: 2px solid $azure;
+                }
+            }
+        }
+    }
+
+    .public_fixedDataTable_bodyRow:hover {
+        .public_fixedDataTableCell_main {
+            border-top-color: $azure-opacity3;
+            border-bottom-color: $azure-opacity3;
+        }
+
+        .fixedDataTableCellGroupLayout_cellGroupWrapper {
+            &:first-child {
+                .public_fixedDataTableCell_main:first-child {
+                    border-left-color: $azure-opacity3;
+                }
+            }
+
+            &:nth-child(2) {
+                .public_fixedDataTableCell_main:last-child {
+                    border-right-color: $azure-opacity3;
+                }
+            }
+        }
+    }
+}
+
+.music-tracker-filter {
+    display: inline-block;
+}
+
+.music-tracker-search {
+    display: flex;
+    width: 205px;
+    height: 34px;
+    font-size: $font-size-h6;
+}
+
+.music-tracker-header {
+    display: flex;
+    align-items: center;
+    border-top-left-radius: $border-radius-base;
+    border-top-right-radius: $border-radius-base;
+    padding: 10px 20px;
+    background: $black;
+    transition: background-color 500ms linear;
+    height: 56px;
+
+    // Compare Header
+    &-compare {
+        .toggle-container {
+            margin-right: 26px;
+
+            .toggle .slider:before {
+                background-color: #d00202;
+            }
+        }
+
+        .music-tracker-actions button {
+            margin-right: 1rem;
+        }
+    }
+}
+
+.music-tracker-header-songs-selected {
+    background: $music-tracker-header-songs-selected-bg;
+}
+
+.music-tracker-filters {
+    flex: 1 1 auto;
+}
+
+.music-tracker-header-text {
+    display: inline-block;
+    margin: 0;
+    margin-left: 13px;
+    vertical-align: middle;
+}
+
+.music-tracker-title {
+    flex: 1 1 auto;
+    margin: 0;
+    color: $music-tracker-header-color;
+
+    .dashboard & {
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+}
+
+.music-tracker-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 0 0;
+    padding-left: 8px;
+    height: 100%;
+
+    // These actions were not implemented in MVP version
+    &.playlist-actions {
+        display: none;
+    }
+
+    .btn,
+    .btn-music-tracker {
+        font-weight: 400;
+    }
+
+    button:last-child,
+    .form-group:last-child {
+        margin-right: 0;
+    }
+
+    .form-group {
+        display: inline-block;
+        margin-bottom: 0;
+    }
+}
+
+.music-tracker-header-compare {
+    .music-tracker-actions {
+        justify-content: flex-end;
+    }
+}
+
+.btn-music-tracker {
+    display: flex;
+    align-items: center;
+}
+
+.music-tracker-input-filter {
+    display: flex;
+    height: 100%;
+    margin: 0 5px;
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        background: transparent;
+        background-color: $white-opacity1;
+        border-bottom-left-radius: 3px;
+        border-top-left-radius: 3px;
+    }
+
+    input {
+        height: 100%;
+        background: transparent;
+        background-color: $white-opacity1;
+        border: 0px;
+        border-left: 1px solid rgba(255, 255, 255, 0.3);
+        border-bottom-right-radius: 3px;
+        border-top-right-radius: 3px;
+        padding-left: 10px;
+        outline: none;
+    }
+}
+
+.music-tracker-filter {
+    margin-left: 5px;
+    display: inline-flex;
+
+    .filter-item:not(:last-child) {
+        margin-right: 5px;
+    }
+
+    .open > .btn-default.dropdown-toggle {
+        background-color: $white-opacity1;
+        border-color: none;
+    }
+
+    &__button,
+    .btn {
+        border: 0;
+        background-color: $white-opacity1;
+        color: $white;
+        border-radius: 2px;
+        padding: 4px 12px;
+        font-size: 19px;
+
+        &:focus,
+        &:hover,
+        &:active {
+            outline: none;
+            background-color: $white-opacity1;
+            z-index: auto;
+        }
+
+        &.btn-active {
+            color: $azure !important; // overwrite the CSS component
+        }
+
+        &--group {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 0;
+            height: 36px;
+            width: 61px;
+        }
+
+        &.dropdown-toggle {
+            .icon:last-child() {
+                margin-left: 5px;
+            }
+        }
+    }
+
+    &__group-icon {
+        border-right: 1px solid $white-opacity1;
+        padding-right: 10px;
+    }
+
+    .dropdown-menu {
+        padding: 0;
+        box-shadow: 0 2px 20px 0 $black-opacity4;
+        background-color: $dark;
+
+        .dropdown-filter {
+            @extend .custom-scrollbars--thin;
+
+            &__header {
+                padding: 5px 15px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            &__title {
+                margin: 0;
+            }
+
+            &__reset {
+                cursor: pointer;
+            }
+
+            &__reset-button {
+                color: $azure;
+                border: none;
+                background: none;
+                outline: none;
+
+                &:hover {
+                    text-decoration: underline;
+                    opacity: 0.5;
+                }
+            }
+
+            &__sub-title {
+                @extend .p5-bold;
+                padding: 0px 0px 10px 15px;
+                margin: 0;
+            }
+        }
+    }
+}
+
+// Acordion Filter
+.ml-accordion {
+    top: 60px;
+    right: 0;
+    width: 275px;
+    z-index: 100;
+    background: $dark;
+
+    .panel-group {
+        margin: 0;
+
+        .panel {
+            margin: 0;
+        }
+    }
+
+    .panel-heading {
+        background: $black;
+        border-top: 1px solid $white-opacity3;
+        border-bottom: none;
+
+        .panel-title {
+            @extend .p3-bold;
+            padding: 0;
+
+            a {
+                display: block;
+                line-height: 46px;
+                position: relative;
+                padding: 0 15px;
+
+                &:hover,
+                &:active,
+                &:visited,
+                &:focus {
+                    text-decoration: none;
+                }
+
+                .accordion-arrow {
+                    position: absolute;
+                    top: 13px;
+                    right: 13px;
+                    border: none;
+                    display: block;
+                    width: 17px;
+                    height: 17px;
+                    outline: none;
+                    transform: rotate(0deg);
+                    transition: all 0.3s ease-out;
+
+                    &:before,
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        width: 10px;
+                        height: 2px;
+                        background-color: $white;
+                        top: 8px;
+                    }
+                    &:before {
+                        transform: rotate(40deg);
+                        right: 7px;
+                    }
+                    &:after {
+                        transform: rotate(-40deg);
+                        left: 7px;
+                    }
+                }
+
+                &.collapsed .accordion-arrow {
+                    transform: rotate(-90deg);
+                }
+            }
+        }
+
+        + .panel-collapse > .panel-body {
+            @extend .p3;
+            border-top-color: $white-opacity3;
+            padding: 0;
+        }
+    }
+
+    .category-list {
+        padding: 0;
+        margin: 0;
+
+        &__item {
+            line-height: 46px;
+            padding: 0 15px;
+            border-top: 1px solid $white-opacity3;
+            cursor: pointer;
+            color: inherit;
+            font-style: inherit;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            border: none;
+            outline: none;
+
+            &:first-child {
+                border: none;
+            }
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        &__item-button {
+            background: none;
+            border: 0;
+            border-top: 1px solid $white-opacity3;
+            width: 100%;
+            outline: none;
+
+            &:first-child {
+                border-top: 1px solid $white-opacity3;
+            }
+        }
+
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+
+            label {
+                margin: 0;
+            }
+        }
+
+        .custom-checkbox-button {
+            span {
+                margin: 15px auto;
+            }
+        }
+    }
+}
+
+.crg-filter {
+    padding: 5px 15px 15px;
+    font-family: $font-family-sans-serif;
+    font-size: 12px;
+
+    &__buttons {
+        button {
+            width: 40px;
+            height: 27px;
+            border-radius: 17px;
+            background-color: $red;
+            border: 1px solid transparent;
+            font-weight: bolder;
+            margin-right: 8px;
+            padding: 0;
+            opacity: 0.5;
+            outline: none;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.btn-active {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.music-tracker-column-icon {
+    width: 4px;
+    height: 11px;
+    margin-right: 0.75px;
+    background: $music-tracker-export-pdf-bg;
+
+    .btn-music-tracker &:last-child {
+        margin-right: 0.5rem;
+    }
+}
+
+.music-tracker-export-pdf {
+    margin-right: 0.5rem;
+    border-radius: 2px;
+    padding: 2px;
+    background: $music-tracker-export-pdf-bg;
+    color: $music-tracker-export-pdf-color;
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.music-tracker-quintile {
+    border-radius: 50px;
+    padding: 2px 8px;
+    color: $music-tracker-quintile-color;
+    font-weight: 700;
+    max-width: 45px;
+    border: 0 solid $red;
+
+    &.music-tracker-quintile-6 {
+        color: $music-tracker-quintile-undefined;
+    }
+}
+
+.activeCell .trend-quintile-container .music-tracker-quintile {
+    border: 0 solid $red;
+}
+
+.activeCell .music-tracker-quintile {
+    border-radius: 5px;
+    color: $white;
+    border: 1.8px solid $red;
+    margin-top: 1px;
+}
+
+//can click, trend
+.music-tracker-quintile-trend {
+    height: 33px;
+}
+
+.show-trends {
+    .public_fixedDataTableCell_cellContent {
+        padding: 0;
+    }
+    .music-tracker-quintile {
+        color: $white;
+        border: none;
+    }
+}
+
+.music-tracker-quintile-1 {
+    border: 2px solid $music-tracker-quintile-1;
+}
+
+.music-tracker-quintile-2 {
+    border: 2px solid $music-tracker-quintile-2;
+}
+
+.music-tracker-quintile-3 {
+    border: 2px solid $music-tracker-quintile-3;
+}
+
+.music-tracker-quintile-4 {
+    border: 2px solid $music-tracker-quintile-4;
+}
+
+.music-tracker-quintile-5 {
+    border: 2px solid $music-tracker-quintile-5;
+}
+
+.total-rank-label-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 6px;
+    padding: 0 16px 0 25px;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+}
+
+.total-rank-label {
+    width: 29px;
+    height: 24px;
+    line-height: 19px;
+    border-radius: 12px;
+}
+
+.music-tracker-sparkline {
+    position: absolute;
+    bottom: 2px;
+    left: 12px;
+    circle:first-child {
+        opacity: 0;
+    }
+}
+
+.mscore-positive {
+    color: $music-tracker-mscore-positive;
+}
+
+.mscore-negative {
+    color: $music-tracker-mscore-negative;
+}
+
+//
+// Fixed data table styles
+// --------------------------------------------------
+
+.public_fixedDataTable_main {
+    border-radius: 0;
+    border: 0;
+    font-weight: 700;
+}
+
+.public_fixedDataTableRow_main {
+    background-color: $dark2;
+
+    .column-highlighted {
+        background-color: $dark8;
+    }
+}
+
+.public_fixedDataTableRow_highlighted,
+.public_fixedDataTableRow_highlighted .public_fixedDataTableCell_main {
+    background: $dark2;
+
+    .column-highlighted {
+        background-color: $dark8;
+    }
+}
+
+.public_fixedDataTableCell_main {
+    background: $dark3;
+    border-width: 0;
+    color: $white;
+    border-color: $white-opacity3;
+    transition: all 0.5s, border-width 0s, border-color 0s;
+
+    .column-highlighted {
+        background-color: $dark9;
+    }
+}
+
+.fixedDataTableCellLayout_wrap1 {
+    display: flex;
+    align-items: center;
+}
+
+.fixedDataTableCellLayout_wrap2,
+.fixedDataTableCellLayout_wrap3 {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.public_fixedDataTableCell_cellContent {
+    font-size: 12px;
+    text-align: center;
+
+    &,
+    & > a {
+        @extend .ellipsis;
+        width: 100%;
+    }
+}
+
+.fixedDataTableLayout_rowsContainer {
+    .public_fixedDataTable_header,
+    .public_fixedDataTable_header .public_fixedDataTableCell_main {
+        background: $dark2;
+
+        .column-highlighted {
+            background-color: $dark8;
+        }
+
+        .custom.fixed-data-table-header-text {
+            align-self: auto;
+            height: auto;
+            display: block;
+            padding: 4px 8px 2px 8px;
+        }
+
+        .fixed-data-table-header-btn,
+        .fixed-data-table-header-text,
+        .public_fixedDataTableCell_cellContent {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            width: 100%;
+            color: $white;
+            font-size: 12px;
+            font-weight: 700;
+            white-space: normal;
+            line-height: 1.4;
+        }
+
+        .public_fixedDataTableCell_cellContent {
+            position: relative;
+            padding: 0;
+        }
+
+        .fixedDataTableCell-link {
+            // position: relative;
+            text-align: center;
+            font-weight: 700;
+            font-size: 20px;
+            outline: none;
+            padding: 0;
+            width: 35%;
+            height: 40px;
+            color: $azure;
+            border: none;
+            background: transparent;
+
+            &:focus,
+            &:hover {
+                color: $azure;
+            }
+
+            &:focus {
+                text-decoration: none;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .fixed-data-table-header-btn {
+            @include reset-button-style();
+            align-self: flex-start;
+            position: relative;
+            padding: 4px 8px 2px 8px;
+
+            &::after {
+                position: absolute;
+                top: calc(50% - 7px);
+                right: 4px;
+                font-size: 14px;
+            }
+        }
+
+        .fixed-data-table-header-sort-asc::after {
+            @extend %fa-icon;
+            @extend .fa;
+            content: fa-content($fa-var-long-arrow-alt-up);
+        }
+
+        .fixed-data-table-header-sort-desc::after {
+            @extend %fa-icon;
+            @extend .fa;
+            content: fa-content($fa-var-long-arrow-alt-down);
+        }
+    }
+
+    // Top header
+    .public_fixedDataTableRow_even {
+        &.public_fixedDataTable_header,
+        &.public_fixedDataTable_header .public_fixedDataTableCell_main {
+            background: $dark2;
+            transition: all 0.5s;
+
+            .column-highlighted {
+                background-color: $dark8;
+            }
+
+            .public_fixedDataTableCell_cellContent {
+                align-items: center;
+                color: $white;
+                font-size: 14px;
+            }
+
+            .public_fixedDataTableCell_main {
+                border-width: 1px;
+
+                &:first-of-type {
+                    border-left-width: 0;
+                }
+            }
+        }
+    }
+
+    .fixed-data-table-header-btn {
+        align-items: center;
+    }
+}
+
+.public_fixedDataTableRow_fixedColumnsDivider {
+    border-color: $white-opacity3;
+    border-left-width: 1px;
+}
+
+.public_fixedDataTable_header,
+.public_fixedDataTable_hasBottomBorder {
+    border-color: $white-opacity3;
+    border-bottom-width: 1px;
+}
+
+.fixedDataTableCellLayout_main {
+    border-left-style: solid;
+    border-right-style: hidden;
+}
+
+// Song Information group
+.fixedDataTableRowLayout_body > .fixedDataTableCellGroupLayout_cellGroupWrapper:first-child {
+    .fixedDataTableCellLayout_main:not(:first-child) {
+        font-weight: 400;
+    }
+    .public_fixedDataTableCell_cellContent {
+        &,
+        & > .fixed-data-table-header-btn {
+            justify-content: flex-start;
+            text-align: left;
+        }
+    }
+
+    // Re-center the top header row
+    .public_fixedDataTableRow_even.public_fixedDataTable_header
+        &
+        .public_fixedDataTableCell_cellContent {
+        font-weight: 700;
+
+        &,
+        & > .fixed-data-table-header-btn {
+            justify-content: center;
+            text-align: center;
+        }
+    }
+
+    .music-tracker-cell-checkbox {
+        .public_fixedDataTableCell_cellContent {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            padding: 8px;
+            margin-bottom: 0;
+        }
+
+        input {
+            margin-top: 0;
+        }
+    }
+}
+
+.public_Scrollbar_main {
+    // vertical scrollbar styling
+    &.ScrollbarLayout_mainVertical,
+    &.ScrollbarLayout_mainVertical.public_Scrollbar_mainActive,
+    &.public_Scrollbar_main.ScrollbarLayout_mainVertical:hover {
+        width: 13px !important;
+        background: $dark4;
+        border: none;
+    }
+
+    // horizontal scrollbar styling
+    &.ScrollbarLayout_mainHorizontal,
+    &.ScrollbarLayout_mainHorizontal.public_Scrollbar_mainActive,
+    &.public_Scrollbar_main.ScrollbarLayout_mainHorizontal:hover {
+        height: 13px !important;
+        background: $dark4;
+        border: none;
+    }
+}
+
+.public_Scrollbar_main:hover .public_Scrollbar_face:after,
+.public_Scrollbar_mainActive .public_Scrollbar_face:after,
+.public_Scrollbar_faceActive:after,
+.public_Scrollbar_face:after {
+    background: $gray2;
+}
+
+.ScrollbarLayout_faceHorizontal:after {
+    top: 1px;
+    bottom: 1px;
+}
+
+.ScrollbarLayout_faceVertical:after {
+    left: 1px;
+    right: 1px;
+}
+
+.fixed-data-table-cell-border {
+    border-left: 1px solid $white-opacity3;
+}
+
+.music-tracker-rank {
+    text-align: center;
+}
+
+.column-group-header-cell {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+
+    .column-group-header-text-container,
+    .column-group-header-button-container {
+        text-align: center;
+        align-self: center;
+    }
+
+    .column-group-header-text-container {
+        width: 100%;
+        font-weight: 700;
+        color: $white;
+    }
+
+    .column-group-header-button-container {
+        .column-header-button {
+            margin: 5px;
+            padding: 0 5px;
+            font-weight: 400;
+            font-size: 13px;
+            background-color: $music-tracker-table-save-bg;
+            border-radius: $border-radius-base;
+            border: none;
+            border-color: transparent;
+
+            &:hover {
+                background-color: darken($music-tracker-table-save-bg, 10%);
+            }
+        }
+    }
+}
+
+//
+// Music Tracker categories
+// --------------------------------------------------
+
+.table-category-button {
+    @include reset-button-style();
+
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &.category-carryover:not(.empty-category) {
+        color: $music-tracker-table-category-carryover-color;
+    }
+
+    &.category-modified:not(.empty-category) {
+        color: $music-tracker-table-category-modified-color;
+    }
+}
+
+.empty-category {
+    color: $music-tracker-empty-category-color;
+}
+
+.table-popup-primary-row {
+    display: flex;
+    justify-content: space-between;
+    background-color: $dark;
+    color: $white;
+    padding: 5px 10px;
+
+    .popup-subcaption {
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .table-popup-radiogroup {
+        display: inline-block;
+        border: 1px solid $music-tracker-table-border-color;
+        padding: 10px;
+        width: 100%;
+
+        &:not(:last-child) {
+            margin-right: 15px;
+        }
+
+        .table-popup-radiogroup-name {
+            margin-bottom: 0;
+            font-weight: 700;
+        }
+    }
+}
+
+.radio-group-items {
+    .none label {
+        font-weight: 700;
+    }
+}
+
+//
+// Music Tracker Song Detail
+// --------------------------------------------------
+.modal.in .modal-dialog,
+.modal.fade .modal-dialog {
+    transform: translate(0, 0);
+}
+
+.modal-content {
+    overflow: auto;
+    max-height: 92vh;
+}
+
+.modal-open .modal {
+    overflow: hidden;
+}
+
+.music-tracker-detail-modal {
+    .modal-header {
+        background: $black;
+        text-align: left;
+    }
+
+    .modal-title {
+        display: flex;
+        align-items: center;
+
+        > img {
+            margin-right: 1rem;
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+        }
+    }
+}
+
+.music-tracker-detail-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.song-detail-modal-header {
+    min-height: 100px;
+}
+
+.song-detail-modal-no-data {
+    font-size: 20px;
+}
+
+.music-tracker-detail-sub-title {
+    color: $white-opacity8;
+    font-size: 16px;
+}
+
+.music-tracker-detail-overview {
+    display: flex;
+    align-items: center;
+}
+
+.music-tracker-detail-rank,
+.music-tracker-detail-spins {
+    width: 50%;
+    padding: 5px;
+
+    p.p3 {
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: $border-radius-base;
+        padding: 10px;
+        background: $music-tracker-detail-overview-bg;
+        list-style: none;
+    }
+
+    li {
+        display: flex;
+        width: 25%;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 8px;
+    }
+
+    .music-tracker-quintile {
+        padding: 3px 12px;
+        font-size: 13px;
+        font-weight: 400;
+    }
+}
+
+.music-tracker-detail-metric {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.music-tracker-detail-label {
+    margin-top: 2px;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.music-tracker-detail-breakouts {
+    thead th {
+        text-transform: uppercase;
+    }
+
+    thead,
+    tbody {
+        > tr {
+            > th,
+            > td {
+                vertical-align: middle;
+                text-align: center;
+                border-top: 1px solid $white-opacity3;
+            }
+
+            > th {
+                font-weight: 700;
+            }
+
+            > td {
+                font-weight: 400;
+            }
+        }
+    }
+
+    thead > tr > th {
+        background: $music-tracker-detail-overview-bg;
+        border-bottom: 0;
+
+        &:first-child {
+            text-align: left;
+            font-weight: 500;
+        }
+    }
+
+    tbody > tr {
+        > th:first-child {
+            text-align: center;
+        }
+
+        > .music-tracker-detail-respondents-td {
+            padding: 0;
+        }
+    }
+}
+
+.music-tracker-detail-respondents {
+    font-weight: 400;
+}
+
+.music-tracker-detail-respondents-under {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    margin: 0 auto;
+    border: 1.5px solid $music-tracker-detail-respondents-under-color;
+    border-radius: 50%;
+    padding: 5px;
+    color: $music-tracker-detail-respondents-under-color;
+}
+
+.song-detail-modal-table {
+    overflow: scroll;
+}
+
+.similar-station-link {
+    background: none;
+    border: none;
+    &:hover {
+        text-decoration: underline;
+    }
+    .call-letters {
+        color: $brand-primary;
+    }
+}
+
+//
+// Playlist Overview panel
+// --------------------------------------------------
+.playlist-body {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 100%;
+
+    @media (min-width: $screen-md-min) {
+        flex-direction: row;
+    }
+}
+
+.playlist-table {
+    flex: 0 0 70%;
+    overflow: hidden;
+    border-bottom: 1px solid $white-opacity3;
+
+    @media (min-width: $screen-lg-min) {
+        flex: 0 0 75%;
+    }
+
+    .public_fixedDataTable_main {
+        border-bottom-right-radius: 0;
+    }
+
+    .public_fixedDataTable_hasBottomBorder {
+        border: 0;
+    }
+}
+
+.playlist-stats {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    flex: 1 1 25%;
+    border: 1px solid $white-opacity3;
+    border-bottom-width: 0;
+    border-top-width: 0;
+    overflow: auto;
+
+    > .playlist-stats-panel + .playlist-stats-panel {
+        border-top: 1px solid $white-opacity3;
+    }
+
+    @media (min-width: $screen-md-min) {
+        display: block;
+        border-left-width: 0;
+        border-bottom-width: 1px;
+        border-bottom-right-radius: $border-radius-base;
+
+        > .playlist-stats-panel + .playlist-stats-panel {
+            border-top: 1px solid $white-opacity3;
+        }
+    }
+}
+
+.playlist-stats-panel {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (min-width: $screen-md-min) {
+        width: auto;
+    }
+}
+
+.playlist-stats-header {
+    margin-bottom: 0;
+    border-bottom: 1px solid $white-opacity3;
+    padding: 10px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.playlist-stats-body {
+    padding: 10px;
+}
+
+.playlist-stats-value {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.playlist-total-audience-spins {
+    padding: 10px;
+    text-align: center;
+
+    .playlist-stats-header {
+        border: 0;
+        margin-bottom: 2px;
+        padding: 0;
+    }
+
+    .playlist-stats-body {
+        padding: 0;
+    }
+}
+
+.playlist-top-songs {
+    font-size: 14px;
+
+    .playlist-stats-body {
+        padding: 5px 7px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th,
+    td {
+        vertical-align: top;
+        padding: 4px;
+    }
+
+    th {
+        vertical-align: bottom;
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: 9px;
+    }
+
+    .playlist-th-rank,
+    .playlist-td-rank {
+        width: 1%;
+    }
+
+    .playlist-td-rank {
+        text-align: center;
+    }
+
+    .playlist-th-metric,
+    .playlist-td-metric {
+        width: 1%;
+        text-align: right;
+    }
+
+    .playlist-song-title,
+    .playlist-song-artist {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .playlist-song-artist {
+        font-size: 10px;
+    }
+}
+
+.playlist-pie-chart {
+    .playlist-stats-title {
+        margin-bottom: 10px;
+    }
+
+    .chart-with-legend {
+        justify-content: flex-start;
+    }
+
+    .chart-body,
+    .chart-legend {
+        margin-bottom: 0;
+    }
+
+    .chart-body {
+        flex: 0 1 41.66666%;
+    }
+
+    .chart-legend {
+        flex: 1 1 auto;
+        max-width: 120px;
+        padding-right: 0;
+    }
+
+    .chart-legend-icon-container,
+    .chart-legend-label,
+    .chart-legend-value {
+        padding: 0 5px;
+    }
+
+    .chart-legend-label {
+        max-width: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+// toggle switch
+.toggle-container {
+    float: left;
+    margin: 6px 30px 0 0;
+    color: #fff;
+    .toggle-label {
+        margin-left: 10px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .toggle {
+        position: relative;
+        display: inline-block;
+        width: 34px;
+        height: 14px;
+        top: 3px;
+        vertical-align: middle;
+        line-height: 50px;
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #841d1d;
+            &.round {
+                border-radius: 8px;
+                &:before {
+                    border-radius: 50%;
+                }
+            }
+            &:before {
+                position: absolute;
+                content: '';
+                height: 20px;
+                width: 20px;
+                left: -7px;
+                bottom: -2px;
+                background-color: #3a3939;
+            }
+        }
+        input {
+            display: none;
+            &:checked + .slider {
+                background-color: #a30a0a;
+                &:before {
+                    background-color: #f3f3f3;
+                    transform: translateX(26px);
+                }
+            }
+        }
+    }
+}

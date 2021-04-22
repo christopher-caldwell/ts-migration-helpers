@@ -1,0 +1,25 @@
+.custom-modal {
+    .modal-header {
+        .close {
+            opacity: initial;
+        }
+    }
+
+    .modal-body {
+        @extend .custom-scrollbars;
+        overflow: auto;
+        height: calc(100vh - 183px);
+    }
+
+    .modal-footer > .btn-primary {
+        @include ml-action-button($btn-primary-bg, $btn-primary-color);
+        &.disabled {
+            background-color: $red-oxide;
+        }
+    }
+
+    .modal-footer {
+        background-color: $dark;
+        border-top: 1px solid $white-opacity2;
+    }
+}

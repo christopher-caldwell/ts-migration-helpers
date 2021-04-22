@@ -1,0 +1,32 @@
+//
+// Market spin index panel
+// --------------------------------------------------
+
+.market-spin-index {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.market-spin-index-songs {
+    list-style: none;
+    padding: 0;
+}
+
+.market-spin-index-chart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 450px;
+
+    // Center inner Google GeoChart (important for printing)
+    > div > div > div {
+        margin: 0 auto;
+    }
+}
+
+.market-spin-index-chart-warning {
+    margin: 0;
+    text-align: center;
+}

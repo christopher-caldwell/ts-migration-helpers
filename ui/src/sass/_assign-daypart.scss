@@ -1,0 +1,48 @@
+.assign-daypart {
+    &__choose {
+        padding: 20px;
+    }
+
+    &__content {
+        padding: 20px;
+        border-top: 1px solid $white-opacity3;
+    }
+
+    &__label {
+        @extend .p3-bold;
+        line-height: 1.38;
+        width: 100%;
+    }
+
+    &__bottom-actions {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        height: $actions-height; // variable from _aside-modal.scss
+        width: #{$container-width}; // variable from _aside-modal.scss
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .actions {
+            z-index: 0;
+        }
+    }
+
+    &__btn-delete {
+        z-index: 1;
+
+        &.btn-primary {
+            @include ml-action-button($btn-primary-bg, $btn-primary-color);
+            &.disabled {
+                background-color: $red-oxide;
+            }
+        }
+
+        &.btn {
+            margin: 0 15px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+}

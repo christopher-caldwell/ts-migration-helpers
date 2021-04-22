@@ -1,0 +1,94 @@
+//
+// Tabs
+// --------------------------------------------------
+
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    background: $nav-tabs-bg;
+    border: 0;
+
+    > li {
+        > a {
+            padding: 8px 15px;
+            padding-bottom: 2px;
+            margin-right: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: normal;
+        }
+
+        &:last-child > a {
+            margin-right: 0;
+        }
+    }
+
+    > li > a,
+    > li.active > a {
+        &,
+        &:hover,
+        &:focus {
+            background: none;
+            border: 0;
+            border-bottom: 6px solid transparent;
+            color: $nav-tabs-color;
+        }
+    }
+
+    > li.active > a {
+        &,
+        &:hover,
+        &:focus {
+            border-color: $nav-tabs-border-color;
+        }
+    }
+
+    > li.disabled {
+        // Must set cursor above the anchor level due to `pointer-events: none`
+        cursor: not-allowed;
+
+        > a {
+            color: $nav-tabs-disabled-color;
+        }
+    }
+}
+
+.results-tabs {
+    width: auto;
+    list-style: none;
+    padding: 16px;
+    background-color: $dark2;
+
+    .results-tab {
+        margin-top: 8px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        button {
+            @include reset-button-style();
+
+            width: 100%;
+            padding: 5px 10px;
+            border-radius: $border-radius-base;
+            text-align: left;
+            outline: none;
+
+            &:hover {
+                cursor: pointer;
+                background: $white-opacity3;
+            }
+        }
+
+        &.active button,
+        &.active:hover button {
+            background: #d21b1b;
+            color: #fff;
+        }
+
+        .search-section-icon {
+            margin-right: 8px;
+        }
+    }
+}

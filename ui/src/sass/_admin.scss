@@ -1,0 +1,252 @@
+.permission-container {
+    .panel-container {
+        width: 100%;
+        margin: 0;
+        padding: 10px $grid-gutter-width;
+        background-color: #131929;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    }
+}
+
+.admin-board-header {
+    width: 100%;
+    margin-top: 5px;
+
+    .board-title-group {
+        padding: 0 $grid-gutter-width;
+        color: $board-header-color;
+    }
+
+    .board-header-interactive {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        padding-right: $grid-gutter-width;
+    }
+
+    .input-group-addon {
+        background-color: #2b303e;
+        border: 0;
+        color: $white;
+        height: 31px;
+    }
+
+    .form-control {
+        background-color: #2b303e;
+        color: $white;
+        border: 0;
+        border-left: 1px solid $white-opacity3;
+        outline: none;
+        height: 34px;
+        width: 175px !important;
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
+    .btn-primary {
+        margin-left: 12px;
+        background-color: $red;
+        color: $white;
+        font-size: 12px;
+        padding: 6px 12px;
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
+    // Button Dropdown
+    .btn-default.dropdown-toggle,
+    .open > .btn-default.dropdown-toggle,
+    .open > .btn-default.dropdown-toggle:hover,
+    .open > .btn-default.dropdown-toggle:focus {
+        color: $white;
+        background-color: $dark3;
+        border: 1px solid $white-opacity3;
+        box-shadow: none;
+        margin-left: 12px;
+        padding: 7px 12px;
+    }
+
+    .dropdown-menu {
+        &,
+        a {
+            background-color: #2b303e;
+            color: $white;
+        }
+
+        a:hover {
+            background-color: $black;
+            color: $white;
+        }
+    }
+}
+
+.admin-sub-heading {
+    background-color: $black;
+    padding: 5px 20px;
+}
+
+.card-container {
+    border-radius: 3px;
+    padding: 0;
+    background-color: $black;
+    background-color: var(--black);
+
+    p {
+        margin: 0;
+        padding: 5px 10px;
+        background-color: #0f1420;
+    }
+}
+
+.userBoard-panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    border-radius: 3px;
+    background-color: $black;
+}
+
+.user-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $black;
+    color: $white;
+}
+
+.button-ellipsis {
+    &,
+    &:focus,
+    &:hover,
+    &:active {
+        border: none;
+        background-color: $black;
+        color: $black;
+        outline: none;
+    }
+}
+
+.user-admin-modal .modal-dialog {
+    width: 900px;
+}
+
+.team-modal-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.team-modal-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.user-modal-body {
+    @extend .custom-scrollbars--thin;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .form-control,
+    .Select-control {
+        color: $white;
+        background-color: $dark3;
+        border: none;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    .Select-input {
+        > input {
+            color: $white;
+        }
+    }
+
+    .Select.is-focused {
+        > .Select-control {
+            background: $dark3;
+        }
+    }
+
+    .Select.is-focused:not(.is-open) > .Select-control {
+        border: none;
+        box-shadow: none;
+    }
+
+    .Select.is-open {
+        > .Select-control {
+            border: none;
+        }
+    }
+
+    .Select-menu-outer {
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+        background-color: $dark3;
+        border: none;
+        border-top: 1px solid $white-opacity3;
+        box-shadow: none;
+    }
+
+    .Select-menu-outer,
+    .Select-menu {
+        max-height: 150px;
+    }
+
+    .Select-option-group-label {
+        background-color: $dark3;
+        color: $white;
+    }
+
+    .Select-option {
+        background-color: $dark3;
+        color: $white;
+
+        &:hover {
+            background-color: $dark5;
+        }
+    }
+}
+
+.admin-save-button {
+    background-color: #e90105 !important;
+}
+
+.user-modal-body .team-checkbox {
+    height: 35px;
+    max-height: 35px;
+    width: 200px;
+    min-width: 200px;
+    max-width: 32%;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    border: 1px solid $white-opacity5;
+    border-radius: 3px;
+    padding: 10px;
+    box-shadow: 0 1px 1px $panel-box-shadow;
+}
+
+.edit-teams-button {
+    height: 30px;
+}
+
+.account-user-teams {
+    display: flex;
+}

@@ -1,0 +1,10 @@
+{
+    "SERVICE_API_URL": "https://rk0jzmp9oa.execute-api.us-east-1.amazonaws.com/prod",
+    "INTERNAL_LOGIN_URL": "https://login.microsoftonline.com/common/oauth2/authorize",
+    "INTERNAL_LOGIN_REDIRECT_URL": "https://musiclab.iheartmedia.com/auth/callback",
+    "INTERNAL_LOGIN_CLIENT_ID": "d6473780-7c5b-4b90-8c69-923f1803b0f3",
+    "INTERNAL_LOGIN_RESOURCE": "d6473780-7c5b-4b90-8c69-923f1803b0f3",
+    "OKTA_BASE_URL": "https://iheartmedia.okta.com",
+    "OKTA_LOGIN_URL": "https://iheartmedia.okta.com/oauth2/default",
+    "OKTA_CLIENT_ID": "0oa6ebugcduuctuMk2p7"
+}

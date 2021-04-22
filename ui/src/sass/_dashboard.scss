@@ -1,0 +1,44 @@
+//
+// Dashboard
+// --------------------------------------------------
+.dashboard-page-loading {
+    @extend .container;
+
+    margin-top: 20px;
+}
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.dashboard-title {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    margin-bottom: 0;
+}
+
+.dashboard-name span {
+    font-weight: bold;
+}
+
+.dashboard-icons {
+    display: none;
+    padding-left: 10px;
+
+    .dashboard-header:hover & {
+        display: inline-block;
+    }
+
+    .btn {
+        font-size: 16px;
+    }
+}
+
+.dashboard-options {
+    margin-left: auto;
+}

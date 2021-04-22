@@ -1,0 +1,64 @@
+{
+    "root": true,
+    "extends": ["react-app", "airbnb", "eslint:recommended", "plugin:react/recommended", "prettier"],
+    "plugins": ["react-hooks", "prettier"],
+    "parser": "babel-eslint",
+    "rules": {
+        "object-curly-newline": [2, { "consistent": true }],
+        "arrow-parens": ["error", "as-needed"],
+        "class-methods-use-this": 0,
+        "eqeqeq": "off",
+        "indent": [2, 4, { "SwitchCase": 1 }],
+        "max-len": [2, 120, 4],
+        "no-console": 0,
+        "react/jsx-filename-extension": 0,
+        "react/jsx-curly-newline": [2, "consistent"],
+        "react/jsx-indent": [2, 4],
+        "react/jsx-indent-props": [2, 4],
+        "react/jsx-wrap-multilines": 0,
+        "react/prefer-stateless-function": 0,
+        "react/sort-prop-types": [2, { "callbacksLast": true, "requiredFirst": true }],
+        "react/sort-comp": 0,
+        "react-hooks/rules-of-hooks": "error",
+        // "react-hooks/exhaustive-deps": "warn",
+        // start of new rules //
+        "import/no-extraneous-dependencies": [
+            "error",
+            { "devDependencies": ["**/*.test.js", "**/*.spec.js", "**/setupTests.js"] }
+        ],
+        "react/no-unused-prop-types": 0, // should standardize prop types
+        "react/no-access-state-in-setstate": "off", // error prone
+        // Prop Types
+        "react/static-property-placement": 0,
+        "react/require-default-props": "warn",
+        "react/default-props-match-prop-types": "warn",
+        //
+        "react/state-in-constructor": 0, // I don't think is a big deal
+        "react/no-unused-state": "warn", // should def be an error
+        "react/button-has-type": 0,
+        "react/destructuring-assignment": 0,
+        "react/jsx-props-no-spreading": 0,
+        "react/prop-types": 0,
+        "camelcase": 0,
+        "consistent-return": 0,
+        "import/prefer-default-export": 0,
+        "no-restricted-globals": 0,
+        "import/no-mutable-exports": "warn",
+        "import/no-named-as-default": 0
+        // accessability
+        // "jsx-a11y/mouse-events-have-key-events": 0,
+        // "jsx-a11y/media-has-caption": 0
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["src"]
+            }
+        }
+    },
+    "env": {
+        "browser": true,
+        "mocha": true,
+        "jest": true
+    }
+}

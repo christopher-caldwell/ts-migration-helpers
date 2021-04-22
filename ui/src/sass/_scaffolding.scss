@@ -1,0 +1,27 @@
+//
+// Scaffolding
+// --------------------------------------------------
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100vh;
+}
+
+.app {
+    height: 100%;
+}
+
+// Reset "normal" font weight on Bootstrap elements
+.btn,
+.dropdown-menu > li > a {
+    font-weight: 400;
+}
+
+.container,
+.container-fluid {
+    padding-left: $grid-gutter-width;
+    padding-right: $grid-gutter-width;
+}

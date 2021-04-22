@@ -1,0 +1,99 @@
+.headerRow {
+    composes: font from '../../../App.css';
+    display: flex;
+    align-items: center;
+    background-color: var(--mt-black);
+    width: 100%;
+    height: var(--table-header);
+    padding-left: 10px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.breakoutTable {
+    composes: scrollbar from '../../../App.css';
+    width: 100%;
+    height: calc(100% - var(--song-bar) - var(--rank-spins-bar) - var(--table-header));
+}
+
+.breakoutNameContainer {
+    width: 170px;
+    display: flex;
+    align-items: center;
+}
+
+.breakoutName {
+    composes: ellipsis from '../../../App.css';
+}
+
+.dragButton {
+    composes: button from '../../../App.css';
+    margin-left: 10px;
+    opacity: 0.8;
+}
+
+.dragButtonIcon {
+    font-size: 18px;
+    transform: rotate(90deg);
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    height: 35px;
+    background-color: var(--mt-dark2);
+    padding-left: 10px;
+    cursor: grab;
+}
+
+.row:nth-child(even) {
+    background-color: var(--mt-dark1);
+}
+
+.row:active {
+    cursor: grabbing;
+}
+
+.cell {
+    width: 40px;
+    text-align: center;
+    opacity: 0.8;
+    text-transform: capitalize;
+    margin: 0 18px;
+    user-select: none;
+}
+
+.headerCell {
+    composes: cell;
+    composes: button from '../../../App.css';
+}
+
+.headerCell:hover,
+.dragButton:hover {
+    opacity: 1;
+}
+
+.respondent {
+    border: 1.5px solid var(--brand-red);
+    border-radius: 10px;
+    padding-bottom: 1px;
+    color: var(--brand-red);
+}
+
+.dragIcon {
+    --drag-bar: 2px solid white;
+    width: 15px;
+    height: 10px;
+    margin-right: 10px;
+    border-top: var(--drag-bar);
+    border-bottom: var(--drag-bar);
+}
+
+.arrowIcon {
+    font-size: 12px;
+}
+
+.active {
+    color: var(--azure);
+    opacity: 1;
+}

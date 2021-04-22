@@ -1,0 +1,17 @@
+.columnGroupsContainer {
+    width: 100%;
+    height: calc(100% - var(--filters-bar-height)); /* minus height of table filters bar */
+    overflow: auto;
+    background-color: var(--mt-dark1);
+    display: flex;
+}
+
+.columnGroup {
+    display: inline-table; /*this allows cell widths to set width of whole component*/
+    flex-direction: column;
+    border-right: 1px solid var(--mt-border-color);
+}
+
+.expandedColumn {
+    background-color: var(--mt-black);
+}

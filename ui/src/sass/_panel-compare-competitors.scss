@@ -1,0 +1,66 @@
+//
+// Compare competitors panel
+// --------------------------------------------------
+
+.category-item:has(.compare-competitors-controls) {
+    margin-top: 34px;
+}
+
+.category-item-competitors {
+    margin-top: 10px;
+    border-bottom: 1px solid #e0e0e0;
+
+    .compare-competitors-controls {
+        display: flex;
+        margin-bottom: 15px;
+        align-items: center;
+        width: 100%;
+
+        > * {
+            margin: 0 5px;
+
+            &:first-child {
+                flex: 0 1 auto;
+            }
+
+            &:nth-child(2) {
+                flex: 0 1 auto;
+                min-width: 300px;
+            }
+        }
+
+        .competitor-label {
+            display: flex;
+            font-weight: bold;
+        }
+
+        .form-control {
+            height: 100%;
+            margin-bottom: 0;
+        }
+
+        .Select {
+            width: 50%;
+        }
+
+        .Select-control,
+        .Select-value-label {
+            white-space: nowrap;
+        }
+
+        .Select-control {
+            display: flex;
+            align-items: center;
+        }
+
+        .Select-multi-value-wrapper {
+            display: block;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .Select-clear-zone {
+            display: none;
+        }
+    }
+}

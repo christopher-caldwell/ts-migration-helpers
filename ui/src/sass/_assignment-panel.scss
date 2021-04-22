@@ -1,0 +1,42 @@
+$header-height: 60px;
+
+.assignment-panel {
+    top: $header-height;
+    left: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: calc(100vh - #{$header-height});
+    z-index: 1025;
+    background-color: $dark6;
+    padding: 10px 30px 20px;
+    transition: left 0.5s ease-out;
+
+    &--opened {
+        left: 0;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        flex-direction: column;
+        height: 40px;
+    }
+
+    &__btn-close {
+        @extend .btn-close;
+
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        border: 0;
+    }
+
+    &__container {
+        display: flex;
+        flex-flow: column;
+        width: 100%;
+    }
+}

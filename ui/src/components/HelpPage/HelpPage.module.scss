@@ -1,0 +1,30 @@
+.helpPageContainer {
+	margin: 100px auto 8px;
+	width: 400px;
+	min-width: 300px;
+}
+
+.helpPageContainerHeader {
+	padding: 30px 0px 30px;
+	border-bottom: 1px solid;
+}
+
+.helpPageContainerContent {
+	padding: 30px 42px 30px;
+}
+
+.helpPageContainerLogo {
+	display: block;
+	margin: 0 auto;
+	max-width: 200px;
+	max-height: 40px;
+}
+
+.helpPageContainerFooter {
+	padding-top: 30px;
+
+	a {
+		color: #5c6971;
+		font-size: 12px;
+	}
+}

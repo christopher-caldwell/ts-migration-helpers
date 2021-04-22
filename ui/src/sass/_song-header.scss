@@ -1,0 +1,14 @@
+.header-song-background {
+    width: 100%;
+    background-color: $dark;
+}
+
+.header-song-name {
+    padding-top: 20px;
+    opacity: 0.9;
+}
+
+.header-song-artist {
+    @extend .p3-bold;
+    line-height: 1.38;
+}

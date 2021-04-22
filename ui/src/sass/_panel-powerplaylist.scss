@@ -1,0 +1,65 @@
+//
+// POWERPLAYLIST panel
+// --------------------------------------------------
+
+.powerplaylist-rankings {
+    display: flex;
+    justify-content: center;
+}
+
+.ppl-song {
+    width: 125px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.ppl-header {
+    height: 125px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: $border-radius-base;
+    padding: 10px 15px;
+    color: $ppl-header-color;
+}
+
+.ppl-change {
+    margin-top: 5px;
+}
+
+.ppl-rank,
+.ppl-change {
+    font-weight: 400;
+}
+
+.ppl-rank {
+    font-size: 10px;
+
+    & + &:before {
+        content: '|';
+        margin: 0 0.5rem;
+    }
+}
+
+.ppl-change {
+    font-size: 18px;
+}
+
+.ppl-historic {
+    height: 20px;
+    width: 100%;
+}
+
+.ppl-footer {
+    padding: 0 15px;
+    padding-top: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.ppl-song-name {
+    font-size: 12px;
+}

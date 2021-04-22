@@ -1,0 +1,66 @@
+//
+// Metric Line
+// --------------------------------------------------
+
+.metric-line {
+    display: flex;
+    align-items: center;
+
+    .metric-change {
+        margin-left: 5px;
+    }
+}
+
+.metric-change {
+    display: flex;
+    flex-direction: row;
+    opacity: 0.5;
+
+    .metric-change-icon {
+        margin: 0 5px;
+    }
+
+    &.metric-change-stacked {
+        display: flex;
+        flex-direction: column;
+        line-height: normal;
+
+        .metric-change-icon {
+            margin: 0;
+        }
+    }
+}
+
+.summary-list {
+    .metric-value {
+        font-size: 28px;
+    }
+
+    .compare-1 {
+        .metric-value {
+            font-size: 24px;
+        }
+    }
+}
+
+//
+// Change icon
+// --------------------------------------------------
+
+.change-icon {
+    font-family: FontAwesome, sans-serif;
+}
+
+.change-icon-neutral {
+    color: $metric-change-neutral;
+    font-family: inherit;
+    font-weight: bold;
+}
+
+.change-icon-positive {
+    color: $metric-change-positive;
+}
+
+.change-icon-negative {
+    color: $metric-change-negative;
+}

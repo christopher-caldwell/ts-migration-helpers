@@ -1,0 +1,23 @@
+//
+// Print
+// --------------------------------------------------
+
+@page {
+    size: letter landscape;
+}
+
+@media print {
+    .navbar {
+        position: static;
+        margin-bottom: 0;
+    }
+
+    .authenticated-page {
+        padding-top: 0;
+    }
+
+    .fa-print,
+    .fa-refresh {
+        display: none;
+    }
+}

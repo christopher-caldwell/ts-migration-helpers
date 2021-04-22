@@ -1,0 +1,38 @@
+.checkboxLabel {
+    display: inline-block;
+    vertical-align: text-bottom;
+    user-select: none;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 8px auto;
+    background: hsla(0, 0%, 100%, 0.05);
+}
+
+.checkboxInput {
+    display: none;
+}
+
+.customCheckbox:checked .checkboxLabel {
+    border-color: var(--gray);
+    background: hsla(0, 0%, 100%, 0.05);
+}
+
+.customCheckbox:after .checkboxLabel {
+    content: '';
+    display: block;
+    margin-left: 5.5px;
+    margin-top: 2.5px;
+    width: 4px;
+    height: 9px;
+    border: solid var(--azure);
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(38deg);
+    transform: rotate(38deg);
+}
+
+.customCheckbox:active {
+    -webkit-filter: brightness(0.8);
+}

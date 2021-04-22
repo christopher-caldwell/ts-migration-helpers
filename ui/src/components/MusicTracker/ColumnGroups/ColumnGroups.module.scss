@@ -1,0 +1,22 @@
+@import 'src/sass/variables.scss';
+@import 'src/sass/scrollbars.scss';
+@import '../TableFiltersBar/TableFiltersBar.module.scss';
+
+.columnGroups {
+    @extend .custom-scrollbars;
+    width: 100%;
+    height: calc(100% - #{$filters-bar-height}); /* minus height of table filters bar */
+    overflow: auto;
+    background-color: $mt-dark1;
+    display: flex;
+}
+
+.columnGroup {
+    display: inline-table; /*this allows cell widths to set width of whole component*/
+    flex-direction: column;
+    border-right: 1px solid $mt-border-color;
+}
+
+.expandedColumn {
+    background-color: $dark8;
+}

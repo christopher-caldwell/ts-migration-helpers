@@ -1,0 +1,17 @@
+//
+// Controls
+// --------------------------------------------------
+
+.form-control {
+    box-shadow: none;
+}
+
+.Select-control {
+    border-radius: $border-radius-base;
+}
+
+.Select-custom-option-sub-name {
+    color: $select-custom-option-sub-color;
+    font-size: 12px;
+    font-weight: 500;
+}

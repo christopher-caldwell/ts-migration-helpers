@@ -1,0 +1,76 @@
+.tableFiltersBarContainer {
+    display: flex;
+    align-items: center;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    padding: 10px 20px;
+    background: #000;
+    transition: background-color 500ms linear;
+    height: 56px;
+
+    // Compare Header
+    &-compare {
+        .toggle-container {
+            margin-right: 26px;
+
+            .toggle .slider:before {
+                background-color: #d00202;
+            }
+        }
+
+        .music-tracker-actions button {
+            margin-right: 1rem;
+        }
+    }
+}
+
+.musicTrackerFilter {
+    flex: 1 1 auto;
+}
+
+.musicTrackerCalendarFilter {
+    display: inline-block;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.musicTrackerFilterActions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 0 0;
+    padding-left: 8px;
+    height: 100%;
+
+    // These actions were not implemented in MVP version
+    &.playlist-actions {
+        display: none;
+    }
+
+    .btn,
+    .btn-music-tracker {
+        font-weight: 400;
+    }
+
+    button:last-child,
+    .form-group:last-child {
+        margin-right: 0;
+    }
+
+    .form-group {
+        display: inline-block;
+        margin-bottom: 0;
+    }
+}
+
+.calendarButton {
+    display: inline-block;
+    padding: 3px 0 5px 10px;
+}
+
+.arrowWeekPicker {
+    display: inline-block;
+    margin-left: 10px;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+}

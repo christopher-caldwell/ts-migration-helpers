@@ -1,0 +1,81 @@
+.step-bar-container {
+    width: 35%;
+    display: table;
+}
+
+.step-bar-step {
+    width: 33.3333%;
+    display: table-cell;
+    position: relative;
+    padding-top: 20px;
+}
+
+.step-bar-circle {
+    margin: 0 auto;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background-color: $white;
+    display: block;
+    opacity: 0.5;
+}
+
+.step-bar-active {
+    background-color: $azure;
+    border: solid 2px;
+    opacity: 1;
+}
+
+.step-bar-done {
+    opacity: 1;
+}
+
+.step-bar-text-container {
+    display: flex;
+    justify-content: center;
+}
+
+.step-bar-title {
+    padding-top: 8px;
+    font-size: 12px;
+    color: $white;
+    font-family: $font-family-sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    width: 90px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.step-bar-line-before {
+    position: absolute;
+    top: 26px;
+    height: 1px;
+    border-top: 1px solid;
+    color: $white;
+    left: 0;
+    right: 50%;
+    margin-right: 6px;
+    opacity: 0.5;
+}
+
+.step-bar-line-after {
+    position: absolute;
+    top: 26px;
+    height: 1px;
+    border-top: 1px solid;
+    color: $white;
+    right: 0;
+    left: 50%;
+    margin-left: 6px;
+    opacity: 0.5;
+}
+
+.step-director {
+    margin-top: 8px;
+}

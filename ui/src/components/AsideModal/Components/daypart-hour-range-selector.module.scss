@@ -1,0 +1,61 @@
+@import 'src/sass/variables.scss';
+@import 'src/sass/typography.scss';
+
+.actionButton {
+	background: transparent;
+	color: $azure;
+	border: 0;
+	padding: 0;
+	padding-top: 33px;
+	display: block;
+	position: relative;
+	width: 17px;
+	height: 17px;
+	outline: none;
+}
+
+.disabledButton {
+	color: $gray2;
+	cursor: not-allowed;
+}
+
+.labelSmall {
+	@extend .p3-bold;
+	line-height: 1.38;
+	width: 100%;
+	font-size: 12px;
+}
+
+.hours {
+	display: flex;
+}
+
+.hoursGroup {
+	display: flex;
+	flex-wrap: wrap;
+	flex-basis: 50%;
+	margin: 7px 4px 0 4px;
+
+	&:nth-of-type(1) {
+		flex: 0 0 60px;
+		margin-left: 0;
+	}
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	& > div {
+		flex: 1;
+		margin: 0 2px;
+
+		&:nth-of-type(1) {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			flex: 1.1;
+			margin-right: 0;
+		}
+	}
+}

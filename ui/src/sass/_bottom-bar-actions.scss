@@ -1,0 +1,62 @@
+.bottom-bar-actions {
+    position: fixed;
+    bottom: 0;
+    z-index: 4;
+    background: $black;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+    .btn-primary {
+        @include ml-action-button($btn-primary-bg, $btn-primary-color);
+    }
+
+    .btn-default:not(.btn-customize) {
+        @include ml-action-button($btn-default-bg, $btn-default-color);
+    }
+
+    .btn-primary.disabled {
+        background-color: $red-oxide;
+        color: $white-opacity4;
+        cursor: not-allowed;
+    }
+
+    .btn {
+        margin: 0 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .last-updated {
+        border-right: 1px solid $white-opacity3;
+        padding-right: 15px;
+        font-size: 12px;
+        font-weight: 700;
+        span {
+            flex: 1 1 auto;
+            text-align: center;
+            margin: 5px; /* and that, will result in a 10px gap */
+        }
+        .date-time {
+            color: $white-opacity6;
+            font-weight: 400;
+        }
+
+        &.hide {
+            display: none;
+        }
+        &.open {
+            display: initial;
+        }
+    }
+
+    .hide {
+        opacity: 0;
+        &.btn {
+            cursor: not-allowed;
+        }
+    }
+}

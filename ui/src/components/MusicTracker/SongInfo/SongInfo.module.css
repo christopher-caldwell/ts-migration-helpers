@@ -1,0 +1,15 @@
+.songInfoColumnGroup {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background-color: var(--mt-dark1);
+}
+
+.titleArtistCustom {
+    padding-left: 20px;
+    justify-content: initial;
+}
+
+.titleVersionCustom {
+    justify-content: initial;
+}

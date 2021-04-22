@@ -1,0 +1,21 @@
+.nowrap {
+    white-space: nowrap;
+}
+
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.full-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.all-caps {
+    text-transform: uppercase;
+}

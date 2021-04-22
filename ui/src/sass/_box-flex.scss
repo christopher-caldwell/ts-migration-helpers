@@ -1,0 +1,19 @@
+.ml-box-flex {
+    &__wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    &__content {
+        text-align: center;
+        margin: 0 10px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

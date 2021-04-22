@@ -1,0 +1,34 @@
+.syncStatus {
+    padding-right: 12px;
+    margin-right: 12px;
+    border-right: 1px solid rgba(160, 160, 160, 0.5);
+    font-weight: 700;
+}
+
+.syncStatusSynchronizedInfo {
+    color: #11d373;
+}
+
+.syncStatusSynchronizingInfo {
+    color: #ffe657;
+}
+
+.syncStatusPendingApprovalInfo {
+    color: #946aed;
+}
+
+.nowrapSyncStatus {
+    white-space: nowrap;
+}
+
+.customTooltipSynchronizingText {
+    font-size: 12px;
+    margin: 0;
+    color: #ffe657;
+}
+
+.customTooltipPendingText {
+    font-size: 12px;
+    margin: 0;
+    color: #946aed;
+}

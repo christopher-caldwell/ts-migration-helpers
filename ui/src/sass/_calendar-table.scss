@@ -1,0 +1,81 @@
+.calendar-table {
+    &__content {
+        @extend .custom-scrollbars--thin;
+        overflow: scroll;
+        display: flex;
+        width: 100%;
+        height: calc(100vh - 165px);
+
+        &--error {
+            height: calc(100vh - 230px);
+        }
+    }
+
+    &__header {
+        display: flex;
+        width: 100%;
+        padding-right: 5px;
+    }
+
+    &__col {
+        display: table;
+        width: 12.5%;
+        border-right: 1px solid $white-opacity3;
+
+        &:last-child {
+            border-right: 0;
+        }
+    }
+
+    &__cell {
+        font-weight: bold;
+        height: 30px;
+        border-bottom: 1px solid $white-opacity3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__btn-select {
+        width: calc(100% - 2px);
+        height: 30px;
+        background: transparent;
+        border: 0;
+        font-weight: normal;
+        text-align: left;
+    }
+
+    &__btn-assigned {
+        background: $gray-opacity9;
+        font-weight: bold;
+
+        &--first {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            padding: 0 12px;
+        }
+
+        &--last {
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            height: 28px;
+            margin-bottom: 2px;
+        }
+
+        &--synchronized {
+            border-left: 5px solid $tealish-green;
+        }
+        &--synchronizing {
+            border-left: 5px solid $light-gold;
+        }
+        &--waiting {
+            border-left: 5px solid $purpley;
+        }
+    }
+}
+
+.calendar-table__content {
+    .calendar-table__cell:last-child {
+        border-bottom: 0;
+    }
+}

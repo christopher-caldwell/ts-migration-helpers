@@ -1,0 +1,120 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $headings-font-family;
+    color: $headings-color;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+}
+
+h1 {
+    font-size: $font-size-h1;
+    line-height: 1.34;
+}
+
+h2 {
+    font-size: $font-size-h2;
+    line-height: 1.42;
+}
+
+h3 {
+    font-size: $font-size-h3;
+    line-height: 1.28;
+}
+
+h4 {
+    font-size: $font-size-h4;
+    line-height: 1.33;
+}
+
+h5 {
+    font-size: $font-size-h5;
+    line-height: 1.6;
+}
+
+h6 {
+    font-size: $font-size-h6;
+    line-height: 1.6;
+}
+
+.p1 {
+    font-family: $font-family-base;
+    font-size: 24px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    color: $white;
+}
+
+.p2 {
+    @extend .p1;
+    font-size: 20px;
+}
+
+.p2-bold {
+    @extend .p1;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+.p3 {
+    @extend .p1;
+    font-size: 16px;
+}
+
+.p3-bold {
+    @extend .p1;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+}
+
+.p4 {
+    @extend .p1;
+    font-size: 14px;
+}
+
+.p4-bold {
+    @extend .p1;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.p5 {
+    @extend .p1;
+    font-size: 12px;
+}
+
+.p5-bold {
+    @extend .p1;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.azure {
+    color: $azure;
+}
+
+.caption-all-caps {
+    @extend .p1;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+
+    &--cornflower-blue {
+        color: $cornflower-blue;
+    }
+
+    &--nomargin {
+        margin-bottom: 0;
+    }
+}

@@ -1,0 +1,52 @@
+@import 'src/sass/mixins.scss';
+@import 'src/sass/utils.scss';
+@import 'src/sass/variables.scss';
+@import 'src/sass/buttons.scss';
+
+.categoryGoals {
+	top: 60px;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	height: calc(100vh - 60px);
+	z-index: 1025;
+	background-color: $dark;
+	padding: 0 30px 20px;
+}
+
+.actions {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	padding: 50px 0 0;
+}
+
+.btnX {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	border: 0;
+}
+
+.btnConfig {
+	margin: 0 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.btnAction {
+	@include ml-action-button($btn-primary-bg, $btn-primary-color);
+	@extend .btnConfig;
+	&.disabled {
+		background-color: $red-oxide;
+	}
+}
+
+.btnCancelAction {
+	@include ml-action-button($btn-default-bg, $btn-default-color);
+	@extend .btnConfig;
+	padding-left: 0;
+	padding-right: 0;
+}

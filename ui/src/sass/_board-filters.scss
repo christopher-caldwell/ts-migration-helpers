@@ -1,0 +1,440 @@
+//
+// Filters
+// --------------------------------------------------
+
+.board-filters-container {
+    padding: 15px 0;
+    margin-bottom: 25px;
+    background-color: $black-opacity4;
+}
+
+.board-filters {
+    @extend .container;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+
+    > * + * {
+        margin-top: 10px;
+    }
+
+    @media (min-width: 725px) {
+        flex-direction: row;
+
+        > * + * {
+            margin: 0;
+        }
+    }
+
+    .ml-datepicker {
+        margin-right: 22px;
+    }
+
+    // Filter groups are mostly used to make sure responsive and center alignment
+    // play nicely
+    // They should only exist by themselves or with two siblings
+    .filter-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media (min-width: 725px) {
+            width: 70%;
+
+            &:first-child {
+                width: 15%;
+                justify-content: flex-start;
+            }
+
+            &:last-child {
+                width: 15%;
+                justify-content: flex-end;
+            }
+        }
+    }
+}
+
+//
+// Songs
+// --------------------------------------------------
+
+.filter-song-btn,
+.filter-category-btn {
+    white-space: nowrap;
+
+    .btn-dual-icon {
+        background: transparent;
+        border: 1px solid $white-opacity5;
+        color: $white;
+    }
+
+    .btn-dual-name {
+        background: $white-opacity4;
+        border: 1px solid $white-opacity4;
+        color: $white;
+        border-left: 0;
+    }
+
+    .btn-dual {
+        outline: none;
+
+        &:hover {
+            .btn-dual-icon {
+                border-color: $white-opacity5;
+            }
+
+            .btn-dual-name {
+                border-color: $white-opacity4;
+            }
+        }
+    }
+}
+
+.filter-song-modal,
+.filter-category-modal {
+    .modal-body {
+        padding: 15px 25px;
+    }
+}
+
+.filter-song-modal {
+    h5 {
+        font-weight: bold;
+    }
+
+    label {
+        font-weight: 300;
+    }
+
+    .alert {
+        text-align: left;
+    }
+}
+
+.filter-song-albums {
+    @include make-row();
+
+    max-height: 400px;
+    overflow: auto;
+}
+
+.filter-song-album {
+    @include make-md-column(6);
+}
+
+//
+// Dates
+//  re-using for music tracker song detail cycle
+// --------------------------------------------------
+
+.music-tracker-song-detail-cycle-group {
+    margin: auto;
+}
+
+.filter-date-cycle,
+.music-tracker-song-detail-cycle {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    &.filter-date-cycle {
+        text-transform: uppercase;
+    }
+
+    .filter-group & {
+        margin: 0;
+    }
+}
+
+.filter-date-cycle-title {
+    font-size: 12px;
+}
+
+.filter-date-cycle-subtitle,
+.music-tracker-song-detail-cycle-subtitle {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+
+    .filter-date-cycle-arrow,
+    .music-tracker-song-detail-cycle-arrow {
+        @include reset-button-style();
+
+        margin: 0 5px;
+        padding: 0 5px;
+        font-size: 18px;
+        color: $filter-range-arrow-color;
+        cursor: pointer;
+
+        &.music-tracker-song-detail-cycle-arrow {
+            color: #fff;
+        }
+    }
+
+    .filter-date-cycle-arrow-disabled,
+    .music-tracker-song-detail-cycle-arrow-disabled {
+        color: inherit;
+        cursor: not-allowed;
+    }
+}
+
+.filter-date-cycle-subtitle-text {
+    font-weight: bold;
+}
+
+.music-tracker-song-detail-subtitle-text {
+    color: $white-opacity8;
+}
+
+.filter-date-range-btn {
+    margin-right: 10px;
+}
+
+.filter-date-range {
+    display: flex;
+}
+
+.filter-date-range-options {
+    flex: 1 1 33.3333%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid $default-border;
+    padding-right: 10px;
+
+    @media (min-width: $screen-sm-min) {
+        .form-group {
+            display: flex;
+            align-items: center;
+
+            label {
+                flex: 0 0 50px;
+                margin-right: 1rem;
+
+                // Account for some alignment issues
+                margin-bottom: 2px;
+                text-align: right;
+            }
+
+            select {
+                flex: 1 1 auto;
+                height: auto;
+                padding: 5px;
+                box-shadow: none;
+            }
+        }
+    }
+
+    .btn-primary {
+        margin-top: auto;
+    }
+}
+
+.filter-date-range-calendar {
+    flex: 1 1 33.3333%;
+    display: flex;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+//
+// Categories
+// --------------------------------------------------
+
+.filter-category-modal {
+    h5 {
+        margin-bottom: 5px;
+        font-size: 16px;
+        font-weight: 400;
+    }
+}
+
+.filter-category {
+    .modal-body &:last-child {
+        margin-bottom: 0;
+    }
+
+    .Select-control {
+        display: flex;
+        border-color: transparent;
+        height: auto;
+
+        &:hover {
+            border-color: $filter-select-border;
+        }
+    }
+
+    .is-focused:not(.is-open) > .Select-control {
+        border-color: $filter-select-border;
+        box-shadow: none;
+    }
+
+    .Select-multi-value-wrapper {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .Select-value {
+        flex: 1 1 auto;
+        background: $filter-select-value-background;
+        border-color: $filter-select-value-border;
+        white-space: nowrap;
+        color: $filter-select-value-color;
+    }
+
+    .Select--multi .Select-value-icon {
+        border-right-color: $filter-select-value-border;
+
+        &:hover {
+            background: $filter-select-value-background;
+            color: $filter-select-value-color;
+        }
+    }
+
+    .Select-input {
+        display: inline-block;
+        max-width: 100%;
+        overflow: hidden;
+        margin-right: 5px;
+
+        input {
+            width: auto;
+        }
+    }
+
+    .Select-arrow-zone,
+    .Select-clear-zone {
+        display: none;
+    }
+
+    .Select-loading-zone {
+        flex: 0 0 auto;
+        margin: 0 1rem;
+        padding-bottom: 5px;
+        align-self: center;
+    }
+
+    .Select-menu-outer {
+        border-color: $filter-select-border;
+    }
+}
+
+.filter-category-columns {
+    @include make-row();
+}
+
+.filter-category-include,
+.filter-category-exclude {
+    @include make-md-column(6);
+
+    margin-bottom: 20px;
+}
+
+.filter-category-description {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.filter-category-selections {
+    border: 1px solid $panel-border;
+    border-radius: $border-radius-base;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+}
+
+//
+// Calendar
+// Author: Rafael Pegorari
+// New layout - MusicTracker2.0
+// --------------------------------------------------
+
+.calendar-filter {
+    display: inline-block;
+    border-radius: 2px;
+    background-color: $white-opacity1;
+    color: $white;
+
+    &__container-range-btn,
+    &__container-range {
+        display: inline-block;
+    }
+
+    &__container-range-btn {
+        padding: 3px 0 5px 10px;
+    }
+
+    &__range-calendar {
+        position: relative;
+        margin: 0 auto;
+    }
+
+    &__container-range {
+        padding: 7px 10px;
+        margin-left: 10px;
+        border-left: 1px solid $white-opacity3;
+    }
+
+    &__range-btn {
+        background: transparent;
+        padding: 0;
+        margin: 0;
+        border-width: 0;
+        font-size: 19px;
+
+        &--disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        &:focus,
+        &:hover,
+        &:active {
+            background: transparent;
+            outline: none;
+        }
+    }
+
+    &__range-calendar-arrow,
+    &__range-calendar-text {
+        display: inline-block;
+    }
+
+    &__range-calendar-arrow {
+        position: relative;
+        top: -1px;
+        background: transparent;
+        padding: 0;
+        margin: 0;
+        border-width: 0;
+        font-size: 12px;
+
+        &:focus,
+        &:hover,
+        &:active {
+            background: transparent;
+            outline: none;
+        }
+
+        &.left {
+            padding: 1px 6px 1px 1px;
+            margin-right: 10px;
+        }
+
+        &.right {
+            padding: 1px 1px 1px 6px;
+            margin-left: 10px;
+        }
+
+        &.disabled {
+            cursor: not-allowed;
+            color: $white-opacity1;
+        }
+    }
+
+    &__range-calendar-text {
+        @extend .p3-bold;
+
+        text-transform: uppercase;
+    }
+}

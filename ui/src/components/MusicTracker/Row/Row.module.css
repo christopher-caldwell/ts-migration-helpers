@@ -1,0 +1,12 @@
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.row > * {
+    height: 40px;
+}
+
+.row:nth-child(odd) {
+    background-color: var(--mt-dark2);
+}

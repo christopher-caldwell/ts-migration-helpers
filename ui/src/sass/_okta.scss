@@ -1,0 +1,61 @@
+.auth-container {
+    &.main-container {
+        background: $dark9 !important;
+        border: 1px solid $dark9 !important;
+        box-shadow: none !important;
+    }
+
+    .beacon-container {
+        border: 1px solid $dark9 !important;
+    }
+
+    .custom-checkbox label {
+        width: auto;
+        height: auto;
+    }
+
+    .custom-checkbox label::after {
+        display: none !important;
+    }
+
+    .o-form-content {
+        .okta-form-label {
+            color: $white-opacity8 !important;
+            font-family: Assistant  !important;
+            padding-bottom: 5px !important;
+        }
+
+        .o-form label {
+            font-size: 12px  !important;
+            font-weight: bold  !important;
+            font-stretch: normal  !important;
+            font-style: normal  !important;
+            line-height: normal  !important;
+            letter-spacing: normal  !important;
+        }
+        h2.okta-form-title {
+            color: $white-opacity8 !important;
+            font-family: Fjalla One,sans-serif !important;
+            font-size: 20px !important;
+            font-weight: normal !important;
+            font-stretch: normal !important;
+            font-style: normal !important;
+            line-height: 1.6 !important;
+            letter-spacing: 0.8px !important;
+            text-align: center !important;
+        }
+
+        o-form-input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 30px #000 inset !important;
+            -webkit-text-fill-color: #fff !important;
+        }
+    }
+
+    .button-primary {
+        background-color: $red !important;
+        background: $red !important;
+        border-color: $red !important;
+        font-weight: bold !important;
+    }
+
+}

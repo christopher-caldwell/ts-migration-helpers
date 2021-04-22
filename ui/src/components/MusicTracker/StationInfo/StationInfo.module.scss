@@ -1,0 +1,35 @@
+.radioStationName {
+    display: inline-block;
+    margin: 0;
+}
+
+.radioSubtitle {
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.radioSubtitleBorderLeft {
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 12px;
+    margin-left: 12px;
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.subtitleContainer {
+    padding-left: 20px;
+    display: inline-block;
+}
+
+.board-header-subtitle {
+    display: inline-block;
+}
+
+.radioTitle {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: baseline;
+    margin: 0;
+    color: #fff;
+}

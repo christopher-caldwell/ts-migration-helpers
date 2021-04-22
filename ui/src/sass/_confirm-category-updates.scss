@@ -1,0 +1,88 @@
+.confirm-updates {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: $dark;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: all 0.5s ease-out;
+    width: calc(100vw - #{$sidebar-width});
+    left: $sidebar-width;
+    padding: 20px 0 60px 30px;
+
+    .btn-close {
+        display: flex;
+        margin-left: auto;
+    }
+
+    &__container {
+        overflow: auto;
+        height: 100%;
+        padding-right: 20px;
+    }
+
+    &__content {
+        margin-bottom: 20px;
+
+        &:first-of-type {
+            margin-top: -30px;
+        }
+        &.no-data {
+            font-size: 16px;
+        }
+    }
+
+    &__song-info-column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__prev-and-new-column {
+        width: 200px;
+    }
+}
+
+.ml-table .confirm-updates {
+    &__song-info-column {
+        border: 0;
+
+        &--name {
+            color: $azure;
+        }
+    }
+
+    &__no-right-border {
+        border-right: none;
+    }
+
+    &__no-left-border {
+        border-left: none;
+    }
+
+    &__restriction {
+        justify-content: center;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__restriction-td {
+        vertical-align: middle;
+    }
+
+    &__restriction-changed {
+        width: 100%;
+        margin-left: 63%;
+    }
+
+    &__button {
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        color: $azure;
+        text-decoration: none;
+        outline: none;
+        padding: 0px;
+    }
+}

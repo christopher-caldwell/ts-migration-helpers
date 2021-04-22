@@ -1,0 +1,70 @@
+//
+// Mixins
+// --------------------------------------------------
+
+// Reset buttons to look and behave like text
+@mixin reset-button-style {
+    background: none;
+    border: 0;
+    padding: 0;
+}
+
+// Reset anchor styles for certain semantic elements
+@mixin reset-anchor-style($color: $text-color) {
+    &,
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+        color: $color;
+        text-decoration: none;
+        font-weight: 300;
+    }
+}
+
+@mixin anchor-styles {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        color: $link-hover-color;
+        text-decoration: $link-hover-decoration;
+    }
+
+    &:focus {
+        @include tab-focus;
+    }
+}
+
+@mixin row-stretch {
+    @media (min-width: $screen-md-min) {
+        display: flex;
+        align-items: stretch;
+    }
+}
+
+@mixin ml-action-button($bg, $color) {
+    padding-left: 30px;
+    padding-right: 30px;
+    background: $bg;
+    border: 0;
+    color: $color;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 2px;
+    letter-spacing: 0.8px;
+
+    &:hover {
+        background: darken($bg, 5%);
+        color: $color;
+    }
+
+    &:focus,
+    &:active {
+        background: darken($bg, 10%);
+        color: $color;
+        outline: none;
+    }
+}

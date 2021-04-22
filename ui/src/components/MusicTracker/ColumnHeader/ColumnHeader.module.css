@@ -1,0 +1,13 @@
+.columnHeader {
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.columnHeaderButton {
+	background: transparent;
+	border: none;
+	outline: none;
+	padding: 5px;
+}

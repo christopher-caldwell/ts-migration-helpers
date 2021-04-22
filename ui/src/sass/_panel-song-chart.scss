@@ -1,0 +1,212 @@
+//
+// Song chart
+// --------------------------------------------------
+
+.song-charts {
+    margin: 10px 0;
+
+    .nav-tabs {
+        border-top-left-radius: $border-radius-base;
+        border-top-right-radius: $border-radius-base;
+        background: $black;
+
+        > li > a {
+            padding-top: 20px;
+            padding-bottom: 4px;
+            text-transform: none;
+        }
+    }
+
+    .tab-content {
+        border-bottom-left-radius: $border-radius-base;
+        border-bottom-right-radius: $border-radius-base;
+        padding: 20px 0 0;
+        background-color: $dark3;
+    }
+}
+
+//
+// Tab navigation items
+// --------------------------------------------------
+
+.song-charts-header {
+    position: relative;
+
+    .panel-tools {
+        position: absolute;
+        right: 15px;
+        top: calc(50% - 10px);
+    }
+
+    .btn-icon {
+        color: $song-charts-header-color;
+
+        &:hover {
+            background: $song-charts-header-hover-bg;
+            color: $song-charts-header-hover-color;
+        }
+
+        &:active,
+        &:focus {
+            background: $song-charts-header-active-bg;
+            color: $song-charts-header-active-color;
+        }
+    }
+
+    .open > .btn-icon {
+        &,
+        &:hover,
+        &:active,
+        &:focus {
+            background: $white-opacity1;
+            color: $song-charts-header-active-color;
+        }
+    }
+}
+
+//
+// Chart header
+// --------------------------------------------------
+
+.song-chart-header {
+    margin-bottom: 30px;
+
+    h3 {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        text-align: center;
+        font-weight: 500;
+    }
+}
+
+.song-chart-filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .form-group {
+        margin-bottom: 0;
+    }
+}
+
+.song-chart-header-songs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.song-chart-header-song {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 110px;
+    margin: 0 20px;
+}
+
+.song-chart-header-song-rank {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: $border-radius-base;
+    color: $song-chart-header-song-rank-color;
+    font-size: 28px;
+    text-align: center;
+}
+
+.song-chart-header-song-title {
+    margin-top: 5px;
+    font-weight: 400;
+    text-align: center;
+}
+
+//
+// Chart main body
+// --------------------------------------------------
+
+.song-chart-songs {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+
+    li {
+        display: flex;
+        align-items: stretch;
+        background-color: $dark2;
+
+        &:nth-child(even) {
+            background-color: $dark3;
+        }
+
+        &.song-chart-song-highlight {
+            background: $dark5;
+
+            a {
+                color: $white;
+            }
+        }
+    }
+}
+
+.song-chart-song-metrics {
+    display: flex;
+    flex: 0 1 125px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+}
+
+.song-chart-song-rank {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.song-chart-song-change {
+    margin-top: -6px;
+    font-size: 20px;
+}
+
+.song-chart-song-previous-rank {
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.song-chart-song-album {
+    width: 100px;
+    height: 100px;
+}
+
+.song-chart-song-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 30px;
+}
+
+.song-chart-song-title {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.song-chart-song-artist {
+    color: #888;
+    font-size: 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+//
+// Expanded modal view
+// --------------------------------------------------
+
+.song-chart-expanded .modal-lg {
+    width: calc(100% - 20px);
+}

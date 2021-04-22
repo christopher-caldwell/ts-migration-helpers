@@ -1,0 +1,64 @@
+.message-page {
+    margin: 0 3.125em;
+    padding: 35px 0;
+}
+
+.message-board-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.message-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-list {
+    padding: 0;
+    width: 100%;
+}
+
+.message-list-item {
+    list-style-type: none;
+    padding: 10px;
+    line-height: 1.5em;
+    background-color: $dark2;
+    font-size: 12px;
+    font-family: 'Assistant', sans-serif;
+    font-weight: 400;
+    width: 100%;
+
+    &:nth-child(even) {
+        background-color: $dark3;
+    }
+}
+
+.message-board-header {
+    display: flex;
+    align-items: center;
+    border-top-left-radius: $border-radius-base;
+    border-top-right-radius: $border-radius-base;
+    padding: 8px 20px 8px 0;
+    background: transparent;
+    transition: background-color 500ms linear;
+    height: 50px;
+    width: 100%;
+    margin-bottom: 15px;
+
+    .message-board-title {
+        flex: 1 1 auto;
+        margin-bottom: 0;
+        color: $music-tracker-header-color;
+        font-weight: 400;
+        margin: 0;
+    }
+}
+
+.message-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

@@ -1,0 +1,250 @@
+.react-select-container {
+    width: 100%;
+
+    .Select-control {
+        border-radius: 1px;
+        border: 1px solid $white-opacity3;
+        background: transparent;
+        box-shadow: none;
+        cursor: pointer;
+
+        &:hover &:focus {
+            border-color: $white-opacity3;
+        }
+    }
+
+    &.is-open > .Select-control,
+    &.is-focused:not(.is-open) > .Select-control,
+    &.is-focused > .Select-control {
+        background-color: transparent;
+        border-color: $white-opacity3;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    &.has-value.Select--single > .Select-control .Select-value .Select-value-label,
+    &.has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label {
+        color: $white;
+    }
+
+    .Select-control:not(.is-searchable) > .Select-input {
+        background-color: transparent;
+        border: none;
+    }
+
+    .Select-input {
+        color: $white;
+    }
+
+    .Select-placeholder,
+    &.Select--single > .Select-control .Select-value {
+        line-height: 1;
+    }
+
+    .Select-placeholder,
+    .Select-value {
+        padding: 4px 10px;
+    }
+
+    .Select-placeholder,
+    .Select-value-label {
+        font-size: 16px;
+        letter-spacing: 0.4px;
+        line-height: 1.63;
+        color: $white;
+    }
+
+    .Select-menu {
+        max-height: none;
+    }
+
+    .Select-menu-outer {
+        background-color: $dark;
+        border-radius: 1px;
+        border: 1px solid $white-opacity3;
+        box-shadow: none;
+        max-height: none;
+        font-size: 14px;
+        z-index: 2;
+    }
+
+    .Select-arrow {
+        border: none;
+        display: block;
+        position: relative;
+        width: 17px;
+        height: 17px;
+        outline: none;
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 10px;
+            height: 2px;
+            background-color: $white;
+            top: 8px;
+        }
+        &:before {
+            transform: rotate(40deg);
+            right: 7px;
+        }
+        &:after {
+            transform: rotate(-40deg);
+            left: 7px;
+        }
+    }
+
+    &.is-open > .Select-control .Select-arrow {
+        top: 0;
+
+        &:before {
+            transform: rotate(-40deg);
+        }
+        &:after {
+            transform: rotate(40deg);
+        }
+    }
+
+    .Select-option {
+        cursor: pointer;
+        border-bottom: 1px solid $white-opacity2;
+        background-color: transparent;
+        color: $white;
+        min-height: 34px;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        &.is-focused {
+            &,
+            &:active {
+                background-color: transparent;
+            }
+
+            &:hover {
+                background-color: $white-opacity05;
+            }
+        }
+
+        &.is-selected {
+            &,
+            &:hover {
+                background-color: $white-opacity1;
+            }
+        }
+    }
+}
+
+.select-disabled {
+    border: 1px solid $white-opacity2;
+    border-radius: 1px;
+    background-color: transparent;
+    color: $white;
+    min-height: 18px;
+    font-size: 16px;
+    letter-spacing: 0.4px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    cursor: not-allowed;
+
+    &__placeholder {
+        margin: 0;
+        padding: 4px 6px;
+    }
+
+    &__arrow {
+        border: none;
+        display: block;
+        position: relative;
+        width: 17px;
+        height: 18px;
+        outline: none;
+        margin-left: auto;
+        margin-right: 5px;
+        opacity: 0.35;
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 10px;
+            height: 2px;
+            background-color: $white;
+            top: 8px;
+        }
+        &:before {
+            transform: rotate(40deg);
+            right: 7px;
+        }
+        &:after {
+            transform: rotate(-40deg);
+            left: 7px;
+        }
+    }
+}
+
+.react-select-container-small {
+    @extend .react-select-container;
+
+    .Select-control {
+        height: 28px;
+    }
+
+    .Select-input {
+        padding-left: 6px;
+        height: 24px;
+    }
+
+    .Select-input > input {
+        font-size: 12px;
+        padding: 0 0 6px;
+        height: 24px;
+    }
+
+    .Select-placeholder,
+    &.Select--single > .Select-control .Select-value {
+        line-height: 24px;
+        padding-left: 6px;
+    }
+
+    .Select-placeholder,
+    .Select-value {
+        line-height: 24px !important;
+        padding: 0 6px;
+    }
+
+    .Select-placeholder,
+    .Select-value-label {
+        line-height: 24px;
+        font-size: 12px;
+        letter-spacing: 0.4px;
+        color: $white;
+    }
+
+    .Select-placeholder {
+        padding-top: 1px;
+    }
+
+    .Select-arrow-zone {
+        width: 18px;
+        padding-right: 2px !important;
+    }
+
+    .Select-arrow {
+        width: 16px;
+        &:before,
+        &:after {
+            width: 6px;
+            height: 1px;
+        }
+    }
+
+    .Select-option {
+        min-height: 18px;
+    }
+}

@@ -1,0 +1,9 @@
+.tableContainer {
+    font-size: 12px;
+    width: 100%;
+    height: calc(100vh - 165px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--mt-black);
+}

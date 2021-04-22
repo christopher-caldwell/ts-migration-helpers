@@ -1,0 +1,221 @@
+//
+// Panel charts
+// --------------------------------------------------
+
+.chart-with-legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.chart-stacked {
+        flex-direction: column;
+    }
+}
+
+.chart-legend {
+    flex: 1 1 auto;
+    display: table;
+    list-style: none;
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0 10px;
+    cursor: default;
+    font-size: 12px;
+
+    > li {
+        display: table-row;
+    }
+
+    .chart-stacked & {
+        flex: 1 1 auto;
+    }
+}
+
+.chart-legend-icon-container,
+.chart-legend-label,
+.chart-legend-value {
+    display: table-cell;
+    padding: 0 10px;
+    vertical-align: middle;
+
+    .chart-legend-flat & {
+        display: inline-block;
+    }
+}
+
+.chart-legend-change {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.chart-legend-flat {
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    > li {
+        display: block;
+
+        .chart-legend-label {
+            padding-left: 5px;
+            padding-right: 15px;
+        }
+
+        &:last-child .chart-legend-label {
+            padding-right: 0;
+        }
+    }
+}
+
+.chart-legend-icon-container {
+    padding: 0;
+}
+
+.chart-legend-icon {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.chart-body {
+    flex: 1 1 auto;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .chart-stacked & {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 10px;
+    }
+
+    .chart-label-series & {
+        height: 100px;
+        margin-bottom: 20px;
+    }
+
+    .col-md-4 & {
+        min-width: 100px;
+    }
+
+    > canvas {
+        width: 100% !important;
+    }
+}
+
+.chart-controls {
+    margin-bottom: 10px;
+
+    .form-control {
+        height: 100%;
+        margin-bottom: 0;
+        background: transparent;
+        border: 1px solid $white;
+        color: $white;
+
+        &:hover,
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        &--dark3 {
+            background: $dark3;
+        }
+    }
+}
+
+//
+// Daypart chart
+// --------------------------------------------------
+
+.panel-daypart {
+    .panel-body {
+        padding: 0;
+
+        > * {
+            padding: 15px;
+        }
+    }
+}
+
+.chart-daypart-controls.chart-controls {
+    display: flex;
+    align-items: center;
+
+    .form-group {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
+
+    label {
+        margin-bottom: 0;
+        margin-right: 1rem;
+    }
+
+    select {
+        height: auto;
+        min-width: 100px;
+        padding: 5px;
+        box-shadow: none;
+    }
+
+    > * {
+        margin-bottom: 0;
+    }
+}
+
+.chart-daypart-total {
+    visibility: hidden; // ML-1059
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.chart-daypart-legend {
+    display: flex;
+    width: 100%;
+    margin-top: -5px;
+    margin-bottom: 15px;
+    padding-left: 42px;
+}
+
+.chart-daypart-legend-all {
+    padding-left: 48px;
+}
+
+.chart-daypart-label {
+    text-align: center;
+    flex: 1 0 0;
+}
+
+.chart-daypart-label-fill {
+    flex-grow: 2;
+}
+
+.chart-daypart-label-all {
+    flex-grow: 1;
+}
+
+.chart-daypart-label-title {
+    font-weight: bold;
+}
+
+.chart-daypart-label-subtitle {
+    color: $chart-daypart-label-subtitle-color;
+    font-style: italic;
+    font-size: 12px;
+}
+
+.modal-panel-daypart {
+    .modal-body {
+        padding: 0;
+
+        > * {
+            padding: 15px;
+        }
+    }
+}

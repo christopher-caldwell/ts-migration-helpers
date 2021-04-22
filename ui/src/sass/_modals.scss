@@ -1,0 +1,142 @@
+//
+// Modals
+// --------------------------------------------------
+
+.modal {
+    .btn-primary {
+        @include ml-action-button($modal-btn-primary-bg, $modal-btn-primary-color);
+    }
+
+    .btn-default:not(.btn-customize) {
+        @include ml-action-button($modal-btn-default-bg, $modal-btn-default-color);
+    }
+
+    .btn-save,
+    .btn-cancel {
+        text-transform: uppercase;
+    }
+
+    //Customize buttons
+    .btn.btn-customize {
+        margin-right: 2rem;
+        background-color: $gray-opacity1;
+        border: 0;
+
+        .icon.fa-cog {
+            font-size: 32px;
+            vertical-align: sub;
+            color: $white;
+        }
+
+        &:focus {
+            outline: 0;
+        }
+    }
+}
+
+.modal-header {
+    background: $modal-header-background;
+    color: $modal-header-color;
+
+    .close {
+        color: $modal-header-color;
+        text-shadow: none;
+        font-weight: 400;
+        font-size: 40px;
+        position: absolute;
+        right: 20px;
+        margin-top: -8px;
+    }
+}
+
+.modal-title {
+    @extend .ellipsis;
+    margin-right: 2rem;
+}
+
+.modal-footer {
+    border-top: 0;
+    background: $modal-footer-bg;
+}
+
+.modal.drag-me {
+    position: fixed;
+    right: auto;
+    bottom: auto;
+    .modal-content {
+        &:hover {
+            cursor: move;
+        }
+    }
+    .modal-header:not(.not-draggable) {
+        padding: 5px 10px;
+        &:hover {
+            background: $nav-tabs-bg;
+        }
+    }
+    .modal-title {
+        margin-left: 0;
+    }
+    .modal-body {
+        padding: 0 5px;
+    }
+    .full-width {
+        width: 100%;
+    }
+    h5 {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: none;
+    }
+    .spins-label {
+        color: #999;
+        font-size: 10px;
+    }
+    .test-date {
+        color: #999;
+        font-size: 10px;
+    }
+    .gauge-info {
+        color: #999;
+        font-size: 15px;
+        float: right;
+        margin-right: 21px;
+    }
+    ul.music-tracker-detail-list {
+        white-space: nowrap;
+        margin-bottom: 0;
+        li {
+            width: 25%;
+        }
+        &.five-column li {
+            width: 20%;
+            text-align: center;
+        }
+    }
+    .similar-station ul {
+        background: white;
+        margin: 0;
+        padding: 0 0 5px;
+        border-bottom: 1px solid #eee;
+    }
+    .gauge-icon {
+        width: 15px;
+        height: 5px;
+        margin-top: 1px;
+        background: #d9d9d9;
+        &.active {
+            background: $music-tracker-quintile-4;
+        }
+    }
+    .empty-label {
+        color: #999;
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+    }
+}
+
+.drag-me-opened {
+    overflow: auto !important;
+    padding-right: 0 !important;
+}

@@ -1,0 +1,74 @@
+@import 'src/sass/variables.scss';
+@import 'src/sass/scrollbars.scss';
+
+.tableContainer {
+	@extend .custom-scrollbars;
+	overflow-y: auto;
+	max-height: calc(100vh - 310px);
+	margin: 0;
+	border-top: 1px solid $white-opacity3;
+}
+
+.table {
+	font-size: 12px;
+
+	&Header {
+		width: 100%;
+		font-weight: bold;
+		position: sticky;
+		top: 0;
+		background: $dark;
+		z-index: 2;
+
+		.tableCol {
+			padding: 12px 20px;
+		}
+	}
+
+	&Content {
+		width: 100%;
+
+		.tableRow {
+			&:nth-child(odd) {
+				background: $white-opacity08;
+			}
+		}
+	}
+
+	&Row {
+		width: 100%;
+		display: flex;
+	}
+
+	&Col {
+		border-right: 1px solid $white-opacity3;
+		display: flex;
+		align-items: center;
+		padding: 5px 20px;
+
+		&:last-child {
+			border-right: 0;
+		}
+	}
+}
+
+.col {
+	&CatCode,
+	&Boolean,
+	&IdealCount {
+		width: 15%;
+		text-align: center;
+		justify-content: center;
+	}
+
+	&CatName,
+	&CatGroup {
+		width: 20%;
+	}
+}
+
+.input {
+	height: 30px;
+	width: 50%;
+	min-width: 60px;
+}

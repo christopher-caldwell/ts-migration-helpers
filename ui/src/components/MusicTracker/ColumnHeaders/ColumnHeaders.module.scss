@@ -1,0 +1,14 @@
+@import 'src/sass/variables.scss';
+
+.columnHeaders {
+    display: flex;
+    border-bottom: 1px solid $mt-border-color;
+    background-color: $mt-dark1;
+    z-index: 1;
+    position: sticky;
+    top: 38px;
+
+    & > * {
+        height: 62px;
+    }
+}

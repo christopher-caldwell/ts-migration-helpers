@@ -1,0 +1,15 @@
+//
+// Related artists panel
+// --------------------------------------------------
+
+.related-artists {
+    .related-artist {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    img {
+        width: 65px;
+        height: 65px;
+    }
+}

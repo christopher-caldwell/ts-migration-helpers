@@ -1,0 +1,116 @@
+//
+// Artist Songs Tab
+// --------------------------------------------------
+
+// positioning summary in filter section per design
+.filter-header-empty {
+    min-height: 70px;
+}
+.artist-songs {
+    .artist-songs-summary {
+        .artist-subtitle {
+            display: flex;
+            align-items: center;
+        }
+
+        .separator {
+            font-size: 6px;
+            margin: 0 6px;
+        }
+    }
+
+    .artist-songs-short-lists {
+        @extend .clearfix;
+
+        margin-top: 6px;
+        margin-bottom: 25px;
+        background: $black-opacity4;
+        padding: 16px 20px;
+    }
+
+    .songs-short-list {
+        width: 50%;
+        float: left;
+
+        .list-title {
+            text-transform: uppercase;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .album-image {
+            height: 50px;
+            width: auto;
+            margin-right: 15px;
+        }
+
+        a {
+            color: $white;
+        }
+
+        p {
+            &:first-of-type {
+                margin-top: 15px;
+            }
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .artist-albums {
+        .album-header {
+            @extend .clearfix;
+        }
+
+        .album-section {
+            margin: 30px 0 50px;
+        }
+
+        .album-name {
+            margin-bottom: 0;
+            line-height: 1;
+        }
+
+        .album-release-date {
+            margin-bottom: 0;
+        }
+
+        .album-image {
+            height: 135px;
+            width: auto;
+            float: left;
+            margin-right: 20px;
+        }
+
+        .album-title {
+            padding-top: 45px;
+        }
+
+        .songs-label {
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 0;
+            background: $black-opacity4;
+            padding: 16px 20px;
+            line-height: 1;
+        }
+
+        .album-songs {
+            p {
+                padding: 10px 20px;
+                margin: 0;
+                background-color: $dark2;
+
+                &:nth-child(even) {
+                    background-color: $dark3;
+                }
+
+                a {
+                    color: $white;
+                }
+            }
+        }
+    }
+}

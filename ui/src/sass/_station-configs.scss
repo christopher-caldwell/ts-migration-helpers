@@ -1,0 +1,469 @@
+.tab-container {
+    padding-left: 0;
+    border-bottom: 1px solid $white-opacity3;
+
+    a {
+        text-decoration-color: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        .tab-item {
+            display: inline-block;
+            color: $white;
+            background: transparent;
+            padding: 8px 15px;
+            font-size: 16px;
+
+            &:hover {
+                color: $navbar-default-link-hover-color;
+                outline: none;
+            }
+
+            &--active {
+                outline: none;
+                position: relative;
+                padding-bottom: 10px;
+
+                &::after {
+                    position: absolute;
+                    content: '';
+                    bottom: -1px;
+                    left: 0;
+                    right: 0;
+                    border-bottom: 3px solid $red;
+                }
+
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    button {
+        background: transparent;
+        border: 0;
+        outline: transparent;
+    }
+}
+
+.station-configs {
+    .confirm-updates {
+        left: 0;
+        width: 100%;
+        padding-top: 60px;
+        z-index: 2;
+
+        &__container {
+            padding-top: 20px;
+        }
+    }
+
+    &--no-data-found {
+        margin-top: 30px;
+    }
+
+    &__table-container {
+        @extend .custom-scrollbars;
+        overflow-y: auto;
+        max-height: calc(100vh - 280px);
+        margin: 0;
+        border-top: 1px solid $white-opacity3;
+    }
+
+    &__table {
+        margin: 0;
+        border-top: 0;
+
+        thead th {
+            position: sticky;
+            top: 0;
+            background: $dark;
+            z-index: 2;
+        }
+    }
+
+    &--bottom-action-opened {
+        padding-bottom: 60px;
+
+        .station-configs__table-container {
+            max-height: calc(100vh - 330px);
+        }
+    }
+
+    /* ####### START PACKETS TABLE ####### */
+    &-packets {
+        &__table-column {
+            &--short-name {
+                position: relative;
+                width: 10%;
+            }
+
+            &--songs {
+                width: 63%;
+                max-width: 0;
+
+                span {
+                    display: block;
+                    @extend .ellipsis;
+                }
+            }
+
+            &--actions {
+                width: 12%;
+
+                .btn-text--disabled {
+                    margin: 0;
+                    cursor: not-allowed;
+                }
+            }
+
+            &--short-name,
+            &--actions {
+                text-align: center;
+            }
+
+            &--long-name {
+                width: 15%;
+                max-width: 0;
+
+                span {
+                    display: block;
+                    @extend .ellipsis;
+                }
+            }
+        }
+    }
+    /* ####### END PACKETS TABLE ####### */
+
+    /* ####### START RESTRICTIONS TABLE ####### */
+    &-restrictions {
+        &__table-column {
+            &--actions {
+                width: 6%;
+
+                .btn-text--disabled {
+                    margin: 0;
+                    cursor: not-allowed;
+                }
+            }
+
+            &--name {
+                position: relative;
+                width: 15%;
+                max-width: 0;
+
+                span {
+                    display: block;
+                    @extend .ellipsis;
+                }
+            }
+
+            &--songs {
+                width: 73%;
+                max-width: 0;
+
+                span {
+                    display: block;
+                    @extend .ellipsis;
+                }
+            }
+
+            &--actions {
+                text-align: center;
+            }
+        }
+
+        &__btn-select {
+            height: 34px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background: transparent;
+            font-size: 16px;
+            color: $tealish-green;
+            border: 0;
+
+            &--selected {
+                color: $red;
+            }
+        }
+
+        &-modal {
+            @extend .p3;
+            line-height: 1.38;
+
+            &__form {
+                margin-bottom: 10px;
+            }
+
+            &__label {
+                @extend .p3-bold;
+                line-height: 1.38;
+                margin-bottom: 0;
+            }
+
+            &__name {
+                @extend .ellipsis;
+                display: block;
+                width: 555px;
+            }
+        }
+    }
+    /* ####### END RESTRICTIONS TABLE ####### */
+
+    /* ####### START DAYPARTS TABLE ####### */
+    &-dayparts {
+        .station-configs__table-container {
+            border-top: 0;
+        }
+
+        &__search-field {
+            margin: 10px 0;
+            float: left;
+            width: 250px;
+        }
+
+        &__search-result {
+            color: $azure;
+            padding: 6px 15px;
+            font-size: 16px;
+            width: auto;
+        }
+
+        &__table-row {
+            display: flex;
+
+            &:first-child {
+                font-weight: bold;
+            }
+
+            &:nth-child(even) {
+                background-color: $white-opacity08;
+            }
+        }
+
+        &__table-col {
+            flex-grow: 1;
+            width: 15%;
+            padding: 8px 20px;
+            line-height: 18px;
+
+            &--ellipsis {
+                @extend .ellipsis;
+                display: block;
+            }
+
+            &--color {
+                width: 5px;
+                padding: 0;
+                flex-grow: initial;
+
+                &-staged {
+                    background-color: $purpley;
+                }
+            }
+
+            &--centered {
+                text-align: center;
+            }
+
+            &--no-song-found {
+                font-weight: normal;
+            }
+
+            &--actions {
+                align-self: center;
+                text-align: center;
+                width: 20%;
+                padding: 0px;
+
+                .calcel-button {
+                    border: 0px;
+                    font-size: 13px;
+                    font-weight: bold !important;
+                    text-transform: uppercase;
+                }
+
+                .btn-text--disabled {
+                    display: inline;
+                    padding: 0 20px;
+                    cursor: not-allowed;
+                }
+            }
+        }
+
+        &__accordion {
+            position: relative;
+
+            .station-configs__status {
+                height: 46px;
+            }
+        }
+
+        &__info {
+            display: flex;
+            position: absolute;
+            right: 15px;
+            z-index: 1;
+            line-height: 46px;
+            padding: 0 25px;
+
+            .btn-text {
+                margin-left: 25px;
+            }
+
+            .btn-text--disabled {
+                margin: 0 0 0 25px;
+                cursor: not-allowed;
+                font-size: 12px;
+            }
+        }
+
+        &__songs-count {
+            margin: 0;
+        }
+    }
+    /* ####### END DAYPARTS TABLE ####### */
+
+    &__add-action {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        padding: 10px 0 10px;
+        margin-left: auto;
+
+        &--no-data-found {
+            justify-content: flex-start;
+            margin-left: 0;
+        }
+    }
+
+    &__input {
+        width: 200px;
+        margin-right: 15px;
+    }
+
+    &__button {
+        height: 36px;
+
+        &.btn-primary {
+            @include ml-action-button($btn-primary-bg, $btn-primary-color);
+            &.disabled {
+                opacity: 0.65;
+                box-shadow: none;
+            }
+            &:not(:last-child) {
+                margin-right: 15px;
+            }
+        }
+    }
+
+    &__error-message {
+        width: 100%;
+        padding: 5px 5px 0;
+        display: none;
+
+        &.ml-error-message {
+            display: block;
+        }
+    }
+
+    .confirm-category-updates__container {
+        width: 100%;
+        left: 0;
+    }
+
+    &__info {
+        display: flex;
+        position: absolute;
+        right: 15px;
+        z-index: 1;
+        line-height: 46px;
+        padding: 0 25px;
+
+        .btn-text {
+            margin-left: 25px;
+        }
+
+        .btn-text--disabled {
+            margin: 0 0 0 25px;
+            cursor: not-allowed;
+            font-size: 12px;
+        }
+    }
+
+    &__songs-count {
+        margin: 0;
+    }
+
+    &__status {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        width: 5px;
+        height: 32px;
+
+        &--waiting {
+            background: $purpley;
+        }
+
+        &--synchronized {
+            background: $tealish-green;
+        }
+
+        &--synchronizing {
+            background: $light-gold;
+        }
+    }
+}
+
+.restriction-table {
+    border-top: 0;
+    margin: 0;
+
+    th {
+        text-align: center;
+    }
+
+    .btn-select-all-hours {
+        background: none;
+        border: 0;
+        padding: 0;
+        align-self: flex-start;
+        position: relative;
+        outline: none;
+    }
+
+    tbody {
+        tr {
+            border-top: 1px solid $white-opacity3;
+
+            &:nth-child(odd) {
+                background: transparent;
+            }
+        }
+
+        td {
+            padding: 0;
+
+            &:first-child {
+                font-weight: bold;
+                text-align: right;
+                padding: 8px 20px;
+            }
+        }
+
+        .btn-select-all-hours {
+            background: none;
+            border: 0;
+            padding: 0;
+            align-self: flex-start;
+            position: relative;
+        }
+    }
+}

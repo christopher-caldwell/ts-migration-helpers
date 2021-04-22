@@ -1,0 +1,146 @@
+//
+// Compare songs panel
+// --------------------------------------------------
+
+.compare-songs-controls {
+    display: flex;
+    margin-bottom: 25px;
+
+    > * {
+        margin: 0 5px;
+
+        &:first-child {
+            flex: 0 1 auto;
+        }
+
+        &:nth-child(2) {
+            flex: 0 1 auto;
+            min-width: 300px;
+        }
+    }
+
+    .empty-label {
+        line-height: 1;
+    }
+
+    .form-control {
+        height: 100%;
+        margin-bottom: 0;
+        background: transparent;
+        border: 1px solid $white;
+        color: $white;
+
+        &:hover,
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        &--dark3 {
+            background: $dark3;
+        }
+    }
+
+    .Select-control,
+    .Select-value-label {
+        white-space: nowrap;
+    }
+
+    .Select-control {
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+        border: 1px solid $white;
+    }
+
+    .Select-input {
+        > input {
+            color: $white;
+        }
+    }
+
+    .Select.is-focused {
+        > .Select-control {
+            background: $dark3;
+        }
+    }
+
+    .Select.is-focused:not(.is-open) > .Select-control {
+        border-color: $white;
+        box-shadow: none;
+    }
+
+    .Select.is-open {
+        > .Select-control {
+            border-color: $white;
+
+            .Select-arrow {
+                border-color: transparent transparent $white;
+            }
+        }
+    }
+
+    .Select-arrow-zone {
+        &:hover {
+            .Select-arrow {
+                border-color: $white transparent transparent;
+            }
+        }
+
+        .Select-arrow {
+            border-color: $white transparent transparent;
+        }
+    }
+
+    .Select-menu-outer {
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+        background-color: $dark3;
+        border: 1px solid $white;
+        box-shadow: none;
+    }
+
+    .Select-option {
+        background-color: $dark3;
+        color: $white;
+
+        &:hover {
+            background-color: $dark5;
+        }
+    }
+
+    .Select--multi {
+        .Select-value-icon {
+            border-color: $white;
+
+            &:hover {
+                background-color: transparent;
+                color: $white;
+            }
+        }
+
+        .Select-value {
+            background-color: transparent;
+            border-color: $white;
+            color: $white;
+        }
+    }
+
+    .Select-multi-value-wrapper {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .Select-clear-zone {
+        display: none;
+    }
+}
+
+.compare-songs-chart {
+    margin: 0 5px;
+
+    .chart-body {
+        height: 250px;
+    }
+}

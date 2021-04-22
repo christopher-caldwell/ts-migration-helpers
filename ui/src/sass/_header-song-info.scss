@@ -1,0 +1,107 @@
+.header-song {
+    &__container {
+        display: flex;
+        height: 0;
+        transition: height 0.2s ease-out;
+        overflow: hidden;
+
+        &--open {
+            height: 150px;
+        }
+    }
+
+    &__content {
+        .chart-stacked .chart-body {
+            height: 110px;
+            margin: 0;
+        }
+
+        flex: 50%;
+        font-weight: 400;
+        height: 150px;
+
+        h4,
+        h5 {
+            margin: 0;
+        }
+
+        .artist-info {
+            margin: 0 0 21px 0;
+
+            .p3 {
+                color: $white-opacity8;
+                font-weight: 400;
+            }
+        }
+
+        .chart-title {
+            margin: 0 20px;
+        }
+    }
+
+    &__btn-close {
+        @extend .btn-close;
+
+        position: absolute;
+        right: 30px;
+        top: 15px;
+    }
+}
+
+.song-info {
+    .ml-box-flex__content {
+        margin: 0 15px;
+    }
+
+    .music-tracker-quintile {
+        height: 26px;
+        line-height: 26px;
+        margin: 0 auto 5px;
+        max-width: 60px;
+        padding: 0;
+        font-weight: normal;
+    }
+
+    .tier {
+        align-items: flex-start;
+        height: auto;
+
+        & > .arrow {
+            margin: 7px 0 0 8px;
+        }
+    }
+
+    .crg-square {
+        border-radius: 3px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        width: 60px;
+
+        span {
+            padding: 2px;
+        }
+
+        .crg-selected {
+            color: $tealish-green;
+        }
+    }
+}
+
+.lifecycle-tooltip {
+    &__title {
+        margin: 0 0 20px 0;
+    }
+
+    &__container {
+        border: 1px solid $white;
+        padding: 15px;
+        width: 380px;
+        border-radius: 1.5px;
+        box-shadow: 0 2px 15px 0 $black-opacity75;
+        background-color: $dark;
+        border: solid 0.5px $white-opacity5;
+
+        h5 {
+            margin: 0;
+        }
+    }
+}

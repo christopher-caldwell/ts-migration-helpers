@@ -1,0 +1,329 @@
+$container-width: 312px;
+$header-height: 56px;
+$actions-height: 50px;
+$main-header: 60px;
+
+.aside-modal {
+    position: fixed;
+    background: $dark6;
+    box-sizing: border-box;
+    height: 100%;
+    width: calc(#{$container-width} + 5px); // 5px - scrollbars width
+    z-index: 1100;
+    right: -#{$container-width};
+    top: #{$main-header};
+    transition: all 0.5s ease-out;
+    box-shadow: 0 2px 20px 0 $black-opacity4;
+
+    .modal-content-container {
+        .Select-menu-outer {
+            @extend .custom-scrollbars--thin;
+            overflow: auto;
+            max-height: 180px;
+        }
+    }
+
+    &--open {
+        right: 0;
+    }
+
+    &__header {
+        padding: 2px 20px;
+        width: 100%;
+        height: $header-height;
+        background: $dark3;
+
+        .btn-close {
+            position: absolute;
+            right: 20px;
+            top: 14px;
+        }
+    }
+
+    &__sub-header {
+        padding: 2px 20px;
+
+        &--title {
+            font-family: $font-family-base;
+            font-weight: bold;
+        }
+    }
+
+    &__content {
+        height: calc(100vh - #{$header-height});
+        padding-bottom: #{$actions-height};
+    }
+
+    &__children-content {
+        @extend .custom-scrollbars--thin;
+        overflow: auto;
+        height: calc(100vh - (#{$actions-height} + #{$header-height} + #{$main-header}));
+    }
+
+    &__search-result {
+        margin: 0 20px;
+    }
+
+    .search-field {
+        padding: 20px;
+    }
+
+    .actions {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: #{$container-width};
+        height: #{$actions-height};
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        background: $dark6;
+        padding: 0 10px;
+
+        .btn-primary {
+            @include ml-action-button($btn-primary-bg, $btn-primary-color);
+            &.disabled {
+                background-color: $red-oxide;
+            }
+        }
+
+        .btn-default:not(.btn-customize) {
+            @include ml-action-button($btn-default-bg, $btn-default-color);
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .btn {
+            margin: 0 5px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+
+    &__search-result {
+        margin: 0 20px;
+    }
+
+    .search-field {
+        padding: 20px;
+    }
+
+    .search-song {
+        border-top: 1px solid $white-opacity3;
+    }
+
+    .song-details {
+        border: 1px solid $white-opacity3;
+        border-radius: 2px;
+        margin: 0 20px 20px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        position: relative;
+
+        .react-select-container {
+            margin-top: 10px;
+        }
+
+        &--info {
+            margin: 0;
+            width: 190px;
+        }
+
+        &.percentage-enabled {
+            padding-right: 22px;
+
+            .song-details--info {
+                width: 155px;
+            }
+
+            .btn-text {
+                position: absolute;
+                right: 0;
+            }
+        }
+
+        button {
+            font-size: 18px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .x-button {
+            width: 12px;
+            height: 12px;
+
+            &:before,
+            &:after {
+                width: 12px;
+                top: 5px;
+                background: $azure;
+            }
+        }
+
+        .percentage {
+            width: 72px;
+            height: 41px;
+            border: solid 1px $white-opacity3;
+            border-radius: 3px;
+            display: flex;
+            line-height: 0;
+            font-weight: 700;
+
+            span {
+                line-height: 37px;
+                padding-right: 4px;
+                font-size: 16px;
+            }
+
+            &__buttons {
+                width: 23px;
+                height: 39px;
+                border-left: solid 1px $white-opacity3;
+                display: flex;
+                flex-direction: column;
+
+                .btn-plus,
+                .btn-minus {
+                    background: transparent;
+                    font-size: 18px;
+                    color: $azure;
+                    border: 0;
+                    height: 20px;
+                    line-height: 0;
+                    margin: 0;
+                    outline: none;
+                }
+
+                .btn-plus {
+                    border-bottom: solid 1px $white-opacity3;
+                }
+            }
+
+            &__field {
+                @extend .p3;
+                overflow: hidden;
+                text-align: center;
+                background: transparent;
+                border: 0;
+                outline: none;
+            }
+
+            input[type='number']::-webkit-inner-spin-button,
+            input[type='number']::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+
+        &__categories {
+            align-items: center;
+            justify-content: center;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            font-size: 12px;
+            border-radius: 1px;
+            opacity: 0.5;
+            width: 28px;
+            height: 22px;
+            padding: 0 1px;
+            border: 1px solid $white;
+            line-height: 22px;
+            text-align: center;
+        }
+    }
+
+    .mt-song-detail {
+        margin: 0 20px;
+    }
+    .mt-restriction-container {
+        margin-top: 20px;
+    }
+
+    .no-packet-songs {
+        padding: 0 0 10px 40px;
+    }
+
+    .template-song {
+        height: 100%;
+
+        @extend .p3;
+        line-height: 1.38;
+
+        &__header {
+            padding: 20px 0;
+
+            .template-song__label {
+                margin-bottom: 0;
+            }
+        }
+
+        &__name {
+            @extend .ellipsis;
+            display: block;
+            width: 312px;
+            padding: 0 20px;
+        }
+
+        &__label {
+            @extend .p3-bold;
+            line-height: 1.38;
+            padding: 0 20px;
+            margin-bottom: 15px;
+        }
+
+        .Select-value {
+            padding-right: 32px;
+        }
+
+        &__songs {
+            &--selected {
+                .song-details {
+                    border-color: $azure;
+                    background: $white-opacity1;
+                }
+            }
+        }
+    }
+
+    .thin-border {
+        border-top: 1px solid $white-opacity5;
+        padding: 10px 0 0 20px;
+    }
+}
+
+.template-song > .restriction-aside > .Select-control {
+    margin: 0 0 30px 20px;
+    padding: 0;
+    width: 200px;
+}
+
+.packet-select {
+    margin: 0px 15px;
+    width: 90%;
+}
+
+.packet-song-card {
+    margin-bottom: 10px;
+}
+
+.restriction-hours-container {
+    @extend .custom-scrollbars--thin;
+    overflow: scroll;
+    height: calc(100vh - 375px);
+}
+
+.aside-modal .aside-modal-bottom-bar {
+    bottom: 60px;
+}
+
+.no-content-overflow {
+    overflow: hidden;
+}
+
+.restriction-modal-days {
+    margin-left: 20px;
+}

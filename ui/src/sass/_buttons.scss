@@ -1,0 +1,344 @@
+//
+// Buttons
+// --------------------------------------------------
+button[disabled] {
+    cursor: not-allowed;
+}
+
+.btn-icon {
+    padding: 0 5px;
+    border: 0;
+    background: $dark3;
+    color: $btn-icon-color;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: $btn-icon-hover-color;
+    }
+}
+
+.ml-btn-icon {
+    @extend .btn-icon;
+
+    background: $dark7;
+    color: $white;
+    height: 36px;
+    width: 36px;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: $white;
+        outline: none;
+    }
+
+    &--disabled {
+        opacity: 0.6;
+    }
+}
+
+.ml-btn-icon-selected {
+    color: $azure;
+    &:hover,
+    &:active,
+    &:focus {
+        color: $azure;
+        outline: none;
+    }
+}
+
+.btn-anchor {
+    @include reset-button-style();
+    max-width: 100%;
+    font-size: 12px;
+    font-weight: bold;
+    color: $azure;
+
+    &.quintile-wrapper:hover {
+        text-decoration: none;
+        opacity: 0.5;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.btn-text {
+    @extend .btn-anchor;
+    @extend .ellipsis;
+
+    &--disabled {
+        color: $azure-opacity3;
+    }
+}
+
+//
+// Dual buttons
+// --------------------------------------------------
+
+.btn-dual {
+    @include reset-button-style();
+
+    display: flex;
+    align-items: center;
+    margin: 0 1px;
+    border-radius: $border-radius-base;
+    box-shadow: 0 0 1px 0 $btn-dual-shadow-color;
+    color: $btn-dual-color;
+    text-transform: uppercase;
+
+    &:hover {
+        .btn-dual-icon,
+        .btn-dual-name {
+            border-color: darken($btn-default-border, 10%);
+        }
+    }
+
+    &:active {
+        .btn-dual-icon,
+        .btn-dual-name {
+            border-color: darken($btn-default-border, 20%);
+        }
+
+        .btn-dual-name {
+            box-shadow: inset 0 3px 5px $btn-dual-active-shadow-color;
+        }
+    }
+}
+
+.btn-dual-icon,
+.btn-dual-name {
+    border: 1px solid $btn-default-border;
+    padding: 6px 12px;
+    font-weight: 400;
+}
+
+.btn-dual-icon {
+    border-top-left-radius: $border-radius-base;
+    border-bottom-left-radius: $border-radius-base;
+    background: $btn-dual-icon-bg;
+}
+
+.btn-dual-name {
+    border-top-right-radius: $border-radius-base;
+    border-bottom-right-radius: $border-radius-base;
+    border-left: 0;
+    background: $btn-dual-name-bg;
+}
+
+//
+// Multi-select button
+// --------------------------------------------------
+
+.multiselect-btn {
+    &,
+    > .btn-group {
+        max-width: 100%;
+    }
+
+    .dropdown-toggle {
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .checkbox {
+        margin: 0;
+
+        label {
+            font-weight: 300;
+        }
+    }
+}
+
+// X Button
+
+.x-button {
+    display: block;
+    position: relative;
+    width: 17px;
+    height: 17px;
+    outline: none;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 17px;
+        height: 2px;
+        background-color: #fff;
+        top: 8px;
+        left: 0;
+        right: 0;
+    }
+    &:before {
+        transform: rotate(45deg);
+    }
+    &:after {
+        transform: rotate(-45deg);
+    }
+}
+
+.btn-close {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    width: 23px;
+    height: 23px;
+
+    .x-button {
+        width: 23px;
+        height: 23px;
+
+        &:before,
+        &:after {
+            content: '';
+            width: 24px;
+            height: 3px;
+            top: 10px;
+        }
+    }
+}
+
+//dropdown
+.custom-dropdown {
+    .ml-btn-dropdown {
+        border: none;
+        cursor: pointer;
+        padding: 0;
+
+        .ml-btn-dropdown-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            width: auto;
+        }
+
+        .icon:last-child {
+            border-left: 1px solid $white-opacity1;
+            padding-left: 5px;
+            margin-left: 5px;
+        }
+        &.btn {
+            padding: 0;
+        }
+    }
+
+    .dropdown-menu {
+        padding: 0;
+        box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.4);
+        background-color: #13192a;
+
+        .dropdown-body {
+            &__header {
+                padding: 5px 15px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                &.set-border {
+                    border-bottom: 1px solid $white-opacity2;
+                }
+            }
+
+            &__title {
+                margin: 0;
+                font-weight: 700;
+            }
+
+            &__reset {
+                cursor: pointer;
+                border: none;
+                background: transparent;
+                color: $azure;
+                text-decoration: none;
+                outline: none;
+            }
+        }
+    }
+}
+
+.back-button {
+    border: none;
+    display: block;
+    width: 36px;
+    height: 25px;
+    outline: none;
+    transform: rotate(270deg);
+    transition: all 0.3s ease-out;
+    background: transparent;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 15px;
+        height: 4px;
+        background-color: $white;
+        top: 8px;
+    }
+    &:before {
+        transform: rotate(40deg);
+        right: 6px;
+    }
+    &:after {
+        transform: rotate(-40deg);
+        left: 6px;
+    }
+}
+
+.versions.popover {
+    border: 2px solid gray;
+    border-radius: 4px;
+}
+
+.versions.popover .close {
+    color: white;
+}
+
+.versions.popover .close:hover {
+    color: #01a5ff;
+}
+
+.versions.popover .popover-title {
+    background-color: #13192a;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+
+.versions .popover-content {
+    background: #13192a;
+    padding-left: 30px;
+}
+
+.versions .arrow:before {
+    content: none;
+}
+
+.version.btn-anchor {
+    font-weight: bold;
+}
+
+.dropdown-txt-cell {
+    font-weight: 700;
+    font-weight: bold;
+}
+
+.version.btn-anchor {
+    display: flex;
+
+    .fixed {
+        max-width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex: 1;
+        font-size: 12px;
+        font-weight: 700;
+    }
+}

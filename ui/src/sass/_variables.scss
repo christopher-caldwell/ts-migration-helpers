@@ -1,0 +1,283 @@
+//
+// Variables
+// --------------------------------------------------
+
+//== Colors
+$white: #fff;
+$white-opacity05: rgba(255, 255, 255, 0.05);
+$white-opacity08: rgba(255, 255, 255, 0.08);
+$white-opacity09: rgba(255, 255, 255, 0.09);
+$white-opacity1: rgba(255, 255, 255, 0.1);
+$white-opacity2: rgba(255, 255, 255, 0.2);
+$white-opacity3: rgba(255, 255, 255, 0.3);
+$white-opacity4: rgba(255, 255, 255, 0.4);
+$white-opacity5: rgba(255, 255, 255, 0.5);
+$white-opacity6: rgba(255, 255, 255, 0.6);
+$white-opacity7: rgba(255, 255, 255, 0.7);
+$white-opacity8: rgba(255, 255, 255, 0.8);
+$gray-opacity1: rgba(255, 255, 255, 0.1);
+$black: #000;
+$black-opacity3: rgba(0, 0, 0, 0.3);
+$black-opacity4: rgba(0, 0, 0, 0.4);
+$black-opacity5: rgba(0, 0, 0, 0.5);
+$black-opacity75: rgba(0, 0, 0, 0.75);
+$dark-opacity08: rgba(19, 25, 42, 0.8);
+$dark: #13192a;
+$dark2: #111119;
+$dark3: #1b1c24;
+$dark4: #282739;
+$dark5: #3a3939;
+$dark6: #222636;
+$dark7: #383949;
+$dark8: #05070c;
+$dark9: #0e1014;
+$dark10: #13141b;
+$dark11: #1e1d2a;
+$dark12: #0b0e17;
+$dark13: #2a2a33;
+$azure: #01a5ff;
+$azure-opacity3: rgba(1, 165, 255, 0.3);
+$azure-opacity9: rgba(1, 165, 255, 0.9);
+$gray-opacity9: rgba(64, 68, 82, 0.9);
+$bright-cyan: #57ffee;
+$red: #e90105;
+$neon-red: #ff0f43;
+$tealish-green: #11d373;
+$light-gold: #ffe657;
+$pinkish-orange: #fe7033;
+$purpley: #946aed;
+$purple: #a900f1;
+$warm-purple: #a22378;
+$squash: #eba115;
+$lavender: #d7b8f3;
+$strong-pink: #ff0d79;
+$cornflower-blue: #6c79e0;
+$aqua: #11d5e3;
+$gray1: #423a4b;
+$gray2: #696875;
+$red-oxide: #690303;
+
+$link-color: $azure;
+
+// Fonts
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+$fa-font-path: '../assets/font-awesome';
+
+// Typography
+$font-family-sans-serif: 'Assistant', sans-serif;
+$font-family-base: $font-family-sans-serif;
+$font-size-h1: 64px;
+$font-size-h2: 48px;
+$font-size-h3: 36px;
+$font-size-h4: 24px;
+$font-size-h5: 20px;
+$font-size-h6: 16px;
+
+$headings-font-family: 'Fjalla One', sans-serif;
+$headings-font-weight: 400;
+$headings-line-height: 1.4;
+$headings-color: $white;
+
+// Tooltip
+$tooltip-bg: $dark;
+$tooltip-max-width: 255px;
+$tooltip-opacity: 1;
+
+// Container - Padding
+$grid-gutter-width: 30px;
+
+// Themes
+$brand-primary: #d00202;
+$brand-dark: darken($brand-primary, 7%);
+$brand-darker: darken($brand-primary, 15%);
+$compare-0: $brand-primary;
+$compare-1: #0000cf;
+$text-muted: #777;
+
+// Scaffolding
+$default-border: #e5e5e5;
+$body-bg: $dark;
+$text-color: $white;
+$border-radius-base: 2px;
+$border-radius-large: 2px;
+$border-radius-small: 2px;
+
+// Navbar
+$navbar-height: 60px;
+$navbar-default-bg: $black;
+$navbar-default-color: $white;
+$navbar-default-toggle-bg: $brand-primary;
+$navbar-default-toggle-hover-bg: darken($brand-primary, 5%);
+$navbar-default-border: transparent;
+$navbar-default-link-color: $white;
+$navbar-default-link-hover-bg: transparent;
+$navbar-default-link-active-bg: transparent;
+$navbar-default-link-hover-color: $white-opacity5;
+$navbar-default-link-active-color: $navbar-default-color;
+
+// Buttons
+$btn-default-border: $default-border;
+$btn-icon-color: #222;
+$btn-icon-hover-color: #111;
+$btn-dual-shadow-color: rgba(0, 0, 0, 0.1);
+$btn-dual-active-shadow-color: rgba(0, 0, 0, 0.5);
+$btn-dual-color: #000;
+$btn-dual-icon-bg: $white;
+$btn-dual-name-bg: #eee;
+$btn-primary-bg: $red;
+$btn-primary-color: $white;
+$btn-default-bg: transparent;
+$btn-default-color: $white;
+
+// Modals
+$modal-header-background: $black;
+$modal-header-color: $white;
+$modal-btn-primary-bg: $red;
+$modal-btn-primary-color: $white;
+$modal-btn-default-bg: transparent;
+$modal-btn-default-color: $white;
+$modal-footer-bg: $black;
+$modal-content-bg: $dark;
+$modal-header-border-color: none;
+
+// Home page
+$home-board-comparison-bg: #333;
+$home-board-comparison-value-color: $white;
+$home-board-comparison-label-color: #ccc;
+$home-board-radio-color: #000;
+
+// Board page
+$board-title-img-bg: $white;
+$board-header-color: $white;
+
+// Tabs
+$nav-tabs-bg: #ac0101;
+$nav-tabs-color: $white;
+$nav-tabs-border-color: $white;
+$nav-tabs-disabled-color: darken($nav-tabs-color, 20%);
+
+// Filters
+$filter-bg: $white;
+$filter-range-arrow-color: $brand-primary;
+$filter-calendar-edge-bg: $brand-primary;
+$filter-calendar-interior-bg: #333;
+$filter-calendar-selected-color: $white;
+$filter-select-border: #eee;
+$filter-select-value-background: #eee;
+$filter-select-value-border: #ddd;
+$filter-select-value-color: #333;
+$filter-select-value-hover-color: #111;
+
+// Metric lines
+$metric-change-neutral: #777;
+$metric-change-positive: #7ed321;
+$metric-change-negative: #d00202;
+
+// React Select control
+$select-custom-option-sub-color: #999;
+
+// Panels
+$panel-bg: $dark3;
+$panel-border-radius: 0;
+$panel-default-text: $white;
+
+$panel-border-top: $brand-primary;
+$panel-border: $default-border;
+$panel-box-shadow: rgba(0, 0, 0, 0.05);
+$panel-background: $white;
+$panel-header-color: $text-muted;
+$panel-can-drop-bg: #fcfce8;
+$panel-can-drop-border: #ccc;
+$panel-is-active-bg: #cdffcd;
+$panel-is-active-border: #008000;
+$panel-control-background: #f9f9f9;
+
+// Daypart panel
+$chart-daypart-label-subtitle-color: #999;
+
+// iHeartRadio Digital Thumbs
+$iheart-radio-song-thumbs-up-color: $brand-primary;
+$iheart-radio-song-thumbs-down-color: #333;
+
+// Song charts
+$song-charts-nav-tabs-bg: #d00202;
+$song-charts-nav-tabs-content-bg: $white;
+$song-charts-header-color: #ddd;
+$song-charts-header-hover-color: $white;
+$song-charts-header-hover-bg: #ff4d4d;
+$song-charts-header-active-color: $white;
+$song-charts-header-active-bg: #ff3434;
+$song-chart-header-song-rank-color: $white;
+$song-chart-song-bg: #f5f8f9;
+$song-chart-song-highlight-bg: #f8e71c;
+
+// Powerplaylist panel
+$ppl-header-color: $white;
+$ppl-body-bg: #eee;
+
+// Music Tracker
+$music-tracker-header-bg: $brand-primary;
+$music-tracker-header-songs-selected-bg: $dark5;
+$music-tracker-header-color: $white;
+$music-tracker-export-pdf-bg: #000;
+$music-tracker-export-pdf-color: $white;
+$music-tracker-quintile-undefined: $white;
+$music-tracker-quintile-color: $white;
+$music-tracker-quintile-1: #00af23;
+$music-tracker-quintile-2: #0ca9aa;
+$music-tracker-quintile-3: #b8d02c;
+$music-tracker-quintile-4: #ff8a0d;
+$music-tracker-quintile-5: #ba384a;
+$music-tracker-table-header-primary-bg: #f6f6f6;
+$music-tracker-table-header-secondary-bg: $white;
+$music-tracker-table-header-secondary-color: #777;
+$music-tracker-border-color: #d3d3d3;
+$music-tracker-table-category-modified-color: #946aed;
+$music-tracker-table-category-carryover-color: #00af23;
+$music-tracker-table-border-color: #ddd;
+$music-tracker-table-popup-close-color: #ddd;
+$music-tracker-table-popup-close-hover-color: #aaa;
+$music-tracker-table-popup-body-color: $white;
+$music-tracker-table-popup-footer-color: #f7f7f7;
+$music-tracker-table-popup-cancel-color: #777;
+$music-tracker-table-popup-cancel-bg: $white;
+$music-tracker-table-save-color: $white;
+$music-tracker-table-save-bg: $modal-btn-primary-bg;
+$music-tracker-detail-overview-bg: $black;
+$music-tracker-empty-category-color: #d00202;
+$music-tracker-detail-respondents-under-color: #cc1931;
+$music-tracker-mscore-positive: $music-tracker-quintile-1;
+$music-tracker-mscore-negative: $brand-primary;
+
+// Music Tracker customization
+$music-tracker-customize-tab-border: $brand-primary;
+
+// Playlist Overview
+$playlist-bg: $white;
+$playlist-border-color: $music-tracker-border-color;
+
+// Category Sidebar
+$sidebar-width: 278px;
+
+//Tier
+$UP: #00af23;
+$SU: #0ca9aa;
+$FL: #a1a3a5;
+$SD: #ff8a0d;
+$DN: #ba384a;
+
+// Pagination component
+$pagination-bg: $dark3;
+$pagination-border: $dark3;
+$pagination-color: $white;
+$pagination-disabled-bg: $dark3;
+$pagination-hover-bg: $white-opacity4;
+$pagination-hover-color: $black;
+$pagination-hover-border: black;
+$pagination-disabled-color: $white-opacity4;
+$pagination-disabled-border: $dark3;
+
+//dropdown
+$dropdown-header-color: $white;
+$dropdown-link-hover-bg: transparent;
+$dropdown-link-active-bg: transparent;

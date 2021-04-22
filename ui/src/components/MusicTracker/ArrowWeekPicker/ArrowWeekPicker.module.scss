@@ -1,0 +1,39 @@
+.arrowPicker {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.arrowButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 10px;
+}
+
+.arrowButton[disabled] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: not-allowed;
+    color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+}
+
+.arrowIcon {
+    font-size: 12px;
+}
+
+.dateText {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.8px;
+    user-select: none;
+}

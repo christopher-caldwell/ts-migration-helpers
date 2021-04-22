@@ -1,0 +1,44 @@
+//
+// iHeartRadio digital thumbs panel
+// --------------------------------------------------
+
+.iheart-radio-song-thumbs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+
+    .progress {
+        flex: 1 1 auto;
+        height: 10px;
+        background: $iheart-radio-song-thumbs-down-color;
+        margin: 0 10px;
+        border-radius: 0;
+    }
+
+    .progress-bar {
+        background: $iheart-radio-song-thumbs-up-color;
+    }
+}
+
+.iheart-radio-song-title {
+    font-weight: bold;
+    text-align: center;
+}
+
+.iheart-radio-song-thumbs-up,
+.iheart-radio-song-thumbs-down {
+    flex: 0 0 60px;
+
+    > * {
+        margin: 0 5px;
+    }
+}
+
+.iheart-radio-song-thumbs-up .fa {
+    color: $iheart-radio-song-thumbs-up-color;
+}
+
+.iheart-radio-song-thumbs-down .fa {
+    color: $iheart-radio-song-thumbs-down-color;
+}
