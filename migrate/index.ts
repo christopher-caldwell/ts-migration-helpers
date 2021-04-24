@@ -39,7 +39,14 @@ const gatherCommands = (runTimeDependencies: string[]): Command[] => {
       baseCommand,
     })
   }
-  return commands
+  return [
+    ...commands,
+    {
+      // Required to use ts-migrate
+      baseCommand: 'yarn add -D typescript ts-migrate',
+      dependency: '',
+    }
+  ]
 }
 
 const installTypesAndGatherStubs = (commands: Command[], execSyncOptions: ExecSyncOptions): string[] => {
