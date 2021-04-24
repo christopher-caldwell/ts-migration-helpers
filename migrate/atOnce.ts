@@ -1,7 +1,7 @@
 import { relative } from 'path'
 import { readFileSync } from 'fs'
 import { execSync, ExecSyncOptions } from 'child_process'
-import { cyan, red, green } from 'colors'
+import { cyan, red } from 'colors'
 
 const parseCliArgs = (): ExecSyncOptions => {
   const baseArgs: Record<string, string> = {}
@@ -29,11 +29,10 @@ const getRuntimeDependencies = (pathToPackageJson: string): string[] => {
 }
 
 const gatherCommands = (runTimeDependencies: string[]): Command[] => {
-  console.log('Adding types for', green(runTimeDependencies.length.toString()), 'dependencies. This will take a hot minute.')
   const commands: Command[] = []
   for (const dependency of runTimeDependencies) {
     if (dependency.includes('@')) continue
-    const baseCommand = `yarn --silent add -D @types/${dependency}`
+    const baseCommand = `@types/${dependency}`
     commands.push({
       dependency,
       baseCommand,
@@ -44,29 +43,30 @@ const gatherCommands = (runTimeDependencies: string[]): Command[] => {
 
 const installTypesAndGatherStubs = (commands: Command[], execSyncOptions: ExecSyncOptions): string[] => {
   const stubTypes: string[] = []
-  commands.forEach(({ baseCommand, dependency }) => {
-    console.log(cyan(`\nRunning "${baseCommand}"`))
-    try {
-      execSync('touch out.txt', execSyncOptions)
-      execSync(`${baseCommand} > out.txt 2>&1`, execSyncOptions)
-      const res = execSync(`grep "stub" out.txt`, execSyncOptions)
-      if (res?.toString().includes('stub')) {
-        console.log(red(`"${dependency}"`), 'is a stubbed type. Adding to removal list')
-        stubTypes.push(`@types/${dependency}`)
-      }
-    } catch (error) {
-      // console.error(red('Error trying to install types'), error)
-      // don't care. Means there are no types or the grep failed
+  const stringSpacedTypes = commands.reduce((accumulator, { baseCommand }) => `${accumulator} ${baseCommand}`, '')
+
+  console.log('stringSpacedTypes', stringSpacedTypes)
+
+  try {
+    execSync('touch out.txt', execSyncOptions)
+    execSync(`yarn --silent add -D ${stringSpacedTypes} --prefer-offline > out.txt 2>&1`, execSyncOptions)
+    const res = execSync(`grep "stub" out.txt`, execSyncOptions)
+    console.log('res', res?.toString())
+    if (res?.toString().includes('stub')) {
+      // console.log(red(dependency), 'is a stubbed type. Adding to removal list')
+      // stubTypes.push(`@types/${dependency}`)
     }
-  })
+  } catch (error) {
+    //
+  }
+
   return stubTypes
 }
 
 const removeStubs = (stubTypes: string[], execSyncOptions: ExecSyncOptions) => {
   if (!stubTypes.length) return
-  console.log('\nRemoving', green(stubTypes.length.toString()), 'stubbed types'))
-  execSync(`yarn --silent remove ${stubTypes.join(' ')} > out.txt 2>&1`, execSyncOptions)
-  execSync(`rm out.txt`, execSyncOptions)
+  console.log(cyan(`Removing ${stubTypes.length} stubbed types`))
+  execSync(`yarn --silent remove ${stubTypes.join(' ')}`, execSyncOptions)
 }
 
 const main = () => {
