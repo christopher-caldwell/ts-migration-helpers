@@ -1,5 +1,9 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
 import React from 'react';
 
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
 import { OverlayTrigger } from 'react-bootstrap';
 
@@ -138,7 +142,9 @@ test('should call buildCustomTooltip', () => {
         catChange: true,
     };
     const component = shallow(<CategoryItem {...contextProps} />);
+    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ type: string; title: string; message: stri... Remove this comment to see the full error message
     const instance = component.instance();
+    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ type: string; title: string; message: stri... Remove this comment to see the full error message
     const { sNm, aNm, version_name, gs_category } = instance.props.song;
 
     jest.spyOn(instance, 'buildCustomTooltip');
@@ -146,12 +152,16 @@ test('should call buildCustomTooltip', () => {
     expect(instance.buildCustomTooltip).toHaveBeenCalled();
     expect(instance.buildCustomTooltip()).toEqual(
         <CustomTooltip
+            // @ts-expect-error ts-migrate(2322) FIXME: Type '{ type: string; title: string; message: stri... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2322) FIXME: Type '{ type: string; title: string; message: stri... Remove this comment to see the full error message
             type="info"
             title="THIS SONG HAS BEEN EDITED"
+            // @ts-expect-error ts-migrate(2322) FIXME: Type '{ type: string; title: string; message: stri... Remove this comment to see the full error message
             message="This song was updated from NONE to NONE"
             left={5}
             songs={[
                 {
+                    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ type: string; title: string; left: number;... Remove this comment to see the full error message
                     sNm,
                     aNm,
                     version_name,
@@ -164,8 +174,11 @@ test('should call buildCustomTooltip', () => {
     component.setProps({ catChange: false, overLimit: true, limit: 10 });
     expect(instance.buildCustomTooltip()).toEqual(
         <CustomTooltip
+            // @ts-expect-error ts-migrate(2322) FIXME: Type '{ type: string; title: string; left: number;... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2322) FIXME: Type '{ type: string; title: string; message: stri... Remove this comment to see the full error message
             type="warning"
             title="WARNING"
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'type' implicitly has an 'any' type.
             message="This song exceeds the maximum of 10 for this category."
             left={5}
             songs={[
@@ -182,6 +195,8 @@ test('should call buildCustomTooltip', () => {
     component.setProps({ catChange: false, overLimit: false });
     expect(instance.buildCustomTooltip()).toEqual(
         <CustomTooltip
+            // @ts-expect-error ts-migrate(2322) FIXME: Type '{ type: string; title: string; left: number;... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'type' implicitly has an 'any' type.
             type="info"
             title="SONG DETAILS"
             left={5}

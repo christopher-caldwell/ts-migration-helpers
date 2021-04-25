@@ -7,9 +7,9 @@ import {
 
 import CategoryItem from './CategoryItem.component';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: any) => ({
     songVersions: state.songVersions,
-    categoryHighlight: state.categoryHighlight,
+    categoryHighlight: state.categoryHighlight
 });
 
 const mapDispatchToProps = {

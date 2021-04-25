@@ -21,7 +21,7 @@ const initialState = {
     updating: true,
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState, action: any) => {
     const { type, payload } = action;
     switch (type) {
         case RECEIVE_BOARD_METADATA:

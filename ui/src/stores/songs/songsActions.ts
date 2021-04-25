@@ -10,18 +10,18 @@ import {
     SONG_VERSIONS_SUCCESS,
 } from '../actionTypes';
 
-export const songsFailed = error => ({
+export const songsFailed = (error: any) => ({
     type: SONGS_FAILURE,
-    payload: { error },
+    payload: { error }
 });
 
-export const setSongs = songs => {
+export const setSongs = (songs: any) => {
     return { type: SET_SONGS, payload: { songs } };
 }
 
 export const songsLoading = () => ({ type: SONGS_PENDING });
 
-export const loadSongs = (filters, boardId, boardType, reset) => async (dispatch, getState) => {
+export const loadSongs = (filters: any, boardId: any, boardType: any, reset: any) => async (dispatch: any, getState: any) => {
     const {
         boardDetails: { layout },
     } = getState();
@@ -48,7 +48,7 @@ export const loadSongs = (filters, boardId, boardType, reset) => async (dispatch
     }
 };
 
-export const loadVersions = (filters, boardId) => async dispatch => {
+export const loadVersions = (filters: any, boardId: any) => async (dispatch: any) => {
     try {
         dispatch({ type: SONG_VERSIONS_PENDING });
         const versions = await request(`/board/RadioBoard/${boardId}/panel/category`, {
@@ -60,7 +60,7 @@ export const loadVersions = (filters, boardId) => async dispatch => {
     }
 };
 
-export const getMusicpointSongs = () => async dispatch => {
+export const getMusicpointSongs = () => async (dispatch: any) => {
     dispatch(songsLoading());
     try {
         const songs = await request('/director/songs');

@@ -5,7 +5,10 @@ const initialState = {
     error: false,
 };
 
-export default (state = initialState, { type, payload }) => {
+export default (state = initialState, {
+    type,
+    payload
+}: any) => {
     switch (type) {
         case SUCCESS_TABLE_PREFERENCES:
             return { ...state, tablePreferences: payload };

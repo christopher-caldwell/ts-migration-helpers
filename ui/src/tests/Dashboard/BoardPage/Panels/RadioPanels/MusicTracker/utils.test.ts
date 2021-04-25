@@ -7,6 +7,9 @@ describe('Dashboard/BoardPage/Panels/RadioPanels/MusicTracker/utils', () => {
                 null,
                 'key1',
                 'key2',
+                // @ts-expect-error ts-migrate(2554) FIXME: Expected 3 arguments, but got 4.
+                // @ts-expect-error ts-migrate(2554) FIXME: Expected 3 arguments, but got 4.
+                // @ts-expect-error ts-migrate(2554) FIXME: Expected 3 arguments, but got 4.
                 [],
             );
             expect(result).toEqual({ category: '-', lastModifiedDate: '-', versionName: '-' });
@@ -17,12 +20,15 @@ describe('Dashboard/BoardPage/Panels/RadioPanels/MusicTracker/utils', () => {
                 key1: [{
                     category: {},
                 }],
+                // @ts-expect-error ts-migrate(2554) FIXME: Expected 3 arguments, but got 4.
                 key2: [{}],
             };
             const result = utils.categoryExtractor(
+                // @ts-expect-error ts-migrate(2554) FIXME: Expected 3 arguments, but got 4.
                 mockCategories,
                 'key1',
                 'key2',
+                // @ts-expect-error ts-migrate(2554) FIXME: Expected 3 arguments, but got 4.
                 [],
             );
             expect(result).toEqual({ category: '-', lastModifiedDate: false, versionName: false });
@@ -323,15 +329,18 @@ describe('Dashboard/BoardPage/Panels/RadioPanels/MusicTracker/utils', () => {
     });
 
     describe('categoryExtractorByVersion', () => {
+        // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
         it('should return a dash (-) value when there is not daypart', () => {
             const version = {
                 category: {},
             };
+            // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
             const result = utils.categoryExtractorByVersion(version);
             expect(result).toEqual('-');
         });
 
         it('should return a dash (-) value when there is version', () => {
+            // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
             const result = utils.categoryExtractorByVersion();
             expect(result).toEqual('-');
         });

@@ -1,11 +1,20 @@
 import { useMemo } from 'react';
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'allCategoriesList' implicitly has an 'a... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'allCategoriesList' implicitly has an 'a... Remove this comment to see the full error message
 export const useCategoryGoalsList = (allCategoriesList, stationCategoriesData) => {
+    // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'allCategories' implicitly has an 'any' ... Remove this comment to see the full error message
     const getCategoryGoalsList = (allCategories, stationCategories) => {
         const stationCategoriesList = {};
         Object.entries(stationCategories || {}).forEach(([categoryId, categoryValue]) => {
+            // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
             stationCategoriesList[categoryId] = {
                 ...categoryValue,
+                // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
+                // @ts-expect-error ts-migrate(2698) FIXME: Spread types may only be created from object types... Remove this comment to see the full error message
                 limit: categoryValue.limit || '',
                 currentLimit: categoryValue.limit || '',
             };
@@ -14,6 +23,7 @@ export const useCategoryGoalsList = (allCategoriesList, stationCategoriesData) =
         return Object.keys(allCategories || {})
             .map(categoryId => ({
                 ...allCategories[categoryId],
+                // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
                 ...stationCategoriesList[categoryId],
             }))
             .sort((a, b) => {

@@ -5,7 +5,7 @@ const initialState = {
     error: null,
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState, action: any) => {
     const { type, payload, error } = action;
     switch (type) {
         case CALLOUT_TRENDS_PENDING:

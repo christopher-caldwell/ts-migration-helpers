@@ -1,4 +1,7 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { mount, shallow } from 'enzyme';
 
 import LoadingIndicator from 'components/Utilities/LoadingIndicator';
@@ -26,20 +29,26 @@ test('song breakout output without modal', () => {
     // when loading
     component.setProps({ dataLoading: true });
     expect(component.find('div.breakout')).toHaveLength(1);
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'comp' implicitly has an 'any' type.
     expect(component.find(LoadingIndicator)).toHaveLength(1);
     expect(component.find(RankSpinsBar)).toHaveLength(0);
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tab' implicitly has an 'any' type.
     expect(component.find(BreakoutTable)).toHaveLength(0);
 });
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'comp' implicitly has an 'any' type.
 test('when breakouts are empty, send to song bar disabled variables', () => {
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tab' implicitly has an 'any' type.
     const component = shallow(<SongBreakout {...props} />);
     const tabButtons = comp => comp.find(SongBar).dive().find(TabsBar).dive().find('button.tab');
     tabButtons(component).forEach(tab => expect(tab.prop('disabled')).toBeFalsy());
     component.setProps({ callout: { breakouts: {} } });
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tab' implicitly has an 'any' type.
     expect(tabButtons(component).at(0).prop('disabled')).toBeTruthy();
     expect(tabButtons(component).at(1).prop('disabled')).toBeFalsy();
     component.setProps({ omt: { breakouts: {} }, callout: { breakouts: { test: {} } } });
     expect(tabButtons(component).at(0).prop('disabled')).toBeFalsy();
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tab' implicitly has an 'any' type.
     expect(tabButtons(component).at(1).prop('disabled')).toBeTruthy();
     component.setProps({ omt: { breakouts: {} }, callout: { breakouts: {} } });
     tabButtons(component).forEach(tab => expect(tab.prop('disabled')).toBeTruthy());

@@ -5,7 +5,7 @@ const initialState = {
     byStation: {},
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState, action: any) => {
     const { type, payload, error } = action;
     switch (type) {
         case BREAKOUT_PREF_SUCCESS:

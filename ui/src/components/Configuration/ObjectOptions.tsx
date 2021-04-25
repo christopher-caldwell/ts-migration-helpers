@@ -1,6 +1,9 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'clas... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'clas... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'clas... Remove this comment to see the full error message
 import classNames from 'classnames';
 import { Dropdown, MenuItem } from 'react-bootstrap';
 import shortid from 'shortid';
@@ -22,6 +25,7 @@ class ObjectOptions extends React.Component {
         onConfigSave: PropTypes.func,
         onExpandOpen: PropTypes.func,
         onPrint: PropTypes.func,
+    // @ts-expect-error ts-migrate(2554) FIXME: Expected 1-2 arguments, but got 0.
     };
 
     static defaultProps = {
@@ -29,6 +33,7 @@ class ObjectOptions extends React.Component {
         children: undefined,
         className: undefined,
         printing: false,
+        // @ts-expect-error ts-migrate(2554) FIXME: Expected 1-2 arguments, but got 0.
         printingError: false,
         onConfigSave: () => {},
         onExpandOpen: null,
@@ -36,6 +41,9 @@ class ObjectOptions extends React.Component {
     };
 
     constructor() {
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'config' implicitly has an 'any' type.
+        // @ts-expect-error ts-migrate(2554) FIXME: Expected 1-2 arguments, but got 0.
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'onConfigSave' does not exist on type 'Re... Remove this comment to see the full error message
         super();
 
         this.state = {
@@ -43,7 +51,12 @@ class ObjectOptions extends React.Component {
         };
 
         this.onConfigClose = this.onConfigClose.bind(this);
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'canConfigure' does not exist on type 'Re... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'config' implicitly has an 'any' type.
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'printingError' does not exist on type 'R... Remove this comment to see the full error message
         this.onConfigOpen = this.onConfigOpen.bind(this);
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'onPrint' does not exist on type 'Readonl... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'objectPath' does not exist on type 'Read... Remove this comment to see the full error message
         this.onConfigSave = this.onConfigSave.bind(this);
     }
 
@@ -52,12 +65,18 @@ class ObjectOptions extends React.Component {
     }
 
     onConfigClose() {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'canConfigure' does not exist on type 'Re... Remove this comment to see the full error message
         this.setState({ showConfig: false });
     }
 
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'className' does not exist on type 'Reado... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'config' implicitly has an 'any' type.
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'onExpandOpen' does not exist on type 'Re... Remove this comment to see the full error message
     onConfigSave(config) {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'onPrint' does not exist on type 'Readonl... Remove this comment to see the full error message
         const { objectPath, onConfigSave } = this.props;
 
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'showConfig' does not exist on type 'Read... Remove this comment to see the full error message
         onConfigSave(objectPath, config);
 
         this.onConfigClose();
@@ -70,6 +89,7 @@ class ObjectOptions extends React.Component {
             className,
             printing,
             printingError,
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'showConfig' does not exist on type 'Read... Remove this comment to see the full error message
             config,
             onExpandOpen,
             onPrint,

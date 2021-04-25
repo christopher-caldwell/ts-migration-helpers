@@ -1,10 +1,19 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
 import React from 'react';
+// @ts-expect-error ts-migrate(2322) FIXME: Type '{ message: any; title: any; type: any; }' is... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2322) FIXME: Type '{ message: any; title: any; type: any; }' is... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'title' does not exist on type '{}'.
 import { shallow } from 'enzyme';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'type' does not exist on type '{}'.
 import CustomTooltip from 'components/CustomTooltip';
 
 const renderCustomTooltip = (options = {}) => (
     shallow(
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ message: any; title: any; type: any; }' is... Remove this comment to see the full error message
         <CustomTooltip
             message={options.message || 'test message'}
             title={options.title || 'test title'}

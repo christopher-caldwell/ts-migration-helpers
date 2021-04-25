@@ -15,6 +15,9 @@ const initialState = {
     staged: [],
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'action' implicitly has an 'any' type.
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'action' implicitly has an 'any' type.
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'action' implicitly has an 'any' type.
 export default (state = initialState, action) => {
     const { type, payload } = action;
     switch (type) {
@@ -30,29 +33,49 @@ export default (state = initialState, action) => {
         case RESTRICTION_FAILURE:
             return {
                 ...state,
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'currentItem' implicitly has an 'any' ty... Remove this comment to see the full error message
                 loading: false,
                 error: payload.error,
             };
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'currentHour' implicitly has an 'any' ty... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'currentItem' implicitly has an 'any' ty... Remove this comment to see the full error message
         case RESTRICTION_UPDATE_STAGED_DATA:
             return {
                 ...state,
+                // @ts-expect-error ts-migrate(7034) FIXME: Variable 'hours' implicitly has type 'any[]' in so... Remove this comment to see the full error message
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'currentHour' implicitly has an 'any' ty... Remove this comment to see the full error message
+                // @ts-expect-error ts-migrate(7005) FIXME: Variable 'hours' implicitly has an 'any[]' type.
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'currentItem' implicitly has an 'any' ty... Remove this comment to see the full error message
                 staged: payload.map(currentItem => ({
                     id: currentItem.id,
                     name: currentItem.name,
+                    // @ts-expect-error ts-migrate(7034) FIXME: Variable 'hours' implicitly has type 'any[]' in so... Remove this comment to see the full error message
                     synchronized: true,
+                    // @ts-expect-error ts-migrate(7034) FIXME: Variable 'hours' implicitly has type 'any[]' in so... Remove this comment to see the full error message
+                    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'hour' implicitly has an 'any' type.
+                    // @ts-expect-error ts-migrate(7005) FIXME: Variable 'hours' implicitly has an 'any[]' type.
+                    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'currentHour' implicitly has an 'any' ty... Remove this comment to see the full error message
+                    // @ts-expect-error ts-migrate(2339) FIXME: Property 'id' does not exist on type 'never'.
+                    // @ts-expect-error ts-migrate(7005) FIXME: Variable 'hours' implicitly has an 'any[]' type.
                     restrictionHour: currentItem.hours.map(currentHour => ({
                         hour: currentHour,
                     })),
                 })),
             };
+        // @ts-expect-error ts-migrate(7034) FIXME: Variable 'hours' implicitly has type 'any[]' in so... Remove this comment to see the full error message
         case CREATE_RESTRICTION_SUCCESS: {
             const hours = [];
+            // @ts-expect-error ts-migrate(7034) FIXME: Variable 'hours' implicitly has type 'any[]' in so... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'hour' implicitly has an 'any' type.
             payload.restrictionHour.forEach(hour => hours.push({ hour }));
 
             const restrictions = [
                 {
+                    // @ts-expect-error ts-migrate(7005) FIXME: Variable 'hours' implicitly has an 'any[]' type.
                     id: -1,
                     name: payload.name,
+                    // @ts-expect-error ts-migrate(2339) FIXME: Property 'id' does not exist on type 'never'.
+                    // @ts-expect-error ts-migrate(7005) FIXME: Variable 'hours' implicitly has an 'any[]' type.
                     restrictionHour: hours,
                     stationId: payload.stationId,
                     synchronized: false,
@@ -66,15 +89,19 @@ export default (state = initialState, action) => {
                 data: [...state.data, ...restrictions],
             };
         }
+        // @ts-expect-error ts-migrate(7034) FIXME: Variable 'hours' implicitly has type 'any[]' in so... Remove this comment to see the full error message
         case EDIT_RESTRICTION_SUCCESS: {
             const hours = [];
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'hour' implicitly has an 'any' type.
             action.payload.restrictionHour.forEach(hour => hours.push({ hour }));
             const updatedRestriction = {
                 ...action.payload,
+                // @ts-expect-error ts-migrate(7005) FIXME: Variable 'hours' implicitly has an 'any[]' type.
                 restrictionHour: hours,
             };
 
             const newStagedData = state.staged
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'id' does not exist on type 'never'.
                 .filter(currentItem => currentItem.id !== updatedRestriction.id)
                 .concat(updatedRestriction);
 

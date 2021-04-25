@@ -1,6 +1,7 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'clas... Remove this comment to see the full error message
 import classNames from 'classnames';
 
 import { EMPTY_VALUE_PLACEHOLDER } from 'utils/constants';
@@ -21,6 +22,7 @@ class TierTrendCell extends React.PureComponent {
         rowIndex: undefined,
     };
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tierSpinsValue' implicitly has an 'any'... Remove this comment to see the full error message
     buildTooltip(tierSpinsValue, tierSpinsKey) {
         const tierSpins = tierSpinsKey.match(/\d/g).join('');
 
@@ -46,6 +48,7 @@ class TierTrendCell extends React.PureComponent {
     }
 
     render() {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'data' does not exist on type 'Readonly<{... Remove this comment to see the full error message
         const { data, rowIndex, tierSpinsKey, className, prefix } = this.props;
         const value = objectGet(data[rowIndex][prefix], tierSpinsKey);
 

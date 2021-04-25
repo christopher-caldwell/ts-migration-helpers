@@ -3,8 +3,14 @@ import { connect } from 'react-redux';
 import { updateSongsAlternateCategory } from 'stores/dayparts/daypartsActions';
 import DaypartSingleSong from './component';
 
-const mapStateToProps = ({ dayparts: { data } }) => ({
-    dayparts: data.map(({ id, name, synchronized }) => ({
+const mapStateToProps = ({
+    dayparts: { data }
+}: any) => ({
+    dayparts: data.map(({
+        id,
+        name,
+        synchronized
+    }: any) => ({
         id,
         name,
         synchronized,

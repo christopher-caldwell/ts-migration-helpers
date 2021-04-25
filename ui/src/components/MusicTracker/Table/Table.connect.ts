@@ -7,10 +7,11 @@ import Table from './Table.component';
 
 const mapStateToProps = ({
     songMetadata: { musicTrackerList },
+
     newPreferences: {
         tablePreferences: { columnGroups = [] },
-    },
-}) => ({
+    }
+}: any) => ({
     musicTrackerList,
     preferenceColGroups: columnGroups,
 });

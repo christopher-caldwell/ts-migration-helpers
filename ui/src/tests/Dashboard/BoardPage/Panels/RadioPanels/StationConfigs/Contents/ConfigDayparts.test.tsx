@@ -1,5 +1,9 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'redu... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'redu... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'redu... Remove this comment to see the full error message
 import configureStore from 'redux-mock-store';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
 
 import ConfigDayparts from 'components/BoardPage/Panels/RadioPanels/StationConfigs/Contents/ConfigDayparts';
@@ -110,25 +114,40 @@ const mockDaypartsChanges = [
                 category: '',
                 alternate: {
                     240: {
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ createDaypart: any; dayparts: any; categor... Remove this comment to see the full error message
                         category_id: 30,
                         gs_category: null,
+                    // @ts-expect-error ts-migrate(2339) FIXME: Property 'dayparts' does not exist on type '{}'.
                     },
                     241: {
+                        // @ts-expect-error ts-migrate(2339) FIXME: Property 'a' does not exist on type '{}'.
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ createDaypart: any; dayparts: any; categor... Remove this comment to see the full error message
+                        // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockCurrentSongs' does not exist on type... Remove this comment to see the full error message
                         category_id: 17,
+                        // @ts-expect-error ts-migrate(2339) FIXME: Property 'stagedDayparts' does not exist on type '... Remove this comment to see the full error message
+                        // @ts-expect-error ts-migrate(2339) FIXME: Property 'createDaypart' does not exist on type '{... Remove this comment to see the full error message
+                        // @ts-expect-error ts-migrate(2339) FIXME: Property 'daypartsChanges' does not exist on type ... Remove this comment to see the full error message
                         gs_category: null,
                     },
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'dayparts' does not exist on type '{}'.
                 },
             },
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'a' does not exist on type '{}'.
             undoneChanges: {},
             isEqualMedia: false,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'songs' does not exist on type '{}'.
         },
     },
 ];
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'mockStagedSongs' does not exist on type ... Remove this comment to see the full error message
 const renderConfigDayparts = (options = {}) =>
     shallow(
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockCurrentSongs' does not exist on type... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ createDaypart: any; dayparts: any; categor... Remove this comment to see the full error message
         <ConfigDayparts
             createDaypart={options.createDaypart || (() => {})}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'daypartsChanges' does not exist on type ... Remove this comment to see the full error message
             dayparts={options.dayparts || mockDayparts}
             categories={options.a || mockCategories}
             songs={options.songs || mockSongs}

@@ -14,7 +14,7 @@ import {
     STAGE_SONGS_MEDIA,
 } from '../actionTypes';
 
-export const fetchStationDayparts = stationId => async dispatch => {
+export const fetchStationDayparts = (stationId: any) => async (dispatch: any) => {
     try {
         dispatch({ type: DAYPART_PENDING });
         const dayparts = await request(`/scheduler/station/${stationId}/daypart`);
@@ -27,7 +27,7 @@ export const fetchStationDayparts = stationId => async dispatch => {
     }
 };
 
-export const createDaypart = payload => async dispatch => {
+export const createDaypart = (payload: any) => async (dispatch: any) => {
     try {
         dispatch({ type: DAYPART_PENDING });
         dispatch(requestOverlay());
@@ -47,7 +47,7 @@ export const createDaypart = payload => async dispatch => {
     }
 };
 
-export const updateDaypart = payload => async dispatch => {
+export const updateDaypart = (payload: any) => async (dispatch: any) => {
     try {
         dispatch({ type: DAYPART_PENDING });
         dispatch(requestOverlay());
@@ -69,14 +69,20 @@ export const updateDaypart = payload => async dispatch => {
     }
 };
 
-export const updateSongsAlternateCategory = ({ stationId, songs }) => async dispatch => {
+export const updateSongsAlternateCategory = ({
+    stationId,
+    songs
+}: any) => async (dispatch: any) => {
     try {
         dispatch(requestOverlay());
 
         await request(`/scheduler/station/${stationId}/song/daypart`, {
             method: 'PUT',
             body: {
-                songs: songs.map(({ media_id, alternate }) => ({
+                songs: songs.map(({
+                    media_id,
+                    alternate
+                }: any) => ({
                     media_id,
                     alternate,
                 })),

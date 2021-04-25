@@ -1,5 +1,9 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'redu... Remove this comment to see the full error message
 import configureStore from 'redux-mock-store';
 
 import DaypartSongsList from 'components/AsideModal/Panels/DaypartSongsList';
@@ -113,28 +117,39 @@ const mockVersions = [
 const mockCategoriesList = [
     {
         label: 'A',
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ handleClose: any; daypart: any; versions: ... Remove this comment to see the full error message
         description: 'Power',
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleClose' does not exist on type '{}'... Remove this comment to see the full error message
         value: 17,
         orderBy: 100,
         group: 'CURRENT',
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'daypart' does not exist on type '{}'.
         groupId: 1,
         limit: 5,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'versions' does not exist on type '{}'.
         active: true,
     },
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'categoriesList' does not exist on type '... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ handleClose: any; daypart: any; versions: ... Remove this comment to see the full error message
     {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleClose' does not exist on type '{}'... Remove this comment to see the full error message
         label: 'B',
         description: 'Sub Power',
         value: 18,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'daypart' does not exist on type '{}'.
         orderBy: 110,
         group: 'CURRENT',
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'versions' does not exist on type '{}'.
         groupId: 1,
         limit: 7,
         active: true,
     },
 ];
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'categoriesList' does not exist on type '... Remove this comment to see the full error message
 
 const renderDaypartSongsList = (options = {}) => (
     shallow(
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ handleClose: any; daypart: any; versions: ... Remove this comment to see the full error message
         <DaypartSongsList
             handleClose={options.handleClose || (() => {})}
             daypart={options.daypart || mockDaypart}

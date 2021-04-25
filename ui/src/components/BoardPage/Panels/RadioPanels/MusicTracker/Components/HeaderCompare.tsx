@@ -2,6 +2,11 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'clas... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'clas... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'clas... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
 import MusicTrackerFilterHeader from 'components/BoardPage/Filters/MusicTrackerFilterHeader';
 import classNames from 'classnames';
 

@@ -1,5 +1,11 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
 import React from 'react';
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
 import PropTypes from 'prop-types';
 import connect from 'react-redux/lib/connect/connect';
 import LoadingIndicator from 'components/Utilities/LoadingIndicator';
@@ -72,6 +78,7 @@ const MusicLabOverlay = props => {
                     No
                 </button>
             </div>
+        {/* @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0. */}
         </div>
     );
 
@@ -81,6 +88,7 @@ const MusicLabOverlay = props => {
 };
 
 MusicLabOverlay.propTypes = {
+    // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
     closeOverlayAction: PropTypes.func.isRequired,
     failClose: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,

@@ -5,7 +5,7 @@ const initialState = {
     info: null,
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState, action: any) => {
     const { payload, type } = action;
 
     switch (type) {

@@ -4,11 +4,11 @@ import request from 'utils/request';
 import { getDefaultMTPreferences } from 'stores/preferences/preferencesActions';
 import { USER_LOGIN, STORE_MUSIC_TRACKER_PREFERENCES } from '../actionTypes';
 
-const loadUser = payload => async dispatch => {
+const loadUser = (payload: any) => async (dispatch: any) => {
     dispatch({ type: USER_LOGIN, payload });
 };
 
-const loadUserPreferences = userId => async dispatch => {
+const loadUserPreferences = (userId: any) => async (dispatch: any) => {
     const savedPreferences = await request(`/users/${userId}/preferences`, {
         params: { preferenceIds: JSON.stringify([]) },
     });

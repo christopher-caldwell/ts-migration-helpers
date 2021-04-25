@@ -1,8 +1,14 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'disabled' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'disabled' does not exist on type '{}'.
 import IconCalendar from 'components/Buttons/IconCalendar';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'onClick' does not exist on type '{}'.
 const renderIconCalendar = (options = {}) => (
     shallow(
         <IconCalendar

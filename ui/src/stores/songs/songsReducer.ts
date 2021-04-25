@@ -7,7 +7,7 @@ const InitialState = {
     count: 0,
 };
 
-export default (state = InitialState, action) => {
+export default (state = InitialState, action: any) => {
     const { type, payload } = action;
     switch (type) {
         case SONGS_PENDING:

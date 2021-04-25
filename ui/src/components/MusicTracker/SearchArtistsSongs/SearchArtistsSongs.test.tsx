@@ -1,4 +1,7 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(6133) FIXME: 'shallow' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'shallow' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'shallow' is declared but its value is never read.
 import { shallow, mount } from 'enzyme';
 
 import SearchBar from '../../SearchBar/SearchBar.component';

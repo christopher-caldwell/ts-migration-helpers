@@ -8,7 +8,7 @@ const initialState = {
 };
 
 // calling the the actions for the reducer
-export default (state = initialState, action) => {
+export default (state = initialState, action: any) => {
     const { type, payload } = action;
     switch (type) {
         case STORE_RECOMMENDABLE_CATEGORIES:

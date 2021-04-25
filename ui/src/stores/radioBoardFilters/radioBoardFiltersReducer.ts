@@ -12,7 +12,7 @@ const initialState = {
     },
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState, action: any) => {
     // TODO: move this to another reducer
     const { type, payload } = action;
     switch (type) {

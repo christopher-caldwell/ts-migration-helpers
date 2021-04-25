@@ -8,8 +8,8 @@ const mapStateToProps = ({
     categoriesMetadata,
     stationCategories,
     updateStationCategoriesAction,
-    musicTrackerOverlay,
-}) => ({
+    musicTrackerOverlay
+}: any) => ({
     boardDetails,
     categoriesMetadata,
     stationCategories,

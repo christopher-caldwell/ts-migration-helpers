@@ -10,7 +10,7 @@ const InitialState = {
     data: {},
 };
 
-export default (state = InitialState, action) => {
+export default (state = InitialState, action: any) => {
     switch (action.type) {
         case SONG_COMPETITOR_SPINS_PENDING:
             return { ...state, error: null, loading: true };

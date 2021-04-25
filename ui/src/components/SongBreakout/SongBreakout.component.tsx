@@ -9,12 +9,18 @@ import SongBar from './SongBar';
 import RankSpinsBar from './RankSpinsBar';
 import BreakoutTable from './BreakoutTable';
 
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './SongBreakout.module.css' or ... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './SongBreakout.module.css' or ... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './SongBreakout.module.css' or ... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
 import { modalPosition, breakout, loadingPlacement, noBreakouts } from './SongBreakout.module.css';
 
 const CALLOUT = 'callout';
 const OMT = 'omt';
 const NO_BREAKOUTS = 'noBreakouts';
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
 const SongBreakout = props => {
     const {
         songOrder,
@@ -40,35 +46,51 @@ const SongBreakout = props => {
         [calloutPrefs, calloutBreakouts]
     );
     const initialOmtBreakoutList = useMemo(
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'saved' implicitly has an 'any' type.
         () => (omtPrefs.length ? union(omtPrefs, Object.keys(omtBreakouts)) : Object.keys(omtBreakouts)),
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'index' implicitly has an 'any' type.
         [omtPrefs, omtBreakouts]
     );
 
     const [songId, setSongId] = useState(selectedSongId);
     const [activeTab, setActiveTab] = useState(CALLOUT);
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'saved' implicitly has an 'any' type.
     const [songHasChanged, setSongChanged] = useState(false);
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'sId' implicitly has an 'any' type... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'breakoutName' implicitly has an 'any' t... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'quintileCoreGroup' does not exist on typ... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'saved' implicitly has an 'any' type.
+    // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
     const [currentCalloutBreakoutOrder, setCalloutBreakoutOrder] = useState(initialCalloutBreakoutList);
     const [currentOmtBreakoutOrder, setOmtBreakoutOrder] = useState(initialOmtBreakoutList);
 
     const breakoutsMatch = (saved, current) => saved.every((breakoutName, index) => breakoutName === current[index]);
     const needToSave =
+        // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'sId' implicitly has an 'any' type... Remove this comment to see the full error message
         !breakoutsMatch(initialCalloutBreakoutList, currentCalloutBreakoutOrder) ||
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'quintileTotalGroup' does not exist on ty... Remove this comment to see the full error message
         !breakoutsMatch(initialOmtBreakoutList, currentOmtBreakoutOrder);
+    // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'sId' implicitly has an 'any' type... Remove this comment to see the full error message
     const calloutHasBreakouts = !isEmpty(calloutBreakouts);
     const omtHasBreakouts = !isEmpty(omtBreakouts);
 
     const {
         metadata: { sNm, aNm },
+        // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'id' implicitly has an 'any' type.
         metrics: { callout, spins },
     } = songs.find(({ sId }) => sId === songId);
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tab' implicitly has an 'any' type.
     const { quintileCoreGroup, quintileTotalGroup, popTotalRank = '-', popCoreRank = '-' } = useMemo(
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'movement' implicitly has an 'any' type.
         () => Object.values(omtData).find(({ songId: id }) => Number(id) === Number(songId)) || {},
         [omtData, songId]
     );
 
     useEffect(() => {
         getBreakoutPrefs();
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
     }, [getBreakoutPrefs]);
 
     useEffect(() => {
@@ -84,21 +106,28 @@ const SongBreakout = props => {
             if (calloutHasBreakouts && omtHasBreakouts) return;
             if (calloutHasBreakouts) return activeTab === CALLOUT ? () => {} : setActiveTab(CALLOUT);
             if (omtHasBreakouts) return activeTab === OMT ? () => {} : setActiveTab(OMT);
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tab' implicitly has an 'any' type.
             if (!omtHasBreakouts && !calloutHasBreakouts) return setActiveTab(NO_BREAKOUTS);
         };
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'movement' implicitly has an 'any' type.
         checkActiveTab();
     }, [calloutHasBreakouts, omtHasBreakouts, activeTab]);
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'movement' implicitly has an 'any' type.
     useEffect(() => {
         if (initialCalloutBreakoutList.length && !currentCalloutBreakoutOrder.length) {
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
             setCalloutBreakoutOrder(initialCalloutBreakoutList);
         }
         if (initialOmtBreakoutList.length && !currentOmtBreakoutOrder.length) {
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tab' implicitly has an 'any' type.
             setOmtBreakoutOrder(initialOmtBreakoutList);
         }
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'movement' implicitly has an 'any' type.
     }, [initialCalloutBreakoutList, currentCalloutBreakoutOrder, initialOmtBreakoutList, currentOmtBreakoutOrder]);
 
     const toggleTab = tab => setActiveTab(tab);
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
     const getNextSongId = movement => songOrder[songOrder.indexOf(songId) + movement];
     const changeSong = movement => {
         setSongId(getNextSongId(movement));
@@ -123,6 +152,7 @@ const SongBreakout = props => {
                 activeTab={activeTab}
                 toggleTab={toggleTab}
                 calloutDisabled={!calloutHasBreakouts}
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
                 omtDisabled={!omtHasBreakouts}
                 upDisabled={!getNextSongId(-1)}
                 downDisabled={!getNextSongId(1)}
@@ -147,7 +177,9 @@ const SongBreakout = props => {
                     />
                 </>
             ) : null}
+            {/* @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type. */}
             {!loading && activeTab === OMT ? (
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
                 <>
                     <RankSpinsBar
                         rank={{ coreRank: popCoreRank, totalRank: popTotalRank }}

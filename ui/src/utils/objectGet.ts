@@ -7,11 +7,11 @@
  *
  * @returns {*}
  */
-function objectGet(object, key, defaultValue = undefined) {
+function objectGet(object: any, key: any, defaultValue = undefined) {
     if (!key) {
         return defaultValue;
     }
-    const value = key.split('.').reduce((subValue, subKey) => {
+    const value = key.split('.').reduce((subValue: any, subKey: any) => {
         try {
             if (subValue === undefined || subValue === null) {
                 return defaultValue;

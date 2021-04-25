@@ -1,9 +1,15 @@
 import React from 'react';
 import LoadingIndicator from 'components/Utilities/LoadingIndicator';
-import PropTypes from 'prop-types';
 import { chain } from 'lodash';
 
-const TargetComponent = ({ navbar }) => {
+type Props = {
+    navbar: {
+        active?: boolean;
+        targetComponent?: (...args: any[]) => any;
+    }[];
+};
+
+const TargetComponent = ({ navbar }: Props) => {
     const warningHasNoItemActive = () => {
         if (!navbar.length) {
             return;
@@ -28,15 +34,6 @@ const TargetComponent = ({ navbar }) => {
     const RenderComponent = renderTargetComponent();
 
     return <RenderComponent />;
-};
-
-TargetComponent.propTypes = {
-    navbar: PropTypes.arrayOf(
-        PropTypes.shape({
-            active: PropTypes.bool,
-            targetComponent: PropTypes.func,
-        }),
-    ).isRequired,
 };
 
 export default TargetComponent;

@@ -40,12 +40,20 @@ import {
 
 const requestBoard = () => ({ type: REQUEST_BOARD });
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'payload' implicitly has an 'any' type.
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'payload' implicitly has an 'any' type.
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'payload' implicitly has an 'any' type.
 const addBoardDetails = payload => ({ type: UPDATE_BOARD, payload });
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'error' implicitly has an 'any' type.
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'payload' implicitly has an 'any' type.
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'dispatch' implicitly has an 'any' type.
 export const updateOptions = payload => ({ type: UPDATE_OPTIONS, payload });
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'error' implicitly has an 'any' type.
 const throwBoard = error => ({ type: THROW_BOARD, error });
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'params' implicitly has an 'any' type.
 export const fetchPanel = (params, inputs) => async (dispatch, getState) => {
     dispatch(requestBoard());
     try {
@@ -127,13 +135,16 @@ export const fetchPanel = (params, inputs) => async (dispatch, getState) => {
             // reset when page is being prefreshed or when tab change
             applied = {
                 ...applied,
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'songData' implicitly has an 'any' type.
                 options: {
+                    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'key' implicitly has an 'any' type.
                     ...applied.options,
                     sort: {
                         key: 'enhanced.pop.rnk',
                         field: 'enhanced_pop_rank',
                         defaultSort: true, // this is tell music tracker to not override the
                         // sortfield if it is set to false
+                        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'songData' implicitly has an 'any' type.
                         sortValueExtractor: (songData, key) => objectGet(songData, key),
                         ascending: true,
                     },
@@ -160,6 +171,7 @@ export const fetchPanel = (params, inputs) => async (dispatch, getState) => {
             const versions = await request(`/board/${board.type}/${board.id}/panel/category`, {
                 params: { filters: JSON.stringify(applied) },
             });
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'item' implicitly has an 'any' type.
             dispatch({ type: SONG_VERSIONS_SUCCESS, payload: { versions } });
 
             const flattenedStaged = utils.flatVersions(versions.staged);
@@ -171,9 +183,11 @@ export const fetchPanel = (params, inputs) => async (dispatch, getState) => {
             const stationCompetitorSpins = preferences.competitors[board.id] || [];
 
             if (stationCompetitorSpins.length > 0) {
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'item' implicitly has an 'any' type.
                 const competitorsList = uniq([...stationCompetitorSpins.map(item => parseInt(item.value, 10))]);
                 // get all the competitor spins
                 dispatch(competitorsPending());
+                // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
                 const competitors = await request(`/board/${board.type}/${board.id}/panel/competitor`, {
                     params: {
                         filters: JSON.stringify({
@@ -192,6 +206,7 @@ export const fetchPanel = (params, inputs) => async (dispatch, getState) => {
         // TODO: clean this up more
         const panels = {};
         if (board.tabId === 'musictracker') {
+            // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
             panels[panel.type] = { ...panel, songs: null }; // we don't want to store this twice
             const { similarStations } = getState();
             const { open } = similarStations;
@@ -212,7 +227,9 @@ export const fetchPanel = (params, inputs) => async (dispatch, getState) => {
                         ...applied.options.sort,
                         key: sortKey,
                         field: sortField,
+                        // @ts-expect-error ts-migrate(2554) FIXME: Expected 0 arguments, but got 1.
                         // defaultSort: false, // this is tell music tracker to not
+                        // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
                         // override the sortfield if it is set to false
                         ascending: sortOrder,
                     },
@@ -229,8 +246,12 @@ export const fetchPanel = (params, inputs) => async (dispatch, getState) => {
             // initialize the music tracker settings, this method has the logic
             // to check before loading musictrackerorder.json
             // or before pulling data from user preference db
+            // @ts-expect-error ts-migrate(2554) FIXME: Expected 0 arguments, but got 1.
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'board' implicitly has an 'any' type.
             dispatch(loadSettings(board.id));
         } else {
+            // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'savedDate' implicitly has an 'any' type... Remove this comment to see the full error message
             panels[panel.type] = { ...panel, songs: null }; // we don't want to store this twice
         }
 
@@ -240,8 +261,11 @@ export const fetchPanel = (params, inputs) => async (dispatch, getState) => {
             panels: { ...board.panels, ...panels },
         };
         layout.setBoard(newBoard);
+        // @ts-expect-error ts-migrate(2554) FIXME: Expected 2 arguments, but got 1.
         dispatch(addBoardDetails({ layout, filters }));
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'params' implicitly has an 'any' type.
     } catch (e) {
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'dispatch' implicitly has an 'any' type.
         console.error(e.message, e);
         dispatch(songsFailed(e));
 
@@ -252,6 +276,8 @@ export const fetchPanel = (params, inputs) => async (dispatch, getState) => {
     }
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'l' implicitly has an 'any' type.
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'board' implicitly has an 'any' type.
 export const initializeBoard = (board, inputs) => dispatch => {
     dispatch(requestBoard());
 
@@ -260,25 +286,29 @@ export const initializeBoard = (board, inputs) => dispatch => {
 
     const initialBoard = { ...board, panels: null, loading: true };
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'savedDate' implicitly has an 'any' type... Remove this comment to see the full error message
     filters.loadInitial(initialBoard, inputs, savedDate => {
         dispatch(updateDateIntegrity(savedDate));
         layout.setBoard(initialBoard);
 
         // store the board details such as applied, available and active layout to redux
         const params = { filters, layout };
+        // @ts-expect-error ts-migrate(2554) FIXME: Expected 2 arguments, but got 1.
         dispatch(fetchPanel(params));
     });
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'params' implicitly has an 'any' type.
 export const fetchBoard = (params, inputs) => dispatch => {
     const { boardType, boardId, typeKey, tabId } = params;
     dispatch(requestBoard());
     return request(`/board/${boardType}/${boardId}`)
-        .then((board) => {
+        .then(board => {
             // check if this is radio board and if the user has access to music tracker
             if (
                 typeKey === 'radio' &&
                 tabId === 'musictracker' &&
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'l' implicitly has an 'any' type.
                 board.config.layout.find(l => l.id === 'musictracker')
             ) {
                 dispatch(initializeBoard({ ...board, tabId }, inputs));

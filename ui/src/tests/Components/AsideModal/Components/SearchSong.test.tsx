@@ -1,4 +1,8 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
 
 import SearchSong from 'components/AsideModal/Components/SearchSong';
@@ -57,19 +61,29 @@ const mockVersions = [
         order_by: 90,
     },
     {
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ canAddValidation: any; template: any; vers... Remove this comment to see the full error message
         sNm: 'SINCE U BEEN GONE',
         aNm: 'Kelly Clarkson',
         media_id: 789743,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'template' does not exist on type '{}'.
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ canAddValidation: any; template: any; vers... Remove this comment to see the full error message
         packet_id: null,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleResetClickedSong' does not exist o... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'canAddValidation' does not exist on type... Remove this comment to see the full error message
         version_name: '-',
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'template' does not exist on type '{}'.
         modified_date: '2019-08-06T21:07:50.122Z',
         dayparts: {},
         order_by: 50,
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'versions' does not exist on type '{}'.
     },
 ];
 
 const renderSearchSong = (options = {}) => (
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleClick' does not exist on type '{}'... Remove this comment to see the full error message
     shallow(
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleResetClickedSong' does not exist o... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ canAddValidation: any; template: any; vers... Remove this comment to see the full error message
         <SearchSong
             canAddValidation={options.canAddValidation || (() => true)}
             template={options.template || mockTemplate}
@@ -103,13 +117,17 @@ describe('<SearchSong />', () => {
         const component = renderSearchSong();
         const searchField = component.find('SeachField').shallow();
         searchField.find('input').simulate('change', { target: { value: 'IN' } });
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
         setTimeout(() => {
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
             expect(component.find('SongDetails')).toHaveLength(2);
             expect(component.find('p').text()).toBe('2 Results ');
             done();
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
         }, 600);
     });
 
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
     it('search should trigger search without value', done => {
         const component = renderSearchSong();
         const searchField = component.find('SeachField').shallow();
@@ -124,10 +142,14 @@ describe('<SearchSong />', () => {
     it('should reset search when the reset button is called', done => {
         const mockHandleResetClickedSong = jest.fn();
         const component = renderSearchSong({ handleResetClickedSong: mockHandleResetClickedSong });
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
         const searchField = component.find('SeachField').shallow();
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
         searchField.find('input').simulate('change', { target: { value: 'END' } });
         setTimeout(() => {
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
             searchField.find('IconX').simulate('click');
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
             expect(mockHandleResetClickedSong).toHaveBeenCalled();
             done();
         }, 600);

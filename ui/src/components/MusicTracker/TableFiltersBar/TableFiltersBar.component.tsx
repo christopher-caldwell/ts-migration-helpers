@@ -10,6 +10,9 @@ import {
     calendarButton,
     arrowWeekPicker,
     musicTrackerFilter,
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './TableFiltersBar.module.scss'... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './TableFiltersBar.module.scss'... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './TableFiltersBar.module.scss'... Remove this comment to see the full error message
 } from './TableFiltersBar.module.scss';
 
 const TableFiltersBar = ({ setSongOrder, currentWeek, startDate, endDate }) => (

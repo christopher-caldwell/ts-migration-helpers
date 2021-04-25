@@ -6,19 +6,25 @@ import SongBreakout from './SongBreakout.component';
 const mapStateToProps = (
     {
         songs: { data: songs },
+
         breakout: {
             loading: dataLoading,
             data: { callout = {}, omt = {}, spins = {}, avatar },
         },
+
         breakoutPreferences: { byStation },
+
         boardDetails: {
             layout: {
                 board: { id: stationId },
             },
         },
-        cmmOmt: { data: omtData },
-    },
-    { breakoutSongInfo: { selectedSongId, songIdList } }
+
+        cmmOmt: { data: omtData }
+    }: any,
+    {
+        breakoutSongInfo: { selectedSongId, songIdList }
+    }: any
 ) => ({
     songOrder: songIdList,
     selectedSongId,

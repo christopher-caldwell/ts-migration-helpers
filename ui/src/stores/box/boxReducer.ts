@@ -7,6 +7,8 @@ const InitialState = {
     closed: {},
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'action' implicitly has an 'any' type.
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'action' implicitly has an 'any' type.
 export default (state = InitialState, action) => {
     const { type, payload } = action;
     switch (type) {
@@ -19,8 +21,11 @@ export default (state = InitialState, action) => {
         case BOX_OPEN_SUCCESS:
             return {
                 ...state,
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'data' does not exist on type '{ loading:... Remove this comment to see the full error message
                 loading: false,
                 error: null,
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'data' does not exist on type '{ loading:... Remove this comment to see the full error message
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'data' does not exist on type '{ loading:... Remove this comment to see the full error message
                 open: payload ? payload.boxData : state.data,
             };
         case BOX_CLOSED_SUCCESS:

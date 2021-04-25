@@ -1,11 +1,18 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2741) FIXME: Property 'onCheck' is missing in type '{ className... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
 
+// @ts-expect-error ts-migrate(2741) FIXME: Property 'onCheck' is missing in type '{ className... Remove this comment to see the full error message
 import StationCard from 'components/StationCard';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'className' does not exist on type '{}'.
 jest.mock('components/Utilities/Image', () => <img alt="testimage" />);
 
 const renderStationCard = (options = {}) => (
+    // @ts-expect-error ts-migrate(2741) FIXME: Property 'onCheck' is missing in type '{ className... Remove this comment to see the full error message
     shallow(
         <StationCard
             className={options.className || ''}

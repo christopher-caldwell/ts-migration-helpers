@@ -4,7 +4,7 @@ const initialState = {
     data: {},
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState, action: any) => {
     const { type, payload } = action;
     switch (type) {
         case HIGHLIGHT_CATEGORY_VERSION:

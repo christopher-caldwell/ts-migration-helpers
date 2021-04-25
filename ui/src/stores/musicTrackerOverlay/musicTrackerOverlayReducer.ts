@@ -18,7 +18,7 @@ const initialState = {
     showConfirm: false,
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState, action: any) => {
     const { type, error, showConfirm } = action;
     switch (type) {
         case CLOSE_OVERLAY:

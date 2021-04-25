@@ -4,8 +4,12 @@ import DayPicker from 'react-day-picker';
 
 import ThreeCharacterAbv from './ThreeCharacterAbv.component';
 
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './CalendarButton.module.scss' ... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './CalendarButton.module.scss' ... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7031) FIXME: Binding element 'currentWeek' implicitly has an 'a... Remove this comment to see the full error message
 import { calendarButton, calendarIcon, dayPicker, calendarPopOut, dayPickerParent } from './CalendarButton.module.scss';
 
+// @ts-expect-error ts-migrate(7031) FIXME: Binding element 'currentWeek' implicitly has an 'a... Remove this comment to see the full error message
 const CalendarButton = ({ currentWeek, startDate }) => {
     const [calendarVisible, setCalendar] = useState(false);
 
@@ -13,6 +17,7 @@ const CalendarButton = ({ currentWeek, startDate }) => {
         setCalendar(!calendarVisible);
     };
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
     // this is to disable dates after the end of the previous week
     const thisPastSunday = moment.utc().startOf('week').toDate();
     const currentCalendarWeek = [{ after: thisPastSunday }];
@@ -20,7 +25,8 @@ const CalendarButton = ({ currentWeek, startDate }) => {
     // sets initial month to current month
     const currentMonth = moment.utc().toDate();
 
-    const handleChange = (e) => {
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
+    const handleChange = e => {
         const results = handleDateChange(e);
         currentWeek(results.startDate, results.endDate);
         setCalendar(false);
@@ -40,13 +46,16 @@ const CalendarButton = ({ currentWeek, startDate }) => {
             </button>
             {calendarVisible ? (
                 <button className={dayPickerParent} onClick={handleClickOutside}>
-                    <div className={calendarPopOut} onClick={(e) => e.stopPropagation()}>
+                    {/* @ts-expect-error ts-migrate(2739) FIXME: Type '{}' is missing the following properties from... Remove this comment to see the full error message */}
+                    <div className={calendarPopOut} onClick={e => e.stopPropagation()}>
                         <DayPicker
                             disabledDays={currentCalendarWeek}
                             className={dayPicker}
+                            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'date' implicitly has an 'any' type.
                             showOutsideDays
                             month={currentSelectedMonth}
                             toMonth={currentMonth}
+                            // @ts-expect-error ts-migrate(2739) FIXME: Type '{}' is missing the following properties from... Remove this comment to see the full error message
                             weekdayElement={<ThreeCharacterAbv />}
                             onDayClick={handleChange}
                         />
@@ -57,7 +66,8 @@ const CalendarButton = ({ currentWeek, startDate }) => {
     );
 };
 
-const handleDateChange = (date) => {
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'date' implicitly has an 'any' type.
+const handleDateChange = date => {
     const startDate = moment.utc(date).startOf('week').format('YYYY-MM-DD');
     const endDate = moment.utc(date).endOf('week').format('YYYY-MM-DD');
     return {

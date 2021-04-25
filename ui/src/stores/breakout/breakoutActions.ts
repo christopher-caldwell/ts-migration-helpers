@@ -4,9 +4,12 @@ import { REQUEST_BREAKOUT_DATA, UPDATE_BREAKOUT_DETAILS } from '../actionTypes';
 
 export const requestBreakoutData = () => ({ type: REQUEST_BREAKOUT_DATA });
 
-export const updateSongDetails = payload => ({ type: UPDATE_BREAKOUT_DETAILS, payload });
+export const updateSongDetails = (payload: any) => ({
+    type: UPDATE_BREAKOUT_DETAILS,
+    payload
+});
 
-export const getSongDetails = songId => async (dispatch, getState) => {
+export const getSongDetails = (songId: any) => async (dispatch: any, getState: any) => {
     dispatch(requestBreakoutData());
     const {
         boardDetails: {

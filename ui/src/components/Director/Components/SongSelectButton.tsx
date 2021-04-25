@@ -1,9 +1,13 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
-const SongSelectButton = props => {
+type Props = {
+    selectSong: (...args: any[]) => any;
+    song: number;
+};
+
+const SongSelectButton =(props: Props) => {
     const { selectSong, song } = props;
     return (
         <Link className="song-select-link" to="/director/music-point/station">
@@ -12,11 +16,6 @@ const SongSelectButton = props => {
             </button>
         </Link>
     );
-};
-
-SongSelectButton.propTypes = {
-    selectSong: PropTypes.func.isRequired,
-    song: PropTypes.number.isRequired,
 };
 
 export default SongSelectButton;

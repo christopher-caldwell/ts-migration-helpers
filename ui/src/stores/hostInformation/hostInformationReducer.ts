@@ -5,7 +5,7 @@ const initialState = {
     stationHostType: null,
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState, action: any) => {
     const { payload } = action;
     switch (action.type) {
         case SET_HOSTINFO:

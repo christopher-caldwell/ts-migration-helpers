@@ -4,7 +4,7 @@
  * @param {Boolean} staged that inform if the item is on stage
  * @returns {Object} Object containing Sync Status data
  */
-const getSyncStatus = (synchronized, staged) => {
+const getSyncStatus = (synchronized: any, staged: any) => {
     if (synchronized && staged) {
         return {
             title: 'Pending Approval',

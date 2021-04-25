@@ -12,6 +12,9 @@
  * - isLoading: Show a loading indicator
  */
 // TODO: this whole feature needs to be refactored
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
 import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
@@ -39,14 +42,21 @@ class MultiSelect extends Component {
     static defaultProps = {
         ItemRenderer: DefaultItemRenderer,
         isLoading: false,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'options' does not exist on type 'Readonl... Remove this comment to see the full error message
         selectAllLabel: '',
         valueRenderer: () => {},
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 's' implicitly has an 'any' type.
         onSelectedChanged: () => {},
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'o' implicitly has an 'any' type.
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'options' does not exist on type 'Readonl... Remove this comment to see the full error message
         customLabel: 'Select some items...',
     };
 
     getSelectedText() {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'options' does not exist on type 'Readonl... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 's' implicitly has an 'any' type.
         const { options, selected } = this.props;
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 's' implicitly has an 'any' type.
         const selectedOptions = selected.map(s => options.find(o => o.value === s));
 
         const selectedLabels = selectedOptions.map(s => {
@@ -55,19 +65,26 @@ class MultiSelect extends Component {
             }
 
             return '';
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'options' does not exist on type 'Readonl... Remove this comment to see the full error message
         });
 
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'selected' does not exist on type 'Readon... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'ItemRenderer' does not exist on type 'Re... Remove this comment to see the full error message
         return selectedLabels.join('; ');
     }
 
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'options' does not exist on type 'Readonl... Remove this comment to see the full error message
     renderHeader() {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'selected' does not exist on type 'Readon... Remove this comment to see the full error message
         const { options, selected, valueRenderer, customLabel } = this.props;
 
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'isLoading' does not exist on type 'Reado... Remove this comment to see the full error message
         const noneSelected = selected.length === 0;
         const allSelected = selected.length === options.length;
 
         const customText = valueRenderer && valueRenderer(selected, options);
 
+        // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
         if (noneSelected) {
             return <span className="multiselect-none-selected">{customText || customLabel}</span>;
         }
@@ -81,17 +98,24 @@ class MultiSelect extends Component {
                 ? `All ${customLabel} are selected`
                 : 'All items are selected';
 
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'ItemRenderer' does not exist on type 'Re... Remove this comment to see the full error message
         return <span>{allSelected ? allSelectedLabel : this.getSelectedText()}</span>;
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'selected' does not exist on type 'Readon... Remove this comment to see the full error message
     }
 
     render() {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'selectAllLabel' does not exist on type '... Remove this comment to see the full error message
         const {
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'onSelectedChanged' does not exist on typ... Remove this comment to see the full error message
             ItemRenderer,
             options,
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'isLoading' does not exist on type 'Reado... Remove this comment to see the full error message
             selected,
             selectAllLabel,
+            // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
             onSelectedChanged,
             isLoading,
+        // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
         } = this.props;
 
         return (

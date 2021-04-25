@@ -7,19 +7,19 @@ import {
     TOGGLE_TRENDS,
 } from '../actionTypes';
 
-export const setTrendsColumns = mTPreferences => dispatch => {
+export const setTrendsColumns = (mTPreferences: any) => (dispatch: any) => {
     const callout = [...mTPreferences].find(group => group.key === 'callout');
     const trendsColumns = callout.items
-        .filter(item => item.hasTrends && item.checked)
-        .reduce((acc, cur) => acc.concat(cur.sortKey.split('.')[2]), [])
-        .filter((v, i, a) => a.indexOf(v) === i);
+        .filter((item: any) => item.hasTrends && item.checked)
+        .reduce((acc: any, cur: any) => acc.concat(cur.sortKey.split('.')[2]), [])
+        .filter((v: any, i: any, a: any) => a.indexOf(v) === i);
 
     dispatch({ type: SET_TRENDS_COLUMNS, payload: trendsColumns });
 };
 
-export const onToggleTrends = () => dispatch => dispatch({ type: TOGGLE_TRENDS });
+export const onToggleTrends = () => (dispatch: any) => dispatch({ type: TOGGLE_TRENDS });
 
-export const initializeSongTrends = (filters, boardId, boardType, reset) => async (dispatch, getState) => {
+export const initializeSongTrends = (filters: any, boardId: any, boardType: any, reset: any) => async (dispatch: any, getState: any) => {
     dispatch({ type: SONG_TRENDS_PENDING });
     dispatch({ type: 'GET_MUSIC_TRACKER_DATA' });
 

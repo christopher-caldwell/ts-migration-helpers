@@ -5,7 +5,7 @@
  * @param name {String} Name of the feature to be checked
  * @returns {Boolean} Value indicating if feature is activated in the application
  */
-const isFeatureActive = (features, name) => {
+const isFeatureActive = (features: any, name: any) => {
     const system = features.system[name];
     const station = features.station[name];
 

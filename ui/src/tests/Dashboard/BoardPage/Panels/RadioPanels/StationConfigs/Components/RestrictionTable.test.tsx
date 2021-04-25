@@ -1,4 +1,7 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
 
 import RestrictionTable from 'components/BoardPage/Panels/RadioPanels/StationConfigs/Components/RestrictionTable';
@@ -15,18 +18,24 @@ const mockRestrictionItem = {
         },
         {
             hour: 20,
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'restrictionItem' does not exist on type ... Remove this comment to see the full error message
             lastUpdate: '2019-07-24T17:31:12.345Z',
         },
         {
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'onHourClick' does not exist on type '{}'... Remove this comment to see the full error message
             hour: 10,
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleMultiselectHours' does not exist o... Remove this comment to see the full error message
             lastUpdate: '2019-07-24T17:31:12.780Z',
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'restrictionItem' does not exist on type ... Remove this comment to see the full error message
         },
     ],
 };
 
 const renderRestrictionTable = (options = {}) => (
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'onHourClick' does not exist on type '{}'... Remove this comment to see the full error message
     shallow(
         <RestrictionTable
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleMultiselectHours' does not exist o... Remove this comment to see the full error message
             restrictionItem={options.restrictionItem || mockRestrictionItem}
             onHourClick={options.onHourClick || (() => {})}
             handleMultiselectHours={options.handleMultiselectHours || (() => {})}

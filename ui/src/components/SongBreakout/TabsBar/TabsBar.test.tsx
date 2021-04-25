@@ -1,4 +1,7 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(6133) FIXME: 'shallow' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'shallow' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'shallow' is declared but its value is never read.
 import { mount, shallow } from 'enzyme';
 
 import TabsBar from './TabsBar.component';
@@ -38,11 +41,15 @@ test('song bar tabs click', () => {
 test('both tabs are not disabled behavior', () => {
     const contextProps = {
         ...props,
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tab' implicitly has an 'any' type.
         toggleTab: jest.fn(),
         calloutDisabled: false,
         omtDisabled: false,
     };
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tab' implicitly has an 'any' type.
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tab' implicitly has an 'any' type.
     const component = mount(<TabsBar {...contextProps} />);
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tab' implicitly has an 'any' type.
     component.find('button.tab').forEach(tab => expect(tab.prop('disabled')).toBeFalsy());
     component.find('button.tab').forEach(tab => tab.simulate('click'));
     expect(component.prop('toggleTab')).toHaveBeenCalledTimes(2);
@@ -78,19 +85,25 @@ test('omt tab disabled', () => {
     component.find('button.tab').at(1).simulate('click');
     expect(component.prop('toggleTab')).not.toHaveBeenCalled();
     component.find('button.tab').at(0).simulate('click');
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tab' implicitly has an 'any' type.
     expect(component.prop('toggleTab')).toHaveBeenCalledTimes(1);
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tab' implicitly has an 'any' type.
     expect(component.find('div.tooltip').text()).toBe('No OMT breakouts available');
 });
 
 test('both tabs disabled', () => {
     const contextProps = {
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tab' implicitly has an 'any' type.
         ...props,
         toggleTab: jest.fn(),
         calloutDisabled: true,
         omtDisabled: true,
     };
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tab' implicitly has an 'any' type.
     const component = mount(<TabsBar {...contextProps} />);
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tab' implicitly has an 'any' type.
     component.find('button.tab').forEach(tab => expect(tab.prop('disabled')).toBeTruthy());
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'tab' implicitly has an 'any' type.
     component.find('button.tab').forEach(tab => tab.simulate('click'));
     component.find('button.tab').forEach(tab => expect(component.prop('toggleTab')).not.toHaveBeenCalled());
 });

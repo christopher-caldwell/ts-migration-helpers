@@ -1,6 +1,9 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'clas... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'clas... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'clas... Remove this comment to see the full error message
 import classNames from 'classnames';
 import { merge } from 'lodash';
 import moment from 'moment';
@@ -45,32 +48,56 @@ class DateSeriesChart extends React.Component {
     };
 
     static defaultProps = {
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'value' implicitly has an 'any' type.
         bezierCurve: true,
         colorRange: defaultRange,
         dateFormat: null,
         datasets: {},
         options: {},
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'isWeek' implicitly has an 'any' type.
         stacked: false,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'dateFormat' does not exist on type 'Read... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'value' implicitly has an 'any' type.
         hasLegend: true,
         showPoint: false,
         type: 'line',
         xAxis: {},
         yAxis: {
             ticks: {
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'bezierCurve' does not exist on type 'Rea... Remove this comment to see the full error message
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'isWeek' implicitly has an 'any' type.
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'options' does not exist on type 'Readonl... Remove this comment to see the full error message
                 callback(value) {
+                    // @ts-expect-error ts-migrate(2339) FIXME: Property 'stacked' does not exist on type 'Readonl... Remove this comment to see the full error message
+                    // @ts-expect-error ts-migrate(2339) FIXME: Property 'dateFormat' does not exist on type 'Read... Remove this comment to see the full error message
                     return abbreviateNumber(value);
                 },
             },
         },
     };
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'value' implicitly has an 'any' type.
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'point' implicitly has an 'any' type.
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'bezierCurve' does not exist on type 'Rea... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'point' implicitly has an 'any' type.
     getDateFormat(isWeek, numberOfDays) {
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'point' implicitly has an 'any' type.
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'colorRange' does not exist on type 'Read... Remove this comment to see the full error message
         const { dateFormat } = this.props;
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'dateRange' does not exist on type 'Reado... Remove this comment to see the full error message
 
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'line' implicitly has an 'any' type.
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'datasets' does not exist on type 'Readon... Remove this comment to see the full error message
         if (dateFormat) {
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'options' does not exist on type 'Readonl... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'isWeek' implicitly has an 'any' type.
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'type' does not exist on type 'Readonly<{... Remove this comment to see the full error message
             return dateFormat;
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'hasLegend' does not exist on type 'Reado... Remove this comment to see the full error message
         }
 
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'showPoint' does not exist on type 'Reado... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'dateFormat' does not exist on type 'Read... Remove this comment to see the full error message
         return isWeek && Math.abs(numberOfDays) < 7 ? ' ddd DD' : 'M/D/YY';
     }
 
@@ -81,15 +108,28 @@ class DateSeriesChart extends React.Component {
             dateRange,
             datasets,
             options,
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'point' implicitly has an 'any' type.
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'bezierCurve' does not exist on type 'Rea... Remove this comment to see the full error message
             series,
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'items' implicitly has an 'any' type.
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'colorRange' does not exist on type 'Read... Remove this comment to see the full error message
             stacked,
             xAxis,
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'line' implicitly has an 'any' type.
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'dateRange' does not exist on type 'Reado... Remove this comment to see the full error message
             yAxis,
+            // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'datasets' does not exist on type 'Readon... Remove this comment to see the full error message
             type,
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'options' does not exist on type 'Readonl... Remove this comment to see the full error message
             hasLegend,
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'series' does not exist on type 'Readonly... Remove this comment to see the full error message
             showPoint,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'stacked' does not exist on type 'Readonl... Remove this comment to see the full error message
         } = this.props;
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'xAxis' does not exist on type 'Readonly<... Remove this comment to see the full error message
         const { startDate, endDate, period } = dateRange;
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'showPoint' does not exist on type 'Reado... Remove this comment to see the full error message
         const isBar = type === 'bar' || startDate === endDate;
         const isWeek = period === 'weekly';
         const numberOfDays = moment.utc(startDate).diff(moment.utc(endDate), 'days');
@@ -97,18 +137,24 @@ class DateSeriesChart extends React.Component {
         const dataMapper = isBar ? point => point.value : point => ({ y: point.value });
 
         const data = {
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'items' implicitly has an 'any' type.
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'point' implicitly has an 'any' type.
             labels: series[0].data.map(point => {
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'point' implicitly has an 'any' type.
                 if (typeof point.week !== 'undefined' && point.week !== null) {
+                    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'point' implicitly has an 'any' type.
                     return `Week ${point.week}`;
                 }
 
                 return moment
                     .utc(point.date)
                     .format(format)
+                    // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
                     .split(' ');
             }),
             datasets: series.map((line, index) => ({
                 label: line.name,
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'line' implicitly has an 'any' type.
                 backgroundColor: stacked || isBar ? colorRange(index) : 'transparent',
                 borderColor: colorRange(index),
                 pointRadius: 5,
@@ -159,6 +205,7 @@ class DateSeriesChart extends React.Component {
             ...options,
         };
 
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'items' implicitly has an 'any' type.
         const bodyClassName = classNames({
             'chart-body': true,
             'chart-body-padded': isWeek,
@@ -177,4 +224,5 @@ class DateSeriesChart extends React.Component {
     }
 }
 
+// @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
 export { DateSeriesChart as default, DateSeriesChart as Chart, seriesShape };

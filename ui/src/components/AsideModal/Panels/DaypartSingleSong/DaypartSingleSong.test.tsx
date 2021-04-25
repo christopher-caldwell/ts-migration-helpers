@@ -1,13 +1,19 @@
 import React from 'react';
 
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './daypart-single-song.module.s... Remove this comment to see the full error message
 import { shallow, mount } from 'enzyme';
 import Select from 'react-select';
 
 import DaypartSingleSong from './component';
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './daypart-single-song.module.s... Remove this comment to see the full error message
 import SongDetails from '../../Components/SongDetails';
 import DaypartRow from './DaypartRow';
 import AsideModalControls from '../../Components/AsideModalControls';
 
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './daypart-single-song.module.s... Remove this comment to see the full error message
 import styles from './daypart-single-song.module.scss';
 
 const standardProps = {
@@ -54,6 +60,7 @@ const standardProps = {
         {
             id: 263,
             name: 'AMD Weekend',
+            // @ts-expect-error ts-migrate(2739) FIXME: Type '{ selectedSong: { media_id: number; aNm: str... Remove this comment to see the full error message
             synchronized: false,
         },
     ],
@@ -64,6 +71,8 @@ const standardProps = {
         { label: 'M', value: 29 },
         { label: '01', value: 1 },
         { label: '02', value: 2 },
+        // @ts-expect-error ts-migrate(2739) FIXME: Type '{ selectedSong: { media_id: number; aNm: str... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2739) FIXME: Type '{ selectedSong: { media_id: number; aNm: str... Remove this comment to see the full error message
         { label: '81', value: 12 },
         { label: '82', value: 13 },
         { label: 'H', value: 26 },
@@ -75,16 +84,22 @@ const standardProps = {
 };
 
 test('should render component', () => {
+    // @ts-expect-error ts-migrate(2739) FIXME: Type '{ selectedSong: { media_id: number; aNm: str... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2739) FIXME: Type '{ selectedSong: { media_id: number; aNm: str... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2739) FIXME: Type '{ selectedSong: { media_id: number; aNm: str... Remove this comment to see the full error message
     const component = shallow(<DaypartSingleSong {...standardProps} />);
 
     expect(component).toBeDefined();
     expect(component.find(`.${styles.daypartModalContainer}`)).toHaveLength(1);
     expect(component.find(SongDetails)).toHaveLength(1);
     expect(component.find(DaypartRow)).toHaveLength(1);
+    // @ts-expect-error ts-migrate(2739) FIXME: Type '{ selectedSong: { media_id: number; aNm: str... Remove this comment to see the full error message
     expect(component.find(AsideModalControls)).toHaveLength(1);
 });
 
 test('the correct song is getting sent to the modal.', () => {
+    // @ts-expect-error ts-migrate(2739) FIXME: Type '{ selectedSong: { media_id: number; aNm: str... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2739) FIXME: Type '{ selectedSong: { alternate: { 260: { catego... Remove this comment to see the full error message
     const component = shallow(<DaypartSingleSong {...standardProps} />);
 
     expect(standardProps.selectedSong.media_id).toEqual(
@@ -94,11 +109,15 @@ test('the correct song is getting sent to the modal.', () => {
 });
 
 test('if a song has no dayparts', () => {
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'row' implicitly has an 'any' type.
+    // @ts-expect-error ts-migrate(2739) FIXME: Type '{ selectedSong: { media_id: number; aNm: str... Remove this comment to see the full error message
     const component = shallow(<DaypartSingleSong {...standardProps} />);
     const row = component.find(DaypartRow);
 
+    // @ts-expect-error ts-migrate(2532) FIXME: Object is possibly 'undefined'.
     expect(row).toHaveLength(1); // selectedSongs.alternate is empty
     expect(row.props().daypart.id).toBe(undefined); // 'Select Daypart' obj id is undef
+    // @ts-expect-error ts-migrate(2739) FIXME: Type '{ selectedSong: { alternate: { 260: { catego... Remove this comment to see the full error message
     expect(row.dive().find(Select)).toHaveLength(2); // displays 2 default dropdowns
     expect(row.dive().find(Select).at(0).props().value.label).toEqual('Add Daypart');
     expect(row.dive().find(Select).at(1).props().value.label).toEqual('');
@@ -110,14 +129,18 @@ test('song has daypart(s)', () => {
         selectedSong: {
             ...standardProps.selectedSong,
             alternate: {
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'row' implicitly has an 'any' type.
                 260: { category_id: 1, gs_category: null },
                 262: { category_id: 12, gs_category: 'P' },
+                // @ts-expect-error ts-migrate(2739) FIXME: Type '{ action: string; daypart: { value: string; ... Remove this comment to see the full error message
                 258: { category_id: 17, gs_category: null },
+                // @ts-expect-error ts-migrate(2532) FIXME: Object is possibly 'undefined'.
                 // 246: { category_id: null, gs_category: 'P' }, // TODO: test when cat_id is null
             },
         },
     };
 
+    // @ts-expect-error ts-migrate(2739) FIXME: Type '{ selectedSong: { alternate: { 260: { catego... Remove this comment to see the full error message
     const component = shallow(<DaypartSingleSong {...props} />);
     const rows = component.find(`.${styles.currentDaypartsContainer}`).find(DaypartRow);
     // ^ one row per song's daypart
@@ -129,7 +152,10 @@ test('song has daypart(s)', () => {
 
     rows.forEach((row, rowIdx) => {
         // daypart title --------------------------
+        // @ts-expect-error ts-migrate(2739) FIXME: Type '{ action: string; daypart: { value: string; ... Remove this comment to see the full error message
         expect(row.dive().find(`.${styles.daypartMlModalSelect}`).text()).toEqual(
+            // @ts-expect-error ts-migrate(2739) FIXME: Type '{ action: string; daypart: { value: string; ... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2532) FIXME: Object is possibly 'undefined'.
             props.dayparts.find(dp => Number(dp.id) == songDayparts[rowIdx]).name
         );
 
@@ -154,10 +180,13 @@ test('changing alt. category on current daypart', () => {
         changeCurrentAltCategory: jest.fn(),
     };
 
+    // @ts-expect-error ts-migrate(2739) FIXME: Type '{ action: string; daypart: { value: string; ... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2739) FIXME: Type '{ action: string; daypart: { value: string; ... Remove this comment to see the full error message
     const component = shallow(<DaypartRow {...props} />);
 
     expect(component.find(Select).props().value.value).toEqual(28);
     const changeCategoryEvent = jest.fn();
+    // @ts-expect-error ts-migrate(2739) FIXME: Type '{ action: string; daypart: { value: string; ... Remove this comment to see the full error message
     const newCategory = { value: 12, label: 81 };
     expect(component.find(Select).props().selectNewDaypart).toBeFalsy();
     component.setProps({ changeCurrentAltCategory: changeCategoryEvent });
@@ -178,6 +207,8 @@ test('choosing new daypart with alt. category', () => {
         categoryOnChange: jest.fn(),
         selectNewDaypart: true,
     };
+    // @ts-expect-error ts-migrate(2739) FIXME: Type '{ action: string; daypart: { value: string; ... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2739) FIXME: Type '{ selectedSong: { alternate: { 260: { catego... Remove this comment to see the full error message
     const component = shallow(<DaypartRow {...props} />);
 
     // daypart dropdown change
@@ -188,6 +219,7 @@ test('choosing new daypart with alt. category', () => {
     component.setProps({ daypartOnChange: handleDaypartEvent });
     component.find(Select).at(0).simulate('change', newDaypartSelection);
 
+    // @ts-expect-error ts-migrate(2739) FIXME: Type '{ action: string; daypart: { value: string; ... Remove this comment to see the full error message
     expect(handleDaypartEvent).toHaveBeenCalledWith(newDaypartSelection);
     component.setProps({ daypart: newDaypartSelection });
     expect(component.find(Select).at(0).props().value).toEqual(newDaypartSelection);
@@ -210,6 +242,7 @@ test('plus button to add new daypart/alt. cat to current dayparts', () => {
         action: 'plus',
         daypart: { value: '', label: 'Add Daypart' },
         altCategory: { value: '', label: '' },
+        // @ts-expect-error ts-migrate(2739) FIXME: Type '{ selectedSong: { alternate: { 260: { catego... Remove this comment to see the full error message
         categoryOptions: standardProps.categoryOptions,
         dayparts: standardProps.dayparts,
         daypartOnChange: jest.fn(),
@@ -217,6 +250,7 @@ test('plus button to add new daypart/alt. cat to current dayparts', () => {
         selectNewDaypart: true,
         addNewDaypart: jest.fn(),
     };
+    // @ts-expect-error ts-migrate(2739) FIXME: Type '{ action: string; daypart: { value: string; ... Remove this comment to see the full error message
     const component = mount(<DaypartRow {...props} />);
     expect(component.find('i.fa-plus')).toHaveLength(0);
     component.setProps({
@@ -244,6 +278,7 @@ test('new daypart w/ alt. catagory added to current dayparts list', () => {
             },
         },
     };
+    // @ts-expect-error ts-migrate(2739) FIXME: Type '{ selectedSong: { alternate: { 260: { catego... Remove this comment to see the full error message
     const component = shallow(<DaypartSingleSong {...props} />);
     expect(component.find(DaypartRow)).toHaveLength(4);
 });

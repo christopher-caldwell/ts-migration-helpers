@@ -1,4 +1,4 @@
-const pathEnvironment = environment => {
+const pathEnvironment = (environment: any) => {
     const path = environment === '' ? './environment.local.json' : `./environment.${environment}.json`;
 
     return path;

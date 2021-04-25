@@ -1,10 +1,19 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'onClear' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'className' does not exist on type '{}'.
 import { shallow } from 'enzyme';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'count' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'onClear' does not exist on type '{}'.
 import DirectorBottomBarActions from 'components/Director/Components/DirectorBottomBarActions';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'className' does not exist on type '{}'.
 const renderDirectorBottomBarActions = (options = {}) => (
     shallow(
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'count' does not exist on type '{}'.
         <DirectorBottomBarActions
             onClear={options.onClear || (() => {})}
             className={options.className || ''}

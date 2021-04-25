@@ -1,4 +1,8 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
 
 import CalendarTable from 'components/BoardPage/Panels/RadioPanels/StationConfigs/Components/CalendarTable';
@@ -21,20 +25,25 @@ const mockDayparts = [
         id: 3,
         name: 'test daypart 3',
         hours: [96, 97], // thursday
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ dayparts: any; stagedDayparts: any; }' is ... Remove this comment to see the full error message
         synchronized: true,
     },
 ];
 
 const mockStagedDayparts = [
     {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'stagedDayparts' does not exist on type '... Remove this comment to see the full error message
         id: 1,
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ dayparts: any; stagedDayparts: any; }' is ... Remove this comment to see the full error message
         name: 'test daypart 1',
         hours: [0, 1, 2, 20, 21, 22, 23, 40],
     },
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'stagedDayparts' does not exist on type '... Remove this comment to see the full error message
 ];
 
 const mockAssignedSlots = [0, 1, 2, 8, 9, 10, 99, 100, 101];
 
+// @ts-expect-error ts-migrate(2322) FIXME: Type '{ dayparts: any; stagedDayparts: any; }' is ... Remove this comment to see the full error message
 const renderCalendarTable = (options = {}) => (
     shallow(
         <CalendarTable

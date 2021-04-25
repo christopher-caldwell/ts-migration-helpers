@@ -9,9 +9,10 @@ const mapStateToProps = ({
             columns: { callout },
         },
     },
+
     cmmCallout,
-    cmmCalloutTrends,
-}) => ({
+    cmmCalloutTrends
+}: any) => ({
     columnKeys: callout,
     loading: cmmCallout.loading || cmmCalloutTrends.loading,
     cmmCalloutData: cmmCallout,

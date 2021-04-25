@@ -1,7 +1,7 @@
 import request from '../../utils/request';
 import { SET_HOSTINFO } from '../actionTypes';
 
-export const getHostInformation = stationId => async dispatch => {
+export const getHostInformation = (stationId: any) => async (dispatch: any) => {
     try {
         const hostInfo = await request(`/scheduler/station/${stationId}/hostInfo`);
         if (hostInfo && !hostInfo.errorMessage) {

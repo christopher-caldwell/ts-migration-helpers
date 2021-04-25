@@ -11,7 +11,7 @@ import {
     REMOVE_READ_ONLY_CATEGORIES,
 } from '../actionTypes';
 
-export const loadSettings = () => async (dispatch, getState) => {
+export const loadSettings = () => async (dispatch: any, getState: any) => {
     const { preferences } = getState();
     try {
         // competitor logic turned off for now
@@ -28,21 +28,26 @@ export const loadSettings = () => async (dispatch, getState) => {
     }
 };
 
-export const updateCompareOptions = compare => ({
+export const updateCompareOptions = (compare: any) => ({
     type: UPDATE_COMPARE_OPTIONS,
-    payload: compare, // TODO: make this simpler
+
+    // TODO: make this simpler
+    payload: compare
 });
 
-export const onSetDate = date => ({ type: ON_SET_DATE, date });
+export const onSetDate = (date: any) => ({
+    type: ON_SET_DATE,
+    date
+});
 
-export const setMusicTrackerFilter = musicTrackerFilter => ({
+export const setMusicTrackerFilter = (musicTrackerFilter: any) => ({
     type: ON_SET_FILTER,
-    payload: musicTrackerFilter,
+    payload: musicTrackerFilter
 });
 
 export const resetMusicTrackerFilter = () => ({ type: ON_RESET_FILTER });
 
-export const removeReadOnlyCategories = newFilter => ({
+export const removeReadOnlyCategories = (newFilter: any) => ({
     type: REMOVE_READ_ONLY_CATEGORIES,
-    payload: newFilter,
+    payload: newFilter
 });

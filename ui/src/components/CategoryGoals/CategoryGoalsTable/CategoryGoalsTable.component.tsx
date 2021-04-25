@@ -1,4 +1,12 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(7031) FIXME: Binding element 'categoryList' implicitly has an '... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'category' implicitly has an 'any' type.
+// @ts-expect-error ts-migrate(7031) FIXME: Binding element 'categoryList' implicitly has an '... Remove this comment to see the full error message
 import React from 'react';
+// @ts-expect-error ts-migrate(7031) FIXME: Binding element 'handleIdealCount' implicitly has ... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './CategoryGoalsTable.module.sc... Remove this comment to see the full error message
 import style from './CategoryGoalsTable.module.scss';
 
 const CategoryGoalsTable = ({ categoryList, handleIdealCount }) => {

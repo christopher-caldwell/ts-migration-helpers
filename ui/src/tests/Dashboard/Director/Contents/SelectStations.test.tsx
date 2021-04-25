@@ -1,4 +1,8 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
 
 import SelectStations from 'components/Director/Contents/SelectStations';
@@ -28,32 +32,53 @@ const mockFormatsList = [{
     label: 'test format 1',
     value: 1,
 }, {
+    // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
     label: 'test format 2',
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleChecked' does not exist on type '{... Remove this comment to see the full error message
     value: 2,
 }];
 
 const mockMarketsList = [{
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'stations' does not exist on type '{}'.
     label: 'test market 1',
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'toggleSelection' does not exist on type ... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
     value: 1,
 }, {
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'checkedStations' does not exist on type ... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleChecked' does not exist on type '{... Remove this comment to see the full error message
     label: 'test market 2',
     value: 2,
 }];
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'filteredMarkets' does not exist on type ... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'stations' does not exist on type '{}'.
 const mockOrderedStations = {
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'formatsList' does not exist on type '{}'... Remove this comment to see the full error message
     field: 'nielsen_rank',
     ascending: true,
 };
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'marketsList' does not exist on type '{}'... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'toggleSelection' does not exist on type ... Remove this comment to see the full error message
 const renderSelectStations = (options = {}) => (
     shallow(
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'checkedStations' does not exist on type ... Remove this comment to see the full error message
         <SelectStations
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'className' does not exist on type '{}'.
             handleChecked={options.handleChecked || (() => {})}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'filteredFormats' does not exist on type ... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'filteredMarkets' does not exist on type ... Remove this comment to see the full error message
             stations={options.stations || mockStations}
             toggleSelection={options.toggleSelection || (() => {})}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'formatsList' does not exist on type '{}'... Remove this comment to see the full error message
             checkedStations={options.checkedStations || []}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'marketsList' does not exist on type '{}'... Remove this comment to see the full error message
             className={options.className || 'test-class'}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleStationFilter' does not exist on t... Remove this comment to see the full error message
             filteredFormats={options.filteredFormats || []}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'orderedStations' does not exist on type ... Remove this comment to see the full error message
             filteredMarkets={options.filteredMarkets || []}
             selectedSong={{ title: 'test title', artist: 'test artist' }}
             formatsList={options.formatsList || []}
@@ -89,6 +114,7 @@ describe('<SelectStations />', () => {
         expect(mockHandleChecked).toHaveBeenCalled();
     });
 
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'document' does not exist on type 'Global... Remove this comment to see the full error message
     it('Select All button should work when no stations are checked', () => {
         const mockToggleSelection = jest.fn();
         const component = renderSelectStations({
@@ -130,6 +156,7 @@ describe('<SelectStations />', () => {
 
     it('reset button should trigger handleResetFilter, triggering handleStationFilter', () => {
         const mockHandleStationFilter = jest.fn();
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'document' does not exist on type 'Global... Remove this comment to see the full error message
         const component = renderSelectStations({
             handleStationFilter: mockHandleStationFilter,
         });
@@ -155,6 +182,7 @@ describe('<SelectStations />', () => {
         const component = renderSelectStations({
             handleStationFilter: mockHandleStationFilter,
         });
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'document' does not exist on type 'Global... Remove this comment to see the full error message
         component.instance().handleSelectFormat(mockFormatsList[0], false);
         expect(mockHandleStationFilter).toHaveBeenCalled();
     });
@@ -201,6 +229,7 @@ describe('<SelectStations />', () => {
             filteredFormats: mockFormatsList,
         });
         component.instance().handleSelectFormat(mockFormatItem, false);
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'document' does not exist on type 'Global... Remove this comment to see the full error message
         expect(mockHandleStationFilter).toHaveBeenCalled();
         expect(mockHandleStationFilter).toHaveBeenCalledWith({
             filteredFormats: mockFormatsList,

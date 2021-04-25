@@ -4,7 +4,10 @@ const defaultStage = {
     songInfoSelected: {},
 };
 
-export default (state = defaultStage, { type, songInfoSelected }) => {
+export default (state = defaultStage, {
+    type,
+    songInfoSelected
+}: any) => {
     switch (type) {
         case ON_SET_SONG_INFO_SELECTED:
             return { ...state, songInfoSelected };

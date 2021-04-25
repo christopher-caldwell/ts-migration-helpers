@@ -6,7 +6,10 @@ const initialState = {
     loading: false,
 };
 
-export default (state = initialState, { type, payload }) => {
+export default (state = initialState, {
+    type,
+    payload
+}: any) => {
     switch (type) {
         case FETCH_ALL_USERS_SUCCESS:
             return { ...state, allUsers: payload, loading: false };

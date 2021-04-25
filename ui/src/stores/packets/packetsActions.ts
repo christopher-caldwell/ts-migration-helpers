@@ -7,7 +7,7 @@ import {
 } from 'stores/musicTrackerOverlay/musicTrackerOverlayActions';
 import { PACKET_PENDING, PACKET_SUCCESS, PACKET_FAILURE, STAGE_SONGS_MEDIA } from '../actionTypes';
 
-export const fetchStationPackets = stationId => async dispatch => {
+export const fetchStationPackets = (stationId: any) => async (dispatch: any) => {
     dispatch({ type: PACKET_PENDING });
     try {
         const packets = await request(`/scheduler/station/${stationId}/packet`);
@@ -17,7 +17,7 @@ export const fetchStationPackets = stationId => async dispatch => {
     }
 };
 
-export const createStationPacket = payload => async dispatch => {
+export const createStationPacket = (payload: any) => async (dispatch: any) => {
     dispatch({ type: PACKET_PENDING });
     try {
         dispatch(requestOverlay());
@@ -35,14 +35,17 @@ export const createStationPacket = payload => async dispatch => {
     }
 };
 
-export const updateSongsPacket = (stationId, songs) => async dispatch => {
+export const updateSongsPacket = (stationId: any, songs: any) => async (dispatch: any) => {
     dispatch({ type: PACKET_PENDING });
     try {
         dispatch(requestOverlay());
         const response = await request(`/scheduler/station/${stationId}/song/packet`, {
             method: 'PUT',
             body: {
-                songs: songs.map(({ media_id, packet_id }) => ({
+                songs: songs.map(({
+                    media_id,
+                    packet_id
+                }: any) => ({
                     media_id,
                     packet_id,
                 })),

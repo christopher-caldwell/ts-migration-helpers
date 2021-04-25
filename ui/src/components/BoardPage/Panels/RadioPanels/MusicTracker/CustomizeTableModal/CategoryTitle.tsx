@@ -1,9 +1,17 @@
 import React from 'react';
-
-import PropTypes from 'prop-types';
 import { Checkbox } from 'react-bootstrap';
 
-const CategoryTitle = ({ title, checked, disabled, onClick, beChecked, anchor, plusMinus }) => (
+type Props = {
+    beChecked: boolean;
+    checked: boolean;
+    title: string;
+    onClick: (...args: any[]) => any;
+    anchor?: React.ReactElement;
+    disabled?: boolean;
+    plusMinus?: React.ReactElement;
+};
+
+const CategoryTitle = ({ title, checked, disabled, onClick, beChecked, anchor, plusMinus }: Props) => (
     <div className="category-title">
         {beChecked ? (
             <Checkbox
@@ -22,17 +30,6 @@ const CategoryTitle = ({ title, checked, disabled, onClick, beChecked, anchor, p
         {anchor}
     </div>
 );
-
-CategoryTitle.propTypes = {
-    beChecked: PropTypes.bool.isRequired,
-    checked: PropTypes.bool.isRequired,
-    title: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-
-    anchor: PropTypes.element,
-    disabled: PropTypes.bool,
-    plusMinus: PropTypes.element,
-};
 
 CategoryTitle.defaultProps = {
     anchor: null,

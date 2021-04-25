@@ -1,4 +1,5 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'clas... Remove this comment to see the full error message
 import classNames from 'classnames';
 import moment from 'moment';
 import getNumberWithComma from 'utils/NumberFunctions';
@@ -15,27 +16,49 @@ import isEmpty from 'lodash/isEmpty';
 import TooltipColumnGroupHeader from 'components/BoardPage/Panels/RadioPanels/MusicTracker/TooltipColumnGroupHeader';
 
 const makeColumnMap = ({
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'callLetter' implicitly has an 'an... Remove this comment to see the full error message
     callLetter,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'data' implicitly has an 'any' typ... Remove this comment to see the full error message
     data,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'isCompareEnabled' implicitly has ... Remove this comment to see the full error message
     isCompareEnabled,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'stationCategories' implicitly has... Remove this comment to see the full error message
     stationCategories,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'selectSong' implicitly has an 'an... Remove this comment to see the full error message
     selectSong,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'selectedSongs' implicitly has an ... Remove this comment to see the full error message
     selectedSongs,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'onTitleClick' implicitly has an '... Remove this comment to see the full error message
     onTitleClick,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'onMetricClick' implicitly has an ... Remove this comment to see the full error message
     onMetricClick,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'toggleCategory' implicitly has an... Remove this comment to see the full error message
     toggleCategory,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'filters' implicitly has an 'any' ... Remove this comment to see the full error message
     filters,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'toggleCalloutCore' implicitly has... Remove this comment to see the full error message
     toggleCalloutCore,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'calloutCore' implicitly has an 'a... Remove this comment to see the full error message
     calloutCore,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'toggleCalloutTotal' implicitly ha... Remove this comment to see the full error message
     toggleCalloutTotal,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'calloutTotal' implicitly has an '... Remove this comment to see the full error message
     calloutTotal,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'toggleOmtCore' implicitly has an ... Remove this comment to see the full error message
     toggleOmtCore,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'omtCore' implicitly has an 'any' ... Remove this comment to see the full error message
     omtCore,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'toggleOmtTotal' implicitly has an... Remove this comment to see the full error message
     toggleOmtTotal,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'omtTotal' implicitly has an 'any'... Remove this comment to see the full error message
     omtTotal,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'competitors' implicitly has an 'a... Remove this comment to see the full error message
     competitors,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'cmmFormat' implicitly has an 'any... Remove this comment to see the full error message
     cmmFormat,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'versionsWithPacket' implicitly ha... Remove this comment to see the full error message
     versionsWithPacket,
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'catChangeIDs' implicitly has an '... Remove this comment to see the full error message
     catChangeIDs,
     // will include when we need sync again ButtonColumnGroupHeader
     // someCategoryModified,
@@ -50,6 +73,7 @@ const makeColumnMap = ({
                 disableSort: true,
                 cell: (
                     <CheckboxCell
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; disabled: any; onSongSelect: an... Remove this comment to see the full error message
                         data={data}
                         disabled={isCompareEnabled}
                         onSongSelect={selectSong}
@@ -75,9 +99,11 @@ const makeColumnMap = ({
                 disableSort: true,
                 cell: (
                     <DropdownCell
+                        // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
                         data={data}
                         toggleCategory={toggleCategory}
                         stationCategories={stationCategories}
+                        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'row' implicitly has an 'any' type.
                         textExtractor={row =>
                             utils.versionTextExtractor(row.category, 'staged', 'current')}
                     />
@@ -193,6 +219,7 @@ Last Modified Date: ${toolTip.lastModifiedDate}`;
                                     const mediaId =
                                         current && current[0] ? current[0].media_id : null;
                                     const songMatch = catChangeIDs.some(
+                                        // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'changeId' implicitly has an 'any'... Remove this comment to see the full error message
                                         ({ media_id: changeId }) => changeId === mediaId
                                     );
                                     return classNames('table-category-button', {
@@ -219,6 +246,7 @@ Last Modified Date: ${toolTip.lastModifiedDate}`;
                                     const mediaId =
                                         current && current[0] ? current[0].media_id : null;
                                     const songMatch = catChangeIDs.find(
+                                        // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'changeId' implicitly has an 'any'... Remove this comment to see the full error message
                                         ({ media_id: changeId }) => changeId === mediaId
                                     );
                                     return songMatch
@@ -294,6 +322,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
         columns: {
             'enhanced.pop.rnk': {
                 header: 'TAA Rank',
+                // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; quintileKey: st... Remove this comment to see the full error message
                 cell: <QuintileCell data={data} prefix="metrics" quintileKey="enhanced.pop.rnk" />,
                 width: 55,
             },
@@ -302,6 +331,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; hasTrend: true;... Remove this comment to see the full error message
                         prefix="metrics"
                         hasTrend
                         quintileKey="enhanced.pop.rnk"
@@ -350,6 +380,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
         columns: {
             'callout.pop.cRnk': {
                 header: 'Core Pop Rank',
+                // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; quintileKey: st... Remove this comment to see the full error message
                 cell: <QuintileCell data={data} prefix="metrics" quintileKey="callout.pop.score" />,
                 width: 75,
             },
@@ -358,6 +389,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Core Pop"
@@ -376,6 +408,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Core 2Pop"
@@ -393,6 +426,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Core PTL"
@@ -479,6 +513,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
             },
             'callout.pop.tRnk': {
                 header: 'Total POP Rank',
+                // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; quintileKey: st... Remove this comment to see the full error message
                 cell: <QuintileCell data={data} prefix="metrics" quintileKey="callout.pop.total" />,
                 width: 75,
             },
@@ -487,6 +522,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Total POP"
@@ -505,6 +541,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Total 2Pop"
@@ -522,6 +559,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Total PTL"
@@ -631,6 +669,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="AA Pop"
@@ -645,6 +684,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="AA 2Pop"
@@ -659,6 +699,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="AA PTL"
@@ -673,6 +714,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Hisp Pop"
@@ -687,6 +729,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Hisp 2Pop"
@@ -701,6 +744,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Hisp PTL"
@@ -715,6 +759,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="AA/Hisp Pop"
@@ -729,6 +774,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="AA/Hisp 2Pop"
@@ -743,6 +789,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="AA/Hisp PTL"
@@ -757,6 +804,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="White Pop"
@@ -771,6 +819,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="White 2Pop"
@@ -785,6 +834,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="White PTL"
@@ -799,6 +849,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Asian Pop"
@@ -813,6 +864,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Asian 2Pop"
@@ -827,6 +879,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Asian PTL"
@@ -841,6 +894,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Male POP"
@@ -855,6 +909,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Male 2Pop"
@@ -869,6 +924,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Male PTL"
@@ -883,6 +939,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Female POP"
@@ -897,6 +954,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Female 2Pop"
@@ -911,6 +969,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Female PTL"
@@ -925,6 +984,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Young POP"
@@ -939,6 +999,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Young 2Pop"
@@ -953,6 +1014,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Young PTL"
@@ -967,6 +1029,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Old POP"
@@ -981,6 +1044,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Old 2Pop"
@@ -995,6 +1059,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; clickable: true... Remove this comment to see the full error message
                         prefix="metrics"
                         clickable
                         tooltipTitle="Old PTL"
@@ -1009,6 +1074,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; quintileKey: st... Remove this comment to see the full error message
                         prefix="metrics"
                         quintileKey="callout.pop.consolidated1Total"
                     />
@@ -1020,6 +1086,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                         prefix="metrics"
                         tooltipTitle="Consolidated 1 Total POP"
                     />
@@ -1031,6 +1098,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; quintileKey: st... Remove this comment to see the full error message
                         prefix="metrics"
                         quintileKey="callout.pop.consolidated2Total"
                     />
@@ -1042,6 +1110,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                         prefix="metrics"
                         tooltipTitle="Consolidated 2 Total POP"
                     />
@@ -1053,6 +1122,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; quintileKey: st... Remove this comment to see the full error message
                         prefix="metrics"
                         quintileKey="callout.pop.consolidated3Total"
                     />
@@ -1064,6 +1134,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                         prefix="metrics"
                         tooltipTitle="Consolidated 3 Total POP"
                     />
@@ -1092,6 +1163,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; quintileKey: st... Remove this comment to see the full error message
                         prefix="metrics"
                         quintileKey="customCallout.pop.quintileCoreGroup"
                     />
@@ -1103,6 +1175,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                         prefix="metrics"
                         tooltipTitle="Core Pop"
                         hasTrend
@@ -1115,6 +1188,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
             'customCallout.2pop.score': {
                 header: 'Core 2Pop',
                 cell: (
+                    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                     <QuintileCell data={data} prefix="metrics" tooltipTitle="Core 2Pop" hasTrend />
                 ),
                 width: 65,
@@ -1122,6 +1196,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
             'customCallout.ptl.score': {
                 header: 'Core PTL',
                 cell: (
+                    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                     <QuintileCell data={data} prefix="metrics" tooltipTitle="Core PTL" hasTrend />
                 ),
                 width: 65,
@@ -1131,6 +1206,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; quintileKey: st... Remove this comment to see the full error message
                         prefix="metrics"
                         quintileKey="customCallout.pop.quintileTotalGroup"
                     />
@@ -1142,6 +1218,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                         prefix="metrics"
                         tooltipTitle="Total POP"
                         hasTrend
@@ -1154,6 +1231,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
             'customCallout.2pop.total': {
                 header: 'Total 2Pop',
                 cell: (
+                    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                     <QuintileCell data={data} prefix="metrics" tooltipTitle="Total 2Pop" hasTrend />
                 ),
                 width: 70,
@@ -1161,6 +1239,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
             'customCallout.ptl.total': {
                 header: 'Total PTL',
                 cell: (
+                    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                     <QuintileCell data={data} prefix="metrics" tooltipTitle="Total PTL" hasTrend />
                 ),
                 width: 70,
@@ -1184,6 +1263,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; quintileKey: st... Remove this comment to see the full error message
                         prefix="metrics"
                         quintileKey="omt.pop.quintileCoreGroup"
                     />
@@ -1195,6 +1275,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                         prefix="metrics"
                         tooltipTitle="Core Pop"
                         hasTrend
@@ -1210,6 +1291,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
             'omt.2pop.score': {
                 header: 'Core 2Pop',
                 cell: (
+                    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                     <QuintileCell data={data} prefix="metrics" tooltipTitle="Core 2Pop" hasTrend />
                 ),
                 width: 65,
@@ -1220,6 +1302,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
             'omt.ptl.score': {
                 header: 'Core PTL',
                 cell: (
+                    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                     <QuintileCell data={data} prefix="metrics" tooltipTitle="Core PTL" hasTrend />
                 ),
                 width: 65,
@@ -1304,6 +1387,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; quintileKey: st... Remove this comment to see the full error message
                         prefix="metrics"
                         quintileKey="omt.pop.quintileTotalGroup"
                     />
@@ -1315,6 +1399,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                         prefix="metrics"
                         tooltipTitle="Total POP"
                         hasTrend
@@ -1330,6 +1415,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
             'omt.2pop.total': {
                 header: 'Total 2Pop',
                 cell: (
+                    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                     <QuintileCell data={data} prefix="metrics" tooltipTitle="Total 2Pop" hasTrend />
                 ),
                 width: 70,
@@ -1340,6 +1426,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
             'omt.ptl.total': {
                 header: 'Total PTL',
                 cell: (
+                    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                     <QuintileCell data={data} prefix="metrics" tooltipTitle="Total PTL" hasTrend />
                 ),
                 width: 70,
@@ -1441,6 +1528,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; quintileKey: st... Remove this comment to see the full error message
                         prefix="metrics"
                         quintileKey="customOmt.pop.quintileCoreGroup"
                     />
@@ -1452,6 +1540,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                         prefix="metrics"
                         tooltipTitle="Core Pop"
                         hasTrend
@@ -1464,6 +1553,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
             'customOmt.2pop.score': {
                 header: 'Core 2Pop',
                 cell: (
+                    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                     <QuintileCell data={data} prefix="metrics" tooltipTitle="Core 2Pop" hasTrend />
                 ),
                 width: 65,
@@ -1471,6 +1561,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
             'customOmt.ptl.score': {
                 header: 'Core PTL',
                 cell: (
+                    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                     <QuintileCell data={data} prefix="metrics" tooltipTitle="Core PTL" hasTrend />
                 ),
                 width: 65,
@@ -1480,6 +1571,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; quintileKey: st... Remove this comment to see the full error message
                         prefix="metrics"
                         quintileKey="customOmt.pop.quintileTotalGroup"
                     />
@@ -1491,6 +1583,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
                 cell: (
                     <QuintileCell
                         data={data}
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                         prefix="metrics"
                         tooltipTitle="Total POP"
                         hasTrend
@@ -1503,6 +1596,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
             'customOmt.2pop.total': {
                 header: 'Total 2Pop',
                 cell: (
+                    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                     <QuintileCell data={data} prefix="metrics" tooltipTitle="Total 2Pop" hasTrend />
                 ),
                 width: 70,
@@ -1510,6 +1604,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
             'customOmt.ptl.total': {
                 header: 'Total PTL',
                 cell: (
+                    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ data: any; prefix: string; tooltipTitle: s... Remove this comment to see the full error message
                     <QuintileCell data={data} prefix="metrics" tooltipTitle="Total PTL" hasTrend />
                 ),
                 width: 70,
@@ -1705,6 +1800,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
         columns: {
             'mscore.switching': {
                 header: 'MSCORE',
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'mscoreData' implicitly has an 'any' typ... Remove this comment to see the full error message
                 sortValueExtractor: mscoreData => parseFloat(mscoreData.metrics.mscore.switching),
                 cell: (
                     <TextCell
@@ -1731,6 +1827,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
             },
             'mscore.sWeek1': {
                 header: 'Switch Week 1',
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'mscoreData' implicitly has an 'any' typ... Remove this comment to see the full error message
                 sortValueExtractor: mscoreData => parseFloat(mscoreData.metrics.mscore.sWeek1),
                 cell: (
                     <TextCell
@@ -1747,6 +1844,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
             },
             'mscore.sWeek2': {
                 header: 'Switch Week 2',
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'mscoreData' implicitly has an 'any' typ... Remove this comment to see the full error message
                 sortValueExtractor: mscoreData => parseFloat(mscoreData.mscore.sWeek2),
                 cell: (
                     <TextCell
@@ -1763,6 +1861,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
             },
             'mscore.sWeek3': {
                 header: 'Switch Week 3',
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'mscoreData' implicitly has an 'any' typ... Remove this comment to see the full error message
                 sortValueExtractor: mscoreData => parseFloat(mscoreData.mscore.sWeek3),
                 cell: (
                     <TextCell
@@ -1779,6 +1878,7 @@ Category: ${toolTip.category}\nLast Modified Date: ${toolTip.lastModifiedDate}`;
             },
             'mscore.sWeek4': {
                 header: 'Switch Week 4',
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'mscoreData' implicitly has an 'any' typ... Remove this comment to see the full error message
                 sortValueExtractor: mscoreData => parseFloat(mscoreData.mscore.sWeek4),
                 cell: (
                     <TextCell

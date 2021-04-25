@@ -1,5 +1,9 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'redu... Remove this comment to see the full error message
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
@@ -67,26 +71,38 @@ const mockSongVersions = {
                     media_id: 3,
                 },
             ],
+            // @ts-expect-error ts-migrate(2322) FIXME: Type '{ store: any; bottomBarOpen: any; handleClos... Remove this comment to see the full error message
             4: [
                 {
+                    // @ts-expect-error ts-migrate(2339) FIXME: Property 'bottomBarOpen' does not exist on type '{... Remove this comment to see the full error message
                     packet_id: 2,
                     media_id: 4,
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleClose' does not exist on type '{}'... Remove this comment to see the full error message
                 },
             ],
         },
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleUpdateSongsPacket' does not exist ... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ store: any; bottomBarOpen: any; handleClos... Remove this comment to see the full error message
         staged: {},
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'stagedSongs' does not exist on type '{}'... Remove this comment to see the full error message
     },
 };
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'bottomBarOpen' does not exist on type '{... Remove this comment to see the full error message
 const mockStore = configureStore([thunk]);
 const store = mockStore({
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleClose' does not exist on type '{}'... Remove this comment to see the full error message
     boardDetails: mockBoardDetails,
     songVersions: mockSongVersions,
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleUpdateSongsPacket' does not exist ... Remove this comment to see the full error message
     packets: mockPackets,
 });
 
 const renderSinglePacketSong = (options = {}) =>
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'selectedSong' does not exist on type '{}... Remove this comment to see the full error message
     shallow(
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'stagedSongs' does not exist on type '{}'... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ store: any; bottomBarOpen: any; handleClos... Remove this comment to see the full error message
         <PacketSingleSong
             store={store}
             bottomBarOpen={options.bottomBarOpen || false}

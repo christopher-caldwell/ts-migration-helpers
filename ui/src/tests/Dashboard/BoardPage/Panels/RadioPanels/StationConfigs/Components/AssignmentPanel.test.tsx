@@ -1,4 +1,8 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
 
 import AssignmentPanel from 'components/BoardPage/Panels/RadioPanels/StationConfigs/Components/AssignmentPanel';
@@ -36,14 +40,22 @@ const mockStagedDayparts = [
             49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70,
             71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92,
             93, 94, 95, 96, 97, 98, 102, 103, 104, 105, 106, 110, 111, 112, 113, 114, 115, 116, 117,
+            // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
             118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134,
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'stagedDayparts' does not exist on type '... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'onClose' does not exist on type '{}'.
             135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151,
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'stagedDayparts' does not exist on type '... Remove this comment to see the full error message
             152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167],
     },
 ];
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'onClose' does not exist on type '{}'.
 const renderAssignmentPanel = (options = {}) => (
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'className' does not exist on type '{}'.
     shallow(
+        // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
         <AssignmentPanel
             dayparts={options.dayparts || mockDayparts}
             stagedDayparts={options.stagedDayparts || mockStagedDayparts}

@@ -16,7 +16,7 @@ const initialState = {
     error: null,
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState, action: any) => {
     const { type, error, payload } = action;
     switch (type) {
         case OPEN_MODAL:

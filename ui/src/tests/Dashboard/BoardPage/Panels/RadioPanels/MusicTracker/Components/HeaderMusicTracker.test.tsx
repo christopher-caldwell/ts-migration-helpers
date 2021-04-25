@@ -1,5 +1,9 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'redu... Remove this comment to see the full error message
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
@@ -25,28 +29,43 @@ const store = mockStore({
             crg: [],
             category: {},
         },
+    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ loading: any; musicTracker: any; musicTrac... Remove this comment to see the full error message
     },
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'loading' does not exist on type '{}'.
     musicTrackerData: {
         categoryDetails: {
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'musicTracker' does not exist on type '{}... Remove this comment to see the full error message
             rawStationCategories: {},
         },
     },
 });
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'musicTrackerData' does not exist on type... Remove this comment to see the full error message
 const mockState = {
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'trendsEnabled' does not exist on type '{... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ loading: any; musicTracker: any; musicTrac... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'onToggleTrends' does not exist on type '... Remove this comment to see the full error message
     dropDownDimensions: {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'onSearchChange' does not exist on type '... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'loading' does not exist on type '{}'.
         minHeight: 257,
         maxHeight: 257,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'musicTracker' does not exist on type '{}... Remove this comment to see the full error message
         height: 257,
         width: 270,
         opened: false,
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'musicTrackerData' does not exist on type... Remove this comment to see the full error message
     },
     activeCategoryPanel: '',
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'trendsEnabled' does not exist on type '{... Remove this comment to see the full error message
     filtersOpened: false,
 };
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'onFilterSave' does not exist on type '{}... Remove this comment to see the full error message
 const renderHeaderMusicTracker = (options = {}) =>
     shallow(
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'onToggleTrends' does not exist on type '... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ loading: any; musicTracker: any; musicTrac... Remove this comment to see the full error message
         <HeaderMusicTracker
             loading={options.loading || false}
             musicTracker={options.musicTracker || {}}

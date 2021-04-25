@@ -1,3 +1,6 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
 import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
@@ -13,11 +16,16 @@ class ButtonColumnGroupHeader extends Component {
         onButtonClick: PropTypes.func,
     };
 
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'headerText' does not exist on type 'Read... Remove this comment to see the full error message
     static defaultProps = {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'disabled' does not exist on type 'Readon... Remove this comment to see the full error message
         buttonText: '',
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'onButtonClick' does not exist on type 'R... Remove this comment to see the full error message
         disabled: false,
         headerText: '',
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'headerText' does not exist on type 'Read... Remove this comment to see the full error message
         loading: false,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'disabled' does not exist on type 'Readon... Remove this comment to see the full error message
         onButtonClick: () => {},
     };
 

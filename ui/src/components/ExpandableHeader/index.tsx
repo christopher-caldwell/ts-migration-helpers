@@ -1,9 +1,16 @@
 import React from 'react';
-
-import PropTypes from 'prop-types';
 import { Panel, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
-const ExpandableHeader = props => (
+type Props = {
+    children: React.ReactNode;
+    expanded: boolean;
+    title: string;
+    onToggle: (...args: any[]) => any;
+    description?: string;
+    descriptionTooltipMessage?: string;
+};
+
+const ExpandableHeader =(props: Props) => (
     <div className="ml-accordion expandable-header">
         <Panel expanded={props.expanded} onToggle={props.onToggle}>
             <Panel.Heading>
@@ -40,15 +47,6 @@ const ExpandableHeader = props => (
         </Panel>
     </div>
 );
-
-ExpandableHeader.propTypes = {
-    children: PropTypes.node.isRequired,
-    expanded: PropTypes.bool.isRequired,
-    title: PropTypes.string.isRequired,
-    onToggle: PropTypes.func.isRequired,
-    description: PropTypes.string,
-    descriptionTooltipMessage: PropTypes.string,
-};
 
 ExpandableHeader.defaultProps = {
     description: '',

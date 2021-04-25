@@ -1,11 +1,4 @@
-import {
-    GET_MUSIC_TRACKER_DATA,
-    STORE_STATION_CATEGORY,
-    STORE_CATEGORY_DATASET,
-    LOADING_CATEGORY_DETAILS,
-    CLOSE_CATEGORY_DETAILS,
-} from '../actionTypes';
-
+import { GET_MUSIC_TRACKER_DATA, STORE_STATION_CATEGORY, STORE_CATEGORY_DATASET, LOADING_CATEGORY_DETAILS, CLOSE_CATEGORY_DETAILS, } from '../actionTypes';
 const initialState = {
     songDetail: {
         showDetail: false,
@@ -22,17 +15,10 @@ const initialState = {
     },
     loading: true,
 };
-
 export default (state = initialState, action = {}) => {
-    const payload = action.payload || {}; // TODO: take this out
-    const {
-        stationCategories,
-        stationCategoriesPermissions,
-        selectedStationId,
-        rawStationCategories,
-        rowData,
-    } = payload;
-    switch (action.type) {
+    const payload = (action as any).payload || {}; // TODO: take this out
+    const { stationCategories, stationCategoriesPermissions, selectedStationId, rawStationCategories, rowData, } = payload;
+    switch ((action as any).type) {
         case GET_MUSIC_TRACKER_DATA:
             return { ...state, loading: payload.loading };
         case STORE_STATION_CATEGORY:

@@ -1,3 +1,6 @@
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module '@testing-library/react-hooks' ... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module '@testing-library/react-hooks' ... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module '@testing-library/react-hooks' ... Remove this comment to see the full error message
 import { renderHook } from '@testing-library/react-hooks';
 import { useCategoryGoalsList } from './CategoryGoals.hooks';
 

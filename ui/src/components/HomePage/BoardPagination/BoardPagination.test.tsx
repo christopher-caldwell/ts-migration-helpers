@@ -1,8 +1,17 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2786) FIXME: 'BoardPagination' cannot be used as a JSX componen... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'handlePaginate' does not exist on type '... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2786) FIXME: 'BoardPagination' cannot be used as a JSX componen... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'numPages' does not exist on type '{}'.
 import BoardPagination from './BoardPagination.component';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'size' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(2786) FIXME: 'BoardPagination' cannot be used as a JSX componen... Remove this comment to see the full error message
 const renderBoardPagination = (options = {}) => shallow(
     <BoardPagination
         numPages={options.numPages || 10}

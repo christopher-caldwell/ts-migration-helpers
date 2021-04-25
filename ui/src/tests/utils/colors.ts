@@ -1,6 +1,6 @@
 import { makeColorRange, defaultRange } from 'utils/colors';
 
-const isHex = hex => /^#[0-9a-f]{3}(?:[0-9a-f]{3})?$/i.test(hex);
+const isHex = (hex: any) => /^#[0-9a-f]{3}(?:[0-9a-f]{3})?$/i.test(hex);
 
 describe('colors.makeColorRange', () => {
     it('should create a range given an array of colors', () => {

@@ -1,4 +1,4 @@
-const resolveQuintile = dataValue => {
+const resolveQuintile = (dataValue: any) => {
     let quintile = 5;
     const quintileRange = [
         [85, Infinity],
@@ -17,7 +17,7 @@ const resolveQuintile = dataValue => {
     return quintile;
 };
 
-const getQuintileColor = (value, alreadyQuintileNum = false) => {
+const getQuintileColor = (value: any, alreadyQuintileNum = false) => {
     const quintileNumber = alreadyQuintileNum ? value : resolveQuintile(value);
     switch (quintileNumber) {
         case 1:

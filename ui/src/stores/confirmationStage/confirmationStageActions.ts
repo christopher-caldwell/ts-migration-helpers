@@ -22,20 +22,20 @@ import {
 } from '../actionTypes';
 
 // TODO: no reducer with these actions => move to better place
-export const saveChanges = (changedSongs, id) => async dispatch => {
+export const saveChanges = (changedSongs: any, id: any) => async (dispatch: any) => {
     if (changedSongs && Object.keys(changedSongs).length < 1) return;
     dispatch(requestOverlay());
 
     try {
         const saveCategoryChanges = changedSongs
-            .map(version => ({
-                song_id: version.sId,
-                category_id: !isEmpty(version.category) ? version.category.id : 'None',
-                category_name: !isEmpty(version.category) ? version.category.name : 'None',
-                media_id: version.media_id,
-                version_name: version.version_name || '',
-            }))
-            .filter(song => song.category_id !== 'None');
+            .map((version: any) => ({
+            song_id: version.sId,
+            category_id: !isEmpty(version.category) ? version.category.id : 'None',
+            category_name: !isEmpty(version.category) ? version.category.name : 'None',
+            media_id: version.media_id,
+            version_name: version.version_name || ''
+        }))
+            .filter((song: any) => song.category_id !== 'None');
         const response = await request(
             `/board/RadioBoard/${id}/panel/MusicTracker/categories/update`,
             {
@@ -55,7 +55,7 @@ export const saveChanges = (changedSongs, id) => async dispatch => {
     }
 };
 
-export const approveBox = id => async (dispatch, getState) => {
+export const approveBox = (id: any) => async (dispatch: any, getState: any) => {
     dispatch(requestOverlay());
     const {
         boardDetails: { filters },

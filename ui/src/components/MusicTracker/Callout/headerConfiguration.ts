@@ -1,3 +1,6 @@
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module '../ColumnGroups/ColumnGroups.m... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module '../ColumnGroups/ColumnGroups.m... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module '../ColumnGroups/ColumnGroups.m... Remove this comment to see the full error message
 import { expandedColumn } from '../ColumnGroups/ColumnGroups.module.css';
 
 const headerConfiguration = {

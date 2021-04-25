@@ -1,7 +1,11 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { mount } from 'enzyme';
 
 import StationHostStatus from './StationHostStatus.component';
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './StationHostStatus.module.scs... Remove this comment to see the full error message
 import { stationStatus } from './StationHostStatus.module.scss';
 
 const props = {

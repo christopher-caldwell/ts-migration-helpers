@@ -1,4 +1,7 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { mount } from 'enzyme';
 import CategoryGoals from './CategoryGoals.component';
 
@@ -27,25 +30,34 @@ const mockCategoriesMetadata = {
             label: '82',
             orderBy: 400,
             groupId: '5',
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'boardDetails' does not exist on type '{}... Remove this comment to see the full error message
             group: '1970s - 1980s',
             readOnly: false,
         },
     },
 };
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'categoriesMetadata' does not exist on ty... Remove this comment to see the full error message
 const mockStationCategories = {
     data: {
         12: {
             active: true,
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'stationCategories' does not exist on typ... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'boardDetails' does not exist on type '{}... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'updateStationCategoriesAction' does not ... Remove this comment to see the full error message
             limit: '2',
         },
     },
 };
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'categoriesMetadata' does not exist on ty... Remove this comment to see the full error message
 const renderCategoryGoalsComponent = (options = {}) => mount(
     <CategoryGoals
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'stationCategories' does not exist on typ... Remove this comment to see the full error message
         boardDetails={options.boardDetails || mockBoardDetails}
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'closeCategoryGoals' does not exist on ty... Remove this comment to see the full error message
         categoriesMetadata={options.categoriesMetadata || mockCategoriesMetadata}
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'updateStationCategoriesAction' does not ... Remove this comment to see the full error message
         stationCategories={options.stationCategories || mockStationCategories}
         closeCategoryGoals={options.closeCategoryGoals || (() => {})}
         updateStationCategoriesAction={options.updateStationCategoriesAction || (() => {})}

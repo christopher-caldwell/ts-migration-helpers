@@ -17,7 +17,7 @@ import {
 
 export const clearStagedChanges = () => ({ type: CLEAR_STAGED_CHANGES });
 
-export const cancelCategoryChanges = boardId => async dispatch => {
+export const cancelCategoryChanges = (boardId: any) => async (dispatch: any) => {
     dispatch(requestOverlay());
     try {
         const response = await request(`/board/RadioBoard/${boardId}/panel/MusicTracker/categories/cancel`, {
@@ -36,13 +36,15 @@ export const cancelCategoryChanges = boardId => async dispatch => {
     }
 };
 
-export const deleteStagedCategories = (stationId, boxId, songs) => async dispatch => {
+export const deleteStagedCategories = (stationId: any, boxId: any, songs: any) => async (dispatch: any) => {
     try {
         dispatch(requestOverlay());
         dispatch({ type: CLEAR_VERSION_CATEGORIES });
         await request(`/scheduler/station/${stationId}/song/category/${boxId}`, {
             method: 'DELETE',
-            body: { songs: songs.map(i => ({ media_id: i.media_id })) },
+            body: { songs: songs.map((i: any) => ({
+                media_id: i.media_id
+            })) },
         });
         dispatch({ type: CLEAR_VERSION_CATEGORIES_SUCCESS });
         dispatch({ type: STAGE_SONGS_MEDIA, payload: { songs } });
@@ -57,6 +59,6 @@ export const deleteStagedCategories = (stationId, boxId, songs) => async dispatc
     }
 };
 
-export const clearChangesUndone = () => async dispatch => {
+export const clearChangesUndone = () => async (dispatch: any) => {
     dispatch({ type: CLEAR_CHANGES_UNDONE });
 };

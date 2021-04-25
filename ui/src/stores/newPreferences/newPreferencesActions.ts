@@ -2,12 +2,12 @@
 import { allGroupsAndColumns } from './columnConfig';
 import { SUCCESS_TABLE_PREFERENCES } from '../actionTypes';
 
-export const successTablePreferences = config => ({
+export const successTablePreferences = (config: any) => ({
     type: SUCCESS_TABLE_PREFERENCES,
-    payload: config,
+    payload: config
 });
 
-export const setTablePreferences = () => async dispatch => {
+export const setTablePreferences = () => async (dispatch: any) => {
     // const {
     //     user: { id },
     // } = getState();

@@ -54,7 +54,7 @@ export const getCalloutData = (currentStationId, startDate, endDate) => async (d
     }
 };
 
-export const getOmtData = (stationId, startDate, endDate) => async (dispatch) => {
+export const getOmtData = (stationId, startDate, endDate) => async dispatch => {
     dispatch({ type: OMT_PENDING });
     try {
         const data = await getCmmData(stationId, OMT_PROJECT_TYPE, startDate, endDate);
@@ -64,7 +64,7 @@ export const getOmtData = (stationId, startDate, endDate) => async (dispatch) =>
     }
 };
 
-export const getCustomConsolidatedCalloutData = (stationId, startDate, endDate) => async (dispatch) => {
+export const getCustomConsolidatedCalloutData = (stationId, startDate, endDate) => async dispatch => {
     dispatch({ type: CC_CALLOUT_PENDING });
     try {
         const data = await getCmmData(stationId, CUSTOM_CALLOUT_PROJECT_TYPE, startDate, endDate);
@@ -74,7 +74,7 @@ export const getCustomConsolidatedCalloutData = (stationId, startDate, endDate) 
     }
 };
 
-export const getCustomConsolidatedOmtData = (stationId, startDate, endDate) => async (dispatch) => {
+export const getCustomConsolidatedOmtData = (stationId, startDate, endDate) => async dispatch => {
     dispatch({ type: CC_OMT_PENDING });
     try {
         const data = await getCmmData(stationId, CUSTOM_OMT_PROJECT_TYPE, startDate, endDate);
@@ -94,7 +94,7 @@ export const getCalloutTrends = (currentStationId, startDate, endDate) => async 
     }
 };
 
-export const getOmtTrends = (stationId, startDate, endDate) => async (dispatch) => {
+export const getOmtTrends = (stationId, startDate, endDate) => async dispatch => {
     dispatch({ type: OMT_TRENDS_PENDING });
     try {
         const data = await getCmmTrends(stationId, OMT_PROJECT_TYPE, startDate, endDate);
@@ -104,7 +104,7 @@ export const getOmtTrends = (stationId, startDate, endDate) => async (dispatch) 
     }
 };
 
-export const getCustomConsolidatedCalloutTrends = (stationId, startDate, endDate) => async (dispatch) => {
+export const getCustomConsolidatedCalloutTrends = (stationId, startDate, endDate) => async dispatch => {
     dispatch({ type: CC_CALLOUT_TRENDS_PENDING });
     try {
         const data = await getCmmTrends(stationId, CUSTOM_CALLOUT_PROJECT_TYPE, startDate, endDate);
@@ -114,7 +114,7 @@ export const getCustomConsolidatedCalloutTrends = (stationId, startDate, endDate
     }
 };
 
-export const getCustomConsolidatedOmtTrends = (stationId, startDate, endDate) => async (dispatch) => {
+export const getCustomConsolidatedOmtTrends = (stationId, startDate, endDate) => async dispatch => {
     dispatch({ type: CC_OMT_TRENDS_PENDING });
     try {
         const data = await getCmmTrends(stationId, CUSTOM_OMT_PROJECT_TYPE, startDate, endDate);

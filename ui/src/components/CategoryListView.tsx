@@ -1,6 +1,11 @@
 import React from 'react';
 
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'clas... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'clas... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'clas... Remove this comment to see the full error message
 import PropTypes from 'prop-types';
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
 import classNames from 'classnames';
 
 import CustomDropdown from 'components/Buttons/CustomDropdown';
@@ -44,10 +49,12 @@ const CategoryListView = props => {
                     isOpened={listViewFilterOpen}
                     isSelected={listFilterExc.length > 0}
                     onClick={toggleListViewFilter}
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'categoryObj' implicitly has an 'any' ty... Remove this comment to see the full error message
                 >
                     <div className="list-checkbox-select-container">
                         <span>Categories</span>
                         <button type="button" onClick={handleListCheckAll}>
+                            {/* @ts-expect-error ts-migrate(7006) FIXME: Parameter 'categoryObj' implicitly has an 'any' ty... Remove this comment to see the full error message */}
                             {listFilterExc.length ? 'Select All' : 'Unselect All'}
                         </button>
                     </div>
@@ -58,6 +65,7 @@ const CategoryListView = props => {
                                 className="list-view-checkbox"
                                 type="checkbox"
                                 value={categoryObj.label}
+                                // @ts-expect-error ts-migrate(2322) FIXME: Type '{ placeholder: string; onSearchChange: any; ... Remove this comment to see the full error message
                                 onChange={handleListFilterCheck}
                                 checked={!listFilterExc.includes(categoryObj.label)}
                             />
@@ -65,6 +73,7 @@ const CategoryListView = props => {
                                 {categoryObj.description
                                     ? `${categoryObj.label} - ${categoryObj.description}`
                                     : categoryObj.label}
+                            {/* @ts-expect-error ts-migrate(2322) FIXME: Type '{ placeholder: string; onSearchChange: any; ... Remove this comment to see the full error message */}
                             </label>
                         </div>
                     ))}
@@ -75,14 +84,18 @@ const CategoryListView = props => {
                     handleReset={() => onSearchChange('')}
                     value={searchValue}
                 />
+                {/* @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0. */}
                 <button type="button" className="version-close-btn" onClick={toggleListView}>
                     <i className="fa fa-times x-button" />
                 </button>
             </div>
             <div className="version-list-view-headers">
+                {/* @ts-expect-error ts-migrate(2322) FIXME: Type '{ placeholder: string; onSearchChange: (...a... Remove this comment to see the full error message */}
                 <h3 className="version-list-view-header">Current</h3>
                 <h3 className="version-list-view-header">Recurrent</h3>
+                {/* @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0. */}
                 <h3 className="version-list-view-header">Gold</h3>
+                {/* @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0. */}
                 <h3 className="version-list-view-header">Other Categories</h3>
             </div>
             <div className="list-view-col-container custom-scrollbars--thin">{children}</div>

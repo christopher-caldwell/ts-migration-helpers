@@ -5,7 +5,7 @@
  *
  * @returns {*}
  */
-function parseJwt(token) {
+function parseJwt(token: any) {
     const payload = token.split('.')[1];
 
     return JSON.parse(window.atob(payload));

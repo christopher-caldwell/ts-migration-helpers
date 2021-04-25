@@ -7,6 +7,8 @@ const initialState = {
     objectPath: {},
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'action' implicitly has an 'any' type.
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'action' implicitly has an 'any' type.
 export default (state = initialState, action) => {
     switch (action.type) {
         case REQUEST_BOARDGROUPS:
@@ -15,8 +17,11 @@ export default (state = initialState, action) => {
             return { ...state, retrieving: false, data: action.payload };
         case COMMIT_BOARDGROUPS: {
             const { data } = state;
+            // @ts-expect-error ts-migrate(2531) FIXME: Object is possibly 'null'.
             const { boardGroupIndex } = action.objectPath;
             const { boardIndex } = action.objectPath;
+            // @ts-expect-error ts-migrate(2531) FIXME: Object is possibly 'null'.
+            // @ts-expect-error ts-migrate(2531) FIXME: Object is possibly 'null'.
             data[boardGroupIndex].boards[boardIndex] = action.payload;
             return { ...state, retrieving: false, data };
         }

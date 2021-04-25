@@ -10,8 +10,8 @@ const mapStateToProps = ({
     songVersions,
     restrictions,
     dayparts,
-    lookupTables,
-}) => ({
+    lookupTables
+}: any) => ({
     hostInfo,
     closedBox: box.closed,
     closedBoxIsClosed: box.closed.closed,

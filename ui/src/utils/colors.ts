@@ -1,9 +1,9 @@
 import Color from 'color';
 
-function makeColorRange(colors) {
+function makeColorRange(colors: any) {
     const { length } = colors;
 
-    return index => {
+    return (index: any) => {
     // Index in normal color range
         if (index < length) {
             return colors[index];

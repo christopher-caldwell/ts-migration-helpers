@@ -1,8 +1,14 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'artistName' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'artistName' does not exist on type '{}'.
 import SongHeader from 'components/SongHeader';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'songName' does not exist on type '{}'.
 const renderSongHeader = (options = {}) => (
     shallow(
         <SongHeader

@@ -17,7 +17,7 @@ import {
     BOX_CLOSED_SUCCESS,
 } from '../actionTypes';
 
-export const clearBox = stationId => async dispatch => {
+export const clearBox = (stationId: any) => async (dispatch: any) => {
     dispatch(requestOverlay());
     dispatch({ type: BOX_PENDING });
     try {
@@ -38,7 +38,7 @@ export const clearBox = stationId => async dispatch => {
     }
 };
 
-export const getBox = stationId => async dispatch => {
+export const getBox = (stationId: any) => async (dispatch: any) => {
     dispatch({ type: BOX_PENDING });
     try {
         const boxData = await request(`/scheduler/station/${stationId}/box/open`);
@@ -56,7 +56,7 @@ export const getBox = stationId => async dispatch => {
     }
 };
 
-export const getBoxClosed = stationId => async dispatch => {
+export const getBoxClosed = (stationId: any) => async (dispatch: any) => {
     dispatch({ type: BOX_PENDING });
     try {
         const boxClosedData = await request(`/scheduler/station/${stationId}/box/closed`);

@@ -1,6 +1,9 @@
 import React from 'react';
 
 import Checkbox from 'components/Checkbox';
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './TitleArtistCell.module.css' ... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './TitleArtistCell.module.css' ... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './TitleArtistCell.module.css' ... Remove this comment to see the full error message
 import { container, titleArtist, text } from './TitleArtistCell.module.css';
 
 const TitleArtistCell = ({ songName, songId, artistName, width }) => (

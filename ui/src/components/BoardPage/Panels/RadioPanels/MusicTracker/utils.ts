@@ -14,24 +14,31 @@ const NONE = 'None';
 
 // this method is called to build an obj with staged
 // as first set items and then add the missing items from current
+// @ts-expect-error ts-migrate(7019) FIXME: Rest parameter 'fns' implicitly has an 'any[]' typ... Remove this comment to see the full error message
 const pipe = (...fns) => subject => fns.reduce((acc, fn) => fn(acc), subject);
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'field' implicitly has an 'any' type.
 const mergePropsByField = field => arrys => unionBy(...arrys, field).filter(item => item);
 
 // merge precedence is from left to right
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'field' implicitly has an 'any' type.
 const mergeAndReOrder = (field, ...arrys) => pipe(mergePropsByField(field), reverse)(arrys);
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'dayPartCategories' implicitly has an 'a... Remove this comment to see the full error message
 const areDayPartsEqual = dayPartCategories => {
     const AMD = dayPartCategories.get('AMD');
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'dayPart' implicitly has an 'any' type.
     return dayPartCategories.valueSeq().every(dayPart => dayPart === AMD);
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'dayPartCategories' implicitly has an 'a... Remove this comment to see the full error message
 function dayPartEmpty(dayPartCategories) {
     let isAllValuesNone = true;
     if (dayPartCategories) {
         if (dayPartCategories instanceof Object && 'get' in dayPartCategories) {
             const itemsSelected = dayPartCategories
                 .valueSeq()
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
                 .find(i => i && i.toString().toLowerCase() !== 'none');
 
             if (itemsSelected) {
@@ -47,12 +54,14 @@ function dayPartEmpty(dayPartCategories) {
     return isNil(dayPartCategories) || isAllValuesNone;
 }
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'dayPartCategories' implicitly has an 'a... Remove this comment to see the full error message
 function dayPartUndefined(dayPartCategories) {
     let isDayPartUndefined = false;
     if (dayPartCategories) {
         if (dayPartCategories instanceof Object && 'get' in dayPartCategories) {
             const itemsSelected = dayPartCategories
                 .valueSeq()
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'i' implicitly has an 'any' type.
                 .find(i => (i === undefined ? undefined : i));
             if (!itemsSelected) {
                 isDayPartUndefined = true;
@@ -70,6 +79,7 @@ function dayPartUndefined(dayPartCategories) {
     return isNil(dayPartCategories) || isDayPartUndefined;
 }
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'categories' implicitly has an 'any' typ... Remove this comment to see the full error message
 const recommendedCategoryExtractor = (categories, primaryKey, backupKey) => {
     const defaultRecommended = {
         category: EMPTY_VALUE_PLACEHOLDER,
@@ -102,6 +112,7 @@ const recommendedCategoryExtractor = (categories, primaryKey, backupKey) => {
     return defaultRecommended;
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'category' implicitly has an 'any' type.
 const categoryExtractor = (category, primaryKey, backupKey) => {
     const extract = {
         lastModifiedDate: '-',
@@ -129,6 +140,7 @@ const categoryExtractor = (category, primaryKey, backupKey) => {
     // it will be part of staged so use that instead of new
     let changes = category[source][0];
     if (mediaId) {
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'item' implicitly has an 'any' type.
         changes = category[source].find(item => item.media_id === mediaId);
     }
 
@@ -137,6 +149,7 @@ const categoryExtractor = (category, primaryKey, backupKey) => {
         obj = changes.category || {
             name: changes.gs_category || EMPTY_VALUE_PLACEHOLDER,
         };
+        // @ts-expect-error ts-migrate(2322) FIXME: Type 'string | false' is not assignable to type 's... Remove this comment to see the full error message
         extract.lastModifiedDate =
             !isEmpty(changes.modified_date) &&
             `${moment(changes.modified_date).format('MM/DD/YY')}`;
@@ -149,6 +162,7 @@ const categoryExtractor = (category, primaryKey, backupKey) => {
     return extract;
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'versionedCategory' implicitly has an 'a... Remove this comment to see the full error message
 const categoryTooltipExtractorByVersion = versionedCategory => {
     const extract = {
         lastModifiedDate: '',
@@ -161,8 +175,9 @@ const categoryTooltipExtractorByVersion = versionedCategory => {
     }
 
     extract.lastModifiedDate = !isEmpty(versionedCategory.modified_date)
-        ? ` - ${moment(versionedCategory.modified_date).format('MM/DD/YY')}`
+        ?          ` - ${moment(versionedCategory.modified_date).format('MM/DD/YY')}`
         : '-';
+    // @ts-expect-error ts-migrate(2322) FIXME: Type 'string | false' is not assignable to type 's... Remove this comment to see the full error message
     extract.versionName =
         !isEmpty(versionedCategory.version_name) && `${versionedCategory.version_name}`;
 
@@ -173,6 +188,7 @@ const categoryTooltipExtractorByVersion = versionedCategory => {
     return extract;
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'songObj' implicitly has an 'any' type.
 const categoryText = songObj => {
     if (typeof songObj === 'object' && (songObj.category || songObj.gs_category)) {
         const obj = songObj.category || {
@@ -183,6 +199,7 @@ const categoryText = songObj => {
     return EMPTY_VALUE_PLACEHOLDER;
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'version' implicitly has an 'any' type.
 const categoryExtractorByVersion = version => {
     // this retrieves the gselector category when category name don't match with music lab
     const obj = version
@@ -194,6 +211,7 @@ const categoryExtractorByVersion = version => {
     return categories;
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'groups' implicitly has an 'any' type.
 const getDaypartObject = groups => {
     if (typeof groups === 'object' && groups !== null) {
         const dayPartArray = ['AMD', 'MID', 'PMD', 'EVE', 'OVN'];
@@ -211,21 +229,25 @@ const getDaypartObject = groups => {
     return undefined;
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'songs' implicitly has an 'any' type.
 const isEmptyColumn = (songs, columnKey) => {
     let emptyColumn = true;
     if (songs.length) {
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'song' implicitly has an 'any' type.
         emptyColumn = isNil(songs.filter(song => stringToObjectPath(columnKey, song)));
     }
 
     return emptyColumn;
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'crgValue' implicitly has an 'any' type.
 const crgSortExtractor = crgValue => {
     const sortOrder = ['C', 'R', 'G'];
     const sortValue = crgValue ? sortOrder.indexOf(crgValue.toUpperCase()) : -1;
     return sortValue !== -1 && sortValue + 1;
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'category' implicitly has an 'any' type.
 const isModifiedCategory = (category, versionsWithPacket) => {
     if (category && isEmpty(category.current) && !isEmpty(category.staged)) {
         // ^ if current does not carry a category but staged does then it is modify
@@ -239,10 +261,12 @@ const isModifiedCategory = (category, versionsWithPacket) => {
         // get the first item from staged and see if it was there in current
         // if yes check whether the modified date are different if so
         // return isModified as true
+        // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
         const selectedVersion = Object.values(category.staged)[0].media_id;
         const matchedItem =
             selectedVersion &&
             Object.values(category.current).find(
+                // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
                 version => version && version.media_id === selectedVersion
             );
         if (category.staged[0] && matchedItem) {
@@ -270,17 +294,13 @@ const isModifiedCategory = (category, versionsWithPacket) => {
     return false;
 };
 
-/**
- * Define which group to use based on song having staged data or not
- * @param song {Object} Object containing song
- * @param song.category {Object} Object containing category data
- * @param song.category.staged {Array} Array containing staged category data
- */
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'song' implicitly has an 'any' type.
 const defineGroupToUse = song => {
     const noStagedData = !song.category.staged || !song.category.staged[0];
     return noStagedData ? 'current' : 'staged';
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'song' implicitly has an 'any' type.
 const hasCategory = (song, cat, usedGroup) => {
     if (!song.category[usedGroup] || !song.category[usedGroup][0]) return false;
     const { category } = song.category[usedGroup][0];
@@ -289,49 +309,45 @@ const hasCategory = (song, cat, usedGroup) => {
     return category.name === cat.label;
 };
 
-/**
- * Define if song is in any of the selected filters
- * @param song {Object} Object containing song
- * @param song.category {Object} Object containing category data
- * @param song.category.prior {Array} Array containing staged category data
- * @param song.category.current {Array} Array containing staged category data
- * @param song.category.staged {Array} Array containing staged category data
- * @param filter {Object} Object containing filters
- * @param filter.prior {Object} Object containing prior category filters
- * @param filter.current {Object} Object containing current category filters
- * @param filter.new {Object} Object containing new category filters
- * @param filter.recommendable {Object} Object containing recommendable category filters
- */
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'song' implicitly has an 'any' type.
 const isSongInsideCategory = (song, filter) => {
     const {
         category: { prior, current, new: staged, recommendable },
     } = filter;
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'cat' implicitly has an 'any' type.
     const isPriorNoneSelected = prior.some(cat => cat.label === 'None');
     const shouldFilterPrior =
         !isEmpty(prior) && isEmpty(get(song, 'category.prior[0].category', null));
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'cat' implicitly has an 'any' type.
     const isInPrior = prior.some(cat => hasCategory(song, cat, 'prior'))
         ? true
         : isPriorNoneSelected && shouldFilterPrior;
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'cat' implicitly has an 'any' type.
     const isCurrentNoneSelected = current.some(cat => cat.label === 'None');
     const shouldFilterCurrent =
         !isEmpty(current) && isEmpty(get(song, 'category.current[0].category', null));
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'cat' implicitly has an 'any' type.
     const isInCurrent = current.some(cat => hasCategory(song, cat, 'current'))
         ? true
         : isCurrentNoneSelected && shouldFilterCurrent;
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'cat' implicitly has an 'any' type.
     const isStagedNoneSelected = staged.some(cat => cat.label === 'None');
     const stagedGroup = defineGroupToUse(song);
     const shouldFilterStaged =
         !isEmpty(staged) && isEmpty(get(song, `category.${stagedGroup}[0].category`, null));
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'cat' implicitly has an 'any' type.
     const isInStaged = staged.some(cat => hasCategory(song, cat, stagedGroup))
         ? true
         : isStagedNoneSelected && shouldFilterStaged;
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'cat' implicitly has an 'any' type.
     const isRecommendableNoneSelected = recommendable.some(cat => cat.label === 'None');
     const shouldFilterRecommendable =
         !isEmpty(recommendable) && isEmpty(get(song, `category.recommended[0].category`, null));
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'cat' implicitly has an 'any' type.
     const isInRecommendable = recommendable.some(cat => hasCategory(song, cat, 'recommended'))
         ? true
         : isRecommendableNoneSelected && shouldFilterRecommendable;
@@ -339,15 +355,7 @@ const isSongInsideCategory = (song, filter) => {
     return isInPrior || isInCurrent || isInStaged || isInRecommendable;
 };
 
-/**
- * Peforms a search based on certain criteria and changes Redux state
- * @param searchParam {Object} Object containing criteria
- * @param searchParam.search {String} Criteria to filter song.artist || artist.title
- * @param searchParam.crg {Array[String]} List of CRG to be filtered
- * @param searchParam.category.prior {Array[String]} Prior letters to be filtered
- * @param searchParam.category.current {Array[String]} Current letters to be filtered
- * @param searchParam.category.new {Array[String]} New letters to be filtered
- */
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'searchFilter' implicitly has an 'any' t... Remove this comment to see the full error message
 const filterMusicTracker = searchFilter => {
     /**
      * Filter a song by a certain category or set of category
@@ -361,6 +369,7 @@ const filterMusicTracker = searchFilter => {
     const scapeSearch = searchFilter.search.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const regex = new RegExp(scapeSearch, 'gi');
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'song' implicitly has an 'any' type.
     const filterMusicTrackerCriteria = song => {
         const isSongInsideSearchCriteria = searchFilter.search
             ? !!song.metadata.aNm.match(regex) || !!song.metadata.sNm.match(regex)
@@ -381,6 +390,7 @@ const filterMusicTracker = searchFilter => {
     return filterMusicTrackerCriteria;
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'dayPartCategories' implicitly has an 'a... Remove this comment to see the full error message
 const versionTextExtractor = (dayPartCategories, primaryKey, backupKey) => {
     let merged = dayPartCategories[primaryKey] || dayPartCategories[backupKey];
     if (dayPartCategories[primaryKey] && dayPartCategories[backupKey]) {
@@ -393,9 +403,11 @@ const versionTextExtractor = (dayPartCategories, primaryKey, backupKey) => {
 
     const versionDetails =
         merged &&
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'item' implicitly has an 'any' type.
         merged.map(item => {
             const prior =
                 dayPartCategories.prior &&
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'entry' implicitly has an 'any' type.
                 dayPartCategories.prior.map(entry => {
                     if (entry && entry.media_id === item.media_id) {
                         const obj = entry.category || {
@@ -405,10 +417,12 @@ const versionTextExtractor = (dayPartCategories, primaryKey, backupKey) => {
                     }
                     return undefined;
                 });
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'itm' implicitly has an 'any' type.
             const priorList = prior && prior.filter(itm => itm);
 
             const current =
                 dayPartCategories.current &&
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'entry' implicitly has an 'any' type.
                 dayPartCategories.current.map(entry => {
                     if (entry && entry.media_id === item.media_id) {
                         const obj = entry.category || {
@@ -418,10 +432,12 @@ const versionTextExtractor = (dayPartCategories, primaryKey, backupKey) => {
                     }
                     return undefined;
                 });
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'itm' implicitly has an 'any' type.
             const currentList = current && current.filter(itm => itm);
 
             const staged =
                 merged &&
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'entry' implicitly has an 'any' type.
                 merged.map(entry => {
                     if (entry && entry.media_id === item.media_id) {
                         const obj = entry.category || {
@@ -431,6 +447,7 @@ const versionTextExtractor = (dayPartCategories, primaryKey, backupKey) => {
                     }
                     return undefined;
                 });
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'itm' implicitly has an 'any' type.
             const stagedList = staged && staged.filter(itm => itm);
 
             const final = {
@@ -449,8 +466,10 @@ const versionTextExtractor = (dayPartCategories, primaryKey, backupKey) => {
 };
 
 // this works in case that we have all daypart with same category
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'category' implicitly has an 'any' type.
 const getCategoryId = category => (isEmpty(category) ? NONE : category.id);
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'song' implicitly has an 'any' type.
 const getSongVersion = song => {
     let merged = song.category.staged || song.category.current || [song];
     if (song.category.staged && song.category.current) {
@@ -459,9 +478,11 @@ const getSongVersion = song => {
     return merged;
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'song' implicitly has an 'any' type.
 const formatSong = song => {
     const songVersion = getSongVersion(song);
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'sng' implicitly has an 'any' type.
     return songVersion.map(sng => ({
         ...song,
         ...sng,
@@ -469,10 +490,12 @@ const formatSong = song => {
     }));
 };
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'statusVersions' implicitly has an 'any'... Remove this comment to see the full error message
 const flatVersions = statusVersions => {
     if (statusVersions) {
         return Object.entries(statusVersions).reduce((flattened, item) => {
             const songId = item[0]; // sId
+            // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
             const versions = item[1].map(song => ({ sId: songId, ...song })); // versions array
             return flattened.concat(versions);
         }, []);

@@ -1,6 +1,6 @@
-const userHasRoles = (userRoles, requiredRoles) => {
+const userHasRoles = (userRoles: any, requiredRoles: any) => {
     /* check user roles */
-    const rolesFound = userRoles.some(r => requiredRoles.includes(r.roleName));
+    const rolesFound = userRoles.some((r: any) => requiredRoles.includes(r.roleName));
     return rolesFound;
 };
 

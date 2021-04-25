@@ -1,22 +1,33 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'boxData' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'boxData' does not exist on type '{}'.
 import SyncStatus from 'components/SyncStatus';
 
 const renderSyncStatus = (options = {}) => (
     shallow(
         <SyncStatus
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'stagedSongs' does not exist on type '{}'... Remove this comment to see the full error message
             boxData={options.boxData
                 || {
+                    // @ts-expect-error ts-migrate(2339) FIXME: Property 'stagedRestrictions' does not exist on ty... Remove this comment to see the full error message
                     closed: true,
                     lastSyncDate: null,
+                    // @ts-expect-error ts-migrate(2339) FIXME: Property 'stagedDayparts' does not exist on type '... Remove this comment to see the full error message
                     synchronized: true,
                     templates: {
                         hour_restriction: [],
+                        // @ts-expect-error ts-migrate(2339) FIXME: Property 'stagedSongs' does not exist on type '{}'... Remove this comment to see the full error message
                         packet: [],
+                        // @ts-expect-error ts-migrate(2339) FIXME: Property 'stagedRestrictions' does not exist on ty... Remove this comment to see the full error message
                         daypart: [],
                     },
                 }}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'stagedDayparts' does not exist on type '... Remove this comment to see the full error message
             stagedSongs={options.stagedSongs || []}
             stagedRestrictions={options.stagedRestrictions || []}
             stagedDayparts={options.stagedDayparts || []}

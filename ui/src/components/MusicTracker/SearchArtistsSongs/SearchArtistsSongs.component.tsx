@@ -2,9 +2,13 @@ import React from 'react';
 
 import SearchBar from '../../SearchBar';
 
-const SearchArtistsSongs = ({ musicTrackerList, setSongOrder, songs }) => {
+const SearchArtistsSongs = ({
+    musicTrackerList,
+    setSongOrder,
+    songs
+}: any) => {
     // helper method to set search value and call the filter
-    const handleSearch = searchData => {
+    const handleSearch = (searchData: any) => {
         const results = filterSongData(searchData.toLowerCase(), songs, musicTrackerList);
         setSongOrder(results);
     };
@@ -25,8 +29,8 @@ const SearchArtistsSongs = ({ musicTrackerList, setSongOrder, songs }) => {
 };
 
 // find in the store which songs match the search value, grab those song ids
-const filterSongData = (searchString, songs, songIds) =>
-    songIds.filter(songId => {
+const filterSongData = (searchString: any, songs: any, songIds: any) =>
+    songIds.filter((songId: any) => {
         const { songName = '', artistName = '' } = songs[songId];
 
         // setting to lower case for case-insensitive searching
@@ -41,7 +45,7 @@ const filterSongData = (searchString, songs, songIds) =>
             // each word needs to be compared against both artist and name in one string
             const combinedName = `${songNameLowerCase} ${artistNameLowerCase}`;
 
-            const checkArtistSongData = word => {
+            const checkArtistSongData = (word: any) => {
                 return combinedName.includes(word);
             };
 

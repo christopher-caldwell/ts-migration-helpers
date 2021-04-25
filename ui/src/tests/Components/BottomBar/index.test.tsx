@@ -1,5 +1,9 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'redu... Remove this comment to see the full error message
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
@@ -15,29 +19,45 @@ jest.mock('stores/musicTrackerOverlay/musicTrackerOverlayActions', () => ({
     approveBox: mockAction,
 }));
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'boardId' does not exist on type '{}'.
 const mockStore = configureStore([thunk]);
 const store = mockStore({
     musicTrackerOverlay: {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'categoriesNotFoundOnGselector' does not ... Remove this comment to see the full error message
         error: null,
     },
     featureToggle: {
         station: {
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'closeReviewPage' does not exist on type ... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'boardId' does not exist on type '{}'.
             CategoryApprove: {
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'onSaveAndReview' does not exist on type ... Remove this comment to see the full error message
                 FeatureName: 'CategoryApprove',
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'disableApprove' does not exist on type '... Remove this comment to see the full error message
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'categoriesNotFoundOnGselector' does not ... Remove this comment to see the full error message
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'tooltipMessage' does not exist on type '... Remove this comment to see the full error message
                 Enabled: true,
             },
         },
     },
 });
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'tooltipType' does not exist on type '{}'... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'closeReviewPage' does not exist on type ... Remove this comment to see the full error message
 const renderBottomBar = (options = {}) =>
     shallow(
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'isReviewOpen' does not exist on type '{}... Remove this comment to see the full error message
         <BottomBar
             approveBoxAction={mockAction || (() => {})}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'onSaveAndReview' does not exist on type ... Remove this comment to see the full error message
             boardId={options.boardId || 3323404}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'disableApprove' does not exist on type '... Remove this comment to see the full error message
             categoriesNotFoundOnGselector={options.categoriesNotFoundOnGselector || []}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'overlayError' does not exist on type '{}... Remove this comment to see the full error message
             closeReviewPage={options.closeReviewPage || (() => {})}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'tooltipMessage' does not exist on type '... Remove this comment to see the full error message
             isReviewOpen={options.isReviewOpen || false}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'tooltipType' does not exist on type '{}'... Remove this comment to see the full error message
             openOverlayAction={mockAction}
             onSaveAndReview={options.onSaveAndReview || (() => {})}
             disableApprove={options.disableApprove || false}

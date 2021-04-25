@@ -14,7 +14,7 @@ const InitialState = {
     columns: [],
 };
 
-export default (state = InitialState, action) => {
+export default (state = InitialState, action: any) => {
     const { type, payload } = action;
     switch (type) {
         case SONG_TRENDS_PENDING:

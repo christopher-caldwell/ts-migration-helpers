@@ -7,6 +7,9 @@
  *
  * This component represents an individual item in the multi-select drop-down
  */
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
 import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
@@ -32,34 +35,54 @@ class SelectItem extends Component {
         focused: false,
         onSelectionChanged: () => {},
     };
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
 
     state = {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'onSelectionChanged' does not exist on ty... Remove this comment to see the full error message
         hovered: false,
     };
 
     componentDidMount() {
+        // @ts-expect-error ts-migrate(7008) FIXME: Member 'itemRef' implicitly has an 'any' type.
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
         this.updateFocus();
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'checked' does not exist on type 'Readonl... Remove this comment to see the full error message
     }
 
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'onSelectionChanged' does not exist on ty... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'onSelectionChanged' does not exist on ty... Remove this comment to see the full error message
     componentDidUpdate() {
         this.updateFocus();
     }
 
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'focused' does not exist on type 'Readonl... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(7008) FIXME: Member 'itemRef' implicitly has an 'any' type.
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
     onChecked = e => {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'checked' does not exist on type 'Readonl... Remove this comment to see the full error message
         const { onSelectionChanged } = this.props;
         const { checked } = e.target;
 
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'ItemRenderer' does not exist on type 'Re... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
         onSelectionChanged(checked);
     };
 
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'onClick' does not exist on type 'Readonl... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(7008) FIXME: Member 'itemRef' implicitly has an 'any' type.
     itemRef;
 
+    // @ts-expect-error ts-migrate(2322) FIXME: Type 'string' is not assignable to type 'number | ... Remove this comment to see the full error message
     toggleChecked = () => {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'focused' does not exist on type 'Readonl... Remove this comment to see the full error message
         const { checked, onSelectionChanged } = this.props;
         onSelectionChanged(!checked);
     };
 
     handleClick = e => {
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
         const { onClick } = this.props;
         this.toggleChecked();
         onClick(e);
@@ -68,6 +91,8 @@ class SelectItem extends Component {
     };
 
     updateFocus() {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'ItemRenderer' does not exist on type 'Re... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'focused' does not exist on type 'Readonl... Remove this comment to see the full error message
         const { focused } = this.props;
 
         if (focused && this.itemRef) {
@@ -76,7 +101,9 @@ class SelectItem extends Component {
     }
 
     handleKeyDown = e => {
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
         switch (e.which) {
+            // @ts-expect-error ts-migrate(2322) FIXME: Type 'string' is not assignable to type 'number | ... Remove this comment to see the full error message
             case 13: // Enter
             case 32: // Space
                 this.toggleChecked();
@@ -96,6 +123,7 @@ class SelectItem extends Component {
             <label // eslint-disable-line
                 role="option" // eslint-disable-line
                 aria-selected={checked}
+                // @ts-expect-error ts-migrate(2322) FIXME: Type 'string' is not assignable to type 'number | ... Remove this comment to see the full error message
                 selected={checked}
                 tabIndex="-1"
                 className={`multiselect-item-container ${focusStyle}`}

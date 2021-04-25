@@ -2,7 +2,7 @@ import { DEHIGHLIGHT_CATEGORY_VERSION, HIGHLIGHT_CATEGORY_VERSION } from '../act
 
 export const dehighlightCategoryVersion = () => ({ type: DEHIGHLIGHT_CATEGORY_VERSION });
 
-export const highlightCategoryVersion = (item, source) => {
+export const highlightCategoryVersion = (item: any, source: any) => {
     const { sId, media_id: mediaId } = item;
     const songId = parseInt(sId, 10);
     return {

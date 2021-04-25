@@ -11,6 +11,8 @@ import { onToggleTrends } from 'stores/songTrends/songTrendsActions';
 import { loadSongs } from 'stores/songs/songsActions';
 import { closeMetricDetails } from 'stores/similarStations/similarStationsActions';
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
 const TableHelmet = props => {
     const {
         openSongInfo,
@@ -62,17 +64,20 @@ const TableHelmet = props => {
         // update the compare options
         updateCompareOptionsAction({
             selectedSongs: [],
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'filters' implicitly has an 'any' type.
             isCompareEnabled: false,
             sortOptionChanged: false,
         });
     };
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'filters' implicitly has an 'any' type.
     const onFilterSaveOverride = filters => {
         const { applied } = boardDetails.filters;
         const dateRange = { ...applied.dateRange };
         const mergedFilters = { ...applied, dateRange };
 
         Object.keys(filters).forEach(key => {
+            // @ts-expect-error ts-migrate(2786) FIXME: 'HeaderCompare' cannot be used as a JSX component.
             mergedFilters[key] = filters[key];
         });
         onFilterSave(mergedFilters);
@@ -82,50 +87,71 @@ const TableHelmet = props => {
 
     return (
         <div>
+            {/* @ts-expect-error ts-migrate(2786) FIXME: 'HeaderCompare' cannot be used as a JSX component. */}
             <HeaderCompare
                 onFilterSave={onFilterSaveOverride}
                 loading={loading}
                 trendsEnabled={enabled}
                 onToggleTrends={onToggleTrendsAction}
+                // @ts-expect-error ts-migrate(2322) FIXME: Type '{ onFilterSave: (filters: any) => void; load... Remove this comment to see the full error message
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'filters' implicitly has an 'any' type.
                 songsSelected={selectedSongs.length}
                 isCompareDisabled={isCompareEnabled}
                 onSongClear={onSongClear}
                 onSongCompare={onSongCompare}
                 hidden={hiddenHeaderCompare}
             />
+            {/* @ts-expect-error ts-migrate(7006) FIXME: Parameter 'state' implicitly has an 'any' type. */}
+            {/* @ts-expect-error ts-migrate(2322) FIXME: Type '{ onFilterSave: (filters: any) => void; load... Remove this comment to see the full error message */}
             {hiddenHeaderCompare && show && <CustomizeTable match={match} />}
             <HeaderMusicTracker
                 onFilterSave={onFilterSaveOverride}
+                // @ts-expect-error ts-migrate(2786) FIXME: 'HeaderCompare' cannot be used as a JSX component.
                 loading={loading}
                 trendsEnabled={enabled}
+                // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'state' implicitly has an 'any' type.
                 onToggleTrends={onToggleTrendsAction}
                 hidden={!hiddenHeaderCompare}
+                // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
                 boardId={match.params.boardId}
+                // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
                 filters={boardDetails.filters}
             />
         </div>
     );
 };
 
+// @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
 const mapStateToProps = state => ({
+    // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
     musicTracker: state.musicTracker,
     boardDetails: state.boardDetails,
+    // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
     preferences: state.preferences,
     trends: state.songTrends,
     similarStations: state.similarStations,
 });
 
 const mapDispatchToProps = {
+    // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
+    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ onFilterSave: (filters: any) => void; load... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
     updateCompareOptionsAction: updateCompareOptions,
+    // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
     closeMetricDetailsAction: closeMetricDetails,
     loadSongsAction: loadSongs,
     onToggleTrendsAction: onToggleTrends,
 };
 
+// @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
 TableHelmet.propTypes = {
+    // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
     boardDetails: PropTypes.shape().isRequired,
+    // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
     closeMetricDetailsAction: PropTypes.func.isRequired,
     loadSongsAction: PropTypes.func.isRequired,
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'state' implicitly has an 'any' type.
     loading: PropTypes.bool.isRequired,
     match: PropTypes.shape().isRequired,
     musicTracker: PropTypes.shape().isRequired,

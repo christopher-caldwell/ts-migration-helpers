@@ -1,13 +1,26 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'hourFrom' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'hourTo' does not exist on type '{}'.
 import { shallow } from 'enzyme';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'weekDay' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'hourFrom' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'handleClick' does not exist on type '{}'... Remove this comment to see the full error message
 import DaypartHourRangeSelector from 'components/AsideModal/Components/DaypartHourRangeSelector';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'hourTo' does not exist on type '{}'.
 const renderDaypartHourRangeSelector = (options = {}) => (
     shallow(
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'weekDay' does not exist on type '{}'.
         <DaypartHourRangeSelector
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'onChange' does not exist on type '{}'.
             hourFrom={options.hourFrom || {}}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleClick' does not exist on type '{}'... Remove this comment to see the full error message
             hourTo={options.hourTo || {}}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'clickAction' does not exist on type '{}'... Remove this comment to see the full error message
             weekDay={options.weekDay || {}}
             onChange={options.onChange || null}
             handleClick={options.handleClick || null}

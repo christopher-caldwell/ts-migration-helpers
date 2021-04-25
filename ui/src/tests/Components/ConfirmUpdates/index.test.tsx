@@ -1,5 +1,9 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'redu... Remove this comment to see the full error message
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
@@ -231,28 +235,38 @@ const mockCategoryGroups = [
     },
     {
         label: 'B',
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ categoryGroups: any; closeConfirmUpdates: ... Remove this comment to see the full error message
         description: 'Sub Power',
         value: 18,
         orderBy: 20,
         group: 'CURRENT',
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'closeConfirmUpdates' does not exist on t... Remove this comment to see the full error message
         groupId: 1,
         limit: 7,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'stagedSongs' does not exist on type '{}'... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ categoryGroups: any; closeConfirmUpdates: ... Remove this comment to see the full error message
         songs: [],
     },
     {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'categoryGroups' does not exist on type '... Remove this comment to see the full error message
         label: 'N',
         description: 'New',
         value: 30,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'closeConfirmUpdates' does not exist on t... Remove this comment to see the full error message
         orderBy: 50,
         group: 'CURRENT',
         groupId: 1,
         limit: 5,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'stagedSongs' does not exist on type '{}'... Remove this comment to see the full error message
         songs: [],
     },
 ];
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'daypartUpdates' does not exist on type '... Remove this comment to see the full error message
 const renderConfirmUpdates = (options = {}) =>
     shallow(
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'store' does not exist on type '{}'.
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ categoryGroups: any; closeConfirmUpdates: ... Remove this comment to see the full error message
         <ConfirmUpdates
             categoryGroups={options.categoryGroups || mockCategoryGroups}
             closeConfirmUpdates={options.closeConfirmUpdates || (() => {})}

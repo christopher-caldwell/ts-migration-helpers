@@ -1,19 +1,40 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'onClose' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'onSave' does not exist on type '{}'.
 
 import CustomModal from 'components/CustomModal';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'cancelButtonLabel' does not exist on typ... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'onClose' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'className' does not exist on type '{}'.
 const mockComponent = <div className="content" />;
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'title' does not exist on type '{}'.
 const mockFunction = () => {};
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'saveDisabled' does not exist on type '{}... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'onSave' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'tooltipMessage' does not exist on type '... Remove this comment to see the full error message
 const renderCustomModal = (options = {}) => (
     shallow(
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'children' does not exist on type '{}'.
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'cancelButtonLabel' does not exist on typ... Remove this comment to see the full error message
         <CustomModal
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'saveButtonLabel' does not exist on type ... Remove this comment to see the full error message
             onClose={options.onClose || mockFunction}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'className' does not exist on type '{}'.
             onSave={options.onSave || mockFunction}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'title' does not exist on type '{}'.
             cancelButtonLabel={options.cancelButtonLabel}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'saveDisabled' does not exist on type '{}... Remove this comment to see the full error message
             saveButtonLabel={options.saveButtonLabel}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'saveVisible' does not exist on type '{}'... Remove this comment to see the full error message
             className={options.className}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'tooltipMessage' does not exist on type '... Remove this comment to see the full error message
             title={options.title}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'children' does not exist on type '{}'.
             saveDisabled={options.saveDisabled}
             saveVisible={options.saveVisible}
             tooltipMessage={options.tooltipMessage}

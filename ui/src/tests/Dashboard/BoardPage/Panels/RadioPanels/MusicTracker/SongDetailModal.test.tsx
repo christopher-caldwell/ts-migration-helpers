@@ -1,6 +1,12 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow, mount } from 'enzyme';
 import thunk from 'redux-thunk';
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'prop' implicitly has an 'any' type.
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'redu... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'prop' implicitly has an 'any' type.
 import configureStore from 'redux-mock-store';
 import SongDetailModal from 'components/BoardPage/Panels/RadioPanels/MusicTracker/SongDetailModal';
 
@@ -9,6 +15,7 @@ jest.mock('images/default.png', () => <div className="test-class" />);
 
 const createMockStore = {
     boardDetails: {
+        // @ts-expect-error ts-migrate(7024) FIXME: Function implicitly has return type 'any' because ... Remove this comment to see the full error message
         get: prop => createMockStore.boardDetails[prop],
         fetching: false,
         error: null,

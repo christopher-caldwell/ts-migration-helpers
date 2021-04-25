@@ -10,19 +10,31 @@ import {
 } from '../actionTypes';
 
 const requestFormats = () => ({ type: REQUEST_FORMATS });
-const receiveFormats = payload => ({ type: RECEIVE_FORMATS, payload });
-const throwFormats = error => ({ type: THROW_FORMATS, error });
+const receiveFormats = (payload: any) => ({
+    type: RECEIVE_FORMATS,
+    payload
+});
+const throwFormats = (error: any) => ({
+    type: THROW_FORMATS,
+    error
+});
 const requestMarkets = () => ({ type: REQUEST_MARKETS });
-const receiveMarkets = payload => ({ type: RECEIVE_MARKETS, payload });
-const throwMarkets = error => ({ type: THROW_MARKETS, error });
+const receiveMarkets = (payload: any) => ({
+    type: RECEIVE_MARKETS,
+    payload
+});
+const throwMarkets = (error: any) => ({
+    type: THROW_MARKETS,
+    error
+});
 
-export const fetchFormats = options => dispatch => {
+export const fetchFormats = (options: any) => (dispatch: any) => {
     dispatch(requestFormats());
     return request('/lookups/data/formats', options)
         .then(data => {
-            const formatsList = data.map(option => ({
+            const formatsList = data.map((option: any) => ({
                 label: option.format_name,
-                value: option.format_id,
+                value: option.format_id
             }));
 
             dispatch(receiveFormats(formatsList));
@@ -30,13 +42,13 @@ export const fetchFormats = options => dispatch => {
         .catch(err => dispatch(throwFormats(err)));
 };
 
-export const fetchMarkets = options => dispatch => {
+export const fetchMarkets = (options: any) => (dispatch: any) => {
     dispatch(requestMarkets());
     return request('/lookups/data/markets', options)
         .then(data => {
-            const marketsList = data.map(option => ({
+            const marketsList = data.map((option: any) => ({
                 label: option.market_name,
-                value: option.market_id,
+                value: option.market_id
             }));
 
             dispatch(receiveMarkets(marketsList));

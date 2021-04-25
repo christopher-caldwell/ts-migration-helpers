@@ -1,7 +1,14 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'redu... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'redu... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
 import thunk from 'redux-thunk';
 import moment from 'moment';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'redu... Remove this comment to see the full error message
 import configureStore from 'redux-mock-store';
 
 import BoardView from 'components/BoardPage/BoardView';
@@ -157,30 +164,40 @@ const store = mockStore({
     musicTrackerOverlay: {
         opened: false,
     },
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'store' does not exist on type '{}'.
     dateIntegrity: mockDateIntegrity,
     similarStations: {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'location' does not exist on type '{}'.
         open: false,
     },
     box: {
         loading: false,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'match' does not exist on type '{}'.
         error: null,
         data: {
             closed: true,
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'dateIntegrity' does not exist on type '{... Remove this comment to see the full error message
             lastSyncDate: '2019-09-09T13:47:05.784Z',
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'isMusicTracker' does not exist on type '... Remove this comment to see the full error message
             synchronized: false,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'store' does not exist on type '{}'.
         },
     },
     restrictions: {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'location' does not exist on type '{}'.
         loading: false,
         error: null,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'match' does not exist on type '{}'.
         data: [],
         staged: [],
     },
     dayparts: {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'dateIntegrity' does not exist on type '{... Remove this comment to see the full error message
         loading: false,
         error: null,
         data: [],
         staged: [],
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'isMusicTracker' does not exist on type '... Remove this comment to see the full error message
     },
     categoryHighlight: {
         data: {},

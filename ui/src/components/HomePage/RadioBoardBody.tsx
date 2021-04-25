@@ -12,6 +12,9 @@ class RadioBoardBody extends React.Component {
     };
 
     render() {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'href' does not exist on type 'Readonly<{... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'href' does not exist on type 'Readonly<{... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'href' does not exist on type 'Readonly<{... Remove this comment to see the full error message
         const { href, summary, id, setCurrentStation } = this.props;
 
         return (

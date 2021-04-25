@@ -1,3 +1,6 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
 import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
@@ -8,11 +11,14 @@ class TooltipColumnGroupHeader extends Component {
     static propTypes = {
         headerText: PropTypes.string,
         tooltip: PropTypes.string,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'headerText' does not exist on type 'Read... Remove this comment to see the full error message
         tooltipTitle: PropTypes.string,
     };
 
     static defaultProps = {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'headerText' does not exist on type 'Read... Remove this comment to see the full error message
         headerText: '',
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'tooltip' does not exist on type 'Readonl... Remove this comment to see the full error message
         tooltip: '',
         tooltipTitle: '',
     };

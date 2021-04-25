@@ -1,14 +1,24 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'redu... Remove this comment to see the full error message
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'loading' does not exist on type '{}'.
 import MusicLabOverlay from 'components/MusicLabOverlay';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'error' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'loading' does not exist on type '{}'.
 const mockStore = configureStore([thunk]);
 const store = mockStore({
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'showConfirm' does not exist on type '{}'... Remove this comment to see the full error message
     closeOverlayAction: () => {},
 });
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'error' does not exist on type '{}'.
 const mockOverlayAction = jest.fn().mockReturnValue({ type: 'OVERLAY_ACTION' });
 
 jest.mock('stores/musicTrackerOverlay/musicTrackerOverlayActions', () => ({

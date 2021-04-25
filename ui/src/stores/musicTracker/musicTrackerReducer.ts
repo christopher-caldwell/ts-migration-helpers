@@ -32,7 +32,7 @@ const initialState = {
     startDate: moment.utc().subtract(1, 'weeks').day(0).format('YYYY-MM-DD'),
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState, action: any) => {
     const { type, payload, date } = action;
     switch (type) {
         case UPDATE_COMPARE_OPTIONS:

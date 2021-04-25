@@ -1,4 +1,7 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import connect from 'react-redux/lib/connect/connect';
 
 import PropTypes from 'prop-types';
@@ -59,6 +62,7 @@ class RadioListFilter extends React.Component {
             })
         ),
         marketsList: PropTypes.arrayOf(
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
             PropTypes.shape({
                 label: PropTypes.string,
                 value: PropTypes.number,
@@ -66,8 +70,10 @@ class RadioListFilter extends React.Component {
         ),
     };
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
     static defaultProps = {
         fetchingFormats: true,
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
         fetchingMarkets: true,
         formatsList: [],
         marketsList: [],
@@ -77,22 +83,38 @@ class RadioListFilter extends React.Component {
         super(props);
 
         this.onChange = this.onChange.bind(this);
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
         this.renderOptions = this.renderOptions.bind(this);
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'onFilterSave' does not exist on type 'Re... Remove this comment to see the full error message
         this.renderSortButtons = this.renderSortButtons.bind(this);
         this.onSortChange = this.onSortChange.bind(this);
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
         this.handleSelectedChangedFormats = this.handleSelectedChangedFormats.bind(this);
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'sortKey' implicitly has an 'any' type.
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'onFilterSave' does not exist on type 'Re... Remove this comment to see the full error message
         this.handleSelectedChangedMarkets = this.handleSelectedChangedMarkets.bind(this);
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'filters' does not exist on type 'Readonl... Remove this comment to see the full error message
     }
 
     componentDidMount() {
         this.getFormats();
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
         this.getMarkets();
     }
 
     // Radio Board Domains Filter
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'fetchFormats' does not exist on type 'Re... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'sortKey' implicitly has an 'any' type.
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'onFilterSave' does not exist on type 'Re... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'fetchMarkets' does not exist on type 'Re... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'filters' does not exist on type 'Readonl... Remove this comment to see the full error message
     onChange(e) {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'filters' does not exist on type 'Readonl... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'formatsSelected' implicitly has an 'any... Remove this comment to see the full error message
         const domainValue = e.currentTarget.value;
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'onFilterSave' does not exist on type 'Re... Remove this comment to see the full error message
         const {
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'filters' does not exist on type 'Readonl... Remove this comment to see the full error message
             onFilterSave,
             filters: { formats, markets, domain, sort },
         } = this.props;
@@ -103,8 +125,14 @@ class RadioListFilter extends React.Component {
 
         onFilterSave({
             domain: domainValue,
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'marketsSelected' implicitly has an 'any... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'fetchFormats' does not exist on type 'Re... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'sortKey' implicitly has an 'any' type.
             sort,
             formats,
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'filters' does not exist on type 'Readonl... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'onFilterSave' does not exist on type 'Re... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'fetchMarkets' does not exist on type 'Re... Remove this comment to see the full error message
             markets,
         });
     }
@@ -117,9 +145,15 @@ class RadioListFilter extends React.Component {
         } = this.props;
 
         if (!sort.field || sort.field !== sortKey) {
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'filters' does not exist on type 'Readonl... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'formatsSelected' implicitly has an 'any... Remove this comment to see the full error message
             sort.field = sortKey;
             sort.ascending = true;
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'formatsList' does not exist on type 'Rea... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'onFilterSave' does not exist on type 'Re... Remove this comment to see the full error message
         } else {
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'marketsList' does not exist on type 'Rea... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'filters' does not exist on type 'Readonl... Remove this comment to see the full error message
             sort.ascending = !sort.ascending;
         }
 
@@ -135,8 +169,10 @@ class RadioListFilter extends React.Component {
     }
 
     getFormats() {
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'marketsSelected' implicitly has an 'any... Remove this comment to see the full error message
         this.props.fetchFormats({
             params: {
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'onFilterSave' does not exist on type 'Re... Remove this comment to see the full error message
                 options: JSON.stringify({
                     fields: ['format_name', 'format_id'],
                     order: 'format_name',
@@ -148,23 +184,34 @@ class RadioListFilter extends React.Component {
     getMarkets() {
         this.props.fetchMarkets({
             params: {
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'filters' does not exist on type 'Readonl... Remove this comment to see the full error message
                 options: JSON.stringify({
+                    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'formatsSelected' implicitly has an 'any... Remove this comment to see the full error message
                     fields: ['market_name', 'market_id'],
+                    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'state' implicitly has an 'any' type.
+                    // @ts-expect-error ts-migrate(2339) FIXME: Property 'onFilterSave' does not exist on type 'Re... Remove this comment to see the full error message
                     order: 'market_name',
                 }),
             },
         });
     }
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'dispatch' implicitly has an 'any' type.
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'filters' does not exist on type 'Readonl... Remove this comment to see the full error message
     // Radio Board Formats Filters
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'params' implicitly has an 'any' type.
     handleSelectedChangedFormats(formatsSelected) {
         const {
             onFilterSave,
             filters: { markets, domain, sort },
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'marketsSelected' implicitly has an 'any... Remove this comment to see the full error message
         } = this.props;
 
         onFilterSave({
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'formatsList' does not exist on type 'Rea... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'onFilterSave' does not exist on type 'Re... Remove this comment to see the full error message
             domain,
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'filters' does not exist on type 'Readonl... Remove this comment to see the full error message
             sort,
             formats: formatsSelected,
             markets,
@@ -175,6 +222,7 @@ class RadioListFilter extends React.Component {
     handleSelectedChangedMarkets(marketsSelected) {
         const {
             onFilterSave,
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'filters' does not exist on type 'Readonl... Remove this comment to see the full error message
             filters: { formats, domain, sort },
         } = this.props;
 
@@ -192,6 +240,7 @@ class RadioListFilter extends React.Component {
         } = this.props;
         const domainSelected = domain;
 
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'filters' does not exist on type 'Readonl... Remove this comment to see the full error message
         return radioDomains.map(radioButton => (
             <Radio
                 key={radioButton.value}
@@ -199,8 +248,13 @@ class RadioListFilter extends React.Component {
                 name="radioList"
                 value={radioButton.value}
                 checked={domainSelected === radioButton.value}
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'state' implicitly has an 'any' type.
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'formatsList' does not exist on type 'Rea... Remove this comment to see the full error message
                 onChange={this.onChange}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'fetchingMarkets' does not exist on type ... Remove this comment to see the full error message
             >
+                {/* @ts-expect-error ts-migrate(7006) FIXME: Parameter 'dispatch' implicitly has an 'any' type. */}
+                {/* @ts-expect-error ts-migrate(2339) FIXME: Property 'filters' does not exist on type 'Readonl... Remove this comment to see the full error message */}
                 {radioButton.name}
             </Radio>
         ));
@@ -248,6 +302,7 @@ class RadioListFilter extends React.Component {
                     {this.renderOptions()}
                 </FormGroup>
                 <MultiSelect
+                    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'state' implicitly has an 'any' type.
                     options={formatsList}
                     selected={formatsSelected}
                     customLabel="Formats"
@@ -255,8 +310,11 @@ class RadioListFilter extends React.Component {
                     isLoading={fetchingFormats}
                 />
                 <MultiSelect
+                    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'dispatch' implicitly has an 'any' type.
                     options={marketsList}
+                    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'params' implicitly has an 'any' type.
                     selected={marketsSelected}
+                    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'params' implicitly has an 'any' type.
                     customLabel="Markets"
                     onSelectedChanged={this.handleSelectedChangedMarkets}
                     isLoading={fetchingMarkets}

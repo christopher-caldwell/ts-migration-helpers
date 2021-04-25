@@ -1,12 +1,24 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'className' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'onClick' does not exist on type '{}'.
 import { shallow } from 'enzyme';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'isSelected' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'className' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'iconName' does not exist on type '{}'.
 import CustomIconButton from 'components/Buttons/CustomIconButton';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'disabled' does not exist on type '{}'.
 const renderCustomIconButton = (options = {}) => (
     shallow(
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'onClick' does not exist on type '{}'.
         <CustomIconButton
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'isSelected' does not exist on type '{}'.
             className={options.className || ''}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'iconName' does not exist on type '{}'.
             disabled={options.disabled || false}
             onClick={options.onClick || (() => { })}
             isSelected={options.isSelected || false}

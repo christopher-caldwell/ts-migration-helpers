@@ -123,34 +123,63 @@ describe('cmm Actions', () => {
     });
 
     describe('Callout data', () => {
+        // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'getCalloutData'.
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
         it('call to research API with correct parameters should work', async () => {
             request.mockReturnValue(Promise.resolve());
             await getCalloutData('3323404', '2020-02-20', '2020-02-27')(dispatch);
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             expect(request).toHaveBeenCalledWith(
+                // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'getCalloutData'.
                 '/research/station/3323404/cmm?projectType=CALLOUT&startDate=2020-02-20&endDate=2020-02-27'
             );
         });
 
+        // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'CALLOUT_PENDING'.
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'getCalloutData'.
+        // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'getCalloutData'.
         it('dispatch should be called with pending status', async () => {
+            // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'CALLOUT_SUCCESS'.
+            // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'CALLOUT_PENDING'.
             request.mockReturnValue();
+            // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'CALLOUT_PENDING'.
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'CALLOUT_FAILURE'.
             await getCalloutData('3323404', '2020-02-20', '2020-02-27')(dispatch);
             expect(dispatch).toHaveBeenNthCalledWith(1, { type: CALLOUT_PENDING });
         });
 
+        // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'CALLOUT_SUCCESS'.
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'getCalloutData'.
         it('dispatch should be called with correct payload', async () => {
             request.mockReturnValue(Promise.resolve(cmmDataMock));
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'CALLOUT_SUCCESS'.
             await getCalloutData('3323404', '2020-02-20', '2020-02-27')(dispatch);
             expect(dispatch).toHaveBeenLastCalledWith({
+                // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'CALLOUT_FAILURE'.
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
                 type: CALLOUT_SUCCESS,
                 payload: { ...cmmDataMock },
             });
         });
 
         it('dispatch should be called with failure status when fetch fails', async () => {
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'getCalloutData'.
             request.mockReturnValue(Promise.reject(new Error('mission failed')));
+            // @ts-expect-error ts-migrate(2304) FIXME: Cannot find name 'CALLOUT_FAILURE'.
             await getCalloutData('3323404', '2020-02-20', '2020-02-27')(dispatch);
             expect(dispatch).toHaveBeenLastCalledWith({
                 type: CALLOUT_FAILURE,
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
                 payload: { error: new Error('mission failed') },
             });
         });
@@ -159,27 +188,34 @@ describe('cmm Actions', () => {
     describe('OMT data', () => {
         it('call to research API with correct parameters should work', async () => {
             request.mockReturnValue(Promise.resolve());
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             await getOmtData('3323404', '2020-02-20', '2020-02-27')(dispatch);
             expect(request).toHaveBeenCalledWith(
                 '/research/station/3323404/cmm?projectType=OMT&startDate=2020-02-20&endDate=2020-02-27'
             );
         });
 
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
         it('dispatch should be called with pending status', async () => {
             request.mockReturnValue();
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             await getOmtData('3323404', '2020-02-20', '2020-02-27')(dispatch);
             expect(dispatch).toHaveBeenNthCalledWith(1, { type: OMT_PENDING });
         });
 
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
         it('dispatch should be called with correct payload', async () => {
             request.mockReturnValue(Promise.resolve(cmmDataMock));
             await getOmtData('3323404', '2020-02-20', '2020-02-27')(dispatch);
             expect(dispatch).toHaveBeenLastCalledWith({
                 type: OMT_SUCCESS,
                 payload: { data: cmmDataMock },
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             });
         });
 
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
         it('dispatch should be called with failure status when fetch fails', async () => {
             request.mockReturnValue(Promise.reject(new Error('mission failed')));
             await getOmtData('3323404', '2020-02-20', '2020-02-27')(dispatch);
@@ -188,14 +224,19 @@ describe('cmm Actions', () => {
                 payload: { error: new Error('mission failed') },
             });
         });
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
     });
 
     describe('Custom Consolidated Callout data', () => {
         it('call to research API with correct parameters should work', async () => {
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             request.mockReturnValue(Promise.resolve());
             await getCustomConsolidatedCalloutData('3323404', '2020-02-20', '2020-02-27')(dispatch);
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             expect(request).toHaveBeenCalledWith(
                 '/research/station/3323404/cmm?' +
+                    // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
                     'projectType=CUSTOM_CONSOLIDATED_CALLOUT&startDate=2020-02-20&endDate=2020-02-27'
             );
         });
@@ -203,6 +244,8 @@ describe('cmm Actions', () => {
         it('dispatch should be called with pending status', async () => {
             request.mockReturnValue();
             await getCustomConsolidatedCalloutData('3323404', '2020-02-20', '2020-02-27')(dispatch);
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             expect(dispatch).toHaveBeenNthCalledWith(1, { type: CC_CALLOUT_PENDING });
         });
 
@@ -210,18 +253,23 @@ describe('cmm Actions', () => {
             request.mockReturnValue(Promise.resolve(cmmDataMock));
             await getCustomConsolidatedCalloutData('3323404', '2020-02-20', '2020-02-27')(dispatch);
             expect(dispatch).toHaveBeenLastCalledWith({
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
                 type: CC_CALLOUT_SUCCESS,
                 payload: { ...{ data: cmmDataMock } },
             });
         });
 
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
         it('dispatch should be called with failure status when fetch fails', async () => {
             request.mockReturnValue(Promise.reject(new Error('mission failed')));
             await getCustomConsolidatedCalloutData('3323404', '2020-02-20', '2020-02-27')(dispatch);
             expect(dispatch).toHaveBeenLastCalledWith({
                 type: CC_CALLOUT_FAILURE,
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
                 payload: { error: new Error('mission failed') },
             });
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
         });
     });
 
@@ -229,6 +277,8 @@ describe('cmm Actions', () => {
         it('call to research API with correct parameters should work', async () => {
             request.mockReturnValue(Promise.resolve());
             await getCustomConsolidatedOmtData('3323404', '2020-02-20', '2020-02-27')(dispatch);
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             expect(request).toHaveBeenCalledWith(
                 '/research/station/3323404/cmm?' +
                     'projectType=CUSTOM_CONSOLIDATED_OMT&startDate=2020-02-20&endDate=2020-02-27'
@@ -236,8 +286,11 @@ describe('cmm Actions', () => {
         });
 
         it('dispatch should be called with pending status', async () => {
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             request.mockReturnValue();
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             await getCustomConsolidatedOmtData('3323404', '2020-02-20', '2020-02-27')(dispatch);
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             expect(dispatch).toHaveBeenNthCalledWith(1, { type: CC_OMT_PENDING });
         });
 
@@ -246,15 +299,19 @@ describe('cmm Actions', () => {
             await getCustomConsolidatedOmtData('3323404', '2020-02-20', '2020-02-27')(dispatch);
             expect(dispatch).toHaveBeenLastCalledWith({
                 type: CC_OMT_SUCCESS,
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
                 payload: { ...{ data: cmmDataMock } },
             });
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
         });
 
         it('dispatch should be called with failure status when fetch fails', async () => {
             request.mockReturnValue(Promise.reject(new Error('mission failed')));
             await getCustomConsolidatedOmtData('3323404', '2020-02-20', '2020-02-27')(dispatch);
             expect(dispatch).toHaveBeenLastCalledWith({
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
                 type: CC_OMT_FAILURE,
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
                 payload: { error: new Error('mission failed') },
             });
         });
@@ -262,8 +319,11 @@ describe('cmm Actions', () => {
 
     describe('OMT trends', () => {
         it('calls cmm trends passing Omt, Start and End Date as parameter to endpoint', async () => {
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             request.mockReturnValue(Promise.resolve());
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             await getOmtTrends('3323404', '2020-02-20', '2020-02-27')(dispatch);
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             expect(request).toHaveBeenCalledWith(
                 '/research/station/3323404/cmm/trends?projectType=OMT&startDate=2020-02-20&endDate=2020-02-27'
             );
@@ -271,6 +331,8 @@ describe('cmm Actions', () => {
 
         it('dispatch trends pending', async () => {
             request.mockReturnValue();
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             await getOmtTrends('3323404', '2020-02-20', '2020-02-27')(dispatch);
             expect(dispatch).toHaveBeenNthCalledWith(1, { type: OMT_TRENDS_PENDING });
         });
@@ -281,6 +343,7 @@ describe('cmm Actions', () => {
             expect(dispatch).toHaveBeenLastCalledWith({
                 type: OMT_TRENDS_SUCCESS,
                 payload: { ...{ data: trendsMock } },
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             });
         });
 
@@ -294,10 +357,12 @@ describe('cmm Actions', () => {
         });
     });
 
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
     describe('Custom Consolidated Callout trends', () => {
         it('calls cmm trends passing Omt, Start and End Date as parameter to endpoint', async () => {
             request.mockReturnValue(Promise.resolve());
             await getCustomConsolidatedCalloutTrends('3323404', '2020-02-20', '2020-02-27')(dispatch);
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             expect(request).toHaveBeenCalledWith(
                 '/research/station/3323404/cmm/trends?' +
                     'projectType=CUSTOM_CONSOLIDATED_CALLOUT&startDate=2020-02-20&endDate=2020-02-27'
@@ -306,6 +371,7 @@ describe('cmm Actions', () => {
 
         it('dispatch trends pending', async () => {
             request.mockReturnValue();
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             await getCustomConsolidatedCalloutTrends('3323404', '2020-02-20', '2020-02-27')(dispatch);
             expect(dispatch).toHaveBeenNthCalledWith(1, { type: CC_CALLOUT_TRENDS_PENDING });
         });
@@ -319,12 +385,14 @@ describe('cmm Actions', () => {
             });
         });
 
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
         it('dispatch failure when fetch fails', async () => {
             request.mockReturnValue(Promise.reject(new Error('mission failed')));
             await getCustomConsolidatedCalloutTrends('3323404', '2020-02-20', '2020-02-27')(dispatch);
             expect(dispatch).toHaveBeenLastCalledWith({
                 type: CC_CALLOUT_TRENDS_FAILURE,
                 payload: { error: new Error('mission failed') },
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             });
         });
     });
@@ -332,6 +400,7 @@ describe('cmm Actions', () => {
     describe('Custom Consolidated OMT trends', () => {
         it('calls cmm trends passing Omt, Start and End Date as parameter to endpoint', async () => {
             request.mockReturnValue(Promise.resolve());
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             await getCustomConsolidatedOmtTrends('3323404', '2020-02-20', '2020-02-27')(dispatch);
             expect(request).toHaveBeenCalledWith(
                 '/research/station/3323404/cmm/trends?projectType=CUSTOM_CONSOLIDATED_OMT&startDate=2020-02-20&endDate=2020-02-27'
@@ -340,6 +409,7 @@ describe('cmm Actions', () => {
 
         it('dispatch trends with correct payload', async () => {
             request.mockReturnValue();
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockReturnValue' does not exist on type ... Remove this comment to see the full error message
             await getCustomConsolidatedOmtTrends('3323404', '2020-02-20', '2020-02-27')(dispatch);
             expect(dispatch).toHaveBeenNthCalledWith(1, { type: CC_OMT_TRENDS_PENDING });
         });

@@ -11,7 +11,7 @@ export const competitorsPending = () => ({
     type: SONG_COMPETITOR_SPINS_PENDING,
 });
 
-export const getCompetitors = competitorSpins => async (dispatch, getState) => {
+export const getCompetitors = (competitorSpins: any) => async (dispatch: any, getState: any) => {
     try {
         const { boardDetails } = getState();
         const {
@@ -19,7 +19,7 @@ export const getCompetitors = competitorSpins => async (dispatch, getState) => {
             layout: { board },
         } = boardDetails;
         const applied = filters.getTabFilters(board);
-        const competitorsList = uniq([...competitorSpins.map(item => parseInt(item.value, 10))]);
+        const competitorsList = uniq([...competitorSpins.map((item: any) => parseInt(item.value, 10))]);
         dispatch(competitorsPending());
         const competitors = await request(`/board/${board.type}/${board.id}/panel/competitor`, {
             params: {

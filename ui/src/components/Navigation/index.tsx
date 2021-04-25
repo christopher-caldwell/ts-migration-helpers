@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module '@okt... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module '@okt... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module '@okt... Remove this comment to see the full error message
 import { SecureRoute } from '@okta/okta-react';
 
 import PropTypes from 'prop-types';
@@ -34,14 +37,19 @@ const navMusicTrackerAndOverview = [
 
 const navItemsToAppend = {
     musictracker: navMusicTrackerAndOverview,
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
     'playlist-overview': navMusicTrackerAndOverview,
 };
 
 const usersNav = [
     {
         description: 'User Management',
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'hrefActive' implicitly has an 'any' typ... Remove this comment to see the full error message
         tab: 'user-management',
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'boardId' implicitly has an 'any' type.
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
     },
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'categoryGoalsOpened' does not exist on t... Remove this comment to see the full error message
     {
         description: 'Team Management',
         tab: 'team-management',
@@ -49,6 +57,9 @@ const usersNav = [
 ];
 
 class Navigation extends Component {
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'hrefActive' implicitly has an 'any' typ... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'categoryGoalsOpened' does not exist on t... Remove this comment to see the full error message
     constructor(props) {
         super(props);
 
@@ -57,15 +68,21 @@ class Navigation extends Component {
         };
     }
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'hrefActive' implicitly has an 'any' typ... Remove this comment to see the full error message
     onSelectRadioTab = (hrefActive, boardId, tabId) => {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'fetchBoardAction' does not exist on type... Remove this comment to see the full error message
         const { fetchBoardAction, dateIntegrity } = this.props;
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'categoryGoalsOpened' does not exist on t... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'hrefActive' implicitly has an 'any' typ... Remove this comment to see the full error message
         const { categoryGoalsOpened } = this.state;
         const current = window.location.pathname;
 
         if (categoryGoalsOpened || current.includes(tabId)) {
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'href' implicitly has an 'any' type.
             this.closeCategoryGoals();
         }
 
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'currentTab' implicitly has an 'any' typ... Remove this comment to see the full error message
         if (current.includes(tabId)) return;
 
         const savedDate = dateIntegrity;
@@ -75,31 +92,49 @@ class Navigation extends Component {
             boardId,
             typeKey: 'radio',
         };
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'layout' does not exist on type 'Readonly... Remove this comment to see the full error message
         const inputs = {
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'featureToggle' does not exist on type 'R... Remove this comment to see the full error message
             savedDate,
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'categoryGoalsOpened' does not exist on t... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'hrefActive' implicitly has an 'any' typ... Remove this comment to see the full error message
             resetDateIntegrity: false,
             isDateOrTabChanged: savedDate.persist,
         };
         // this retrives the required board info for selected board
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'panel' implicitly has an 'any' type.
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'href' implicitly has an 'any' type.
         // such as radio, artist, user etc and store them in redux.
         history.push(hrefActive);
+        // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         // if we are navigating between categories and musictracker, no need to fetch panel
+        // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         if (tabId === 'musictracker' && current.includes('categories')) return;
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'layout' does not exist on type 'Readonly... Remove this comment to see the full error message
         if (tabId === 'categories' && current.includes('musictracker')) return;
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'featureToggle' does not exist on type 'R... Remove this comment to see the full error message
         if (tabId === 'station-configs' || tabId === 'category-goals') return;
         if (tabId === 'new-table') return;
         fetchBoardAction(boardDetails, inputs);
     };
 
     onSelectTab = hrefActive => {
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'hrefActive' implicitly has an 'any' typ... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'panel' implicitly has an 'any' type.
         const current = window.location.pathname;
         if (current === hrefActive) return;
         history.push(hrefActive);
     };
 
     checkActiveSubTabs = (href, url, subTabs) =>
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'item' implicitly has an 'any' type.
+        // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'href' implicitly has an 'any' type.
+        // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         subTabs.some(currentTab => url === `${href}/${currentTab}`);
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'currentTab' implicitly has an 'any' typ... Remove this comment to see the full error message
     openCategoryGoals = () => {
         this.setState({ categoryGoalsOpened: true });
     };
@@ -109,22 +144,30 @@ class Navigation extends Component {
     };
 
     renderRadioItems = () => {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'layout' does not exist on type 'Readonly... Remove this comment to see the full error message
         const { layout, featureToggle, boardFetching } = this.props;
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'featureToggle' does not exist on type 'R... Remove this comment to see the full error message
         const { categoryGoalsOpened } = this.state;
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'categoryGoalsOpened' does not exist on t... Remove this comment to see the full error message
         if (!layout || !layout.board) return null;
         const { board, activeId } = layout;
         const tabMap = { RadioBoard: 'radio' };
 
         if (boardFetching && categoryGoalsOpened) {
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'item' implicitly has an 'any' type.
             this.closeCategoryGoals();
         }
 
+        // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
         const filteredNavItems = board.config.layout.find(panel => panel.id === 'musictracker')
-            ? navItemsToAppend
+            ? // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'panel' implicitly has an 'any' type.
+              navItemsToAppend
             : { musictracker: [], 'playlist-overview': [] };
         const navbarItems =
             typeof filteredNavItems[activeId] !== 'undefined'
+                // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
                 ? board.config.layout.concat(filteredNavItems[activeId])
+                // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
                 : board.config.layout;
         if (window.location.pathname === '/') return null;
 
@@ -132,6 +175,7 @@ class Navigation extends Component {
         const isStationConfigsEnabled =
             isFeatureActive(featureToggle, FEATURES.STATION_CONFIGS) &&
             (isFeatureActive(featureToggle, FEATURES.PACKET_SONG) ||
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'categoryGoalsOpened' does not exist on t... Remove this comment to see the full error message
                 isFeatureActive(featureToggle, FEATURES.HOUR_RESTRICTION) ||
                 isFeatureActive(featureToggle, FEATURES.DAYPARTS));
 
@@ -159,21 +203,30 @@ class Navigation extends Component {
         }
 
         return navbarItems.map(item => {
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'item' implicitly has an 'any' type.
             const { name, id, subTabs } = item;
+            // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
             const href = `/board/${tabMap[board.type]}/${board.id}/${id}`;
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'propTypes' does not exist on type 'typeo... Remove this comment to see the full error message
             let isActive = window.location.pathname === href && !categoryGoalsOpened;
 
+            // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
             if (!isActive && subTabs && !categoryGoalsOpened) {
+                // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
                 isActive = this.checkActiveSubTabs(href, window.location.pathname, subTabs);
             }
 
+            // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
             if (id === 'category-goals') {
+                // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'boardDetails' implicitly has an '... Remove this comment to see the full error message
                 return (
+                    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'featureToggle' implicitly has an ... Remove this comment to see the full error message
                     <NavItem
                         eventKey={href}
                         key={href}
                         id={href}
                         active={categoryGoalsOpened}
+                        // @ts-expect-error ts-migrate(2339) FIXME: Property 'categoryGoalsOpened' does not exist on t... Remove this comment to see the full error message
                         onClick={() => this.openCategoryGoals()}
                         disabled={boardFetching}
                     >
@@ -216,15 +269,20 @@ class Navigation extends Component {
     renderDirectorItems = () => {
         const directorKey = 'director';
         const musicPointKey = 'musicpoint';
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'propTypes' does not exist on type 'typeo... Remove this comment to see the full error message
         const hrefMusicPoint = '/director/music-point';
         const hrefMusicPointStation = '/director/music-point/station';
+        // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
         const hrefMusicPointReconcile = '/director/music-point/reconcile';
 
+        // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
         const musicPointRoutes = [hrefMusicPoint, hrefMusicPointStation, hrefMusicPointReconcile];
 
+        // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'boardDetails' implicitly has an '... Remove this comment to see the full error message
         const musicPointIsActive = musicPointRoutes.includes(window.location.pathname);
 
         return [
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'categoryGoalsOpened' does not exist on t... Remove this comment to see the full error message
             <NavItem id={directorKey} key={directorKey} disabled className="navbar-director">
                 Director
             </NavItem>,
@@ -254,9 +312,12 @@ class Navigation extends Component {
                         render={() => {
                             return (
                                 <>
+                                    {/* @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0. */}
                                     {categoryGoalsOpened ? (
                                         <CategoryGoals
+                                            // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
                                             closeCategoryGoals={this.closeCategoryGoals}
+                                        // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'dateIntegrity' implicitly has an ... Remove this comment to see the full error message
                                         />
                                     ) : null}
                                     <Nav {...props}>{this.renderRadioItems()}</Nav>

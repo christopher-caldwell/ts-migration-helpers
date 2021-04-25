@@ -1,14 +1,17 @@
 import request from 'utils/request';
 import { BREAKOUT_PREF_SUCCESS, BREAKOUT_PREF_FAIL } from '../actionTypes';
 
-export const storeBreakoutPrefs = preferenceObj => ({
+export const storeBreakoutPrefs = (preferenceObj: any) => ({
     type: BREAKOUT_PREF_SUCCESS,
-    payload: preferenceObj,
+    payload: preferenceObj
 });
 
-export const breakoutPrefsFail = error => ({ type: BREAKOUT_PREF_FAIL, error });
+export const breakoutPrefsFail = (error: any) => ({
+    type: BREAKOUT_PREF_FAIL,
+    error
+});
 
-export const getBreakoutPrefs = () => async (dispatch, getState) => {
+export const getBreakoutPrefs = () => async (dispatch: any, getState: any) => {
     const {
         user: { id },
     } = getState();
@@ -20,7 +23,7 @@ export const getBreakoutPrefs = () => async (dispatch, getState) => {
     }
 };
 
-export const saveBreakoutPrefs = newStationPrefs => async (dispatch, getState) => {
+export const saveBreakoutPrefs = (newStationPrefs: any) => async (dispatch: any, getState: any) => {
     const {
         breakoutPreferences: { byStation },
         user: { id: userId },

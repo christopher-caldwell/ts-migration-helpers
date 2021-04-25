@@ -1,14 +1,20 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2741) FIXME: Property 'currentWeek' is missing in type '{ start... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
 
 import ArrowWeekPicker from './ArrowWeekPicker.component';
 
+// @ts-expect-error ts-migrate(2741) FIXME: Property 'currentWeek' is missing in type '{ start... Remove this comment to see the full error message
 const props = {
     startDate: '2020-05-24',
     endDate: '2020-05-30',
 };
 
 test('jsx output of arrow picker', () => {
+    // @ts-expect-error ts-migrate(2741) FIXME: Property 'currentWeek' is missing in type '{ start... Remove this comment to see the full error message
     const component = shallow(<ArrowWeekPicker {...props} />);
     expect(component).toBeDefined();
     expect(component.find('div.arrowPicker')).toHaveLength(1);

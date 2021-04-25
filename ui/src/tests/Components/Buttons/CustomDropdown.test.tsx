@@ -1,16 +1,34 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'className' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'onClick' does not exist on type '{}'.
 import { mount } from 'enzyme';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'isSelected' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'className' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'id' does not exist on type '{}'.
 import CustomDropdown from 'components/Buttons/CustomDropdown';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'children' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'disabled' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'onToggle' does not exist on type '{}'.
 const renderCustomDropdown = (options = {}) => (
     mount(
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'onClick' does not exist on type '{}'.
         <CustomDropdown
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'isSelected' does not exist on type '{}'.
             className={options.className || ''}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'iconName' does not exist on type '{}'.
             disabled={options.disabled || false}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'id' does not exist on type '{}'.
             onClick={options.onClick}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'children' does not exist on type '{}'.
             isSelected={options.isSelected || false}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'isOpened' does not exist on type '{}'.
             iconName={options.iconName || 'test-name'}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'onToggle' does not exist on type '{}'.
             id={options.id || 'testId'}
             children={options.children || null}
             isOpened={options.isOpened}

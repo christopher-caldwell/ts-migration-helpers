@@ -1,5 +1,9 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'redu... Remove this comment to see the full error message
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
@@ -236,33 +240,48 @@ const mockRestrictionsChanges = [
                         gs_category: null,
                     },
                     247: {
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ overlayError: null; createHourRestrictions... Remove this comment to see the full error message
                         category_id: 18,
                         gs_category: null,
                     },
                 },
             },
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'stagedRestrictions' does not exist on ty... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2322) FIXME: Type '{ overlayError: null; createHourRestrictions... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'restrictions' does not exist on type '{}... Remove this comment to see the full error message
             undoneChanges: {},
             isEqualMedia: false,
         },
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'restrictionTemplate' does not exist on t... Remove this comment to see the full error message
     },
 ];
 
 const mockStore = configureStore([thunk]);
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'mockRestrictionsToBeUpdated' does not ex... Remove this comment to see the full error message
 const store = mockStore({
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'versions' does not exist on type '{}'.
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'stagedRestrictions' does not exist on ty... Remove this comment to see the full error message
     restrictions: mockStoreRestrictions,
 });
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'store' does not exist on type '{}'.
 const renderConfigRestrictions = (options = {}) =>
     shallow(
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'restrictions' does not exist on type '{}... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ overlayError: null; createHourRestrictions... Remove this comment to see the full error message
         <ConfigRestrictions
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'mockRestrictionsToBeUpdated' does not ex... Remove this comment to see the full error message
             overlayError={null}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'versions' does not exist on type '{}'.
             createHourRestrictionsAction={mockAction}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'restrictionsChanges' does not exist on t... Remove this comment to see the full error message
             updateHourRestrictionsAction={mockAction}
             stagedRestrictions={options.stagedRestrictions || []}
             store={options.store || store}
             boardId={3323404}
             restrictions={options.restrictions || mockRestrictions}
             restrictionTemplate={options.restrictionTemplate || ''}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'restrictionTemplate' does not exist on t... Remove this comment to see the full error message
             restrictionToBeUpdated={options.mockRestrictionsToBeUpdated || []}
             versions={options.versions || mockVersions}
             restrictionsChanges={options.restrictionsChanges || mockRestrictionsChanges}
@@ -286,6 +305,7 @@ describe('<ConfigRestrictions />', () => {
     it('should change text for a new restriction name', () => {
         const component = renderConfigRestrictions().shallow();
         const handleRestrictionName = jest.spyOn(component.instance(), 'handleRestrictionName');
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'restrictionTemplate' does not exist on t... Remove this comment to see the full error message
         component.instance().handleRestrictionName({ target: { value: 'Restriction 2' } });
         expect(handleRestrictionName).toHaveBeenCalled();
     });

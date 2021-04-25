@@ -1,4 +1,7 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(6133) FIXME: 'shallow' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'shallow' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'shallow' is declared but its value is never read.
 import { shallow, mount } from 'enzyme';
 
 import RankSpinsBar from './RankSpinsBar.component.js';
@@ -14,7 +17,9 @@ const props = {
         totalStation: 4532,
     },
     rank: { coreRank: 12, totalRank: 15 },
+    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ priorRank: { rank: { corePop: number; tota... Remove this comment to see the full error message
     spins: { '6a12m': 123, '24hr': 1234, totalMrkt: 12345, totalStn: 12346 },
+    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ priorRank: { rank: { corePop: number; tota... Remove this comment to see the full error message
     colors: { core: 5, total: 3 },
 };
 

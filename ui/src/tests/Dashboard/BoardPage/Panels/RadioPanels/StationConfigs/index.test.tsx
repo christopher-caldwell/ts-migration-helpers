@@ -1,5 +1,10 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'redu... Remove this comment to see the full error message
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
@@ -355,12 +360,15 @@ const mockBox = {
 };
 
 const defaultProps = {
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'store' does not exist on type '{}'.
     boardDetails: mockBoardDetails,
     packets: mockPackets,
     dayparts: mockDayparts,
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'store' does not exist on type '{}'.
     restrictions: mockRestrictions,
     featureToggle: mockFeatureToggle,
     songVersions: mockSongVersions,
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'match' does not exist on type '{}'.
     musicTrackerOverlay: mockOverlay,
     musicTrackerData: mockMusictrackerData,
     box: mockBox,
@@ -369,6 +377,7 @@ const defaultProps = {
 const mockStore = configureStore([thunk]);
 const store = mockStore({ ...defaultProps });
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'match' does not exist on type '{}'.
 const renderStationConfigs = (options = {}) =>
     shallow(
         <StationConfigs
@@ -659,12 +668,14 @@ describe('<StationConfigs />', () => {
                     short_name: 'ABCD',
                     synchronized: true,
                     songs: [
+                        // @ts-expect-error ts-migrate(2339) FIXME: Property 'name' does not exist on type '{ packet_i... Remove this comment to see the full error message
                         {
                             artist: 'JONAS BROTHERS',
                             categoryId: 18,
                             id: 84851516,
                             mediaId: '708309',
                             title: 'Sucker',
+                            // @ts-expect-error ts-migrate(2339) FIXME: Property 'name' does not exist on type '{ packet_i... Remove this comment to see the full error message
                             version: '-',
                             value: 33,
                         },
@@ -676,6 +687,7 @@ describe('<StationConfigs />', () => {
         const newStore = mockStore({
             ...defaultProps,
             packets: mockTestPackets,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'name' does not exist on type '{ id: numb... Remove this comment to see the full error message
         });
         const component = renderStationConfigs({ store: newStore });
 
@@ -691,6 +703,7 @@ describe('<StationConfigs />', () => {
             data: [
                 {
                     id: -1,
+                    // @ts-expect-error ts-migrate(2339) FIXME: Property 'name' does not exist on type '{ id: numb... Remove this comment to see the full error message
                     name: 'Daypart 1',
                     synchronized: false,
                 },
@@ -736,7 +749,9 @@ describe('<StationConfigs />', () => {
                 ...mockSongVersions.data,
                 staged: {
                     ...mockSongVersions.data.current,
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'changes' implicitly has an 'any' type.
                 },
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'boardId' implicitly has an 'any' type.
             },
         };
 
@@ -755,7 +770,9 @@ describe('<StationConfigs />', () => {
         const stagedVersions = {
             ...mockSongVersions,
             data: {
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'changes' implicitly has an 'any' type.
                 ...mockSongVersions.data,
+                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'boardId' implicitly has an 'any' type.
                 staged: {
                     ...mockSongVersions.data.current,
                 },
@@ -767,6 +784,7 @@ describe('<StationConfigs />', () => {
             songVersions: stagedVersions,
         });
 
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'changes' implicitly has an 'any' type.
         const component = renderStationConfigs({
             store: newStore,
             props: {

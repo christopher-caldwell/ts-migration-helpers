@@ -7,7 +7,7 @@ import {
     CLOSE_SIMILAR_STATIONS,
 } from '../actionTypes';
 
-export const getMetricDetails = (row, rowIndex, metricKey) => async (dispatch, getState) => {
+export const getMetricDetails = (row: any, rowIndex: any, metricKey: any) => async (dispatch: any, getState: any) => {
     const { boardDetails } = getState();
     const {
         filters,
@@ -37,4 +37,4 @@ export const getMetricDetails = (row, rowIndex, metricKey) => async (dispatch, g
     }
 };
 
-export const closeMetricDetails = () => dispatch => dispatch({ type: CLOSE_SIMILAR_STATIONS });
+export const closeMetricDetails = () => (dispatch: any) => dispatch({ type: CLOSE_SIMILAR_STATIONS });

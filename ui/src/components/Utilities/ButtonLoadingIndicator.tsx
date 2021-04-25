@@ -1,11 +1,10 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
+type Props = {
+    loading?: boolean;
+};
 
-class ButtonLoadingIndicator extends React.Component {
-    static propTypes = {
-        loading: PropTypes.bool,
-    };
+class ButtonLoadingIndicator extends React.Component<Props> {
 
     static defaultProps = {
         loading: false,

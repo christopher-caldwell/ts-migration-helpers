@@ -1,6 +1,12 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'Modal' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'Modal' is declared but its value is never read.
 import React from 'react';
 // import { render, within, cleanup } from '@testing-library/react';
 
+// @ts-expect-error ts-migrate(6133) FIXME: 'Modal' is declared but its value is never read.
 import Modal from './Modal.component';
 
 test('modal render', () => {

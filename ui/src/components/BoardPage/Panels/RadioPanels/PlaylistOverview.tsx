@@ -1,4 +1,7 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import connect from 'react-redux/lib/connect/connect';
 import PropTypes from 'prop-types';
 import merge from 'lodash/merge';
@@ -18,10 +21,13 @@ const order = [
         key: 'mediabase',
         columns: [
             'mediabase.spins.totalAudience',
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
             'mediabase.spins.current',
             'mediabase.spins.previous',
             'mediabase.spins.historical',
             'mediabase.spins.marketPercent',
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'currentFilter' implicitly has an 'any' ... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
             'mediabase.spins.market',
             'mediabase.spins.6am7pm',
         ],
@@ -29,14 +35,22 @@ const order = [
 ];
 
 class PlaylistOverview extends React.Component {
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'songs' does not exist on type 'Readonly<... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'currentFilter' implicitly has an 'any' ... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
     constructor(props) {
         super(props);
         this.onFilterSaveOverride = this.onFilterSaveOverride.bind(this);
     }
 
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'song' implicitly has an 'any' type.
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'songs' does not exist on type 'Readonly<... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'currentFilter' implicitly has an 'any' ... Remove this comment to see the full error message
     onFilterSaveOverride(currentFilter) {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'filters' does not exist on type 'Readonl... Remove this comment to see the full error message
         const { filters, onFilterSave } = this.props;
         const { applied } = filters;
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'song' implicitly has an 'any' type.
         const mergedFilters = { ...applied };
 
         Object.keys(currentFilter).forEach(key => {
@@ -47,6 +61,7 @@ class PlaylistOverview extends React.Component {
     }
 
     render() {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'songs' does not exist on type 'Readonly<... Remove this comment to see the full error message
         const { songs, loading, layout } = this.props;
         if (!layout || !layout.board) return null;
 
@@ -55,6 +70,7 @@ class PlaylistOverview extends React.Component {
         } = layout.board.panels.PlaylistOverview;
 
         // Calculate marketPercent
+        // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'song' implicitly has an 'any' type.
         const songMetrics = songs.map(song =>
             merge(song, {
                 mediabase: {
@@ -122,27 +138,38 @@ class PlaylistOverview extends React.Component {
                                             <th className="playlist-th-rank">Station Rank</th>
                                             <th className="playlist-td-title">Song</th>
                                             <th className="playlist-th-metric">
+                                                {/* @ts-expect-error ts-migrate(2339) FIXME: Property 'propTypes' does not exist on type 'typeo... Remove this comment to see the full error message */}
                                                 Total Audience Spins
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>{topSongsRows}</tbody>
                                 </table>
+                            {/* @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0. */}
                             </div>
                         </div>
                         <div
+                            // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
                             className={`
                                 playlist-stats-panel
+                                // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'state' implicitly has an 'any' type.
+                                // @ts-expect-error ts-migrate(2339) FIXME: Property 'propTypes' does not exist on type 'typeo... Remove this comment to see the full error message
                                 playlist-pie-chart
                                 playlist-pie-gcr-analysis
                             `}
                         >
                             <span className="playlist-stats-header p3">CRG Analysis</span>
+                            {/* @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0. */}
                             <div className="playlist-stats-body">
                                 <Chart
+                                    // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
+                                    // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
+                                    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'state' implicitly has an 'any' type.
                                     options={{ tooltips: { enabled: false } }}
                                     series={gcrAnalysis}
+                                    // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
                                     stacked={false}
+                                    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'state' implicitly has an 'any' type.
                                     type="doughnut"
                                 />
                             </div>

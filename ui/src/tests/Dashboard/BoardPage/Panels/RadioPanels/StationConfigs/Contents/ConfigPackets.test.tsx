@@ -1,4 +1,8 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
 
 import ConfigPackets from 'components/BoardPage/Panels/RadioPanels/StationConfigs/Contents/ConfigPackets';
@@ -119,24 +123,33 @@ const mockPacketsChanges = [
                         category_id: 18,
                         gs_category: null,
                     },
+                    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ createPacket: any; packets: any; versions:... Remove this comment to see the full error message
                     247: {
+                        // @ts-expect-error ts-migrate(2339) FIXME: Property 'createPacket' does not exist on type '{}... Remove this comment to see the full error message
                         category_id: 18,
+                        // @ts-expect-error ts-migrate(2339) FIXME: Property 'packets' does not exist on type '{}'.
+                        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ createPacket: any; packets: any; versions:... Remove this comment to see the full error message
                         gs_category: null,
+                    // @ts-expect-error ts-migrate(2339) FIXME: Property 'createPacket' does not exist on type '{}... Remove this comment to see the full error message
                     },
                 },
             },
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'packets' does not exist on type '{}'.
             undoneChanges: {},
             isEqualMedia: false,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'versions' does not exist on type '{}'.
         },
     },
 ];
 
 const renderConfigPackets = (options = {}) => (
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'packetsChanges' does not exist on type '... Remove this comment to see the full error message
     shallow(
         <ConfigPackets
             createPacket={options.createPacket || (() => {})}
             packets={options.packets || mockPackets}
             versions={options.versions || mockVersions}
+            // @ts-expect-error ts-migrate(2322) FIXME: Type '{ createPacket: any; packets: any; versions:... Remove this comment to see the full error message
             packetsChanges={options.packetsChanges || mockPacketsChanges}
         />,
     )

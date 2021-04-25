@@ -16,13 +16,22 @@ const defaultOptions = {
 
 const requestStationsInfo = () => ({ type: REQUEST_STATIONS_INFO });
 
-const successStationsInfo = stations => ({ type: SUCCESS_STATIONS_INFO, payload: stations });
+const successStationsInfo = (stations: any) => ({
+    type: SUCCESS_STATIONS_INFO,
+    payload: stations
+});
 
-const failureStationsInfo = error => ({ type: FAILURE_STATIONS_INFO, error });
+const failureStationsInfo = (error: any) => ({
+    type: FAILURE_STATIONS_INFO,
+    error
+});
 
-export const setCurrentStation = stationId => ({ type: SET_CURRENT_STATION, payload: stationId });
+export const setCurrentStation = (stationId: any) => ({
+    type: SET_CURRENT_STATION,
+    payload: stationId
+});
 
-export const getStations = (options = defaultOptions) => async dispatch => {
+export const getStations = (options = defaultOptions) => async (dispatch: any) => {
     dispatch(requestStationsInfo());
     try {
         const stations = await request(`/home/boards/RadioBoard`, options); // TODO: refactor this call

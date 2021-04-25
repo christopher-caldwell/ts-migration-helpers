@@ -1,5 +1,9 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'redu... Remove this comment to see the full error message
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
@@ -83,24 +87,33 @@ const mockVersions = [
         order_by: 90,
     },
     {
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ store: any; handleClose: any; handleUpdate... Remove this comment to see the full error message
         sNm: 'SINCE U BEEN GONE',
         aNm: 'Kelly Clarkson',
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleClose' does not exist on type '{}'... Remove this comment to see the full error message
         media_id: 789743,
         packet_id: null,
         version_name: '-',
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleClose' does not exist on type '{}'... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ store: any; handleClose: any; handleUpdate... Remove this comment to see the full error message
         modified_date: '2019-08-06T21:07:50.122Z',
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleClose' does not exist on type '{}'... Remove this comment to see the full error message
         dayparts: {},
         order_by: 50,
     },
 ];
 
 const mockStore = configureStore([thunk]);
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'handleClose' does not exist on type '{}'... Remove this comment to see the full error message
 const store = mockStore({
     boardDetails: mockBoardDetails,
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'restriction' does not exist on type '{}'... Remove this comment to see the full error message
 });
 
 const renderRestrictionSong = (options = {}) => (
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'versions' does not exist on type '{}'.
     shallow(
+        // @ts-expect-error ts-migrate(2322) FIXME: Type '{ store: any; handleClose: any; handleUpdate... Remove this comment to see the full error message
         <RestrictionSongsList
             store={store}
             handleClose={options.handleClose || (() => { })}

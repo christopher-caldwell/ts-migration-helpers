@@ -1,11 +1,25 @@
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'songOrder' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'getCalloutTrendsAction' does not exist o... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'songOrder' does not exist on type '{}'.
 import { mount } from 'enzyme';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'stationId' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'columnKeys' does not exist on type '{}'.
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'cmmCalloutData' does not exist on type '... Remove this comment to see the full error message
 import Callout from './Callout.component';
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'getCalloutDataAction' does not exist on ... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2739) FIXME: Type '{ songOrder: any; columnKeys: any; getCallou... Remove this comment to see the full error message
 const renderComponent = (options = {}) => mount(
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'stationId' does not exist on type '{}'.
     <Callout
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'loading' does not exist on type '{}'.
         songOrder={options.songOrder || mockSongOrder}
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'cmmCalloutData' does not exist on type '... Remove this comment to see the full error message
         columnKeys={options.columnKeys || mockColumnKeys}
         getCalloutDataAction={options.getCalloutDataAction || (() => {})}
         getCalloutTrendsAction={options.getCalloutTrendsAction || (() => {})}

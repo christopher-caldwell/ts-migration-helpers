@@ -6,7 +6,7 @@ const initialState = {
     data: {},
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState, action: any) => {
     const { type, payload, error } = action;
     switch (type) {
         case OMT_PENDING:

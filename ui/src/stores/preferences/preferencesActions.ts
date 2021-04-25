@@ -17,19 +17,22 @@ import {
 export const openModal = () => ({ type: OPEN_MODAL });
 export const closeModal = () => ({ type: CLOSE_MODAL });
 export const loadSettingsStart = () => ({ type: LOAD_SETTINGS_START });
-export const loadSettingsFail = error => ({ type: LOAD_SETTINGS_FAIL, error });
+export const loadSettingsFail = (error: any) => ({
+    type: LOAD_SETTINGS_FAIL,
+    error
+});
 
 // load the default and sort them in order
 export const getDefaultMTPreferences = () => {
     // get the default music tracker table set and use it
-    const sortOrder = (a, b) => a.order - b.order;
+    const sortOrder = (a: any, b: any) => a.order - b.order;
     return musicTrackerOrder
         .sort(sortOrder)
         .map(group => ({ ...group, items: group.items.sort(sortOrder) }));
 };
 
 // this will either load the setup from the user preferences or from the local file system
-export const loadSettingsDone = storedPrefs => dispatch => {
+export const loadSettingsDone = (storedPrefs: any) => (dispatch: any) => {
     // get the default preferences when the stored preferences is empty or null
     const { musictracker, competitors } = isEmpty(storedPrefs)
         ? getDefaultMTPreferences()
@@ -39,9 +42,9 @@ export const loadSettingsDone = storedPrefs => dispatch => {
     dispatch(setTrendsColumns(musictracker));
 };
 
-export const onCancel = () => dispatch => dispatch(closeModal());
+export const onCancel = () => (dispatch: any) => dispatch(closeModal());
 
-export const saveCustomizeGroups = (musictracker, competitors) => async (dispatch, getState) => {
+export const saveCustomizeGroups = (musictracker: any, competitors: any) => async (dispatch: any, getState: any) => {
     const { user, boardDetails, preferences } = getState();
 
     const { id: userId } = user;

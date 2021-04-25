@@ -6,7 +6,7 @@ const InitialState = {
     retrieving: false,
 };
 
-export default (state = InitialState, action) => {
+export default (state = InitialState, action: any) => {
     const { payload } = action;
     switch (action.type) {
         case PACKET_PENDING:

@@ -2,19 +2,35 @@ import React, { useState } from 'react';
 import isEqual from 'lodash/isEqual';
 import StationHeader from 'components/StationHeader';
 import MusicLabOverlay from 'components/MusicLabOverlay';
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './CategoryGoals.module.scss' o... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './CategoryGoals.module.scss' o... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7031) FIXME: Binding element 'board' implicitly has an 'any' ty... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module './CategoryGoals.module.scss' o... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7031) FIXME: Binding element 'categoriesData' implicitly has an... Remove this comment to see the full error message
 import style from './CategoryGoals.module.scss';
+// @ts-expect-error ts-migrate(7031) FIXME: Binding element 'stationCategoriesData' implicitly... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7031) FIXME: Binding element 'board' implicitly has an 'any' ty... Remove this comment to see the full error message
+// @ts-expect-error ts-migrate(7031) FIXME: Binding element 'closeCategoryGoals' implicitly ha... Remove this comment to see the full error message
 import CategoryGoalsTable from './CategoryGoalsTable';
+// @ts-expect-error ts-migrate(7031) FIXME: Binding element 'id' implicitly has an 'any' type.
 import { useCategoryGoalsList } from './CategoryGoals.hooks';
 
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
+// @ts-expect-error ts-migrate(7031) FIXME: Binding element 'categoriesData' implicitly has an... Remove this comment to see the full error message
 const CategoryGoals = ({
     boardDetails: {
         layout: {
+            // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'stationCategoriesData' implicitly... Remove this comment to see the full error message
             board,
+            // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'stationCategoriesError' implicitl... Remove this comment to see the full error message
             board: { id },
         },
     },
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'stationCategoriesLoading' implici... Remove this comment to see the full error message
     categoriesMetadata: { data: categoriesData },
+    // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'closeCategoryGoals' implicitly ha... Remove this comment to see the full error message
     stationCategories: {
+        // @ts-expect-error ts-migrate(7031) FIXME: Binding element 'updateStationCategoriesAction' im... Remove this comment to see the full error message
         data: stationCategoriesData,
         error: stationCategoriesError,
         loading: stationCategoriesLoading,
@@ -23,6 +39,7 @@ const CategoryGoals = ({
     updateStationCategoriesAction,
 }) => {
     const [showOverlay, setShowOverlay] = useState(false);
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
     const initialCategoryGoalsList = useCategoryGoalsList(categoriesData, stationCategoriesData);
     const [categoryGoalsList, setCategoryGoalsList] = useState(initialCategoryGoalsList);
 

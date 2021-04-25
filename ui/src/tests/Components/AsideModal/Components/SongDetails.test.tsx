@@ -1,4 +1,8 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { mount } from 'enzyme';
 
 import SongDetails from 'components/AsideModal/Components/SongDetails';
@@ -9,33 +13,53 @@ const mockSong = {
     aNm: 'Ne-Yo',
     media_id: 827990,
     packet_id: 34,
+    // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
     restriction_id: 1342,
     version_name: '-',
     gs_category: 'H1',
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'disableClick' does not exist on type '{}... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleClick' does not exist on type '{}'... Remove this comment to see the full error message
     modified_date: '2019-07-11T20:52:18.072Z',
     alternate: {
         240: {
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'icon' does not exist on type '{}'.
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'disableClick' does not exist on type '{}... Remove this comment to see the full error message
             category_id: 17,
             gs_category: null,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'categoriesList' does not exist on type '... Remove this comment to see the full error message
         },
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'daypartId' does not exist on type '{}'.
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'enablePercentage' does not exist on type... Remove this comment to see the full error message
     },
     order_by: 999,
 };
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'handleClick' does not exist on type '{}'... Remove this comment to see the full error message
 const renderSongDetails = (options = {}) => (
     mount(
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'icon' does not exist on type '{}'.
+        // @ts-expect-error ts-migrate(2769) FIXME: No overload matches this call.
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'onChangePercentage' does not exist on ty... Remove this comment to see the full error message
         <SongDetails
             song={options.song || mockSong}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'enableAlternateCategory' does not exist ... Remove this comment to see the full error message
             disableClick={options.disableClick || false}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'categoriesList' does not exist on type '... Remove this comment to see the full error message
             enablePercentage={options.enablePercentage || false}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'daypartId' does not exist on type '{}'.
             handleClick={options.handleClick || (() => {})}
             icon={options.icon || 'fa-plus'}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
             onChangePercentage={options.onChangePercentage || (() => {})}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
             enableAlternateCategory={options.enableAlternateCategory || false}
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
             categoriesList={options.categoriesList || []}
             daypartId={options.daypartId}
         />,
     )
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
 );
 
 describe('<SongDetails />', () => {
@@ -65,12 +89,16 @@ describe('<SongDetails />', () => {
         expect(component.find('p').at(1).text()).toBe('Ne-Yo | Radio Edit');
     });
 
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
     it('should test onClick', () => {
         const mockFunction = jest.fn();
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
         const component = renderSongDetails({
             handleClick: mockFunction,
         });
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
         component.find('button').simulate('click');
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
         expect(mockFunction).toHaveBeenCalled();
     });
 

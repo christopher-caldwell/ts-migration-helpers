@@ -12,7 +12,11 @@ const initialState = {
     error: false,
 };
 
-export default (state = initialState, { type, payload, error }) => {
+export default (state = initialState, {
+    type,
+    payload,
+    error
+}: any) => {
     switch (type) {
         case REQUEST_STATIONS_INFO:
             return { ...state, loading: true };

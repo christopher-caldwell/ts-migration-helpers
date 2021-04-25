@@ -1,6 +1,11 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
 import React from 'react';
 
 import { Modal, Button } from 'react-bootstrap';
+// @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
 import PropTypes from 'prop-types';
 
 import Image from 'components/Utilities/Image';
@@ -44,10 +49,12 @@ const SongDetailModalTitle = props => {
             <Button
                 key="customize"
                 bsSize="small"
+                // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0.
                 onClick={() => onCustomizeBreakout(true)}
                 bsClass="btn btn-sm btn-default btn-customize"
             >
                 <i className="icon fa fa-cog" />
+            {/* @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0. */}
             </Button>
         </Modal.Title>
     );

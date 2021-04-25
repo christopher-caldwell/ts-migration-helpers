@@ -20,6 +20,7 @@ class ConfigPackets extends React.Component {
         };
 
         this.PACKET_NAME_REQUIRED = `
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'packets' does not exist on type 'Readonl... Remove this comment to see the full error message
             The packet name is required in order for you to create a new packet.
         `;
         this.SYNCHRONIZED_CAN_EDIT = 'Only packets synchronized with GSelector can be edited.';

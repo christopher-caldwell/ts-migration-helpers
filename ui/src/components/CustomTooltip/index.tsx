@@ -11,25 +11,56 @@ const iconMapping = {
 };
 
 class CustomTooltip extends React.PureComponent {
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'target' does not exist on type 'Readonly... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
     constructor(props) {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'target' does not exist on type 'Readonly... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'target' does not exist on type 'Readonly... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'enabled' does not exist on type 'Readonl... Remove this comment to see the full error message
         super(props);
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'type' does not exist on type 'Readonly<{... Remove this comment to see the full error message
         this.state = { target: false };
     }
 
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'left' does not exist on type 'Readonly<{... Remove this comment to see the full error message
     handleMouseEnter = () => {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'top' does not exist on type 'Readonly<{}... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'target' does not exist on type 'Readonly... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'positionLeft' does not exist on type '{}... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'target' does not exist on type 'Readonly... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'type' does not exist on type 'Readonly<{... Remove this comment to see the full error message
         const { target } = this.state;
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'message' does not exist on type 'Readonl... Remove this comment to see the full error message
         target.setState({ show: true });
     };
 
+    // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
+    // @ts-expect-error ts-migrate(2339) FIXME: Property 'top' does not exist on type 'Readonly<{}... Remove this comment to see the full error message
     handleMouseLeave = () => {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'songs' does not exist on type 'Readonly<... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'target' does not exist on type 'Readonly... Remove this comment to see the full error message
         const { target } = this.state;
+        // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'positionLeft' does not exist on type '{}... Remove this comment to see the full error message
         target.setState({ show: false });
     };
 
     render() {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'positionTop' does not exist on type '{}'... Remove this comment to see the full error message
+        // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'enabled' does not exist on type 'Readonl... Remove this comment to see the full error message
         const {
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'type' does not exist on type 'Readonly<{... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
             enabled,
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'left' does not exist on type 'Readonly<{... Remove this comment to see the full error message
+            // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
+            // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
             type,
+            // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
+            // @ts-expect-error ts-migrate(2339) FIXME: Property 'songs' does not exist on type 'Readonly<... Remove this comment to see the full error message
             title,
             message,
             left,
@@ -37,6 +68,7 @@ class CustomTooltip extends React.PureComponent {
             keepOpened,
             songs,
             children,
+            // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
             ...propsTooltip
         } = this.props;
 
@@ -44,6 +76,7 @@ class CustomTooltip extends React.PureComponent {
             ...propsTooltip,
             style: {
                 left: propsTooltip.positionLeft + left,
+                // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
                 top: propsTooltip.positionTop + top,
             },
             onMouseEnter: keepOpened ? this.handleMouseEnter : undefined,
@@ -53,30 +86,48 @@ class CustomTooltip extends React.PureComponent {
         const key = shortid.generate();
         return (
             enabled && (
+                // @ts-expect-error ts-migrate(2339) FIXME: Property 'propTypes' does not exist on type 'typeo... Remove this comment to see the full error message
+                // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
+                // @ts-expect-error ts-migrate(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
                 <Tooltip id={key} key={key} {...customPropsTooltip}>
+                    {/* @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0. */}
                     <div className="custom-tooltip__container">
                         <i
+                            // @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
+                            // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
                             className={`custom-tooltip__icon fa ${iconMapping[type]}`}
                             aria-hidden="true"
                         />
                         <div className="custom-tooltip__box">
+                            {/* @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'. */}
+                            {/* @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'. */}
                             <p className="custom-tooltip__title">{title}</p>
+                            {/* @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'. */}
                             {songs.length > 0 && (
                                 <div className="custom-tooltip__song-list custom-scrollbars--thin">
                                     {Object.values(songs).map(song => (
+                                        // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
+                                        // @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'.
                                         <div
                                             key={song.sNm}
                                             className="custom-tooltip__song-details"
                                         >
+                                            {/* @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'. */}
                                             <p className="custom-tooltip__song-details-title">
                                                 {'Title: '}
+                                                {/* @ts-expect-error ts-migrate(2339) FIXME: Property 'propTypes' does not exist on type 'typeo... Remove this comment to see the full error message */}
                                                 {song.sNm}
                                             </p>
+                                            {/* @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'. */}
                                             <p className="custom-tooltip__song-details-description">
+                                                {/* @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0. */}
                                                 {'Artist: '}
+                                                {/* @ts-expect-error ts-migrate(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message */}
+                                                {/* @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'. */}
                                                 {song.aNm}
                                             </p>
                                             <p className="custom-tooltip__song-details-description">
+                                                {/* @ts-expect-error ts-migrate(2571) FIXME: Object is of type 'unknown'. */}
                                                 {'Version:  '}
                                                 {song.version_name || '-'}
                                             </p>
@@ -91,6 +142,7 @@ class CustomTooltip extends React.PureComponent {
                                 </div>
                             )}
                             {children}
+                            {/* @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 0. */}
                             {message ? (
                                 <p className={`custom-tooltip__text ${type}`}>{message}</p>
                             ) : null}

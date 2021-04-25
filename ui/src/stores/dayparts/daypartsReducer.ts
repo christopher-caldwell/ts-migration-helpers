@@ -15,7 +15,7 @@ const initialState = {
     staged: [],
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState, action: any) => {
     const { payload } = action;
 
     switch (action.type) {
@@ -56,11 +56,11 @@ export default (state = initialState, action) => {
         case DAYPART_UPDATE_STAGED_DATA:
             return {
                 ...state,
-                staged: payload.map(currentItem => ({
+                staged: payload.map((currentItem: any) => ({
                     id: currentItem.id,
                     name: currentItem.name,
                     synchronized: true,
-                    hours: currentItem.hours,
+                    hours: currentItem.hours
                 })),
             };
         case CLEAR_STAGED_DAYPART_CHANGES:

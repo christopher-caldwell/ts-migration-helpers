@@ -1,5 +1,10 @@
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
+// @ts-expect-error ts-migrate(6133) FIXME: 'React' is declared but its value is never read.
 import React from 'react';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'enzy... Remove this comment to see the full error message
 import { shallow } from 'enzyme';
+// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'redu... Remove this comment to see the full error message
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
@@ -38,17 +43,23 @@ const mockDayparts = [
         name: 'Daypart 2',
         synchronized: true,
         scheduling_order: 2,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleClose' does not exist on type '{}'... Remove this comment to see the full error message
         hours: [99, 100, 101, 107, 108, 109],
     },
     {
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'selectedHours' does not exist on type '{... Remove this comment to see the full error message
         id: 3,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'dayparts' does not exist on type '{}'.
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'handleClose' does not exist on type '{}'... Remove this comment to see the full error message
         name: 'Daypart 3',
         synchronized: false,
+        // @ts-expect-error ts-migrate(2339) FIXME: Property 'selectedHours' does not exist on type '{... Remove this comment to see the full error message
         scheduling_order: 3,
         hours: [],
     },
 ];
 
+// @ts-expect-error ts-migrate(2339) FIXME: Property 'dayparts' does not exist on type '{}'.
 const mockSelectedHours = [120, 121, 122];
 
 const mockStore = configureStore([thunk]);
