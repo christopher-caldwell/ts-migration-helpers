@@ -1,0 +1,12 @@
+.faction-cont {
+    font-family: "Fjalla One", sans-serif;
+    letter-spacing: 2px;
+}
+
+
+
+@media screen and (min-width: 690px){
+    .landing-img {
+        height: 30vh;
+    }
+}

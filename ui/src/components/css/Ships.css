@@ -1,0 +1,43 @@
+.ship-card {
+    float: left;
+    width: 49% !important;
+}
+
+.ship-card p {
+    color:white;
+}
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.mobile-card {
+    background-color: #a6a6a6;
+    border-radius: 5px;
+}
+.mobile-cont {
+    padding-top: 80px;
+}
+.add-ship-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-ship-name div {
+    color: white;
+    font-size: 14px;
+    /*font-weight: bold;*/
+    font-family: "Fjalla One", sans-serif
+}
+.ship-name {
+    padding: 5px;
+}
+
+@media screen and (min-width: 690px){
+.card-display {
+    width: 65%;
+    }
+}
+

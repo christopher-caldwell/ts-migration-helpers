@@ -1,0 +1,116 @@
+.desktop {
+    display: none;
+}
+@media screen and (min-width: 800px) {
+    .mobile {
+        display: none;
+    }
+    .desktop {
+        display: block;
+    }
+}
+.mobile-selector-container {
+    transition: all 0.5s ease-in-out;
+    position: fixed;
+    height: 100vh;
+    width: 0;
+    background-color: white;
+    top: 70px;
+    opacity: 0;
+    overflow: scroll;
+    z-index: 1;
+    padding-bottom: 120px;
+}
+.ship-name {
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    margin: auto 0;
+    transition: all 0.4s;
+    border: 1px solid #636363;
+    border-radius: 5px;
+    color: #636363;
+}
+.delete {
+    font-size: 20px;
+}
+.chosen-ship {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.upgrade-name {
+    text-align: center;
+}
+.menu-show-mobile {
+    width: 85%;
+    opacity: 1;
+}
+
+.toggle-selector-main {
+    position: fixed;
+    top: 74px;
+    left: 6px;
+    height: 40px;
+    width: 40px;
+    z-index: 100;
+    font-size: 25px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.notify {
+    opacity: 0;
+    transition: all 0.2s ease-in;
+    position: fixed;
+    top: 65px;
+    left: 37px;
+    z-index: 101;
+    color: red;
+    font-size: 21px;
+}
+.flagToggle {
+    opacity: 1;
+}
+.mobile-card-display {
+    padding-top: 90px;
+    overflow: scroll;
+    overflow-scrolling: touch;
+}
+.ship-card {
+    width: 40%;
+}
+.ship-card img {
+    height: 45px;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: all 0.6s;
+}
+.ship-card img:active {
+    transform: scale(0.9);
+}
+.img-container {
+    margin-bottom: 15px;
+}
+.big-points-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+#max-points-label {
+    font-size: 15px;
+}
+.current-points {
+    font-size: 15px;
+    width: 35%;
+}
+.functionality-buttons {
+    overflow: scroll;
+}
+
+
+

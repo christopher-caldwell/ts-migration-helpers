@@ -1,0 +1,161 @@
+.selector-container {
+    width: 30%;
+    transition: all ease-in-out;
+    float: left;
+}
+#ship-button {
+    background-color: white;
+    border: 1px solid #a0a0a0;
+}
+.menu-hide {
+    /*width: 0;*/
+}
+.points-display {
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+#fleet-name {
+    width: 80%;
+    margin: 0;
+}
+.points-container {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+#fleet-total,
+.points-display {
+    font-size: 16px;
+}
+#fleet-total {
+    padding: 5px;
+    width: 50%;
+}
+.max-points-input-cont {
+    text-align: center;
+}
+.big-points-container {
+    width: 100%;
+}
+
+#fleet-name {
+    width: 75%;
+    margin: 0 auto;
+    font-size: 18px;
+    border: none;
+    border-bottom: 1px solid #cbcbcb;
+    padding: 5px;
+    text-align: center;
+
+    font-family: 'Orbitron', sans-serif;
+}
+.max-points {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.upgrade-bar button {
+    border: none;
+    background-color: gray;
+    margin: 3px 10px 0 0;
+    padding: 5px 5px 0 5px;
+    transition: all 0.3s;
+
+}
+.ship-img {
+    height: 40px;
+    width: 90px;
+    overflow: hidden;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.upgrade-bar button:hover {
+    background-color: black;
+    transform: scale(1.1);
+}
+
+.upgrade-bar button img { height: 20px; }
+
+
+
+@media screen and (min-width: 679px){
+    .save-text {
+        padding: 10px;
+    }
+    .menu-show-mobile {
+        width: 30%;
+    }
+    .selector-container {
+        width: 35%;
+    }
+    #fleet-total {
+        width: 100%;
+    }
+    .current-points {
+        width: 60% !important;
+    }
+    .notify {
+        display: none;
+    }
+
+    .ship-img {
+        width: 80px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+    }
+
+    .ship-img img {
+        max-width: 70px !important;
+    }
+    .delete {
+        font-size: 20px !important;
+        margin-right: 5px;
+    }
+
+    .ship-name {
+        padding: 1px !important;
+        font-size: 13px;
+    }
+    .points-display {
+        font-size: 16px !important;
+    }
+    .upgrade-bar button {
+        padding: 4px 4px 0 4px !important;
+        margin-left: 5px;
+    }
+
+    .upgrade-bar button img {
+        height: 14px !important;
+    }
+
+}
+@media screen and (min-width: 800px){
+    .current-points {
+        margin: 5px 0;
+    }
+    .notify {
+        display: none;
+    }
+    .ship-img {
+        width: 70px;
+    }
+    .ship-img img {
+        max-height: 75px;
+    }
+    .ship-name {
+        font-size: 16px;
+    }
+    .selector-container {
+        width: 35%;
+    }
+    .upgrade-bar button img {
+        height: 14px;
+    }
+}

@@ -1,0 +1,150 @@
+.ind-fleet {
+    margin: 10px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+    border: 1px solid gainsboro;
+    padding: 10px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+.display-ship {
+    margin: 10px 0;
+    padding: 10px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+    border: 1px solid gainsboro;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.back-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+.back-container button {
+    background-color: #3b91d3;
+    color: white;
+    /*padding: 20px;*/
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+    border: none;
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+}
+.back-container:active {
+    transform: scale(0.9);
+    color: #00009e;
+}
+.display-upgrade {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 80%;
+    font-size: 15px;
+}
+.display-upgrade-points {
+    display: flex;
+    align-items: center;
+}
+.display-header-cont {
+    display: flex;
+    justify-content: space-between;
+}
+.ship-col {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+}
+.big-ship-cont {
+    width: 100%;
+    padding: 2%;
+}
+
+.content-container {
+    width: 100%;
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-bottom: 10%;
+    margin-right: auto;
+    margin-left: auto;
+    overflow-x: scroll;
+    overflow-scrolling: touch;
+}
+
+.display-ship-img {
+    height: 70px;
+}
+.display-ship-img img {
+    height: 60px;
+    width: 130px;
+    border-radius: 10px;
+}
+
+.jumbotron h1 {
+    padding-top: 5%;
+    margin-top: 0;
+}
+.disp-fleet-name {
+    float: left;
+    width: 25%;
+}
+.disp-buttons {
+    float: left;
+    width: 75%;
+    display: flex;
+    justify-content: flex-end;
+}
+.buttons-cont button {
+    margin-left: 35px;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    border: none;
+}
+#delete-button {
+    background-color: red;
+    color: white;
+    font-size: 19px;
+    padding: 12px;
+}
+#show-button {
+    background-color: white;
+    color: #464646;
+    border: 1px solid rgba(158, 158, 158, 0.87);
+    font-size: 16px;
+    padding: 15px;
+
+}
+.fleet-name-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.delete-button-mobile button{
+    background-color: red;
+    color: white;
+    font-size: 19px;
+    padding: 12px;
+}
+#mobile-delete-button {
+    margin-left: 5px;
+}
+.upgrade-col {
+    padding-left: 10% !important;
+    width: 95%;
+}
+.display-ship-name {
+    text-align: center;
+    font-size: 15px;
+    padding: 4%;
+}
+.display-upgrade-img img {
+    height: 50px;
+    border-radius: 8px;
+}
+.upgrade-cont {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
