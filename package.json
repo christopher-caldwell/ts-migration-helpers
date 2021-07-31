@@ -1,6 +1,6 @@
 {
   "name": "@caldwell619/ts-migrate-helpers",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Utility to help the ts-migrate tool better type your external dependencies by installing their @types",
   "bin": "bin/bin.js",
   "scripts": {
@@ -33,7 +33,9 @@
   "repository": "https://github.com/christopher-caldwell/ts-migration-helpers.git",
   "author": "Christopher Caldwell <62559469+christopher-caldwell@users.noreply.github.com>",
   "license": "MIT",
-  "files": ["bin"],
+  "files": [
+    "bin/"
+  ],
   "dependencies": {
     "colors": "^1.4.0",
     "yargs": "^17.0.1"
