@@ -4,16 +4,18 @@
   "description": "",
   "bin": "bin/bin.js",
   "scripts": {
+    "type-check": "tsc --noEmit",
     "format": "prettier --write src",
     "lint": "eslint src --ext .ts",
-    "migrate": "ts-node index.ts --pathToProjectRoot='../ui'",
-    "build:publish": "sh scripts/build.sh",
+    "build:release": "webpack --config webpack.js",
+    "build": "sh scripts/build.sh",
     "release": "standard-version",
     "publish-release": "git push --follow-tags origin master && yarn publish",
     "publish:release": "sh scripts/publish.sh"
   },
   "devDependencies": {
     "@types/node": "^14.14.41",
+    "@types/yargs": "^17.0.2",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "colors": "^1.4.0",
@@ -32,6 +34,7 @@
   "author": "Christopher Caldwell <62559469+christopher-caldwell@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
-    "format": "^0.2.2"
+    "format": "^0.2.2",
+    "yargs": "^17.0.1"
   }
 }
