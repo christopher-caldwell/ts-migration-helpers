@@ -1,6 +1,6 @@
 {
   "name": "@caldwell619/ts-migrate-helpers",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Utility to help the ts-migrate tool better type your external dependencies by installing their @types",
   "bin": "bin/bin.js",
   "scripts": {
