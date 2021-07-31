@@ -4,10 +4,8 @@ import { hideBin } from 'yargs/helpers'
 
 /** Handles the parsing of cmd line args, sets the config accordingly */
 export const handleCli = async () => {
-  const { pathToProjectRoot, 'use-npm': useNpm } = await yargs(hideBin(process.argv))
-    .alias('h', 'help')
-    .alias('p', 'pathToProjectRoot')
-    .options('pathToProjectRoot', {
+  const { 'path-to-project-root': pathToProjectRoot, 'use-npm': useNpm } = await yargs(hideBin(process.argv))
+    .options('path-to-project-root', {
       type: 'string',
       requiresArg: true,
       describe: 'The path to the package.json that will be the basis of migration'
@@ -18,9 +16,11 @@ export const handleCli = async () => {
       describe: 'Will use npm as the page manager instead of yarn'
     })
     .help()
-    .demandOption('pathToProjectRoot')
+    .demandOption('path-to-project-root')
     .version()
     .alias('version', 'v')
+    .alias('h', 'help')
+    .alias('p', 'pathToProjectRoot')
     .strict().argv
   return { pathToProjectRoot, useNpm }
 }
