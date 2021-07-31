@@ -9,6 +9,12 @@ const config = {
   stats: 'minimal',
   context: rootPath,
   entry: srcPath,
+  resolve: {
+    alias: {
+      '@': resolve(process.cwd(), 'src/')
+    },
+    extensions: ['.tsx', '.ts', '.json', '.js']
+  },
   output: {
     path: resolve(__dirname, 'build'),
     filename: 'index.js'
@@ -18,7 +24,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.ts(x?)$/,
+        test: /\.ts$/,
         loader: 'ts-loader'
       }
     ]

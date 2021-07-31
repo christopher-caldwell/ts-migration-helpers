@@ -18,5 +18,7 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
-printf "\n\n$BICyan$(echo Building API from source)$Color_Off\n\n"
+printf "\n\n$BICyan$(echo Building from source)$Color_Off\n\n"
 yarn build:release
+
+cp build/index.js bin

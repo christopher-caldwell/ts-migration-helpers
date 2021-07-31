@@ -9,6 +9,7 @@ dist/
 .eslintcache
 .webpack/
 .webpackCache/
+bin/index.js
 
 # misc
 .DS_Store
