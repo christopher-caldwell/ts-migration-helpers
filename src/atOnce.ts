@@ -11,7 +11,7 @@ const parseCliArgs = (): ExecSyncOptions => {
       baseArgs[matches[1]] = matches[2].replace(/^['"]/, '').replace(/['"]$/, '')
     }
   })
-  if (!((baseArgs as unknown) as CliContext).pathToProjectRoot) throw new Error('pathToProjectRoot not provided')
+  if (!(baseArgs as unknown as CliContext).pathToProjectRoot) throw new Error('pathToProjectRoot not provided')
   return { cwd: baseArgs.pathToProjectRoot, env: process.env, encoding: 'utf-8' }
 }
 
@@ -35,7 +35,7 @@ const gatherCommands = (runTimeDependencies: string[]): Command[] => {
     const baseCommand = `@types/${dependency}`
     commands.push({
       dependency,
-      baseCommand,
+      baseCommand
     })
   }
   return commands

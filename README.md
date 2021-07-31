@@ -1,49 +1,33 @@
-# Front End Migration
+# TS Migration Helper
 
-## Install the needed tool dependencies
+In order to properly use the tool `ts-migrate`, you need your types installed for your various libraries.
+This tool is here to automate that for you.
 
-```shell
-yarn add -D typescript ts-migrate
+## Usage
+
+The only parameter needed is `pathToProjectRoot`. This is the relative path from where you are invoking the tool to the root **FOLDER** of your `package.json`.
+Do **NOT** add `package.json` to the end of this path. This should resolve to a directory that has the targeted `package.json` at the first level
+
+`yarn blah --pathToProjectRoot='.'`
+
+## What does it do?
+
+ts-migrate is great, but if you do not have the corresponding type definitions, it will simply add a `@ts-expect-error` above your package import. This can be tedious to find / remove.
+
+This tool will attempt to install types for **every single one** of your prod dependencies. That is to say, not the `devDependencies`.
+
+If a type does not exist, the script will simply continue.
+
+### Stubbed Types
+
+Many packages have included types in a later version, etc so they provide a stubbed type. Having these in your package.json is totally unnecessary, and causes bloat.
+
+This script will keep track of which types are stubs, and delete them at the end.
+
 ```
+Running "yarn --silent add -D @types/classnames"
 
-## Create a tsconfig.json
+classnames is a stubbed type. Adding to removal list
 
-This is the one CRA outputs
-
-```json
-{
-  "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "downlevelIteration": true,
-    "jsx": "react-jsx",
-    "baseUrl": "./src"
-  },
-  "include": ["src"]
-}
-```
-
-## Install all the @types packages you can
-
-This is project by project, but solid starting point is to grab all your dependencies, add `@types/...` and run the install.
-Adding the `;` in-between each `yarn` command allows for the command to fail, and not stop installing. This is an easy way to just try to install your dependencies' types without researching if they have a types package first.
-
-```shell
-yarn add -D @types/react-lazyload ; \
-; yarn add -D @types/react-redux \
-; yarn add -D @types/react-router-bootstrap
+Removing 1 stubbed types
 ```

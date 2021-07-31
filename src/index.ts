@@ -11,7 +11,7 @@ const parseCliArgs = (): ExecSyncOptions => {
       baseArgs[matches[1]] = matches[2].replace(/^['"]/, '').replace(/['"]$/, '')
     }
   })
-  if (!((baseArgs as unknown) as CliContext).pathToProjectRoot) throw new Error('pathToProjectRoot not provided')
+  if (!(baseArgs as unknown as CliContext).pathToProjectRoot) throw new Error('pathToProjectRoot not provided')
   return { cwd: baseArgs.pathToProjectRoot, env: process.env, encoding: 'utf-8' }
 }
 
@@ -29,14 +29,18 @@ const getRuntimeDependencies = (pathToPackageJson: string): string[] => {
 }
 
 const gatherCommands = (runTimeDependencies: string[]): Command[] => {
-  console.log('Adding types for', green(runTimeDependencies.length.toString()), 'dependencies. This will take a hot minute.')
+  console.log(
+    'Adding types for',
+    green(runTimeDependencies.length.toString()),
+    'dependencies. This will take a hot minute.'
+  )
   const commands: Command[] = []
   for (const dependency of runTimeDependencies) {
     if (dependency.includes('@')) continue
     const baseCommand = `yarn --silent add -D @types/${dependency}`
     commands.push({
       dependency,
-      baseCommand,
+      baseCommand
     })
   }
   return [
@@ -44,7 +48,7 @@ const gatherCommands = (runTimeDependencies: string[]): Command[] => {
     {
       // Required to use ts-migrate
       baseCommand: 'yarn add -D typescript ts-migrate',
-      dependency: '',
+      dependency: ''
     }
   ]
 }
@@ -71,7 +75,7 @@ const installTypesAndGatherStubs = (commands: Command[], execSyncOptions: ExecSy
 
 const removeStubs = (stubTypes: string[], execSyncOptions: ExecSyncOptions) => {
   if (!stubTypes.length) return
-  console.log('\nRemoving', green(stubTypes.length.toString()), 'stubbed types'))
+  console.log('\nRemoving', green(stubTypes.length.toString()), 'stubbed types')
   execSync(`yarn --silent remove ${stubTypes.join(' ')} > out.txt 2>&1`, execSyncOptions)
   execSync(`rm out.txt`, execSyncOptions)
 }

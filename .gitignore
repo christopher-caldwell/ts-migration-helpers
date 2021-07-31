@@ -6,7 +6,7 @@ node_modules/
 # Builds
 build/
 dist/
-.serverless/
+.eslintcache
 .webpack/
 .webpackCache/
 

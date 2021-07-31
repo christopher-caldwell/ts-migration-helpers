@@ -1,0 +1,36 @@
+{
+  "name": "@caldwell619/ts-migrate-helpers",
+  "version": "0.0.1",
+  "description": "",
+  "bin": "bin/bin.js",
+  "scripts": {
+    "format": "prettier --write src",
+    "migrate": "ts-node index.ts --pathToProjectRoot='../ui'",
+    "build:publish": "sh scripts/build.sh",
+    "release": "standard-version",
+    "publish-release": "git push --follow-tags origin master && yarn publish",
+    "publish:release": "sh scripts/publish.sh"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.41",
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
+    "colors": "^1.4.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.2",
+    "rc": "^1.2.8",
+    "ts-loader": "^9.2.4",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4",
+    "webpack": "^5.47.1",
+    "webpack-bundle-analyzer": "^4.4.2",
+    "webpack-cli": "^4.7.2"
+  },
+  "repository": "https://github.com/christopher-caldwell/ts-migration-helpers.git",
+  "author": "Christopher Caldwell <62559469+christopher-caldwell@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "format": "^0.2.2"
+  }
+}
