@@ -1,18 +1,25 @@
 # TS Migration Helper
 
-In order to properly use the tool `ts-migrate`, you need your types installed for your various libraries.
+In order to properly use the tool [ts-migrate](https://github.com/airbnb/ts-migrate), you need your types installed for your various libraries.
+
 This tool is here to automate that for you.
 
 ## Usage
 
-The only parameter needed is `pathToProjectRoot`. This is the relative path from where you are invoking the tool to the root **FOLDER** of your `package.json`.
-Do **NOT** add `package.json` to the end of this path. This should resolve to a directory that has the targeted `package.json` at the first level
+```shell
+npx @caldwell619/ts-migrate-helpers --path-to-project-root .
+```
 
-`yarn blah --pathToProjectRoot='.'`
+## Options
+
+| Option                        | Description                                                                                                                                                                                                                                                     |     Required?      |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------: |
+| `path-to-project-root` or `p` | The path to the project root ( where the package json is). This will usually be `.` if ran from the main dir. **DO NOT** add `package.json` to the end of this path. This should resolve to a directory that has the targeted `package.json` at the first level | :white_check_mark: |
+| `use-npm`                     | If this is provided, npm will be used instead of yarn. Yarn is the default.                                                                                                                                                                                     |        :x:         |
 
 ## What does it do?
 
-ts-migrate is great, but if you do not have the corresponding type definitions, it will simply add a `@ts-expect-error` above your package import. This can be tedious to find / remove.
+[ts-migrate](https://github.com/airbnb/ts-migrate) is great, but if you do not have the corresponding type definitions, it will simply add a `@ts-expect-error` above your package import. This can be tedious to find / remove.
 
 This tool will attempt to install types for **every single one** of your prod dependencies. That is to say, not the `devDependencies`.
 
